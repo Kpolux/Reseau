@@ -88,7 +88,7 @@ ICMPv6 intègre le protocole **NDP (*Neighbor Discovery Protocol*)** qui gère l
 
 
 ### 2. La commande Traceroute / Tracert (13.2.5)
-[[Module 8 Couche reseau#5. Paquet IPv4]]
+[[Module 08 Couche reseau#5. Paquet IPv4]]
 * **Rôle :** 
 	* Génère la liste de tous les routeurs (sauts) traversés par un paquet pour atteindre une destination.
 * **Mécanisme (TTL / Hop Limit) :**

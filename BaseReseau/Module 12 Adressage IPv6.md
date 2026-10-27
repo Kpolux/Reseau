@@ -12,7 +12,7 @@
 * **Taille d'adresse :** **128 bits** ($2^{128} \approx 340 \text{ undécillions}$).
 * **Protocole ICMPv6 :** Intègre l'autoconfiguration (SLAAC) et la résolution d'adresses (remplace ARP).
 * IPv6 pas que remplacé IPv4 aussi l'améliorer
-voir [[Module 8 Couche reseau#6.4. Champs de l'en-tête de paquet IPv6]]
+voir [[Module 08 Couche reseau#6.4. Champs de l'en-tête de paquet IPv6]]
 
 ### 1.3. Les 3 Techniques de Transition
 

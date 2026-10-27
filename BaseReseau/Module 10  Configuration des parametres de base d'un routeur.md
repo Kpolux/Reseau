@@ -24,7 +24,7 @@
 - **Sauvegarde :** 
 	- Enregistrer la configuration active de la RAM vers la NVRAM.
 - Voir : 
-	- [[Module 2 Config de base Switch]]
+	- [[Module 02 Config de base Switch]]
 
 ## 2. Exemple complet de configuration (Routeur R1)
 

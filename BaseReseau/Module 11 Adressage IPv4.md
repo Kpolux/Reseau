@@ -4,7 +4,7 @@
 ## 1 Structure de l'adresse IPv4
 
 ### 1.1 Parties réseau et hôte
-voir [[Module 8 Couche reseau#5. Paquet IPv4]]
+voir [[Module 08 Couche reseau#5. Paquet IPv4]]
 - **Structure hiérarchique :** 
 	- Une adresse IPv4 se compose de 32 bits séparés en 4 octets, divisés en deux parties : la **partie réseau** (plage d'adresse) et la **partie hôte**.      
     
