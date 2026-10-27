@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Module 11 Adressage IPv4</title><meta charset="utf-8"/><link rel="preload" href="../index-bb6c1746.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="Module 11 Adressage IPv4"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Module 11 Adressage IPv4"/><meta name="twitter:description" content="subnetting adressage ipv4 Module 11 : Adressage IPv4 1 Structure de l’adresse IPv4 1.1 Parties réseau et hôte voir Module 08 Couche reseau > 5."/><meta property="og:description" content="subnetting adressage ipv4 Module 11 : Adressage IPv4 1 Structure de l’adresse IPv4 1.1 Parties réseau et hôte voir Module 08 Couche reseau > 5."/><meta property="og:image:alt" content="subnetting adressage ipv4 Module 11 : Adressage IPv4 1 Structure de l’adresse IPv4 1.1 Parties réseau et hôte voir Module 08 Couche reseau > 5."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/basereseau/module-11-adressage-ipv4"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/basereseau/module-11-adressage-ipv4"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="subnetting adressage ipv4 Module 11 : Adressage IPv4 1 Structure de l’adresse IPv4 1.1 Parties réseau et hôte voir Module 08 Couche reseau > 5."/><meta name="generator" content="Quartz"/><link href="../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/basereseau/module-11-adressage-ipv4-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/basereseau/module-11-adressage-ipv4-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/basereseau/module-11-adressage-ipv4-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="basereseau/module-11-adressage-ipv4" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-9" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-9" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../basereseau/">BaseReseau</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Module 11 Adressage IPv4</a></div></nav><h1 class="article-title">Module 11 Adressage IPv4</h1><p show-comma="true" class="content-meta"><time datetime="2026-10-27T22:07:53.518Z">Oct 27, 2026</time><span>18 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><p><a href=".././tags/subnetting" class="tag-link internal internal-link alias" data-slug="tags/subnetting">subnetting</a> <a href=".././tags/adressage" class="tag-link internal internal-link alias" data-slug="tags/adressage">adressage</a> <a href=".././tags/ipv4" class="tag-link internal internal-link alias" data-slug="tags/ipv4">ipv4</a></p>
+<h1 id="module-11--adressage-ipv4">Module 11 : Adressage <strong>IPv4</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#module-11--adressage-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="1-structure-de-ladresse-ipv4">1 Structure de l’adresse IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-structure-de-ladresse-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="11-parties-réseau-et-hôte">1.1 Parties réseau et hôte<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-parties-réseau-et-hôte" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>voir <a href="../basereseau/module-08-couche-reseau#5-paquet-ipv4" class="internal internal-link alias" data-slug="basereseau/module-08-couche-reseau">Module 08 Couche reseau > 5. Paquet IPv4</a></p>
+<ul>
+<li>
+<p><strong>Structure hiérarchique :</strong></p>
+<ul>
+<li>Une adresse IPv4 se compose de 32 bits séparés en 4 octets, divisés en deux parties : la <strong>partie réseau</strong> (plage d’adresse) et la <strong>partie hôte</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle des parties :</strong></p>
+<ul>
+<li>
+<p><strong>Partie réseau :</strong></p>
+<ul>
+<li>Identifie le réseau spécifique ; tous les équipements d’un même réseau doivent partager des bits réseau identiques.</li>
+</ul>
+</li>
+<li>
+<p><strong>Partie hôte :</strong></p>
+<ul>
+<li>Identifie de façon unique un équipement spécifique au sein de ce réseau.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>Exemple : 192.168.10.10 /24
+
+  [ Partie Réseau (24 bits) ]      [ Partie Hôte (8 bits) ]
+   192   .   168   .    10        .           10
+11000000 . 10101000 . 00001010    .        00001010
+</code></pre>
+<h3 id="12-masque-de-sous-réseau">1.2 Masque de sous-réseau<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-masque-de-sous-réseau" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Définition :</strong></p>
+<ul>
+<li>Valeur de 32 bits composée d’une séquence continue de <code>1</code> suivie d’une séquence continue de <code>0</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonction :</strong></p>
+<ul>
+<li>Indique au système d’exploitation quelle portion de l’adresse IP correspond au réseau et laquelle correspond aux hôtes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Attribution sur un hôte :</strong></p>
+<ul>
+<li>Une configuration IP d’hôte requiert au minimum
+<ul>
+<li>une adresse IPv4 unique et un masque de sous-réseau</li>
+<li>ainsi qu’une passerelle par défaut et des serveurs DNS pour la communication externe.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>Masque : 255.255.255.0 aka /24
+Binaire : C
+          |--- Bits Réseau (24) ---||- Bits Hôte (8) -|
+</code></pre>
+<h3 id="13-longueur-de-préfixe-notation-cidr">1.3 Longueur de préfixe (Notation CIDR)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-longueur-de-préfixe-notation-cidr" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Définition :</strong>
+<ul>
+<li>Représentation concourante du masque exprimée par une barre oblique (<code>/</code>) suivie du nombre total de bits mis à <code>1</code> dans le masque.</li>
+<li>Plus facile a retenir et a exprimer</li>
+<li>une adresse réseau est souvent appelée <em>préfixe</em>  ou <em>préfixe réseau</em></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Masque de sous-réseau</strong></th><th><strong>Représentation binaire (32 bits)</strong></th><th><strong>Longueur de préfixe</strong></th></tr></thead><tbody><tr><td><strong>255.0.0.0</strong></td><td><code>11111111.00000000.00000000.00000000</code></td><td><strong>/8</strong></td></tr><tr><td><strong>255.255.0.0</strong></td><td><code>11111111.11111111.00000000.00000000</code></td><td><strong>/16</strong></td></tr><tr><td><strong>255.255.255.0</strong></td><td><code>11111111.11111111.11111111.00000000</code></td><td><strong>/24</strong></td></tr><tr><td><strong>255.255.255.128</strong></td><td><code>11111111.11111111.11111111.10000000</code></td><td><strong>/25</strong></td></tr><tr><td><strong>255.255.255.192</strong></td><td><code>11111111.11111111.11111111.11000000</code></td><td><strong>/26</strong></td></tr><tr><td><strong>255.255.255.224</strong></td><td><code>11111111.11111111.11111111.11100000</code></td><td><strong>/27</strong></td></tr><tr><td><strong>255.255.255.240</strong></td><td><code>11111111.11111111.11111111.11110000</code></td><td><strong>/28</strong></td></tr><tr><td><strong>255.255.255.248</strong></td><td><code>11111111.11111111.11111111.11111000</code></td><td><strong>/29</strong></td></tr><tr><td><strong>255.255.255.252</strong></td><td><code>11111111.11111111.11111111.11111100</code></td><td><strong>/30</strong></td></tr></tbody></table></div>
+<h3 id="14-déterminer-le-réseau--opération-logiques-and-et">1.4 Déterminer le réseau : Opération logiques AND (ET)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#14-déterminer-le-réseau--opération-logiques-and-et" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Principe :</strong></p>
+<ul>
+<li>Un hôte effectue un ET logique bit à bit entre son adresse IPv4 et son masque de sous-réseau pour extraire l’adresse réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Règles de la table de vérité AND :</strong></p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord text"><span class="mord"> AND </span></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">0</span><span class="mord text"><span class="mord"> AND </span></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1</span><span class="mord text"><span class="mord"> AND </span></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">0</span><span class="mord text"><span class="mord"> AND </span></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>Exemple de calcul pour l'hôte 192.168.10.10 /24 :
+
+  IP Hôte :  192.168.10.10   ->  11000000.10101000.00001010.00001010
+  Masque  :  255.255.255.0   ->  11111111.11111111.11111111.00000000
+  ------------------------------------------------------------------
+  AND (ET):  192.168.10.0   ->   11000000.10101000.00001010.00000000
+</code></pre>
+<h3 id="15-réseau-hôte-et-adresses-de-diffusion-broadcast">1.5 Réseau, Hôte et Adresses de Diffusion (<em>Broadcast</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#15-réseau-hôte-et-adresses-de-diffusion-broadcast" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Au sein de tout bloc IP, il existe 3 types d’adresses spécifiques :</p>
+<ol>
+<li>
+<p><strong>Adresse Réseau :</strong></p>
+<ul>
+<li>
+<p>Représente le réseau dans son ensemble.</p>
+</li>
+<li>
+<p>Tous les bits de la partie hôte sont définis à <strong>0</strong>.</p>
+</li>
+<li>
+<p><em>Ne peut jamais être assignée à une interface d’hôte</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse de Diffusion (<em>Broadcast</em>) :</strong></p>
+<ul>
+<li>
+<p>Utilisée pour envoyer un paquet à tous les hôtes du même réseau.</p>
+</li>
+<li>
+<p>Tous les bits de la partie hôte sont définis à <strong>1</strong>.</p>
+</li>
+<li>
+<p><em>Ne peut pas être attribuée à un hôte individuel</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresses d’Hôtes Utilisables :</strong></p>
+<ul>
+<li>
+<p>Toutes les adresses situées entre l’adresse réseau et l’adresse de diffusion.</p>
+</li>
+<li>
+<p><strong>Première adresse hôte :</strong> Tous les bits hôtes à <code>0</code> avec le dernier bit à <code>1</code>.</p>
+</li>
+<li>
+<p><strong>Dernière adresse hôte :</strong> Tous les bits hôtes à <code>1</code> avec le dernier bit à <code>0</code>.</p>
+</li>
+<li>
+<p>Nombre total d’adresse du réseau  - 2(Réseau et Diffusion)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="synthèse-dun-sous-réseau-exemple-19216810024">Synthèse d’un sous-réseau exemple (<code>192.168.10.0/24</code>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#synthèse-dun-sous-réseau-exemple-19216810024" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Type d’adresse</strong></th><th><strong>Format Décimal</strong></th><th><strong>Partie Réseau (24 bits)</strong></th><th><strong>Partie Hôte (8 bits)</strong></th></tr></thead><tbody><tr><td><strong>Masque</strong></td><td><code>255.255.255.0</code></td><td><code>11111111.11111111.11111111</code></td><td><code>00000000</code></td></tr><tr><td><strong>Adresse Réseau</strong></td><td><code>192.168.10.0</code></td><td><code>11000000.10101000.00001010</code></td><td><strong><code>00000000</code></strong> (Tous 0)</td></tr><tr><td><strong>1ère IP Utilisable</strong></td><td><code>192.168.10.1</code></td><td><code>11000000.10101000.00001010</code></td><td><strong><code>00000001</code></strong></td></tr><tr><td><strong>Dernière IP Utilisable</strong></td><td><code>192.168.10.254</code></td><td><code>11000000.10101000.00001010</code></td><td><strong><code>11111110</code></strong></td></tr><tr><td><strong>Adresse Broadcast</strong></td><td><code>192.168.10.255</code></td><td><code>11000000.10101000.00001010</code></td><td><strong><code>11111111</code></strong> (Tous 1)</td></tr></tbody></table></div>
+<h2 id="2-adresses-ipv4-de-monodiffusion-de-diffusion-et-de-multidiffusion">2 Adresses IPv4 de monodiffusion, de diffusion et de multidiffusion<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-adresses-ipv4-de-monodiffusion-de-diffusion-et-de-multidiffusion" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="21-monodiffusion-unicast">2.1 Monodiffusion (<em>Unicast</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21-monodiffusion-unicast" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Définition :</strong></p>
+<ul>
+<li>Communication un-à-un (<em>one-to-one</em>) entre un unique émetteur et un unique destinataire.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IP source :</strong></p>
+<ul>
+<li>Doit <strong>toujours</strong> être une adresse de monodiffusion (un paquet provient d’une seule source).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IP destination :</strong></p>
+<ul>
+<li>Adresse de monodiffusion correspondant à un seul périphérique final.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plage d’adresses d’hôte :</strong></p>
+<ul>
+<li><code>0.0.0.0</code> à <code>223.255.255.255</code> (à l’exception des plages réservées ). Les adresses situées au-delà (<code>224.0.0.0</code> à <code>255.255.255.255</code>) sont exclues de l’affectation directe aux hôtes car elles sont réservées au Multicast(Classe D : <code>224.0.0.0</code> à <code>239.255.255.255</code>) et à l’expérimentation (Classe E: <code>240.0.0.0</code> à <code>255.255.255.255</code>).</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-diffusion-broadcast">2.2 Diffusion (<em>Broadcast</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22-diffusion-broadcast" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Définition :</strong></p>
+<ul>
+<li>Communication un-à-tous (<em>one-to-all</em>) envoyée à tous les équipements du même domaine de diffusion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Régulation du trafic :</strong></p>
+<ul>
+<li>Par défaut, les routeurs <strong>ne transfèrent pas</strong> les paquets de diffusion (ils délimitent les domaines de diffusion).</li>
+</ul>
+</li>
+<li>
+<p>Pas de diffusion en IPv6</p>
+</li>
+<li>
+<p>réduire les trafics de diffusion pour ne pas affecter les performances du réseau ou des périphériques</p>
+</li>
+</ul>
+<ul>
+<li>Types de diffusions IPv4
+<ol>
+<li>
+<p><strong>Diffusion limitée (<em>Limited Broadcast</em>) :</strong></p>
+<ul>
+<li><strong>Adresse de destination :</strong> <code>255.255.255.255</code> (32 bits à <code>1</code>).</li>
+<li><strong>Portée :</strong> Uniquement le réseau local (<em>LAN</em>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Diffusion dirigée (<em>Directed Broadcast</em>) :</strong></p>
+<ul>
+<li><strong>Adresse de destination :</strong>
+<ul>
+<li>Adresse de diffusion du réseau spécifique (ex: <code>172.16.4.255/24</code> pour le réseau <code>172.16.4.0/24</code>).</li>
+</ul>
+</li>
+<li><strong>Comportement IOS :</strong>
+<ul>
+<li>Un routeur directement connecté au réseau de destination, le paquet est diffusé sur le réseau de destination.</li>
+<li>Désactivée par défaut à partir de Cisco IOS 12.0 (<code>no ip directed-broadcast</code>) pour des raisons de sécurité.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="23-multidiffusion-multicast">2.3 Multidiffusion (<em>Multicast</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#23-multidiffusion-multicast" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Définition :</strong></p>
+<ul>
+<li>Communication un-à-un-groupe (<em>one-to-many</em>) envoyée uniquement aux hôtes inscrits à un groupe multidiffusion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plage d’adresses réservée :</strong></p>
+<ul>
+<li><code>224.0.0.0</code> à <code>239.255.255.255</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimisation :</strong></p>
+<ul>
+<li>Réduit le volume de trafic par rapport au broadcast en ciblant exclusivement les hôtes abonnés.</li>
+<li>hôte IPv4 s’abonne à un groupe de multidiffusion</li>
+</ul>
+</li>
+<li>
+<p><strong>Exemple d’application :</strong></p>
+<ul>
+<li>Les protocoles de routage dynamique comme OSPF utilisent l’adresse réservée <code>224.0.0.5</code> pour échanger entre routeurs OSPF.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-types-dadresses-ipv4">3 Types d’adresses IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-types-dadresses-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="31-adresses-ipv4-publiques-et-privées">3.1 Adresses IPv4 publiques et privées<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-adresses-ipv4-publiques-et-privées" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Adresses publiques :</strong></p>
+<ul>
+<li>Routées de manière globale sur Internet entre les routeurs des fournisseurs d’accès (FAI).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresses privées (RFC 1918) :</strong></p>
+<ul>
+<li>Destinées à un usage interne dans les entreprises et réseaux domestiques. Elles ne sont <strong>pas routables sur Internet</strong> et sont rejetées par les FAI.</li>
+</ul>
+</li>
+</ul>
+<h5 id="plages-dadresses-privées-rfc-1918">Plages d’adresses privées <a href="https://www.rfc-editor.org/info/rfc1918/" class="external external-link">RFC 1918<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#plages-dadresses-privées-rfc-1918" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Adresse réseau et préfixe</strong></th><th><strong>Plage d’adresses privées</strong></th><th><strong>Masque par défaut</strong></th></tr></thead><tbody><tr><td><strong>10.0.0.0 /8</strong></td><td><code>10.0.0.0</code> à <code>10.255.255.255</code></td><td><code>255.0.0.0</code></td></tr><tr><td><strong>172.16.0.0 /12</strong></td><td><code>172.16.0.0</code> à <code>172.31.255.255</code></td><td><code>255.240.0.0</code></td></tr><tr><td><strong>192.168.0.0 /16</strong></td><td><code>192.168.0.0</code> à <code>192.168.255.255</code></td><td><code>255.255.0.0</code></td></tr></tbody></table></div>
+<h3 id="32-routage-sur-internet-et-nat">3.2 Routage sur Internet et NAT<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-routage-sur-internet-et-nat" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Problématique :</strong></p>
+<ul>
+<li>En raison de l’épuisement des adresses IPv4, les paquets avec une adresse source privée doivent être traduits avant d’être envoyés sur Internet.</li>
+</ul>
+</li>
+<li>
+<p><strong>NAT (<em>Network Address Translation</em>) :</strong></p>
+<ul>
+<li>
+<p>Convertit les adresses IPv4 privées locales en adresses IPv4 publiques uniques globalement avant d’acheminer le trafic vers l’ISP.</p>
+</li>
+<li>
+<p>S’exécute généralement sur le routeur frontal de la bordure du réseau (comme la DMZ ou le routeur d’accès).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="34-adresses-ipv4-réservées">3.4 Adresses IPv4 réservées<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#34-adresses-ipv4-réservées" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h5 id="1-adresses-de-bouclage-loopback">1. Adresses de bouclage (<em>Loopback</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-adresses-de-bouclage-loopback" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p><strong>Plage :</strong></p>
+<ul>
+<li><code>127.0.0.0 /8</code> (<code>127.0.0.1</code> à <code>127.255.255.254</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Usage courant :</strong></p>
+<ul>
+<li><code>127.0.0.1</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle :</strong></p>
+<ul>
+<li>Utilisées par un hôte pour diriger le trafic vers lui-même afin de tester le bon fonctionnement de la pile protocolaire TCP/IP interne (<code>ping 127.0.0.1</code>).</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-adresses-lien-local-link-local--apipa---automatic-private-ip-adressing">2. Adresses lien-local (<em>Link-Local</em> / APIPA - <em>Automatic Private IP Adressing</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-adresses-lien-local-link-local--apipa---automatic-private-ip-adressing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p><strong>Plage :</strong></p>
+<ul>
+<li><code>169.254.0.0 /16</code> (<code>169.254.0.1</code> à <code>169.254.255.254</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle :</strong></p>
+<ul>
+<li>Auto-attribuées automatiquement par le système (ex: Windows APIPA) lorsqu’un client DHCP ne parvient pas à joindre un serveur DHCP.</li>
+</ul>
+</li>
+<li>
+<p><strong>Portée :</strong></p>
+<ul>
+<li>Uniquement fonctionnelles pour la communication d’égal à égal (<em>peer-to-peer</em>) sur le segment local.</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-adressage-dhéritage-par-classe-classful-addressing">3.5 Adressage d’héritage par classe (<em>Classful Addressing</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#35-adressage-dhéritage-par-classe-classful-addressing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Historiquement <a href="https://www.rfc-editor.org/info/rfc790/" class="external external-link">(RFC 790<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>), les adresses IPv4 étaient découpées en classes rigides basées sur les premiers octets :</p>
+<p><img src="../basereseau/pièces-jointes/pasted-image-20261007175453.png" alt width="auto" height="auto"/></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Classe</strong></th><th><strong>Plage du 1er octet</strong></th><th><strong>Préfixe par défaut</strong></th><th><strong>Nb de réseaux</strong></th><th><strong>Hôtes par réseau</strong></th><th><strong>Usage historique</strong></th></tr></thead><tbody><tr><td><strong>A</strong></td><td><code>0.0.0.0/8</code> à <code>127.0.0.0/8</code></td><td><strong>/8</strong></td><td>128</td><td>16 777 214</td><td>Très grands réseaux</td></tr><tr><td><strong>B</strong></td><td><code>128.0.0.0/16</code> à <code>191.255.0.0/16</code></td><td><strong>/16</strong></td><td>16 384</td><td>65 534</td><td>Réseaux de taille moyenne</td></tr><tr><td><strong>C</strong></td><td><code>192.0.0.0/24</code> à <code>223.255.255.0/24</code></td><td><strong>/24</strong></td><td>2 097 152</td><td>254</td><td>Petits réseaux</td></tr><tr><td><strong>D</strong></td><td><code>224.0.0.0</code> à <code>239.0.0.0</code></td><td>N/A</td><td>N/A</td><td>N/A</td><td>Multidiffusion (<em>Multicast</em>)</td></tr><tr><td><strong>E</strong></td><td><code>240.0.0.0</code> à <code>255.0.0.0</code></td><td>N/A</td><td>N/A</td><td>N/A</td><td>Expérimental / Réservé</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<blockquote class="callout note" data-callout="note" data-callout-metadata=": ">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Note</p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>L’adressage par classe entraînait un fort gaspillage d’adresses. Il a été remplacé au milieu des années 1990 par l’adressage sans classe <strong>CIDR</strong> (<em>Classless Inter-Domain Routing</em>).</p>
+</div>
+</blockquote>
+<h3 id="36-attribution-des-adresses-ip-iana-et-rir">3.6 Attribution des adresses IP (IANA et RIR)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#36-attribution-des-adresses-ip-iana-et-rir" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>IANA (<em>Internet Assigned Numbers Authority</em>) :</strong> Organisme central qui gère et alloue les blocs d’adresses IP globaux aux Registres Internet Régionaux (<em>RIR</em>).</p>
+</li>
+<li>
+<p><strong>RIR (<em>Regional Internet Registries</em>) :</strong> Distribuent les blocs d’adresses IP aux FAI et grandes entreprises selon leur zone géographique :</p>
+<ul>
+<li>
+<p><strong>AfriNIC :</strong> Région Afrique.</p>
+</li>
+<li>
+<p><strong>APNIC :</strong> Région Asie / Pacifique.</p>
+</li>
+<li>
+<p><strong>ARIN :</strong> Amérique du Nord.</p>
+</li>
+<li>
+<p><strong>LACNIC :</strong> Amérique Latine et Caraïbes.</p>
+</li>
+<li>
+<p><strong>RIPE NCC :</strong> Europe, Moyen-Orient et Asie centrale.
+<img src="../basereseau/pièces-jointes/pasted-image-20261007180710.png" alt width="auto" height="auto"/></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-segmentation-du-réseau">4 Segmentation du réseau<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-segmentation-du-réseau" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="41-domaines-de-diffusion-et-segmentation">4.1 Domaines de diffusion et segmentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-domaines-de-diffusion-et-segmentation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Définition :</strong></p>
+<ul>
+<li>Un domaine de diffusion (<em>Broadcast Domain</em>) regroupe tous les périphériques qui reçoivent une trame de diffusion de Couche 2 ou un paquet de diffusion de Couche 3 émis sur le même segment réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Comportement des équipements :</strong></p>
+<ul>
+<li>
+<p><strong>Switch (L2) :</strong></p>
+<ul>
+<li>Transmettent les diffusions sur toutes leurs interfaces actives, sauf celle sur laquelle la diffusion a été reçue.</li>
+</ul>
+</li>
+<li>
+<p><strong>Routeurs (L3) :</strong></p>
+<ul>
+<li>Bloquent les diffusions IP et ne les transfèrent pas d’une interface à une autre. Chaque interface de routeur délimite un domaine de diffusion distinct.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="42-problèmes-liés-aux-grands-domaines-de-diffusion">4.2 Problèmes liés aux grands domaines de diffusion<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-problèmes-liés-aux-grands-domaines-de-diffusion" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Impression sur les performances :</strong></p>
+<ul>
+<li>Un trop grand nombre d’hôtes dans le même domaine de diffusion (ex: 400 utilisateurs dans un réseau <code>/16</code>) génère un volume excessif de trafic de diffusion (requêtes ARP, DHCP, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Conséquences :</strong></p>
+<ul>
+<li>Chaque hôte du réseau doit interrompre son processeur pour traiter chaque paquet de diffusion reçu, ce qui ralentit les opérations globales et dégrade les performances.</li>
+</ul>
+</li>
+<li>
+<p><strong>Solution :</strong></p>
+<ul>
+<li>Diviser le grand domaine de diffusion en sous-réseaux plus petits (ex: scinder <code>172.16.0.0/16</code> en deux sous-réseaux <code>/24</code> : <code>172.16.0.0/24</code> et <code>172.16.1.0/24</code>).</li>
+</ul>
+</li>
+</ul>
+<pre><code>[ Avant Segmentation ]
+Routeur R1 (G0/0) ─── LAN 1: 172.16.0.0/16 (400 utilisateurs - 1 seul domaine de diffusion)
+
+[ Après Segmentation ]
+                  ┌─── G0/0 ─── LAN 1: 172.16.0.0/24 (200 utilisateurs)
+Routeur R1 ──────┤
+                  └─── G0/1 ─── LAN 2: 172.16.1.0/24 (200 utilisateurs)
+</code></pre>
+<h3 id="43-raisons-pour-segmenter-les-réseaux">4.3 Raisons pour segmenter les réseaux<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#43-raisons-pour-segmenter-les-réseaux" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Amélioration des performances :</strong></p>
+<ul>
+<li>Réduit le trafic global et le traitement des diffusions sur chaque appareil.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sécurité renforcée :</strong></p>
+<ul>
+<li>Permet d’isoler les flux sensibles et d’appliquer des politiques de sécurité (comme des listes de contrôle d’accès) entre les sous-réseaux.</li>
+</ul>
+</li>
+<li>
+<p><strong>Confinement des erreurs :</strong></p>
+<ul>
+<li>Limite la portée des pannes ou des tempêtes de diffusion (<em>broadcast storms</em>) causées par du matériel défectueux ou des attaques.</li>
+</ul>
+</li>
+<li>
+<p>Critères de structuration des sous-réseaux
+Les administrateurs peuvent regrouper les sous-réseaux selon plusieurs approches organisationnelles :</p>
+<ul>
+<li><strong>Par emplacement physique</strong> : Un sous-réseau dédié par bâtiment, étage ou zone géographique.</li>
+<li><strong>Par groupe / fonction</strong> : selon leur service d’appartenance.</li>
+<li><strong>Par type d’appareil</strong> : Séparation selon la nature des équipements réseau (Serveur /routeur )</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-sous-réseau--subnetting">5. Sous-réseau  (Subnetting)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-sous-réseau--subnetting" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>
+<p><strong>Subnetting</strong> : Technique qui consiste à diviser un grand réseau IP en plusieurs sous-réseaux plus petits et logiques</p>
+</li>
+<li>
+<p><strong>Principe de base :</strong>  Pour créer des sous-réseaux, on emprunte un ou plusieurs bits  hôte pour les transformer en bits réseau (extension du masque de sous-réseau).</p>
+</li>
+<li>
+<p><strong>Impact</strong> : Plus le nombre de bits empruntés est grand, plus le nombre de sous-réseaux augmente, mais plus le nombre d’hôtes disponibles par sous-réseau diminue. (Gâteau à partager en part égale)</p>
+</li>
+</ul>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Choix du bloc d'adresse privé racine </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Pour concevoir un plan d’adressage IPv4 efficace et évolutif, la première étape consiste à sélectionner un bloc d’adresses privées <strong>suffisamment grand</strong> pour couvrir la totalité du besoin en hôtes, puis à procéder au découpage.</p>
+</div>
+</blockquote>
+<h3 id="51-sur-une-limite-doctet">5.1 Sur une limite d’octet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51-sur-une-limite-doctet" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>C’est ce qu’il y a de plus simple car on voit la séparation directement en décimal.</p>
+<ul>
+<li>
+<p>On  emprunte un ou plusieurs bloc de 8 bits (octet) hôte pour les transformer en bits réseau.</p>
+</li>
+<li>
+<p><strong>Limites d’octets standards (/8, /16, /24) :</strong>
+Placer la coupure exacte entre réseau et hôtes au niveau d’un point (<code>.</code>), c’est-à-dire après 8 /16/24 bits</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Longueur de préfixe</strong></th><th><strong>Masque de sous-réseau</strong></th><th><strong>Structure binaire (n=network, h=hoˆte)</strong></th><th><strong>Nb d’hôtes utilisables</strong></th></tr></thead><tbody><tr><td><strong>/8</strong></td><td><code>255.0.0.0</code></td><td><code>nnnnnnnn.hhhhhhhh.hhhhhhhh.hhhhhhhh</code></td><td>16 777 214</td></tr><tr><td><strong>/16</strong></td><td><code>255.255.0.0</code></td><td><code>nnnnnnnn.nnnnnnnn.hhhhhhhh.hhhhhhhh</code></td><td>65 534</td></tr><tr><td><strong>/24</strong></td><td><code>255.255.255.0</code></td><td><code>nnnnnnnn.nnnnnnnn.nnnnnnnn.hhhhhhhh</code></td><td>254</td></tr></tbody></table></div>
+<h4 id="exemple-1--découpage-du-bloc-100008-à-la-limite-16">Exemple 1 : Découpage du bloc <code>10.0.0.0/8</code> à la limite /16<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemple-1--découpage-du-bloc-100008-à-la-limite-16" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>On décide de faire la coupure au 2e octet (<code>10.X.0.0 /16</code>).</p>
+<ul>
+<li>
+<p><strong>Bits empruntés :</strong> On passe de <code>/8</code> à <code>/16</code>, soit <strong>8 bits empruntés</strong> dans le 2e octet.</p>
+</li>
+<li>
+<p><strong>Nombre de sous-réseaux :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">256</span></span></span></span> sous-réseaux possibles (<code>10.0.0.0</code>, <code>10.1.0.0</code>, <code>10.2.0.0</code>, … <code>10.255.0.0</code>).</p>
+</li>
+<li>
+<p><strong>Hôtes par sous-réseau :</strong> Il reste 16 bits hôtes (les 3e et 4e octets), soit <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">65</span><span class="mspace"> </span><span class="mord">534</span></span></span></span> hôtes par sous-réseau.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Adresse de sous-réseau</strong></th><th><strong>Plage d’adresses d’hôtes utilisables</strong></th><th><strong>Adresse de diffusion (Broadcast)</strong></th></tr></thead><tbody><tr><td><strong>10.0.0.0 /16</strong></td><td><code>10.0.0.1</code> – <code>10.0.255.254</code></td><td><code>10.0.255.255</code></td></tr><tr><td><strong>10.1.0.0 /16</strong></td><td><code>10.1.0.1</code> – <code>10.1.255.254</code></td><td><code>10.1.255.255</code></td></tr><tr><td><strong>10.2.0.0 /16</strong></td><td><code>10.2.0.1</code> – <code>10.2.255.254</code></td><td><code>10.2.255.255</code></td></tr><tr><td>…</td><td>…</td><td>…</td></tr><tr><td><strong>10.255.0.0 /16</strong></td><td><code>10.255.0.1</code> – <code>10.255.255.254</code></td><td><code>10.255.255.255</code></td></tr></tbody></table></div>
+<h4 id="exemple-2--découpage-du-bloc-100008-à-la-limite-24">Exemple 2 : Découpage du bloc <code>10.0.0.0/8</code> à la limite /24<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemple-2--découpage-du-bloc-100008-à-la-limite-24" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>On décide d’aller plus loin et de faire la coupure au 3e octet (<code>10.X.Y.0 /24</code>).</p>
+<ul>
+<li>
+<p><strong>Bits empruntés :</strong> On passe de <code>/8</code> à <code>/24</code>, soit <strong>16 bits empruntés</strong> (les 2e et 3e octets).</p>
+</li>
+<li>
+<p><strong>Nombre de sous-réseaux :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">65</span><span class="mspace"> </span><span class="mord">536</span></span></span></span> sous-réseaux possibles (<code>10.0.0.0</code>, <code>10.0.1.0</code>, <code>10.0.2.0</code>, …, <code>10.255.255.0</code>).</p>
+</li>
+<li>
+<p><strong>Hôtes par sous-réseau :</strong> Il ne reste que 8 bits hôtes (le 4e octet), soit <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">254</span></span></span></span> hôtes par sous-réseau.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Adresse de sous-réseau</strong></th><th><strong>Plage d’adresses d’hôtes utilisables</strong></th><th><strong>Adresse de diffusion (Broadcast)</strong></th></tr></thead><tbody><tr><td><strong>10.0.0.0 /24</strong></td><td><code>10.0.0.1</code> – <code>10.0.0.254</code></td><td><code>10.0.0.255</code></td></tr><tr><td><strong>10.0.1.0 /24</strong></td><td><code>10.0.1.1</code> – <code>10.0.1.254</code></td><td><code>10.0.1.255</code></td></tr><tr><td><strong>10.0.2.0 /24</strong></td><td><code>10.0.2.1</code> – <code>10.0.2.254</code></td><td><code>10.0.2.255</code></td></tr><tr><td>…</td><td>…</td><td>…</td></tr><tr><td><strong>10.255.255.0 /24</strong></td><td><code>10.255.255.1</code> – <code>10.255.255.254</code></td><td><code>10.255.255.255</code></td></tr></tbody></table></div>
+<h3 id="52-sous-réseau-à-lintérieur-dune-limite-doctet">5.2 Sous-réseau à l’intérieur d’une limite d’octet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52-sous-réseau-à-lintérieur-dune-limite-doctet" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>INFO</p></div>
+                  
+                </div>
+</blockquote>
+<p>Lorsqu’un masque <code>/24</code> est découpé dans le 4ème octet, chaque bit emprunté <strong>double le nombre de sous-réseaux</strong> tout en réduisant de moitié le nombre d’hôtes disponibles par sous-réseau.</p>
+<h4 id="découpage-dun-réseau-24">Découpage d’un réseau <code>/24</code><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#découpage-dun-réseau-24" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Préfixe</strong></th><th><strong>Masque de sous-réseau</strong></th><th><strong>Masque binaire (4ème octet)</strong></th><th><strong>Bits empruntés</strong></th><th><strong>Nb de sous-réseaux (2n)</strong></th><th><strong>Nb d’hôtes utilisables (2h−2)</strong></th></tr></thead><tbody><tr><td><strong>/25</strong></td><td><code>255.255.255.128</code></td><td><code>10000000</code></td><td>1</td><td><strong>2</strong></td><td><strong>126</strong></td></tr><tr><td><strong>/26</strong></td><td><code>255.255.255.192</code></td><td><code>11000000</code></td><td>2</td><td><strong>4</strong></td><td><strong>62</strong></td></tr><tr><td><strong>/27</strong></td><td><code>255.255.255.224</code></td><td><code>11100000</code></td><td>3</td><td><strong>8</strong></td><td><strong>30</strong></td></tr><tr><td><strong>/28</strong></td><td><code>255.255.255.240</code></td><td><code>11110000</code></td><td>4</td><td><strong>16</strong></td><td><strong>14</strong></td></tr><tr><td><strong>/29</strong></td><td><code>255.255.255.248</code></td><td><code>11111000</code></td><td>5</td><td><strong>32</strong></td><td><strong>6</strong></td></tr><tr><td><strong>/30</strong></td><td><code>255.255.255.252</code></td><td><code>11111100</code></td><td>6</td><td><strong>64</strong></td><td><strong>2</strong></td></tr></tbody></table></div>
+<ul>
+<li>
+<p><strong>Formules d’adressage fondamentales :</strong></p>
+<ul>
+<li>
+<p><strong>Nombre de sous-réseaux créés :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> (où <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> = nombre de bits empruntés à la partie hôte).</p>
+</li>
+<li>
+<p><strong>Nombre d’hôtes utilisables par sous-réseau :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9324em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> (où <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> = nombre de bits hôtes restants ; le <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">2</span></span></span></span> retire l’adresse réseau et l’adresse de broadcast).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="exemple-décomposition-24-en-4-sous-réseau">Exemple Décomposition <code>/24</code> en 4 Sous-Réseau<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemple-décomposition-24-en-4-sous-réseau" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p>**Nombre de sous-réseaux</p>
+<ul>
+<li>4 = <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>  => 2 bits à prendre</li>
+<li>24+2 = 26 => /26</li>
+<li>MAsk : <code>11111111.11111111.11111111.11000000</code> => <code>255.255.255.192</code></li>
+</ul>
+</li>
+<li>
+<p>**Nombre d’adresses</p>
+<ul>
+<li>32 - 26 = 6 => <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span> = 64 adresses</li>
+</ul>
+</li>
+<li>
+<p>**Nombre d’hôtes</p>
+<ul>
+<li>64 - 2 =  62 hôtes par sous-réseau</li>
+</ul>
+</li>
+<li>
+<p>Différents sous-réseaux</p>
+</li>
+</ul>
+<pre><code>4e octet :[ Bit 1   Bit 2 ] [ Bit 3   Bit 4   Bit 5   Bit 6   Bit 7   Bit 8 ]
+          |--- Réseau ----| |------------------- Hôte ----------------------|
+
+SRx 1 :      0       0       0       0       0       0       0       0    = .0
+SRx 2 :      0       1       0       0       0       0       0       0    = .64
+SRx 3 :      1       0       0       0       0       0       0       0    = .128
+SRx 4 :      1       1       0       0       0       0       0       0    = .192
+</code></pre>
+<h4 id="découpage-dun-réseau-16">Découpage d’un réseau <code>/16</code><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#découpage-dun-réseau-16" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Préfixe</strong></th><th><strong>Masque de sous-réseau</strong></th><th><strong>Masque binaire (N=Network, H=hote)</strong></th><th><strong>Nb de sous-réseaux (2n)</strong></th><th><strong>Nb d’hôtes utilisables (2h−2)</strong></th></tr></thead><tbody><tr><td><strong>/17</strong></td><td><code>255.255.128.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NHHHHHHH.HHHHHHHH</code></td><td><strong>2</strong></td><td><strong>32 766</strong></td></tr><tr><td><strong>/18</strong></td><td><code>255.255.192.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNHHHHHH.HHHHHHHH</code></td><td><strong>4</strong></td><td><strong>16 382</strong></td></tr><tr><td><strong>/19</strong></td><td><code>255.255.224.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNHHHHH.HHHHHHHH</code></td><td><strong>8</strong></td><td><strong>8 190</strong></td></tr><tr><td><strong>/20</strong></td><td><code>255.255.240.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNHHHH.HHHHHHHH</code></td><td><strong>16</strong></td><td><strong>4 094</strong></td></tr><tr><td><strong>/21</strong></td><td><code>255.255.248.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNHHH.HHHHHHHH</code></td><td><strong>32</strong></td><td><strong>2 046</strong></td></tr><tr><td><strong>/22</strong></td><td><code>255.255.252.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNHH.HHHHHHHH</code></td><td><strong>64</strong></td><td><strong>1 022</strong></td></tr><tr><td><strong>/23</strong></td><td><code>255.255.254.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNH.HHHHHHHH</code></td><td><strong>128</strong></td><td><strong>510</strong></td></tr><tr><td><strong>/24</strong></td><td><code>255.255.255.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH</code></td><td><strong>256</strong></td><td><strong>254</strong></td></tr><tr><td><strong>/25</strong></td><td><code>255.255.255.128</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NHHHHHHH</code></td><td><strong>512</strong></td><td><strong>126</strong></td></tr><tr><td><strong>/26</strong></td><td><code>255.255.255.192</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNHHHHHH</code></td><td><strong>1 024</strong></td><td><strong>62</strong></td></tr><tr><td><strong>/27</strong></td><td><code>255.255.255.224</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH</code></td><td><strong>2 048</strong></td><td><strong>30</strong></td></tr><tr><td><strong>/28</strong></td><td><code>255.255.255.240</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNHHHH</code></td><td><strong>4 096</strong></td><td><strong>14</strong></td></tr><tr><td><strong>/29</strong></td><td><code>255.255.255.248</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNHHH</code></td><td><strong>8 192</strong></td><td><strong>6</strong></td></tr><tr><td><strong>/30</strong></td><td><code>255.255.255.252</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNNHH</code></td><td><strong>16 384</strong></td><td><strong>2</strong></td></tr></tbody></table></div>
+<h5 id="exemple--créer-100-sous-réseaux-avec-un-préfixe-16">Exemple  Créer 100 sous-réseaux avec un préfixe /16<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemple--créer-100-sous-réseaux-avec-un-préfixe-16" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>172.16.0.0/16</p>
+<ul>
+<li>
+<p>**Nombre de sous-réseaux</p>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">64</span></span></span></span> sous-réseaux (insuffisant).</li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">128</span></span></span></span> sous-réseaux (satisfait l’exigence de 100 sous-réseaux) => 7 bits à prendre</li>
+<li>16+7 = 23 => /23</li>
+<li>Mask :  <code>11111111.11111111.11111110.00000000</code> => <code>255.255.254.0</code></li>
+</ul>
+</li>
+<li>
+<p>**Nombre d’adresses</p>
+<ul>
+<li>32 - 23= 9 => <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span> = 512 adresses</li>
+</ul>
+</li>
+<li>
+<p>**Nombre d’hôtes</p>
+<ul>
+<li>512 - 2 =  510 hôtes par sous-réseau</li>
+</ul>
+</li>
+<li>
+<p>Différents sous-éseaux</p>
+<ul>
+<li>
+<p>Les <strong>7 premiers bits</strong> (de gauche à droite) du 3ᵉ octet deviennent des bits d’identification du  sous-réseau et évoluent de <code>0000000</code> à <code>1111111</code>.</p>
+</li>
+<li>
+<p>Le <strong>8ᵉ bit</strong> (le plus à droite du 3ᵉ octet) reste un bit hôte. Lors de l’identification du sous-réseau, ce bit hôte est fixé à <strong><code>0</code></strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>3e octet binaire  | Valeur décimale |
+------------------+-----------------+
+  0 0 0 0 0 0 0 0 |        0        |
+  0 0 0 0 0 0 1 0 |        2        |
+  0 0 0 0 0 1 0 0 |        4        |
+  0 0 0 0 0 1 1 0 |        6        |
+  ...             |       ...       |
+  1 1 1 1 1 1 1 0 |      254        |
+</code></pre>
+<pre><code>
+3e octet     :  [ B1 B2 B3 B4 B5 B6 B7 ] [ B8 ]  .  [ 8 bits Hôte (4e octet) ]
+
+SRx 1   :         0  0  0  0  0  0  0      0            0.0     -> 172.16.0.0/23
+SRx 2   :         0  0  0  0  0  0  1      0            0.0     -> 172.16.2.0/23
+SRx 3   :         0  0  0  0  0  1  0      0            0.0     -> 172.16.4.0/23
+SRx 4   :         0  0  0  0  0  1  1      0            0.0     -> 172.16.6.0/23
+...                                ...
+SRx 128 :         1  1  1  1  1  1  1      0            0.0     -> 172.16.254.0/23
+</code></pre>
+<ul>
+<li>Plage d’adresses du premier sous-réseau (<code>172.16.0.0/23</code>)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Type d’adresse</strong></th><th><strong>Format Binaire (3e et 4e octets)</strong></th><th><strong>Format Décimal</strong></th></tr></thead><tbody><tr><td><strong>Adresse Réseau</strong></td><td><code>00000000.00000000</code></td><td><code>172.16.0.0/23</code></td></tr><tr><td><strong>1ère IP Utilisable</strong></td><td><code>00000000.00000001</code></td><td><code>172.16.0.1/23</code></td></tr><tr><td><strong>Dernière IP Utilisable</strong></td><td><code>00000001.11111110</code></td><td><code>172.16.1.254/23</code></td></tr><tr><td><strong>Adresse Broadcast</strong></td><td><code>00000001.11111111</code></td><td><code>172.16.1.255/23</code></td></tr></tbody></table></div>
+<h4 id="découpage-dun-réseau-8">Découpage d’un réseau /8<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#découpage-dun-réseau-8" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Préfixe</strong></th><th><strong>Masque de sous-réseau</strong></th><th><strong>Masque binaire (N=Network, H=Hoˆte)</strong></th><th><strong>Nb de sous-réseaux (2n)</strong></th><th><strong>Nb d’hôtes utilisables (2h−2)</strong></th></tr></thead><tbody><tr><td><strong>/9</strong></td><td><code>255.128.0.0</code></td><td><code>NNNNNNNN.NHHHHHHH.HHHHHHHH.HHHHHHHH</code></td><td>2</td><td>8 388 606</td></tr><tr><td><strong>/10</strong></td><td><code>255.192.0.0</code></td><td><code>NNNNNNNN.NNHHHHHH.HHHHHHHH.HHHHHHHH</code></td><td>4</td><td>4 194 302</td></tr><tr><td><strong>/11</strong></td><td><code>255.224.0.0</code></td><td><code>NNNNNNNN.NNNHHHHH.HHHHHHHH.HHHHHHHH</code></td><td>8</td><td>2 097 150</td></tr><tr><td><strong>/12</strong></td><td><code>255.240.0.0</code></td><td><code>NNNNNNNN.NNNNHHHH.HHHHHHHH.HHHHHHHH</code></td><td>16</td><td>1 048 574</td></tr><tr><td><strong>/13</strong></td><td><code>255.248.0.0</code></td><td><code>NNNNNNNN.NNNNNHHH.HHHHHHHH.HHHHHHHH</code></td><td>32</td><td>524 286</td></tr><tr><td><strong>/14</strong></td><td><code>255.252.0.0</code></td><td><code>NNNNNNNN.NNNNNNHH.HHHHHHHH.HHHHHHHH</code></td><td>64</td><td>262 142</td></tr><tr><td><strong>/15</strong></td><td><code>255.254.0.0</code></td><td><code>NNNNNNNN.NNNNNNNH.HHHHHHHH.HHHHHHHH</code></td><td>128</td><td>131 070</td></tr><tr><td><strong>/16</strong></td><td><code>255.255.0.0</code></td><td><code>NNNNNNNN.NNNNNNNN.HHHHHHHH.HHHHHHHH</code></td><td>256</td><td>65 534</td></tr><tr><td><strong>/17</strong></td><td><code>255.255.128.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NHHHHHHH.HHHHHHHH</code></td><td>512</td><td>32 766</td></tr><tr><td><strong>/18</strong></td><td><code>255.255.192.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNHHHHHH.HHHHHHHH</code></td><td>1 024</td><td>16 382</td></tr><tr><td><strong>/19</strong></td><td><code>255.255.224.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNHHHHH.HHHHHHHH</code></td><td>2 048</td><td>8 190</td></tr><tr><td><strong>/20</strong></td><td><code>255.255.240.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNHHHH.HHHHHHHH</code></td><td>4 096</td><td>4 094</td></tr><tr><td><strong>/21</strong></td><td><code>255.255.248.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNHHH.HHHHHHHH</code></td><td>8 192</td><td>2 046</td></tr><tr><td><strong>/22</strong></td><td><code>255.255.252.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNHH.HHHHHHHH</code></td><td>16 384</td><td>1 022</td></tr><tr><td><strong>/23</strong></td><td><code>255.255.254.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNH.HHHHHHHH</code></td><td>32 768</td><td>510</td></tr><tr><td><strong>/24</strong></td><td><code>255.255.255.0</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH</code></td><td>65 536</td><td>254</td></tr><tr><td><strong>/25</strong></td><td><code>255.255.255.128</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NHHHHHHH</code></td><td>131 072</td><td>126</td></tr><tr><td><strong>/26</strong></td><td><code>255.255.255.192</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNHHHHHH</code></td><td>262 144</td><td>62</td></tr><tr><td><strong>/27</strong></td><td><code>255.255.255.224</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH</code></td><td>524 288</td><td>30</td></tr><tr><td><strong>/28</strong></td><td><code>255.255.255.240</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNHHHH</code></td><td>1 048 576</td><td>14</td></tr><tr><td><strong>/29</strong></td><td><code>255.255.255.248</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNHHH</code></td><td>2 097 152</td><td>6</td></tr><tr><td><strong>/30</strong></td><td><code>255.255.255.252</code></td><td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNNHH</code></td><td>4 194 304</td><td>2</td></tr></tbody></table></div>
+<h5 id="exemple--créer-1000-sous-réseaux-avec-un-préfixe-8-100008">Exemple : Créer 1000 sous-réseaux avec un préfixe /8 (<code>10.0.0.0/8</code>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#exemple--créer-1000-sous-réseaux-avec-un-préfixe-8-100008" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p><strong>Nombre de sous-réseaux :</strong></p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">512</span></span></span></span> sous-réseaux (insuffisant)</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1024</span></span></span></span> sous-réseaux (satisfait l’exigence de 1000 sous-réseaux) <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathbf">10</span><span class="mord text"><span class="mord"> bits</span></span></span></span></span></span> à prendre.</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6684em;vertical-align:-0.024em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathbf">/18</span></span></span></span></span></p>
+</li>
+<li>
+<p><strong>Masque :</strong> <code>11111111.11111111.11000000.00000000</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord mathbf">255.255.192.0</span></span></span></span></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Nombre d’adresses :</strong></p>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">18</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6684em;vertical-align:-0.024em;"></span><span class="mord">14</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">14</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathbf">16</span><span class="mspace"> </span><span class="mord mathbf">384</span><span class="mord text"><span class="mord"> adresses</span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p><strong>Nombre d’hôtes :</strong></p>
+<ul>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">16</span><span class="mspace"> </span><span class="mord">384</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathbf">16</span><span class="mspace"> </span><span class="mord mathbf">382</span><span class="mord text"><span class="mord"> h</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˆ</span></span></span></span></span></span></span><span class="mord">tes par sous-r</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">e</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">seau</span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p><strong>Différents sous-réseaux :</strong></p>
+<ul>
+<li>
+<p>Les 10 premiers bits (de gauche à droite) des 2ᵉ et 3ᵉ octets deviennent des bits d’identification du sous-réseau et évoluent de <code>0000000000</code> à <code>1111111111</code>.</p>
+</li>
+<li>
+<p>Les 6 derniers bits du 3ᵉ octet et les 8 bits du 4ᵉ octet restent des bits hôtes. Lors de l’identification du sous-réseau, ces bits hôtes sont fixés à <code>0</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="premiers-sous-réseaux-18-générés">Premiers sous-réseaux /18 générés<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#premiers-sous-réseaux-18-générés" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>SRx 1    : 00000000 . 00 000000 . 00000000 -> 10.0.0.0/18
+SRx 2    : 00000000 . 01 000000 . 00000000 -> 10.0.64.0/18
+SRx 3    : 00000000 . 10 000000 . 00000000 -> 10.0.128.0/18
+SRx 4    : 00000000 . 11 000000 . 00000000 -> 10.0.192.0/18
+SRx 5    : 00000001 . 00 000000 . 00000000 -> 10.1.0.0/18
+...
+SRx 1024 : 11111111 . 11 000000 . 00000000 -> 10.255.192.0/18
+</code></pre>
+<h4 id="plage-dadresses-du-premier-sous-réseau-1000018">Plage d’adresses du premier sous-réseau (<code>10.0.0.0/18</code>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#plage-dadresses-du-premier-sous-réseau-1000018" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Type d’adresse</strong></th><th><strong>Format Binaire (du 2ᵉ au 4ᵉ octet)</strong></th><th><strong>Format Décimal</strong></th></tr></thead><tbody><tr><td><strong>Adresse Réseau</strong></td><td><code>00000000.00000000.00000000</code></td><td><code>10.0.0.0/18</code></td></tr><tr><td><strong>1ère IP Utilisable</strong></td><td><code>00000000.00000000.00000001</code></td><td><code>10.0.0.1/18</code></td></tr><tr><td><strong>Dernière IP Utilisable</strong></td><td><code>00000000.00111111.11111110</code></td><td><code>10.0.63.254/18</code></td></tr><tr><td><strong>Adresse Broadcast</strong></td><td><code>00000000.00111111.11111111</code></td><td><code>10.0.63.255/18</code></td></tr></tbody></table></div>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Astuce : Calcul direct du <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span>-ième sous-réseau</p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Pour trouver rapidement l’adresse d’un <strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span>-ième sous-réseau</strong> sans dérouler toute la liste :</p>
+<h3 id="1-méthode-binaire-universelle-tous-masques">1. Méthode Binaire Universelle (Tous masques)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-méthode-binaire-universelle-tous-masques" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>Calculez l’index : <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Index</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></li>
+<li>Convertissez cet <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Index</span></span></span></span></span> en binaire sur <strong><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> bits</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> = nombre de bits empruntés).</li>
+<li>Injectez ces <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> bits à l’emplacement exact des bits de sous-réseau.</li>
+</ol>
+<hr/>
+<h3 id="2-méthode-décimale-rapide-cas-du-18-sur-un-8">2. Méthode Décimale Rapide (Cas du /18 sur un /8)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-méthode-décimale-rapide-cas-du-18-sur-un-8" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Pour un découpage <strong>/18</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mord text"><span class="mord"> bits emprunt</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">e</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">s</span></span></span></span></span>), le 3ᵉ octet avance par pas de <strong>64</strong> (<code>0</code>, <code>64</code>, <code>128</code>, <code>192</code>), soit <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span> sous-réseaux par bloc du 2ᵉ octet :</p>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Index</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></p>
+<ul>
+<li>
+<p><strong>2ᵉ octet</strong> = <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">⌊</span><span class="mord text"><span class="mord">Index</span></span><span class="mord">/4</span><span class="mclose">⌋</span></span></span></span> <em>(Quotient entiers)</em></p>
+</li>
+<li>
+<p><strong>3ᵉ octet</strong> = <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">Index</span></span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.0556em;"></span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">4</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">64</span></span></span></span> <em>(Reste de la division <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">×</span><span class="mord">64</span></span></span></span>)</em></p>
+</li>
+</ul>
+<blockquote class="callout example" data-callout="example">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Exemple : Trouver le <strong>102ᵉ sous-réseau</strong></p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Index</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">102</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord mathbf">101</span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">101/4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord mathbf">25</span></span></span></span></span> (reste <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>)</li>
+<li><strong>2ᵉ octet</strong> = <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">25</span></span></span></span></li>
+<li><strong>3ᵉ octet</strong> = <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">64</span></span></span></span></li>
+</ol>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span></span></span></span> <strong><code>10.25.64.0/18</code></strong></p>
+</div>
+</blockquote>
+</div>
+</blockquote>
+<hr/>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Astuce : La méthode du Magic Number (Nombre Magique) </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Le <strong>Magic Number</strong> correspond au pas de progression (la taille du bloc) dans l’octet où se situe la coupure du masque.</p>
+<h3 id="1-la-formule-unique">1. La Formule Unique<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-la-formule-unique" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Magic Number</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">256</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Valeur d</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">e</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">cimale de l’octet modifi</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">e</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord"> du masque</span></span></span></span></span></p>
+<p>Alternativement, avec les bits hôtes <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">octet</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> restants dans cet octet :
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Magic Number</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2963em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">octet</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<hr/>
+<h3 id="2-les-3-règles-dor-du-magic-number">2. Les 3 Règles d’Or du Magic Number<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-les-3-règles-dor-du-magic-number" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Repérer l’octet modifié :</strong> C’est l’octet qui contient une valeur différente de <code>255</code> ou <code>0</code> dans le masque (ex. dans <code>255.255.240.0</code>, c’est le <strong>3ᵉ octet</strong>).</li>
+<li><strong>Calculer le Magic Number (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>) :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">256</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">240</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord mathbf">16</span></span></span></span></span>.</li>
+<li><strong>Appliquer le pas de progression (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>) :</strong> Les adresses réseau progressent par multiples de <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span> dans cet octet (<code>.0</code>, <code>.16</code>, <code>.32</code>, <code>.48</code>, etc.).</li>
+</ol>
+<hr/>
+<h3 id="3-trouver-la-plage-complète-dun-sous-réseau">3. Trouver la plage complète d’un sous-réseau<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-trouver-la-plage-complète-dun-sous-réseau" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Une fois le Magic Number (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>) connu pour un sous-réseau donné :</p>
+<ul>
+<li><strong>Adresse Réseau :</strong> Le plus grand multiple de <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span> inférieur ou égal à l’IP donnée.</li>
+<li><strong>Prochain Réseau :</strong> Multiplier le bloc actuel par <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>.</li>
+<li><strong>Adresse de Broadcast :</strong> (Adresse du réseau suivant) <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>.</li>
+<li><strong>Plage d’hôtes utilisables :</strong> Entre l’adresse réseau <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span> et l’adresse de broadcast <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>.</li>
+</ul>
+<hr/>
+<blockquote class="callout example" data-callout="example">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Exemple concret : Trouver le sous-réseau de l'IP <code>192.168.1.150 /27</code></p></div>
+                  
+                </div>
+<div class="callout-content">
+<ol>
+<li><strong>Masque décimal :</strong> <code>/27</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span></span></span></span> <code>255.255.255.224</code> (l’octet modifié est le <strong>4ᵉ octet</strong>).</li>
+<li><strong>Calcul du Magic Number :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">256</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">224</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord"><span class="mord mathbf">32</span></span></span></span></span>.</li>
+<li><strong>Trouver le réseau :</strong> Multiples de 32 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">32</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">64</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">96</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">128</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">160...</span></span></span></span>
+<ul>
+<li>Pour l’IP <code>.150</code>, le multiple le plus proche sans dépasser est <strong>128</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Résultat instantané :</strong></p>
+<ul>
+<li><strong>Adresse Réseau :</strong> <code>192.168.1.128 /27</code></li>
+<li><strong>Réseau Suivant :</strong> <code>192.168.1.160</code> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span>)</li>
+<li><strong>Adresse Broadcast :</strong> <code>192.168.1.159</code> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">160</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>)</li>
+<li><strong>Première IP Utilisable :</strong> <code>192.168.1.129</code></li>
+<li><strong>Dernière IP Utilisable :</strong> <code>192.168.1.158</code></li>
+</ul>
+</div>
+</blockquote>
+</div>
+</blockquote>
+<h2 id="6-vlsm-variable-length-subnet-masking">6. VLSM (Variable Length Subnet Masking)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-vlsm-variable-length-subnet-masking" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="61-principe-et-nécessité-du-vlsm">6.1. Principe et Nécessité du VLSM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#61-principe-et-nécessité-du-vlsm" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Le sous-réseautage classique (<em>FLSM - Fixed Length Subnet Masking</em>) impose d’utiliser un masque unique pour l’ensemble des sous-réseaux. Cette approche entraîne un <strong>gaspillage massif d’adresses IP</strong>, en particulier sur les liaisons point-à-point (routeur à routeur) qui n’ont besoin que de <strong>2 adresses IP utilisables</strong>.</p>
+<blockquote class="callout abstract" data-callout="abstract">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Définition du VLSM </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Le <strong>VLSM</strong> consiste à appliquer un sous-réseautage à un sous-réseau déjà existant. Il permet d’utiliser des <strong>masques de longueurs différentes</strong> selon les besoins réels de chaque segment (nombre d’hôtes requis).</p>
+</div>
+</blockquote>
+<hr/>
+<p><img src="../basereseau/pièces-jointes/pasted-image-20261012234039.png" alt width="auto" height="auto"/></p>
+<hr/>
+<p><img src="../basereseau/pièces-jointes/pasted-image-20261012234207.png" alt width="auto" height="auto"/></p>
+<hr/>
+<p><img src="../basereseau/pièces-jointes/pasted-image-20261012234341.png" alt width="auto" height="auto"/></p>
+<h3 id="62-la-règle-dor-du-vlsm">6.2. La Règle d’Or du VLSM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#62-la-règle-dor-du-vlsm" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Règle fondamentale de conception </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p><strong>Toujours trier et allouer les sous-réseaux du PLUS GRAND besoin au PLUS PETIT besoin.</strong></p>
+<p>Ignorer cette règle entraîne des chevauchements d’adresses (<em>IP overlaps</em>) et rend la segmentation incohérente.</p>
+</div>
+</blockquote>
+<h3 id="63-méthodologie-pas-à-pas">6.3. Méthodologie pas à pas<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#63-méthodologie-pas-à-pas" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Lister les besoins :</strong> Classer chaque segment/service par nombre d’hôtes requis en ordre décroissant.</li>
+<li><strong>Ajouter la marge de sécurité :</strong> Ajouter les adresses Réseau et Broadcast (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">2</span></span></span></span>), puis arrondir à la puissance de 2 supérieure (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span>).</li>
+<li><strong>Déterminer le masque (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord mathnormal">p</span></span></span></span>) :</strong> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span>.</li>
+<li><strong>Allouer les blocs :</strong> Assigner le premier bloc au réseau de départ, puis calculer le réseau suivant en ajoutant la taille du bloc (le <em>Magic Number</em>).</li>
+</ol>
+<h3 id="64-exemple-pratique-complet">6.4. Exemple Pratique Complet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#64-exemple-pratique-complet" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Réseau racine attribué :</strong> <code>192.168.10.0 /24</code> (256 adresses totales)</p>
+<h3 id="cahier-des-charges-">Cahier des charges :<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cahier-des-charges-" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>LAN LAN_Ventes :</strong> 100 hôtes</li>
+<li><strong>LAN LAN_Compta :</strong> 50 hôtes</li>
+<li><strong>LAN LAN_Admin :</strong> 20 hôtes</li>
+<li><strong>Liaison WAN Router1-Router2 :</strong> 2 hôtes</li>
+</ul>
+<h3 id="étape-1--calcul-des-masques-nécessaires">Étape 1 : Calcul des masques nécessaires<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#étape-1--calcul-des-masques-nécessaires" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Segment</th><th style="text-align:center;">Hôtes requis</th><th style="text-align:center;">Formule (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9324em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">Besoin</span></span></span></span></span>)</th><th style="text-align:center;">Bits hôtes (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span>)</th><th style="text-align:center;">Taille du bloc (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span></span></span>)</th><th style="text-align:center;">Préfixe (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span>)</th><th style="text-align:left;">Masque Décimal</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>LAN_Ventes</strong></td><td style="text-align:center;">100</td><td style="text-align:center;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">126</span></span></span></span></td><td style="text-align:center;">7</td><td style="text-align:center;">128</td><td style="text-align:center;"><strong>/25</strong></td><td style="text-align:left;"><code>255.255.255.128</code></td></tr><tr><td style="text-align:left;"><strong>LAN_Compta</strong></td><td style="text-align:center;">50</td><td style="text-align:center;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">62</span></span></span></span></td><td style="text-align:center;">6</td><td style="text-align:center;">64</td><td style="text-align:center;"><strong>/26</strong></td><td style="text-align:left;"><code>255.255.255.192</code></td></tr><tr><td style="text-align:left;"><strong>LAN_Admin</strong></td><td style="text-align:center;">20</td><td style="text-align:center;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">30</span></span></span></span></td><td style="text-align:center;">5</td><td style="text-align:center;">32</td><td style="text-align:center;"><strong>/27</strong></td><td style="text-align:left;"><code>255.255.255.224</code></td></tr><tr><td style="text-align:left;"><strong>Liaison WAN</strong></td><td style="text-align:center;">2</td><td style="text-align:center;"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8974em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></td><td style="text-align:center;">2</td><td style="text-align:center;">4</td><td style="text-align:center;"><strong>/30</strong></td><td style="text-align:left;"><code>255.255.255.252</code></td></tr></tbody></table></div>
+<hr/>
+<h3 id="étape-2--plan-dadressage-vlsm-final">Étape 2 : Plan d’adressage VLSM final<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#étape-2--plan-dadressage-vlsm-final" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Nom du Segment</th><th style="text-align:center;">Besoins</th><th style="text-align:left;">Adresse Réseau</th><th style="text-align:center;">Masque</th><th style="text-align:left;">Plage IP Utilisables</th><th style="text-align:left;">Adresse de Broadcast</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>LAN_Ventes</strong></td><td style="text-align:center;">100</td><td style="text-align:left;"><code>192.168.10.0</code></td><td style="text-align:center;"><code>/25</code></td><td style="text-align:left;"><code>192.168.10.1</code> – <code>192.168.10.126</code></td><td style="text-align:left;"><code>192.168.10.127</code></td></tr><tr><td style="text-align:left;"><strong>LAN_Compta</strong></td><td style="text-align:center;">50</td><td style="text-align:left;"><code>192.168.10.128</code></td><td style="text-align:center;"><code>/26</code></td><td style="text-align:left;"><code>192.168.10.129</code> – <code>192.168.10.186</code></td><td style="text-align:left;"><code>192.168.10.187</code></td></tr><tr><td style="text-align:left;"><strong>LAN_Admin</strong></td><td style="text-align:center;">20</td><td style="text-align:left;"><code>192.168.10.188</code></td><td style="text-align:center;"><code>/27</code></td><td style="text-align:left;"><code>192.168.10.189</code> – <code>192.168.10.218</code></td><td style="text-align:left;"><code>192.168.10.219</code></td></tr><tr><td style="text-align:left;"><strong>Liaison WAN</strong></td><td style="text-align:center;">2</td><td style="text-align:left;"><code>192.168.10.220</code></td><td style="text-align:center;"><code>/30</code></td><td style="text-align:left;"><code>192.168.10.221</code> – <code>192.168.10.222</code></td><td style="text-align:left;"><code>192.168.10.223</code></td></tr><tr><td style="text-align:left;"><em>(Disponible)</em></td><td style="text-align:center;">32</td><td style="text-align:left;"><code>192.168.10.224</code></td><td style="text-align:center;"><code>/27</code></td><td style="text-align:left;">Réserve pour extension future</td><td style="text-align:left;"><code>192.168.10.255</code></td></tr></tbody></table></div></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-7" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#module-11--adressage-ipv4" data-for="module-11--adressage-ipv4">Module 11 : Adressage IPv4</a></li><li class="depth-1"><a href="#1-structure-de-ladresse-ipv4" data-for="1-structure-de-ladresse-ipv4">1 Structure de l’adresse IPv4</a></li><li class="depth-2"><a href="#11-parties-réseau-et-hôte" data-for="11-parties-réseau-et-hôte">1.1 Parties réseau et hôte</a></li><li class="depth-2"><a href="#12-masque-de-sous-réseau" data-for="12-masque-de-sous-réseau">1.2 Masque de sous-réseau</a></li><li class="depth-2"><a href="#13-longueur-de-préfixe-notation-cidr" data-for="13-longueur-de-préfixe-notation-cidr">1.3 Longueur de préfixe (Notation CIDR)</a></li><li class="depth-2"><a href="#14-déterminer-le-réseau--opération-logiques-and-et" data-for="14-déterminer-le-réseau--opération-logiques-and-et">1.4 Déterminer le réseau : Opération logiques AND (ET)</a></li><li class="depth-2"><a href="#15-réseau-hôte-et-adresses-de-diffusion-broadcast" data-for="15-réseau-hôte-et-adresses-de-diffusion-broadcast">1.5 Réseau, Hôte et Adresses de Diffusion (Broadcast)</a></li><li class="depth-1"><a href="#2-adresses-ipv4-de-monodiffusion-de-diffusion-et-de-multidiffusion" data-for="2-adresses-ipv4-de-monodiffusion-de-diffusion-et-de-multidiffusion">2 Adresses IPv4 de monodiffusion, de diffusion et de multidiffusion</a></li><li class="depth-2"><a href="#21-monodiffusion-unicast" data-for="21-monodiffusion-unicast">2.1 Monodiffusion (Unicast)</a></li><li class="depth-2"><a href="#22-diffusion-broadcast" data-for="22-diffusion-broadcast">2.2 Diffusion (Broadcast)</a></li><li class="depth-2"><a href="#23-multidiffusion-multicast" data-for="23-multidiffusion-multicast">2.3 Multidiffusion (Multicast)</a></li><li class="depth-1"><a href="#3-types-dadresses-ipv4" data-for="3-types-dadresses-ipv4">3 Types d’adresses IPv4</a></li><li class="depth-2"><a href="#31-adresses-ipv4-publiques-et-privées" data-for="31-adresses-ipv4-publiques-et-privées">3.1 Adresses IPv4 publiques et privées</a></li><li class="depth-2"><a href="#32-routage-sur-internet-et-nat" data-for="32-routage-sur-internet-et-nat">3.2 Routage sur Internet et NAT</a></li><li class="depth-2"><a href="#34-adresses-ipv4-réservées" data-for="34-adresses-ipv4-réservées">3.4 Adresses IPv4 réservées</a></li><li class="depth-2"><a href="#35-adressage-dhéritage-par-classe-classful-addressing" data-for="35-adressage-dhéritage-par-classe-classful-addressing">3.5 Adressage d’héritage par classe (Classful Addressing)</a></li><li class="depth-2"><a href="#36-attribution-des-adresses-ip-iana-et-rir" data-for="36-attribution-des-adresses-ip-iana-et-rir">3.6 Attribution des adresses IP (IANA et RIR)</a></li><li class="depth-1"><a href="#4-segmentation-du-réseau" data-for="4-segmentation-du-réseau">4 Segmentation du réseau</a></li><li class="depth-2"><a href="#41-domaines-de-diffusion-et-segmentation" data-for="41-domaines-de-diffusion-et-segmentation">4.1 Domaines de diffusion et segmentation</a></li><li class="depth-2"><a href="#42-problèmes-liés-aux-grands-domaines-de-diffusion" data-for="42-problèmes-liés-aux-grands-domaines-de-diffusion">4.2 Problèmes liés aux grands domaines de diffusion</a></li><li class="depth-2"><a href="#43-raisons-pour-segmenter-les-réseaux" data-for="43-raisons-pour-segmenter-les-réseaux">4.3 Raisons pour segmenter les réseaux</a></li><li class="depth-1"><a href="#5-sous-réseau--subnetting" data-for="5-sous-réseau--subnetting">5. Sous-réseau  (Subnetting)</a></li><li class="depth-2"><a href="#51-sur-une-limite-doctet" data-for="51-sur-une-limite-doctet">5.1 Sur une limite d’octet</a></li><li class="depth-2"><a href="#52-sous-réseau-à-lintérieur-dune-limite-doctet" data-for="52-sous-réseau-à-lintérieur-dune-limite-doctet">5.2 Sous-réseau à l’intérieur d’une limite d’octet</a></li><li class="depth-2"><a href="#1-méthode-binaire-universelle-tous-masques" data-for="1-méthode-binaire-universelle-tous-masques">1. Méthode Binaire Universelle (Tous masques)</a></li><li class="depth-2"><a href="#2-méthode-décimale-rapide-cas-du-18-sur-un-8" data-for="2-méthode-décimale-rapide-cas-du-18-sur-un-8">2. Méthode Décimale Rapide (Cas du /18 sur un /8)</a></li><li class="depth-2"><a href="#1-la-formule-unique" data-for="1-la-formule-unique">1. La Formule Unique</a></li><li class="depth-2"><a href="#2-les-3-règles-dor-du-magic-number" data-for="2-les-3-règles-dor-du-magic-number">2. Les 3 Règles d’Or du Magic Number</a></li><li class="depth-2"><a href="#3-trouver-la-plage-complète-dun-sous-réseau" data-for="3-trouver-la-plage-complète-dun-sous-réseau">3. Trouver la plage complète d’un sous-réseau</a></li><li class="depth-1"><a href="#6-vlsm-variable-length-subnet-masking" data-for="6-vlsm-variable-length-subnet-masking">6. VLSM (Variable Length Subnet Masking)</a></li><li class="depth-2"><a href="#61-principe-et-nécessité-du-vlsm" data-for="61-principe-et-nécessité-du-vlsm">6.1. Principe et Nécessité du VLSM</a></li><li class="depth-2"><a href="#62-la-règle-dor-du-vlsm" data-for="62-la-règle-dor-du-vlsm">6.2. La Règle d’Or du VLSM</a></li><li class="depth-2"><a href="#63-méthodologie-pas-à-pas" data-for="63-méthodologie-pas-à-pas">6.3. Méthodologie pas à pas</a></li><li class="depth-2"><a href="#64-exemple-pratique-complet" data-for="64-exemple-pratique-complet">6.4. Exemple Pratique Complet</a></li><li class="depth-2"><a href="#cahier-des-charges-" data-for="cahier-des-charges-">Cahier des charges :</a></li><li class="depth-2"><a href="#étape-1--calcul-des-masques-nécessaires" data-for="étape-1--calcul-des-masques-nécessaires">Étape 1 : Calcul des masques nécessaires</a></li><li class="depth-2"><a href="#étape-2--plan-dadressage-vlsm-final" data-for="étape-2--plan-dadressage-vlsm-final">Étape 2 : Plan d’adressage VLSM final</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3426b91c.js" type="module" data-persist="true"></script></html>

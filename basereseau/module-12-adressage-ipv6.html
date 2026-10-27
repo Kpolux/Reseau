@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Module 12 Adressage IPv6</title><meta charset="utf-8"/><link rel="preload" href="../index-bb6c1746.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="Module 12 Adressage IPv6"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Module 12 Adressage IPv6"/><meta name="twitter:description" content="subnetting adressage ipv6 Module 12 Adressage IPv6 1 Problèmes liés à l’IPv4 &amp; Nécessité d’IPv6 1.1."/><meta property="og:description" content="subnetting adressage ipv6 Module 12 Adressage IPv6 1 Problèmes liés à l’IPv4 &amp; Nécessité d’IPv6 1.1."/><meta property="og:image:alt" content="subnetting adressage ipv6 Module 12 Adressage IPv6 1 Problèmes liés à l’IPv4 &amp; Nécessité d’IPv6 1.1."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/basereseau/module-12-adressage-ipv6"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/basereseau/module-12-adressage-ipv6"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="subnetting adressage ipv6 Module 12 Adressage IPv6 1 Problèmes liés à l’IPv4 &amp; Nécessité d’IPv6 1.1."/><meta name="generator" content="Quartz"/><link href="../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/basereseau/module-12-adressage-ipv6-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/basereseau/module-12-adressage-ipv6-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/basereseau/module-12-adressage-ipv6-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="basereseau/module-12-adressage-ipv6" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-10" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-10" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../basereseau/">BaseReseau</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Module 12 Adressage IPv6</a></div></nav><h1 class="article-title">Module 12 Adressage IPv6</h1><p show-comma="true" class="content-meta"><time datetime="2026-10-27T22:07:53.518Z">Oct 27, 2026</time><span>13 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><p><a href=".././tags/subnetting" class="tag-link internal internal-link alias" data-slug="tags/subnetting">subnetting</a> <a href=".././tags/adressage" class="tag-link internal internal-link alias" data-slug="tags/adressage">adressage</a> <a href=".././tags/ipv6" class="tag-link internal internal-link alias" data-slug="tags/ipv6">ipv6</a></p>
+<h1 id="module-12-adressage-ipv6">Module 12 Adressage IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#module-12-adressage-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="1-problèmes-liés-à-lipv4--nécessité-dipv6">1 Problèmes liés à l’IPv4 &amp; Nécessité d’IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-problèmes-liés-à-lipv4--nécessité-dipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="11-limites-dipv4">1.1. Limites d’IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#11-limites-dipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Taille d’adresse :</strong> 32 bits (~4,3 milliards d’IPs) <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.549em;vertical-align:-0.024em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⟹</span><span class="mspace" style="margin-right:0.2778em;"></span></span></span></span> Pénurie mondiale actée par les RIR.</li>
+<li><strong>Inconvénients du NAT :</strong> Solution temporaire qui brise le modèle bout-en-bout et nuit aux applications temps réel/P2P.</li>
+</ul>
+<h3 id="12-apports-de-lipv6">1.2. Apports de l’IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#12-apports-de-lipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Taille d’adresse :</strong> <strong>128 bits</strong> (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">128</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">340</span><span class="mord text"><span class="mord"> und</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">e</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">cillions</span></span></span></span></span>).</li>
+<li><strong>Protocole ICMPv6 :</strong> Intègre l’autoconfiguration (SLAAC) et la résolution d’adresses (remplace ARP).</li>
+<li>IPv6 pas que remplacé IPv4 aussi l’améliorer
+voir <a href="../basereseau/module-08-couche-reseau#64-champs-de-len-tête-de-paquet-ipv6" class="internal internal-link alias" data-slug="basereseau/module-08-couche-reseau">Module 08 Couche reseau > 6.4. Champs de l’en-tête de paquet IPv6</a></li>
+</ul>
+<h3 id="13-les-3-techniques-de-transition">1.3. Les 3 Techniques de Transition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#13-les-3-techniques-de-transition" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout key is-collapsible is-collapsed" data-callout="key" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>À retenir </p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ol>
+<li><strong>Double pile (Dual-Stack) :</strong> IPv4 et IPv6 fonctionnent en parallèle sur les mêmes équipements. <strong>(Méthode recommandée)</strong>.</li>
+<li><strong>Tunneling :</strong> Encapsulation d’un paquet IPv6 dans un paquet IPv4 pour traverser une infrastructure IPv4.</li>
+<li><strong>Traduction (NAT64) :</strong> Conversion à la volée des paquets IPv6 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">↔</span></span></span></span> IPv4 pour l’interconnexion de réseaux incompatibles.</li>
+</ol>
+</div>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Note</p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>Double pile (Dual-Stack) :</strong> IPv4 et IPv6 fonctionnent en parallèle sur les mêmes équipements. <strong>(Méthode recommandée)</strong>.</li>
+<li><strong>Tunneling :</strong> Encapsulation d’un paquet IPv6 dans un paquet IPv4 pour traverser une infrastructure IPv4.</li>
+<li><strong>Traduction (NAT64) :</strong> Conversion à la volée des paquets IPv6 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">↔</span></span></span></span> IPv4 pour l’interconnexion de réseaux incompatibles.</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b0d41ef71c10ec546bac96cd8f8b6719b15a4add</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</div>
+</blockquote>
+<h2 id="2-représentation-de-ladresse-ipv6">2 Représentation de l’adresse IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-représentation-de-ladresse-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="21-format-de-base">2.1. Format de base<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21-format-de-base" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Longueur :</strong>
+<ul>
+<li><strong>128 bits</strong> codés en hexadécimal (non sensible à la casse).</li>
+</ul>
+</li>
+<li><strong>Structure :</strong>
+<ul>
+<li>8 blocs de 16 bits appelés <strong>hextets</strong> (séparés par des deux-points <code>:</code>).</li>
+</ul>
+</li>
+<li><strong>Composition :</strong>
+<ul>
+<li>1 hextet = 4 caractères hexadécimaux = 16 bits binaires.</li>
+<li>Exemple complet :* <code>2001:0db8:0000:1111:0000:0000:0000:0200</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="22-les-2-règles-de-compression-abréviation">2.2. Les 2 Règles de Compression (Abréviation)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22-les-2-règles-de-compression-abréviation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<blockquote class="callout key is-collapsible is-collapsed" data-callout="key" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Règle 1 : Omission des zéros en TÊTE de segment </p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li>On supprime uniquement les <code>0</code> situés <strong>au début</strong> d’un hextet.</li>
+<li>Les zéros de fin <strong>ne doivent jamais</strong> être supprimés (créerait de l’ambiguïté).</li>
+</ul>
+<p><strong>Exemples :</strong></p>
+<ul>
+<li><code>01AB</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>1AB</code> | <code>09f0</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>9f0</code> | <code>000A</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>A</code> | <code>0000</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>0</code></li>
+<li><code>2001:0db8:0000:00a3:...</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>2001:db8:0:a3:...</code></li>
+</ul>
+</div>
+</blockquote>
+<blockquote class="callout key is-collapsible is-collapsed" data-callout="key" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Règle 2 : Le double deux-points ( <code>::</code>)</p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li>Remplace une chaîne contiguë d’un ou plusieurs hextets entièrement nuls (<code>0000</code>).</li>
+<li><strong>Règle absolue :</strong> Utilisable <strong>UNE SEULE FOIS</strong> par adresse (sinon l’adresse devient ambiguë/impossible à reconstituer).</li>
+<li><em>Meilleure pratique :</em> Appliquer <code>::</code> sur la plus longue séquence de zéro contiguë.</li>
+</ul>
+<p><strong>Exemples d’application combinée (Règle 1 + Règle 2) :</strong></p>
+<ul>
+<li><code>2001:0db8:0000:1111:0000:0000:0000:0200</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>2001:db8:0:1111::200</code></li>
+<li><code>fe80:0000:0000:0000:0000:0000:0000:0001</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>fe80::1</code></li>
+<li><code>0000:0000:0000:0000:0000:0000:0000:0000</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>::</code></li>
+</ul>
+</div>
+</blockquote>
+<h2 id="3-types-dadresses-ipv6">3. Types d’adresses IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-types-dadresses-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="31-catégories-dadresses-ipv6">3.1. Catégories d’adresses IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-catégories-dadresses-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Monodiffusion (Unicast) :</strong>
+<ul>
+<li>Identifie une interface unique de façon exclusive. Tout paquet IPv6 envoyé doit avoir une adresse source Unicast.</li>
+</ul>
+</li>
+<li><strong>Multidiffusion (Multicast) :</strong>
+<ul>
+<li>Utilisée pour envoyer un seul paquet IPv6 vers plusieurs destinations simultanément.</li>
+</ul>
+</li>
+<li>🚨🆕<strong>Anycast :</strong>
+<ul>
+<li>Adresse Unicast attribuée à plusieurs équipements ; le paquet est acheminé vers le périphérique le plus proche supportant cette adresse.</li>
+</ul>
+</li>
+<li>🚨🆕<strong>Absence de Broadcast :</strong>
+<ul>
+<li>IPv6 n’a <strong>pas d’adresse de diffusion (broadcast)</strong>. Il utilise la multidiffusion (notamment l’adresse multicast « tous les nœuds ») pour obtenir le même résultat.</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-longueur-de-préfixe--structure">3.2. Longueur de préfixe &amp; Structure<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#32-longueur-de-préfixe--structure" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Rôle :</strong>
+<ul>
+<li>Indique la partie réseau de l’adresse IPv6 (remplace la notion de masque de sous-réseau décimal IPv4).</li>
+</ul>
+</li>
+<li><strong>Plage possible :</strong>
+<ul>
+<li>La longueur du préfixe peut être comprise <strong>entre 0 et 128</strong>.</li>
+</ul>
+</li>
+<li><strong>Préfixe recommandé :</strong>
+<ul>
+<li><strong>/64</strong> pour les réseaux locaux (LAN) et la plupart des sous-réseaux.</li>
+<li><strong>Structure /64 :</strong>
+<ul>
+<li>64 bits de préfixe (partie réseau) + 64 bits d’ID d’interface (partie hôte).</li>
+</ul>
+</li>
+<li><strong>Raison :</strong>
+<ul>
+<li>Un ID d’interface de 64 bits est obligatoire pour faire fonctionner l’autoconfiguration sans état (<strong>SLAAC</strong>) et simplifie la création/gestion des sous-réseaux.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>SLAAC ( <em>Stateless Address Autoconfiguration</em>)</p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+</blockquote>
+<p>=======</p>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>SLAAC</strong> (<em>Stateless Address Autoconfiguration</em>)</p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b0d41ef71c10ec546bac96cd8f8b6719b15a4add
+<strong>SLAAC</strong> permet à un équipement de se brancher sur un réseau IPv6 et d’obtenir immédiatement une IP globale fonctionnelle <strong>sans aucune intervention d’un serveur DHCPv6</strong>.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>
+<p><strong>Stateless (Sans état) :</strong> Le routeur ne conserve aucune trace (aucun état) des adresses distribuées aux équipements.</p>
+</li>
+<li>
+<p><strong>Pourquoi un /64 obligatoire ?</strong> Le mécanisme SLAAC prend le préfixe de 64 bits fourni par le routeur local et y colle un identifiant d’interface de 64 bits généré par l’appareil lui-même.</p>
+</li>
+<li>
+<p><strong>Avantage clé :</strong> Simplification totale du déploiement (autoconfiguration Plug-and-Play) tout en conservant une passerelle par défaut opérationnelle (la LLA du routeur).</p>
+</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="33-types-dadresses-unicast-fondamentales">3.3. Types d’adresses Unicast fondamentales<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#33-types-dadresses-unicast-fondamentales" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Un équipement IPv6 possède généralement <strong>au moins deux adresses Unicast</strong> sur la même interface : une GUA et une LLA.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Type d’adresse Unicast</th><th style="text-align:left;">Plage / Préfixe</th><th style="text-align:left;">Description &amp; Caractéristiques clés</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>GUA</strong> <em>(Global Unicast Address)</em></td><td style="text-align:left;"><code>2000::/3</code> (<code>2000...</code> à <code>3FFF...</code>)</td><td style="text-align:left;">Public &amp; Routable mondialement sur Internet (équivalent IP publique IPv4).</td></tr><tr><td style="text-align:left;"><strong>LLA</strong> <em>(Link-Local Address)</em></td><td style="text-align:left;"><code>fe80::/10</code> (<code>fe80...</code> à <code>febf...</code>)</td><td style="text-align:left;">Obligatoire sur chaque interface IPv6. Communication limitée à la liaison locale (non routable).</td></tr><tr><td style="text-align:left;"><strong>ULA</strong> <em>(Unique Local Address)</em></td><td style="text-align:left;"><code>fc00::/7</code> (<code>fc00...</code> à <code>fdff...</code>)</td><td style="text-align:left;">Utilisation locale au site/entreprise (équivalent IP privée ). Non routée sur l’Internet public.</td></tr><tr><td style="text-align:left;"><strong>Bouclage (Loopback)</strong></td><td style="text-align:left;"><code>::1/128</code></td><td style="text-align:left;">Adresse de test local de la pile réseau (équivalent de <code>127.0.0.1</code> en IPv4).</td></tr><tr><td style="text-align:left;"><strong>Non spécifiée</strong></td><td style="text-align:left;"><code>::/128</code></td><td style="text-align:left;">Adresse temporaire tout-zéro utilisée lorsqu’aucune IP n’est encore attribuée à l’interface.</td></tr></tbody></table></div>
+<blockquote class="callout warning is-collapsible is-collapsed" data-callout="warning" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Remarque importante : Adresse Locale Unique - ULA ( <code>fc00::/7</code> à <code>fdff::/7</code>)</p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>Statut d’implémentation :</strong> Les ULA ne sont <strong>pas encore couramment implémentées</strong> dans la pratique. Le cours NetAcad se concentre donc quasi exclusivement sur la configuration des adresses <strong>GUA</strong> et</li>
+<li>Quel intérêt ?</li>
+</ul>
+</div>
+</blockquote>
+<h3 id="34-structure-dune-adresse-gua">3.4. Structure d’une adresse GUA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#34-structure-dune-adresse-gua" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Structure classique d’une adresse <strong>GUA /64</strong> distribuée à partir d’un bloc entreprise <strong>/48</strong> :</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="text" data-theme="github-light github-dark"><code data-language="text" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>|&lt;------------ 64 bits ------------>|&lt;------- 64 bits ------->|</span></span>
+<span data-line><span>+-------------------+---------------+-------------------------+</span></span>
+<span data-line><span>| Global Routing    | Subnet ID     | Interface ID            |</span></span>
+<span data-line><span>| Prefix (/48)      | (16 bits)     | (64 bits)               |</span></span>
+<span data-line><span>+-------------------+---------------+-------------------------+</span></span>
+<span data-line><span>|&lt;--- 3 hextets --->|&lt;- 1 hextet -->|&lt;------ 4 hextets ------>|</span></span></code></pre></figure>
+<ul>
+<li>
+<p><strong>Préfixe de routage global (48 bits en général) :</strong></p>
+<ul>
+<li>Attribué par le FAI ou l’IANA/RIR. Les 3 premiers bits d’une GUA sont toujours <code>001</code> (d’où le premier chiffre hexa compris entre <code>2</code> et <code>3</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>ID de sous-réseau (16 bits) :</strong></p>
+<ul>
+<li>Champ situé entre le préfixe global et l’ID d’interface. Permet à une organisation de créer jusqu’à <strong>65 536 sous-réseaux /64</strong> sans toucher aux bits d’hôte.</li>
+</ul>
+</li>
+<li>
+<p><strong>ID d’interface (64 bits) :</strong></p>
+<ul>
+<li>Équivalent de la partie hôte IPv4. Permet d’accueillir jusqu’à 18 quintillions d’hôtes par sous-réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Spécificité IPv6 :</strong></p>
+<ul>
+<li>Les adresses réseau tout-<code>0</code> et tout-<code>1</code> (utilisables pour les hôtes) ne sont pas perdues comme en IPv4, bien que l’adresse tout-<code>0</code> soit réservée comme adresse Anycast du routeur sous-réseau.</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-adresse-lla---link-local-address">3.5. Adresse LLA - Link-Local Address<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#35-adresse-lla---link-local-address" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Portée stricte :</strong></p>
+<ul>
+<li>Utilisée uniquement pour la communication entre équipements sur le <strong>même segment local</strong>. Les routeurs ne transfèrent jamais un paquet dont l’IP source ou destination est une LLA.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle crucial :</strong></p>
+<ul>
+<li>
+<p>Sert de <strong>passerelle par défaut (Default Gateway)</strong> pour les hôtes du réseau.</p>
+</li>
+<li>
+<p>Sert pour l’échange de messages des protocoles de routage (OSPFv3, RIPng…).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Plage binaire :</strong></p>
+<ul>
+<li>Le 1er hextet est compris entre <code>fe80</code> et <code>febf</code> (10 bits fixés à <code>1111 1110 10xx xxxx</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Modes de configuration :</strong></p>
+<ul>
+<li>
+<p><strong>Statique :</strong> Définie manuellement par l’administrateur (ex: <code>fe80::1</code> pour un routeur).</p>
+</li>
+<li>
+<p><strong>Dynamique :</strong> Générée automatiquement par l’appareil à l’activation de l’interface (via méthode aléatoire ou <strong>EUI-64</strong> basée sur la MAC address).</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>EUI-64 en bref </p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p><strong>EUI-64</strong> (<em>Extended Unique Identifier 64 bits</em>) convertit une adresse <strong>MAC (48 bits)</strong> en un <strong>ID d’interface IPv6 (64 bits)</strong> en 2 actions :</p>
+<ol>
+<li>
+<p><strong>Insertion de <code>FF-FE</code></strong> au milieu de l’adresse MAC.</p>
+</li>
+<li>
+<p><strong>Inversion du 7ᵉ bit</strong> du premier octet (le bit <em>Universel/Local</em>).</p>
+</li>
+</ol>
+<ul>
+<li><strong>Repérage rapide :</strong> Si une IP contient <code>ff:fe</code> au milieu de son ID d’interface, elle provient d’EUI-64 (ex: <code>fe80::fc99:47</code><strong><code>ff:fe</code></strong><code>75:cee0</code>).</li>
+<li><strong>Problème :</strong> Expose la carte MAC (traçabilité). Les PC préfèrent aujourd’hui la génération aléatoire.</li>
+</ul>
+</div>
+</blockquote>
+<h2 id="4-configuration-statique-de-gua-et-lla">4 Configuration statique de GUA et LLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-configuration-statique-de-gua-et-lla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="41-synthèse-des-commandes-cisco-ios">4.1. Synthèse des commandes Cisco IOS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#41-synthèse-des-commandes-cisco-ios" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>La syntaxe est identique à l’IPv4 en remplaçant <code>ip</code> par <code>ipv6</code>.</li>
+<li><strong>GUA :</strong> La longueur de préfixe est collée à l’adresse sans espace (<code>/64</code>).</li>
+<li><strong>LLA :</strong> Utilise le mot-clé obligatoire <code>link-local</code> à la fin de la commande.</li>
+<li>Ne PAS OUBLIER  le fameux <code>no shutdown</code></li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="IOS" data-theme="github-light github-dark"><code data-language="IOS" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>! Configuration GUA &amp; LLA sur routeur (R1)</span></span>
+<span data-line><span>interface gigabitethernet 0/0/0</span></span>
+<span data-line><span> ipv6 address 2001:db8:acad:1::1/64</span></span>
+<span data-line><span> ipv6 address fe80::1:1 link-local</span></span>
+<span data-line><span> no shutdown</span></span></code></pre></figure>
+<h3 id="42-configuration-gua">4.2. Configuration GUA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#42-configuration-gua" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Routeur :</strong> Une interface peut héberger simultanément une GUA et une LLA.</p>
+</li>
+<li>
+<p><strong>Hôte (PC) :</strong></p>
+<ul>
+<li>
+<p>Configuration manuelle possible (IP, préfixe, passerelle par défaut).</p>
+</li>
+<li>
+<p><strong>Meilleure pratique Passerelle :</strong></p>
+<ul>
+<li>Utiliser l’adresse <strong>LLA du routeur</strong> comme passerelle par défaut au lieu de sa GUA.</li>
+</ul>
+</li>
+<li>
+<p><strong>Attribution dynamique :</strong></p>
+<ul>
+<li>Préférée en entreprise via <strong>SLAAC</strong> ou <strong>DHCPv6</strong> (définit automatiquement la LLA du routeur comme passerelle).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="43-configuration-lla">4.3. Configuration LLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#43-configuration-lla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Intérêt :</strong></p>
+<ul>
+<li>Définir des adresses simples et mémorisables pour les passerelles et le routage (ex: <code>fe80::1</code> pour R1, <code>fe80::2</code> pour R2).</li>
+</ul>
+</li>
+<li>
+<p><strong>Portée &amp; Réutilisation :</strong></p>
+<ul>
+<li>
+<p>Une même LLA peut être configurée sur plusieurs interfaces d’un même routeur, à condition d’être unique sur chaque lien local.</p>
+</li>
+<li>
+<p><strong>Bonne pratique :</strong> Varier légèrement l’adresse par interface (ex: <code>fe80::1:1</code>, <code>fe80::2:1</code>) pour faciliter l’identification.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-adressage-dynamique-des-gua-ipv6">5 Adressage Dynamique des GUA IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-adressage-dynamique-des-gua-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="51-préréquis-routeur--messages-icmpv6">5.1. Préréquis Routeur &amp; Messages ICMPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51-préréquis-routeur--messages-icmpv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Activation du routage IPv6 :</strong> Obligatoire sur le routeur avec la commande globale <code>ipv6 unicast-routing</code> (sinon il n’envoie pas de messages RA).</li>
+<li><strong>Messages de dialogue ICMPv6 :</strong>
+<ul>
+<li><strong>RS (Router Solicitation) :</strong> Envoyé par l’hôte à l’allumage pour demander des informations d’adressage.</li>
+<li><strong>RA (Router Advertisement) :</strong> Envoyé par le routeur (périodiquement toutes les 200s ou en réponse à un RS) pour fournir le préfixe réseau, la longueur de préfixe (<code>/64</code>), la passerelle par défaut (adresse LLA du routeur) et les options DNS.</li>
+</ul>
+</li>
+</ul>
+<h3 id="52-les-3-méthodes-dattribution-dynamique">5.2. Les 3 Méthodes d’attribution dynamique<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52-les-3-méthodes-dattribution-dynamique" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Le message RA indique à l’hôte la méthode à suivre via des indicateurs (flags) :</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Méthode</th><th style="text-align:left;">Nom</th><th style="text-align:left;">Fonctionnement</th><th style="text-align:left;">Ce que fournit le Routeur (RA)</th><th style="text-align:left;">Ce que fournit le Serveur DHCPv6</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Méthode 1</strong></td><td style="text-align:left;"><strong>SLAAC uniquement</strong></td><td style="text-align:left;">L’hôte crée sa GUA en autonomie complète sans serveur DHCPv6.</td><td style="text-align:left;">Préfixe, Masque <code>/64</code>, Passerelle (LLA)</td><td style="text-align:left;"><em>Aucun serveur utilisé</em></td></tr><tr><td style="text-align:left;"><strong>Méthode 2</strong></td><td style="text-align:left;"><strong>SLAAC + DHCPv6 sans état</strong></td><td style="text-align:left;">L’hôte génère son IP via SLAAC et sollicite DHCPv6 pour les options annexes.</td><td style="text-align:left;">Préfixe, Masque <code>/64</code>, Passerelle (LLA)</td><td style="text-align:left;">Serveurs DNS, Nom de domaine</td></tr><tr><td style="text-align:left;"><strong>Méthode 3</strong></td><td style="text-align:left;"><strong>Stateful DHCPv6 (avec état)</strong></td><td style="text-align:left;">Fonctionne comme le DHCP IPv4 classique. Le serveur attribue et conserve l’état des IP.</td><td style="text-align:left;">Passerelle par défaut (LLA du routeur)</td><td style="text-align:left;">Adresse GUA complète, DNS, options</td></tr></tbody></table></div>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Passerelle par défaut </p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p>Quelle que soit la méthode (1, 2 ou 3), l’adresse de la <strong>passerelle par défaut est TOUJOURS la LLA du routeur</strong> transmise via le message RA. Un serveur DHCPv6 ne fournit jamais la passerelle par défaut.</p>
+</div>
+</blockquote>
+<h3 id="53-génération-de-lid-dinterface-64-bits">5.3. Génération de l’ID d’interface (64 bits)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#53-génération-de-lid-dinterface-64-bits" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Lorsque SLAAC est utilisé (Méthodes 1 et 2), le client doit fabriquer lui-même son ID d’interface (64 bits) selon deux méthodes :</p>
+<h4 id="a-méthode-eui-64-basée-sur-ladresse-mac-48-bits">A. Méthode EUI-64 (Basée sur l’adresse MAC 48 bits)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#a-méthode-eui-64-basée-sur-ladresse-mac-48-bits" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>Diviser l’adresse MAC Ethernet (48 bits) en deux blocs de 24 bits (OUI et ID périphérique).</li>
+<li>Insérer la valeur hexadécimale <strong><code>FF-FE</code></strong> (16 bits) au milieu.</li>
+<li>Inverser le 7ᵉ bit (bit U/L) du premier octet (ex: <code>0</code> devient <code>1</code>).</li>
+</ol>
+<ul>
+<li><em>Inconvénient :</em> Traçabilité et risque pour la confidentialité (l’adresse MAC est exposée dans l’IP). Repérable dans un <code>ipconfig</code> par la présence de <code>ff:fe</code>.</li>
+</ul>
+<blockquote class="callout tip is-collapsible is-collapsed" data-callout="tip" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Exemple pratique </p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p>Soit une adresse MAC : <code>FC-99-47-75-CE-E0</code></p>
+<ul>
+<li><strong>Étape 1 (Division) :</strong> <code>FC-99-47</code>  |  <code>75-CE-E0</code></li>
+<li><strong>Étape 2 (Insertion FF-FE) :</strong> <code>FC-99-47</code>-<strong><code>FF-FE</code></strong>-<code>75-CE-E0</code></li>
+<li><strong>Étape 3 (Inversion bit 7) :</strong></li>
+<li><code>FC</code> en binaire = <code>1111 1100</code></li>
+<li>Inversion du 7ᵉ bit <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>1111 1110</code> = <code>FE</code> en hexadécimal</li>
+<li><strong>Résultat EUI-64 final :</strong> <code>FE99:47FF:FE75:CEE0</code></li>
+</ul>
+</div>
+</blockquote>
+<h4 id="b-génération-aléatoire-random">B. Génération aléatoire (Random)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#b-génération-aléatoire-random" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Un nombre de 64 bits généré aléatoirement par le système d’exploitation (standard par défaut depuis Windows Vista/Linux/macOS pour protéger la vie privée).</li>
+</ul>
+<h3 id="54-vérification-dunicité--dad-duplicate-address-detection">5.4. Vérification d’unicité : DAD (Duplicate Address Detection)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#54-vérification-dunicité--dad-duplicate-address-detection" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Avant d’utiliser toute adresse IPv6 (GUA ou LLA) générée dynamiquement, l’hôte exécute l’algorithme <strong>DAD</strong> (requête ICMPv6 voisine) pour vérifier qu’aucun autre équipement local n’utilise la même IP.</li>
+</ul>
+<h2 id="6-lla-dynamiques-et-vérification-ipv6">6 LLA dynamiques et Vérification IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-lla-dynamiques-et-vérification-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="61-génération-dynamique-des-lla">6.1. Génération dynamique des LLA<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#61-génération-dynamique-des-lla" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Toute interface compatible IPv6 génère automatiquement une adresse <strong>LLA</strong> (<code>fe80::/10</code>) dès son activation.</p>
+<ul>
+<li><strong>Mécanisme :</strong>
+<ul>
+<li>L’adresse est créée en combinant le préfixe <code>fe80::/10</code> avec un ID d’interface de 64 bits généré par <strong>EUI-64</strong> ou de manière <strong>aléatoire</strong>.</li>
+</ul>
+</li>
+<li><strong>Comportement des clients (Windows) :</strong>
+<ul>
+<li>Utilise la même méthode d’ID d’interface (EUI-64 ou aléatoire) pour sa LLA et pour sa GUA (via SLAAC).</li>
+</ul>
+</li>
+<li><strong>Comportement des routeurs Cisco IOS :</strong>
+<ul>
+<li>Génèrent leur LLA dynamique par défaut via la méthode <strong>EUI-64</strong> basée sur la MAC address de la première interface Ethernet disponible.</li>
+<li>Pour les interfaces série (sans MAC), le routeur réutilise la MAC d’une interface Ethernet.</li>
+<li><em>Inconvénient :</em>* Les LLA générées dynamiquement sont longues et complexes à mémoriser (ex: <code>fe80::7279:b3ff:fe92:3640</code>). C’est pourquoi la <strong>configuration statique</strong> (ex: <code>fe80::1</code>) est la meilleure pratique sur les routeurs.</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h3 id="62-commandes-de-vérification-de-la-configuration-ipv6">6.2. Commandes de vérification de la configuration IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#62-commandes-de-vérification-de-la-configuration-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Commande Cisco IOS</th><th style="text-align:left;">Description &amp; Points clés à retenir</th></tr></thead><tbody><tr><td style="text-align:left;"><code>show ipv6 interface brief</code></td><td style="text-align:left;">Affiche l’état des interfaces (<code>up/up</code>) ainsi que leurs adresses <strong>LLA et GUA</strong>. <em>(Note : Les LLA n’apparaissent pas dans la table de routage).</em></td></tr><tr><td style="text-align:left;"><code>show ipv6 route</code></td><td style="text-align:left;">Affiche la table de routage IPv6 :<br/>• <strong><code>C</code> (Directly Connected) :</strong> Réseau IPv6 connecté (<code>/64</code>).<br/>• <strong><code>L</code> (Local) :</strong> Route locale vers l’adresse exacte de l’interface (<code>/128</code>).</td></tr><tr><td style="text-align:left;"><code>ping &lt;adresse_IPv6></code></td><td style="text-align:left;">Teste la connectivité ICMPv6.<br/>• <em>Règle LLA :</em> En cas de ping vers une adresse <strong>LLA</strong>, Cisco IOS demande de préciser <strong>l’interface de sortie</strong>, car une même LLA peut exister sur plusieurs liens distants.</td></tr></tbody></table></div>
+<h2 id="7-adresses-de-multidiffusion-multicast-ipv6">7 Adresses de multidiffusion (Multicast) IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-adresses-de-multidiffusion-multicast-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="71-principes-généraux">7.1. Principes généraux<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#71-principes-généraux" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Préfixe réservé :</strong>
+<ul>
+<li><strong><code>ff00::/8</code></strong> (toutes les adresses multicast commencent par <code>ff...</code>).</li>
+</ul>
+</li>
+<li><strong>Règle stricte :</strong>
+<ul>
+<li>Une adresse de multidiffusion ne peut être qu’une <strong>adresse de destination</strong> (jamais une adresse source). ce n’est pas NOUVEAU !</li>
+</ul>
+</li>
+<li><strong>Deux types principaux :</strong>
+<ol>
+<li>Les adresses de multidiffusion attribuées.</li>
+<li>Les adresses de multidiffusion de nœud sollicité (<em>Solicited-Node Multicast</em>).</li>
+</ol>
+</li>
+</ul>
+<h3 id="72-adresses-de-multidiffusion-attribuées-courantes">7.2. Adresses de multidiffusion attribuées courantes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#72-adresses-de-multidiffusion-attribuées-courantes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Réseaux/groupes pré-définis auxquels les équipements s’abonnent automatiquement :</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Adresse Multicast</th><th style="text-align:left;">Groupe de destination</th><th style="text-align:left;">Description &amp; Utilisation</th></tr></thead><tbody><tr><td style="text-align:left;"><strong><code>ff02::1</code></strong></td><td style="text-align:left;"><strong>Tous les nœuds</strong> (<em>All-Nodes</em>)</td><td style="text-align:left;">Remplace le broadcast IPv4[cite: 42]. Tous les équipements IPv6 du lien reçoivent et traitent le paquet[cite: 42]. <em>(Ex : Envoi des messages RA par le routeur)</em>[cite: 42].</td></tr><tr><td style="text-align:left;"><strong><code>ff02::2</code></strong></td><td style="text-align:left;"><strong>Tous les routeurs</strong> (<em>All-Routers</em>)</td><td style="text-align:left;">Rejoint par tous les routeurs IPv6 du lien (activés via <code>ipv6 unicast-routing</code>)[cite: 42]. <em>(Ex : Envoi des messages RS par les hôtes)</em>[cite: 42].</td></tr></tbody></table></div>
+<h3 id="73-multidiffusion-de-nœud-sollicité-solicited-node">7.3. Multidiffusion de nœud sollicité (<em>Solicited-Node</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#73-multidiffusion-de-nœud-sollicité-solicited-node" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Définition :</strong>
+<ul>
+<li>Adresse créée automatiquement et associée à chaque adresse Unicast (GUA ou LLA) attribuée à une interface.</li>
+</ul>
+</li>
+<li><strong>Fonctionnement matériel :</strong>
+<ul>
+<li>Mappée directement sur une adresse MAC multicast Ethernet spécifique.</li>
+</ul>
+</li>
+<li><strong>Avantage clé :</strong>
+<ul>
+<li>Permet à la carte réseau Ethernet d’un hôte de <strong>filtrer la trame au niveau matériel (Couche 2)</strong> sans solliciter le processeur/pile IPv6 si la trame ne lui est pas destinée.</li>
+</ul>
+</li>
+<li><strong>Rôle principal :</strong>
+<ul>
+<li>Utilisée à la place du broadcast ARP pour la résolution d’adresses MAC et la détection d’adresses dupliquées (<strong>DAD</strong>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-subnetting-ipv6">8. Subnetting IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-subnetting-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="81-principe-de-conception">8.1. Principe de conception<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#81-principe-de-conception" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Intégration native :</strong>
+<ul>
+<li>IPv6 a été conçu dès l’origine pour faciliter le Subnetting grâce au champ dédié <strong>Subnet ID</strong>.</li>
+</ul>
+</li>
+<li><strong>Structure d’un bloc /48 attribué :</strong>
+<ul>
+<li><em>Global Routing Prefix :</em>* 48 bits (fournis par l’ISP/IANA).</li>
+<li><em>Subnet ID :</em>* <strong>16 bits</strong> (4ᵉ hextet).</li>
+<li><em>Interface ID :</em>* <strong>64 bits</strong> (standard obligatoire pour SLAAC).</li>
+</ul>
+</li>
+<li><strong>Capacité :</strong>
+<ul>
+<li>Un champ Subnet ID de 16 bits offre <strong>65 536 sous-réseaux /64</strong>, chacun pouvant accueillir 18 quintillions d’hôtes.</li>
+</ul>
+</li>
+</ul>
+<h3 id="82-mécanique-dincrémentation-hexadécimale">8.2. Mécanique d’Incrémentation Hexadécimale<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#82-mécanique-dincrémentation-hexadécimale" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Contrairement à l’IPv4, <strong>aucune conversion binaire n’est nécessaire</strong>. Pour créer les sous-réseaux successifs, il suffit d’incrémenter le 4ᵉ hextet en <strong>hexadécimal</strong> :</p>
+<ul>
+<li>Bloc racine : <code>2001:db8:acad::/48</code>
+<ul>
+<li>Sous-réseau 0 : <code>2001:db8:acad:0000::/64</code> (ou <code>2001:db8:acad::/64</code>)</li>
+<li>Sous-réseau 1 : <code>2001:db8:acad:0001::/64</code></li>
+<li>Sous-réseau 2 : <code>2001:db8:acad:0002::/64</code></li>
+<li>…</li>
+<li>Sous-réseau 10 : <code>2001:db8:acad:000a::/64</code></li>
+<li>…</li>
+<li>Dernier sous-réseau : <code>2001:db8:acad:ffff::/64</code></li>
+</ul>
+</li>
+</ul>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>Pas de contrainte de gaspillage sur les liaisons Point-à-Point </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Sur les liaisons série ou WAN (routeur à routeur), on utilise également un masque <strong>/64</strong> standard. Même si 2 adresses IP seulement sont consommées sur les quintillions disponibles, conserver le préfixe <code>/64</code> préserve l’homogénéité du plan d’adressage et la compatibilité globale.</p>
+</div>
+</blockquote></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-8" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#module-12-adressage-ipv6" data-for="module-12-adressage-ipv6">Module 12 Adressage IPv6</a></li><li class="depth-1"><a href="#1-problèmes-liés-à-lipv4--nécessité-dipv6" data-for="1-problèmes-liés-à-lipv4--nécessité-dipv6">1 Problèmes liés à l’IPv4 &amp; Nécessité d’IPv6</a></li><li class="depth-2"><a href="#11-limites-dipv4" data-for="11-limites-dipv4">1.1. Limites d’IPv4</a></li><li class="depth-2"><a href="#12-apports-de-lipv6" data-for="12-apports-de-lipv6">1.2. Apports de l’IPv6</a></li><li class="depth-2"><a href="#13-les-3-techniques-de-transition" data-for="13-les-3-techniques-de-transition">1.3. Les 3 Techniques de Transition</a></li><li class="depth-1"><a href="#2-représentation-de-ladresse-ipv6" data-for="2-représentation-de-ladresse-ipv6">2 Représentation de l’adresse IPv6</a></li><li class="depth-2"><a href="#21-format-de-base" data-for="21-format-de-base">2.1. Format de base</a></li><li class="depth-2"><a href="#22-les-2-règles-de-compression-abréviation" data-for="22-les-2-règles-de-compression-abréviation">2.2. Les 2 Règles de Compression (Abréviation)</a></li><li class="depth-1"><a href="#3-types-dadresses-ipv6" data-for="3-types-dadresses-ipv6">3. Types d’adresses IPv6</a></li><li class="depth-2"><a href="#31-catégories-dadresses-ipv6" data-for="31-catégories-dadresses-ipv6">3.1. Catégories d’adresses IPv6</a></li><li class="depth-2"><a href="#32-longueur-de-préfixe--structure" data-for="32-longueur-de-préfixe--structure">3.2. Longueur de préfixe &amp; Structure</a></li><li class="depth-2"><a href="#33-types-dadresses-unicast-fondamentales" data-for="33-types-dadresses-unicast-fondamentales">3.3. Types d’adresses Unicast fondamentales</a></li><li class="depth-2"><a href="#34-structure-dune-adresse-gua" data-for="34-structure-dune-adresse-gua">3.4. Structure d’une adresse GUA</a></li><li class="depth-2"><a href="#35-adresse-lla---link-local-address" data-for="35-adresse-lla---link-local-address">3.5. Adresse LLA - Link-Local Address</a></li><li class="depth-1"><a href="#4-configuration-statique-de-gua-et-lla" data-for="4-configuration-statique-de-gua-et-lla">4 Configuration statique de GUA et LLA</a></li><li class="depth-2"><a href="#41-synthèse-des-commandes-cisco-ios" data-for="41-synthèse-des-commandes-cisco-ios">4.1. Synthèse des commandes Cisco IOS</a></li><li class="depth-2"><a href="#42-configuration-gua" data-for="42-configuration-gua">4.2. Configuration GUA</a></li><li class="depth-2"><a href="#43-configuration-lla" data-for="43-configuration-lla">4.3. Configuration LLA</a></li><li class="depth-1"><a href="#5-adressage-dynamique-des-gua-ipv6" data-for="5-adressage-dynamique-des-gua-ipv6">5 Adressage Dynamique des GUA IPv6</a></li><li class="depth-2"><a href="#51-préréquis-routeur--messages-icmpv6" data-for="51-préréquis-routeur--messages-icmpv6">5.1. Préréquis Routeur &amp; Messages ICMPv6</a></li><li class="depth-2"><a href="#52-les-3-méthodes-dattribution-dynamique" data-for="52-les-3-méthodes-dattribution-dynamique">5.2. Les 3 Méthodes d’attribution dynamique</a></li><li class="depth-2"><a href="#53-génération-de-lid-dinterface-64-bits" data-for="53-génération-de-lid-dinterface-64-bits">5.3. Génération de l’ID d’interface (64 bits)</a></li><li class="depth-2"><a href="#54-vérification-dunicité--dad-duplicate-address-detection" data-for="54-vérification-dunicité--dad-duplicate-address-detection">5.4. Vérification d’unicité : DAD (Duplicate Address Detection)</a></li><li class="depth-1"><a href="#6-lla-dynamiques-et-vérification-ipv6" data-for="6-lla-dynamiques-et-vérification-ipv6">6 LLA dynamiques et Vérification IPv6</a></li><li class="depth-2"><a href="#61-génération-dynamique-des-lla" data-for="61-génération-dynamique-des-lla">6.1. Génération dynamique des LLA</a></li><li class="depth-2"><a href="#62-commandes-de-vérification-de-la-configuration-ipv6" data-for="62-commandes-de-vérification-de-la-configuration-ipv6">6.2. Commandes de vérification de la configuration IPv6</a></li><li class="depth-1"><a href="#7-adresses-de-multidiffusion-multicast-ipv6" data-for="7-adresses-de-multidiffusion-multicast-ipv6">7 Adresses de multidiffusion (Multicast) IPv6</a></li><li class="depth-2"><a href="#71-principes-généraux" data-for="71-principes-généraux">7.1. Principes généraux</a></li><li class="depth-2"><a href="#72-adresses-de-multidiffusion-attribuées-courantes" data-for="72-adresses-de-multidiffusion-attribuées-courantes">7.2. Adresses de multidiffusion attribuées courantes</a></li><li class="depth-2"><a href="#73-multidiffusion-de-nœud-sollicité-solicited-node" data-for="73-multidiffusion-de-nœud-sollicité-solicited-node">7.3. Multidiffusion de nœud sollicité (Solicited-Node)</a></li><li class="depth-1"><a href="#8-subnetting-ipv6" data-for="8-subnetting-ipv6">8. Subnetting IPv6</a></li><li class="depth-2"><a href="#81-principe-de-conception" data-for="81-principe-de-conception">8.1. Principe de conception</a></li><li class="depth-2"><a href="#82-mécanique-dincrémentation-hexadécimale" data-for="82-mécanique-dincrémentation-hexadécimale">8.2. Mécanique d’Incrémentation Hexadécimale</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3426b91c.js" type="module" data-persist="true"></script></html>

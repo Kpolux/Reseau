@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Module 08 Couche reseau</title><meta charset="utf-8"/><link rel="preload" href="../index-bb6c1746.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="Module 08 Couche reseau"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Module 08 Couche reseau"/><meta name="twitter:description" content="Couche réseau (Layer 3) Rappel Modèle OSI vs Modèle TCP/IP Modèle OSI (7 couches)Modèle TCP/IP (4 couches)Rôle principal7. Application 6."/><meta property="og:description" content="Couche réseau (Layer 3) Rappel Modèle OSI vs Modèle TCP/IP Modèle OSI (7 couches)Modèle TCP/IP (4 couches)Rôle principal7. Application 6."/><meta property="og:image:alt" content="Couche réseau (Layer 3) Rappel Modèle OSI vs Modèle TCP/IP Modèle OSI (7 couches)Modèle TCP/IP (4 couches)Rôle principal7. Application 6."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/basereseau/module-08-couche-reseau"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/basereseau/module-08-couche-reseau"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Couche réseau (Layer 3) Rappel Modèle OSI vs Modèle TCP/IP Modèle OSI (7 couches)Modèle TCP/IP (4 couches)Rôle principal7. Application 6."/><meta name="generator" content="Quartz"/><link href="../index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/basereseau/module-08-couche-reseau-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/basereseau/module-08-couche-reseau-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/basereseau/module-08-couche-reseau-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="basereseau/module-08-couche-reseau" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-6" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-6" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../basereseau/">BaseReseau</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Module 08 Couche reseau</a></div></nav><h1 class="article-title">Module 08 Couche reseau</h1><p show-comma="true" class="content-meta"><time datetime="2026-10-27T22:07:53.518Z">Oct 27, 2026</time><span>13 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="couche-réseau-layer-3">Couche réseau (Layer 3)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#couche-réseau-layer-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<h2 id="rappel">Rappel<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rappel" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="modèle-osi-vs-modèle-tcpip">Modèle OSI vs Modèle TCP/IP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#modèle-osi-vs-modèle-tcpip" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th><strong>Modèle OSI (7 couches)</strong></th><th><strong>Modèle TCP/IP (4 couches)</strong></th><th><strong>Rôle principal</strong></th></tr></thead><tbody><tr><td><strong>7. Application</strong><br/><br/>  <br/>  <br/><br/><strong>6. Présentation</strong><br/><br/>  <br/>  <br/><br/><strong>5. Session</strong></td><td><strong>Application</strong></td><td>Fournit les services réseau aux applications (HTTP, FTP, DNS, DHCP).</td></tr><tr><td><strong>4. Transport</strong></td><td><strong>Transport</strong></td><td>Assure la communication de bout en bout et le contrôle de flux (TCP, UDP).</td></tr><tr><td><strong>3. Réseau</strong></td><td><strong>Internet</strong></td><td><strong>Gère l’adressage logique et l’acheminement des paquets (IPv4, IPv6, ICMP, OSPF)</strong>.</td></tr><tr><td><strong>2. Liaison de données</strong><br/><br/>  <br/>  <br/><br/><strong>1. Physique</strong></td><td><strong>Accès réseau</strong></td><td>Gère l’encapsulation, l’adressage physique (MAC) et le transfert de bits sur le support.<br/><br/><br/><br/><br/>- cuivre, fibre optique, sans fil</td></tr></tbody></table></div>
+<h3 id="pdu-protocol-data-unit-"><strong>PDU (Protocol Data Unit) :</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pdu-protocol-data-unit-" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Un <strong>PDU</strong> (Unité de données de protocole) est le nom donné au bloc de données échangé à un niveau spécifique du modèle OSI ou TCP/IP. À chaque passage d’une couche à une autre, des informations de contrôle (en-têtes/remorques) y sont ajoutées ou retirées : c’est l’<strong>encapsulation</strong> / <strong>désencapsulation</strong>.</p>
+<ul>
+<li>
+<p><strong>Couche 4 (Transport) :</strong></p>
+<ul>
+<li>PDU = <strong>Segment</strong> (TCP) ou Datagramme (UDP)</li>
+</ul>
+</li>
+<li>
+<p><strong>Couche 3 (Réseau) :</strong></p>
+<ul>
+<li>PDU = <strong>Paquet</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Couche 2 (Liaison de données) :</strong></p>
+<ul>
+<li>PDU = <strong>Trame</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="introduction">Introduction<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introduction" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Pourquoi ce module ?</strong></p>
+<ul>
+<li>Les SWITCH  (layer 2) permettent de faire circuler les trames au sein d’un même réseau local.</li>
+<li>envoyer les donnée à un destinataire situé sur un <strong>autre réseau</strong> nécessite l’accès aux <strong>routeurs</strong> et l’utilisation des <strong>protocoles de la couche réseau</strong> deviennent indispensables pour acheminer les messages de bout en bout.</li>
+</ul>
+</li>
+<li>
+<p><strong>Objectif du module :</strong></p>
+<ul>
+<li>Expliquer comment les routeurs utilisent les protocoles et les services de la couche réseau pour assurer une connectivité de bout en bout.</li>
+</ul>
+</li>
+</ul>
+<h2 id="couche-réseau">Couche réseau<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#couche-réseau" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-rôle-et-protocoles-principaux">1. Rôle et protocoles principaux<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-rôle-et-protocoles-principaux" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Rôle :</strong></p>
+<ul>
+<li>Assurer l’acheminement des paquets de manière indépendante .</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocoles :</strong></p>
+<ul>
+<li>Principaux :
+<ul>
+<li><strong>IPv4</strong> et <strong>IPv6</strong>.</li>
+</ul>
+</li>
+<li><strong>Autres  :</strong>
+<ul>
+<li>Routage : <strong>OSPF</strong> (<em>Open Shortest Path First</em>),</li>
+<li>messages/diagnostics : <strong>ICMP</strong> (<em>Internet Control Message Protocol</em>).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-les-4-opérations-de-base-de-la-couche-réseau">2. Les 4 opérations de base de la couche réseau<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-les-4-opérations-de-base-de-la-couche-réseau" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Adressage des terminaux :</strong></p>
+<ul>
+<li>Attribution d’une adresse IP unique à chaque équipement (Host) pour l’identifier.</li>
+</ul>
+</li>
+<li>
+<p><strong>Encapsulation :</strong></p>
+<ul>
+<li>Ajout de l’en-tête IP ( adresses IP source et destination) à la PDU de la couche Transport pour créer un <strong>paquet</strong> <em>(réalisé par l’émetteur)</em>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Routage :</strong></p>
+<ul>
+<li>Sélection du meilleur chemin par les <strong>routeurs</strong> pour acheminer le paquet à travers les réseaux jusqu’à la destination.</li>
+</ul>
+</li>
+<li>
+<p><strong>Désencapsulation :</strong></p>
+<ul>
+<li>Vérification de l’IP de destination, suppression de l’en-tête IP et transmission de la PDU à la couche Transport <em>(réalisée par le destinataire)</em>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-encapsulation-ip">3. Encapsulation IP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-encapsulation-ip" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="31-principe-dencapsulation">3.1. Principe d’encapsulation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#31-principe-dencapsulation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Fonctionnement :</strong></p>
+<ul>
+<li>L’IP encapsule le segment de la couche transport en lui ajoutant un en-tête IP pour former un <strong>paquet IP</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Indépendance des couches :</strong></p>
+<ul>
+<li>L’en-tête IP n’altère pas les données transmises (PDU Transport/UDP/TCP reste inchangée).</li>
+</ul>
+</li>
+<li>
+<p><strong>Conservation de l’adressage :</strong></p>
+<ul>
+<li>Les adresses IP source et destination restent identiques de l’émetteur au destinataire (sauf en cas de NAT pour IPv4).</li>
+<li>QUESTION : Est ce le cas la MAC adresse pour la trame ?</li>
+</ul>
+</li>
+</ul>
+<pre><code>COUCHE TRANSPORT (Niveau 4)
++-------------------+-----------------------------+
+|  En-tête TCP/UDP  |           Données           |  &lt;-- PDU Couche 4 : SEGMENT
++-------------------+-----------------------------+
+          |
+          |  (L'IP encapsule le segment)
+          v
+COUCHE RÉSEAU (Niveau 3)
++-------------------+-----------------------------+-----------------------------+
+|    En-tête IP     |       En-tête TCP/UDP       |           Données           |
++-------------------+-----------------------------+-----------------------------+
+\_______________________________________________________________________________/
+                                        |
+                            PDU Couche 3 : PAQUET IP
+</code></pre>
+<h3 id="4-caractéristiques-du-protocole-ip">4. Caractéristiques du protocole IP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#4-caractéristiques-du-protocole-ip" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="1-concept-général">1. Concept général<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-concept-général" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Conception :</strong></p>
+<ul>
+<li>Réduit la surcharge réseau en fournissant uniquement les fonctions basiques de transfert de paquets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Absence de suivi :</strong></p>
+<ul>
+<li>Ne gère ni le suivi ni le contrôle de flux (fonctions déléguées à la couche Transport, ex: TCP).</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-propriétés-principales">2. Propriétés principales<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-propriétés-principales" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h5 id="21-connectionless-sans-connexion">2.1. <em>Connectionless</em> (Sans connexion)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#21-connectionless-sans-connexion" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>Aucune connexion préalable n’est établie avec le destinataire avant l’envoi.</p>
+<ul>
+<li>Fonctionnement
+<ul>
+<li>
+<p><strong>Absence de négociation :</strong></p>
+<ul>
+<li>Aucun échange initial de contrôle n’est requis avant la transmission des données.</li>
+</ul>
+</li>
+<li>
+<p><strong>Analogie :</strong></p>
+<ul>
+<li>Similaire à l’envoi d’une lettre postale sans avertir le destinataire au préalable.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="22-best-effort--remise-au-mieux">2.2. <em>Best Effort</em>  (Remise au mieux)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#22-best-effort--remise-au-mieux" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<p>La livraison des paquets n’est pas garantie (protocole non fiable).</p>
+<ul>
+<li>Fiabilité et surcharge
+<ul>
+<li>
+<p><strong>Réduction du <em>overhead</em> :</strong></p>
+<ul>
+<li>L’absence de champs de suivi dans l’en-tête allège le trafic réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Incertitudes d’acheminement :</strong></p>
+<ul>
+<li>L’émetteur ne sait pas si le destinataire est en ligne, ni si le paquet est bien arrivé ou lisible.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pertes de paquets :</strong></p>
+<ul>
+<li>Les paquets peuvent être perdus ou arriver désordonnés ; la gestion de la réémission incombe aux couches supérieures (TCP).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="23-media-independent-indépendant-du-support">2.3. <em>Media Independent</em> (Indépendant du support)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#23-media-independent-indépendant-du-support" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h5>
+<ul>
+<li>
+<p>Adaptation aux médias</p>
+<ul>
+<li><strong>Flexibilité :</strong>
+<ul>
+<li>Les paquets IP peuvent transiter sur différents supports physiques successifs (Ethernet cuivre, fibre optique, Wi-Fi).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>MTU et Fragmentation</p>
+<ul>
+<li>
+<p><strong>MTU (<em>Maximum Transmission Unit</em>) :</strong></p>
+<ul>
+<li>Taille maximale de la PDU acceptée par le support physique, communiquée par la couche liaison de données (Couche 2).</li>
+</ul>
+</li>
+<li>
+<p><strong>Fragmentation IPv4 :</strong></p>
+<ul>
+<li>Si un paquet dépasse la MTU d’un support intermédiaire, un routeur peut le couper en plusieurs paquets (génère de la latence).</li>
+</ul>
+</li>
+<li>
+<p><strong>IPv6 :</strong></p>
+<ul>
+<li>La fragmentation par les routeurs est <strong>impossible</strong> en IPv6.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-paquet-ipv4">5. Paquet IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#5-paquet-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><a href="https://www.rfc-editor.org/info/rfc791/" class="external external-link">RFC 791<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<pre><code>	0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Version|  IHL  |Type of Service|          Total Length         |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |         Identification        |Flags|      Fragment Offset    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |  Time to Live |    Protocol   |         Header Checksum       |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                       Source Address                          |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Destination Address                        |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Options                    |    Padding    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                    Example Internet Datagram Header
+</code></pre>
+<ul>
+<li><strong>Taille de base :</strong>
+<ul>
+<li>20 octets (sans les options).</li>
+</ul>
+</li>
+</ul>
+<h4 id="51-en-tête-de-paquet-ipv4">5.1. En-tête de paquet IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#51-en-tête-de-paquet-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Rôle :</strong></p>
+<ul>
+<li>Utilisé pour garantir la livraison du paquet à son prochain arrêt vers la destination finale.</li>
+</ul>
+</li>
+<li>
+<p><strong>Structure :</strong></p>
+<ul>
+<li>Composé de champs contenant des informations binaires examinées par les processus de couche 3.</li>
+</ul>
+</li>
+</ul>
+<h4 id="52-champs-den-tête-des-paquets-ipv4">5.2. Champs d’en-tête des paquets IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#52-champs-den-tête-des-paquets-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>Champs principaux :</strong></p>
+<ul>
+<li>
+<p><strong>Version :</strong></p>
+<ul>
+<li>Contient la valeur binaire <code>0100</code> (4 bits) pour identifier IPv4.</li>
+</ul>
+</li>
+<li>
+<p><strong>Services différenciés (DS / ToS) :</strong></p>
+<ul>
+<li>Champ de 8 bits définissant la priorité de la qualité de service (QoS) via DSCP et ECN.</li>
+</ul>
+</li>
+<li>
+<p><strong>Durée de vie (TTL) :</strong></p>
+<ul>
+<li>Valeur de 8 bits évitant les boucles infinies. Décrémentée de 1 par chaque routeur ; à 0, le paquet est rejeté et un message ICMP est envoyé à la source.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocole :</strong></p>
+<ul>
+<li>Valeur de 8 bits indiquant le protocole de couche supérieure transporté (ex: ICMP = 1, TCP = 6, UDP = 17).</li>
+</ul>
+</li>
+<li>
+<p><strong>Somme de contrôle d’en-tête (<em>Header Checksum</em>) :</strong></p>
+<ul>
+<li>Vérifie la présence d’erreurs dans l’en-tête (recalculée à chaque routeur car le TTL change).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IPv4 source :</strong></p>
+<ul>
+<li>Adresse de 32 bits de l’émetteur (unicast).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IPv4 de destination :</strong></p>
+<ul>
+<li>Adresse de 32 bits du destinataire (unicast, broadcast ou multicast).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Autres champs :</strong></p>
+<ul>
+<li>
+<p><strong>Validation/Taille :</strong></p>
+<ul>
+<li><code>IHL</code> (longueur d’en-tête), <code>Longueur totale</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fragmentation :</strong></p>
+<ul>
+<li><code>Identification</code>, <code>Indicateurs</code> (Flags), <code>Décalage du fragment</code> (utilisés par les routeurs pour découper/recomposer un paquet si la MTU est plus petite).</li>
+</ul>
+</li>
+<li>
+<p><strong>Options / Padding :</strong> Rarement utilisés.</p>
+</li>
+</ul>
+<h3 id="6-ipv6">6. IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#6-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="61-limites-du-protocole-ipv4">6.1. Limites du protocole IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#61-limites-du-protocole-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Épuisement des adresses :</strong></p>
+<ul>
+<li>Nombre limité d’adresses publiques uniques (environ 4 milliards).</li>
+</ul>
+</li>
+<li>
+<p><strong>Perte de connectivité de bout en bout :</strong></p>
+<ul>
+<li>Le NAT (<em>Network Address Translation</em>) masque l’adresse IP interne, posant problème à certaines applications.</li>
+</ul>
+</li>
+<li>
+<p><strong>Complexité du réseau :</strong></p>
+<ul>
+<li>Le NAT ajoute de la latence et rend le dépannage plus complexe.</li>
+</ul>
+<h4 id="62-aperçu-dipv6">6.2. Aperçu d’IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#62-aperçu-dipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+</li>
+<li>
+<p><strong>Espace d’adressage accru :</strong></p>
+<ul>
+<li>Adresses sur <strong>128 bits</strong> (340 sextillions d’adresses) contre 32 bits en IPv4.</li>
+</ul>
+</li>
+<li>
+<p><strong>Traitement simplifié :</strong></p>
+<ul>
+<li>En-tête simplifié avec moins de champs.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fin du NAT requis :</strong></p>
+<ul>
+<li>Chaque équipement peut avoir une adresse IPv6 publique unique, restaurant la connectivité de bout en bout.</li>
+</ul>
+</li>
+</ul>
+<h4 id="63-comparaison-des-en-têtes-ipv4-et-ipv6">6.3. Comparaison des en-têtes IPv4 et IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#63-comparaison-des-en-têtes-ipv4-et-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><img src="../basereseau/pièces-jointes/pasted-image-20261006151759.png" alt width="auto" height="auto"/></p>
+<ul>
+<li>
+<p><strong>Taille de l’en-tête IPv6 :</strong> Longueur fixe de <strong>40 octets</strong>.</p>
+</li>
+<li>
+<p><strong>Champs conservés/adaptés :</strong></p>
+<ul>
+<li>
+<p><code>Version</code> (conservé).</p>
+</li>
+<li>
+<p><code>Source Address</code> et <code>Destination Address</code> (étendus à 128 bits).</p>
+</li>
+<li>
+<p><code>Type of Service</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>Classe de trafic</code>.</p>
+</li>
+<li>
+<p><code>Protocol</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>En-tête suivant</code> (<em>Next Header</em>).</p>
+</li>
+<li>
+<p><code>TTL</code> <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">→</span></span></span></span> <code>Limite de nombre de tronçons</code> (<em>Hop Limit</em>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Champs supprimés :</strong></p>
+<ul>
+<li><code>IHL</code>, <code>Checksum</code>, <code>Identification</code>, <code>Flags</code>, <code>Fragment Offset</code> (la fragmentation est gérée différemment et non par les routeurs).</li>
+</ul>
+</li>
+</ul>
+<h4 id="64-champs-de-len-tête-de-paquet-ipv6">6.4. Champs de l’en-tête de paquet IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#64-champs-de-len-tête-de-paquet-ipv6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><a href="https://www.rfc-editor.org/rfc/rfc2460" class="external external-link">RFC 2460<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<pre><code>	 0                   1                   2                   3
+	 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	|Version| Traffic Class |           Flow Label                  |
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	|         Payload Length        |  Next Header  |   Hop Limit   |
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	|                                                               |
+	+                                                               +
+	|                                                               |
+	+                         Source Address                        +
+	|                           (128 bits)                          |
+	+                                                               +
+	|                                                               |
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+	|                                                               |
+	+                                                               +
+	|                                                               |
+	+                      Destination Address                      +
+	|                           (128 bits)                          |
+	+                                                               +
+	|                                                               |
+	+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre>
+<ul>
+<li>
+<p><strong>Version :</strong></p>
+<ul>
+<li>Valeur <code>0110</code> (4 bits) pour IPv6.</li>
+</ul>
+</li>
+<li>
+<p><strong>Classe de trafic :</strong></p>
+<ul>
+<li>Priority/QoS (8 bits, équivalent DS/ToS).</li>
+</ul>
+</li>
+<li>
+<p><strong>Étiquetage de flux :</strong></p>
+<ul>
+<li>Identifie les paquets d’un même flux pour un traitement identique par les routeurs (20 bits).</li>
+</ul>
+</li>
+<li>
+<p><strong>Longueur des données utiles (<em>Payload Length</em>) :</strong></p>
+<ul>
+<li>Taille de la charge utile sans l’en-tête fixe (16 bits).</li>
+</ul>
+</li>
+<li>
+<p><strong>En-tête suivant (<em>Next Header</em>) :</strong></p>
+<ul>
+<li>Identifie le type d’en-tête suivant (protocole L4 ou en-tête d’extension) (8 bits).</li>
+</ul>
+</li>
+<li>
+<p><strong>Limite de nombre de tronçons (<em>Hop Limit</em>) :</strong></p>
+<ul>
+<li>Évite les boucles en décrémentant de 1 à chaque saut ; paquet rejeté à 0 (8 bits).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IPv6 source :</strong></p>
+<ul>
+<li>Adresse de 128 bits de l’émetteur.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IPv6 de destination :</strong></p>
+<ul>
+<li>Adresse de 128 bits du destinataire.</li>
+</ul>
+</li>
+<li>
+<p><strong>En-têtes d’extension :</strong></p>
+<ul>
+<li>Informations optionnelles (sécurité, fragmentation) insérées entre l’en-tête IPv6 et les données.</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-méthode-de-routage-des-hôtes">7. Méthode de routage des hôtes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#7-méthode-de-routage-des-hôtes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="71-décisions-relatives-aux-transmissions">7.1 Décisions relatives aux transmissions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#71-décisions-relatives-aux-transmissions" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Lieu de création des paquets :</strong></p>
+<ul>
+<li>Toujours créés sur l’hôte source (IPv4 et IPv6).</li>
+</ul>
+</li>
+<li>
+<p><strong>Destinations possibles du trafic :</strong></p>
+<ul>
+<li>
+<p><strong>Soi-même :</strong></p>
+<ul>
+<li>Adresse de bouclage (<em>loopback</em>) <code>127.0.0.1</code> (IPv4) ou <code>::1</code> (IPv6) pour tester la pile TCP/IP locale.</li>
+</ul>
+</li>
+<li>
+<p><strong>Hôte local :</strong></p>
+<ul>
+<li>Destinataire situé sur le même réseau local (même adresse réseau).</li>
+</ul>
+</li>
+<li>
+<p><strong>Hôte distant :</strong></p>
+<ul>
+<li>Destinataire situé sur un réseau différent (adresse réseau différente).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Détermination de la destination :</strong></p>
+<ul>
+<li>
+<p><strong>IPv4 :</strong></p>
+<ul>
+<li>L’hôte émetteur compare son masque de sous-réseau et son adresse IP avec l’IP de destination.</li>
+</ul>
+</li>
+<li>
+<p><strong>IPv6 :</strong></p>
+<ul>
+<li>Le routeur local annonce le préfixe réseau à tous les hôtes.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="72-passerelle-par-défaut-default-gateway">7.2 Passerelle par défaut (<em>Default Gateway</em>)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#72-passerelle-par-défaut-default-gateway" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Rôle :</strong></p>
+<ul>
+<li>Équipement de couche 3 (routeur ou switch L3) permettant d’acheminer le trafic hors du réseau local.</li>
+</ul>
+</li>
+<li>
+<p><strong>Analogie :</strong></p>
+<ul>
+<li>La porte de sortie d’une pièce pour accéder à d’autres pièces.</li>
+</ul>
+</li>
+<li>
+<p><strong>Caractéristiques :</strong></p>
+<ul>
+<li>
+<p>Possède une adresse IP locale dans le même sous-réseau que les hôtes.</p>
+</li>
+<li>
+<p>Accepte les données du réseau local et les transfère vers les réseaux distants.</p>
+</li>
+<li>
+<p>Indispensable pour la communication hors du réseau local.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="73-orientation-vers-la-passerelle-par-défaut">7.3 Orientation vers la passerelle par défaut<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#73-orientation-vers-la-passerelle-par-défaut" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Obtention de l’adresse de passerelle :</strong></p>
+<ul>
+<li>
+<p><strong>IPv4 :</strong></p>
+<ul>
+<li>Configurée manuellement ou attribuée dynamiquement via DHCP.</li>
+</ul>
+</li>
+<li>
+<p><strong>IPv6 :</strong></p>
+<ul>
+<li>Annoncée par le routeur ou configurée manuellement.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Route par défaut :</strong></p>
+<ul>
+<li>Sa configuration crée une route par défaut dans la table de routage de l’hôte pour tout le trafic distant.</li>
+</ul>
+</li>
+</ul>
+<h4 id="74-tables-de-routage-des-hôtes">7.4 Tables de routage des hôtes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#74-tables-de-routage-des-hôtes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Commandes de vérification (Windows) :</strong></p>
+<ul>
+<li><code>route print</code> ou <code>netstat -r</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sections principales du résultat :</strong></p>
+<ul>
+<li>
+<p><strong>Liste des interfaces :</strong></p>
+<ul>
+<li>Adresses MAC et numéros d’interface (Ethernet, Wi-Fi, Bluetooth).</li>
+</ul>
+</li>
+<li>
+<p><strong>Tableau des routes IPv4 :</strong></p>
+<ul>
+<li>Liste toutes les routes IPv4 connues (connexions directes, réseau local, route par défaut <code>0.0.0.0</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Tableau des routes IPv6 :</strong></p>
+<ul>
+<li>Liste toutes les routes IPv6 connues (connexions directes, local, route par défaut <code>::/0</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-introduction-au-routage">8. Introduction au routage<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#8-introduction-au-routage" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="81-décisions-relatives-à-la-transmission-de-paquets-du-routeur">8.1 Décisions relatives à la transmission de paquets du routeur<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#81-décisions-relatives-à-la-transmission-de-paquets-du-routeur" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Rôle des routeurs :</strong></p>
+<ul>
+<li>Périphériques intermédiaires qui relient différents réseaux et utilisent des tables de routage pour acheminer les paquets.</li>
+</ul>
+</li>
+<li>
+<p><strong>Processus lors de la réception d’un paquet :</strong></p>
+<ol>
+<li>
+<p><strong>Désencapsulation :</strong></p>
+<ol>
+<li>Le routeur reçoit la trame de couche 2, vérifie les erreurs et retire l’en-tête/remorque Ethernet.</li>
+</ol>
+</li>
+<li>
+<p><strong>Examen de l’adresse :</strong></p>
+<ol>
+<li>Le routeur examine l’adresse IP de destination et cherche la correspondance la plus longue (<em>longest prefix match</em>) dans sa table de routage.</li>
+</ol>
+</li>
+<li>
+<p><strong>Ré-encapsulation et transmission :</strong></p>
+<ol>
+<li>Le paquet est encapsulé dans une nouvelle trame de couche 2 appropriée pour le petit saut suivant (<em>next-hop</em>).</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="82-table-de-routage-du-routeur-ip">8.2 Table de routage du routeur IP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#82-table-de-routage-du-routeur-ip" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Types d’entrées dans la table de routage :</strong></p>
+<ul>
+<li>
+<p><strong>Réseaux directement connectés :</strong></p>
+<ul>
+<li>Interfaces actives du routeur configurées avec une adresse IP (ex: <code>192.168.10.0/24</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Réseaux distants :</strong></p>
+<ul>
+<li>Réseaux non connectés physiquement au routeur, appris via des routes statiques ou des protocoles de routage dynamique (ex: <code>10.1.1.0/24</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Route par défaut (<em>Gateway of Last Resort</em>) :</strong></p>
+<ul>
+<li>Utilisée pour transférer les paquets lorsqu’aucune correspondance spécifique n’est trouvée dans la table (ex: <code>0.0.0.0/0</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Modes d’apprentissage des réseaux distants :</strong></p>
+<ul>
+<li>
+<p><strong>Manuellement :</strong></p>
+<ul>
+<li>Saisie manuelle d’itinéraires statiques par un administrateur.</li>
+</ul>
+</li>
+<li>
+<p><strong>Dynamiquement :</strong></p>
+<ul>
+<li>Échange automatique d’informations de routage entre routeurs via des protocoles dédiés.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="853-routage-statique">8.5.3 Routage statique<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#853-routage-statique" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Caractéristiques :</strong></p>
+<ul>
+<li>
+<p>Configuration manuelle exigeant de spécifier le réseau distant et l’adresse IP du prochain saut (<em>next-hop</em>).</p>
+</li>
+<li>
+<p><strong>Absence d’adaptation automatique :</strong></p>
+<ul>
+<li>En cas de changement de topologie ou de panne de lien, l’administrateur doit reconfigurer la route manuellement.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Cas d’usage :</strong></p>
+<ul>
+<li>Petits réseaux, connexions peu complexes, liaisons non redondantes, ou configuration d’une route par défaut vers Internet.</li>
+</ul>
+</li>
+<li>
+<p><strong>Commande Cisco IOS de base :</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="IOS" data-theme="github-light github-dark"><code data-language="IOS" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Router(config)# ip route &lt;réseau_distant> &lt;masque> &lt;ip_prochain_saut|interface></span></span></code></pre></figure>
+</li>
+</ul>
+<h4 id="854-routage-dynamique">8.5.4 Routage dynamique<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#854-routage-dynamique" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Principe :</strong></p>
+<ul>
+<li>Découverte automatique des réseaux distants, maintien des tables à jour et sélection du meilleur chemin sans intervention humaine.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adaptabilité :</strong></p>
+<ul>
+<li>En cas de défaillance d’un lien, le protocole recalcule automatiquement un nouveau meilleur chemin.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocoles courants :</strong></p>
+<ul>
+<li>OSPF(<em>Open Shortest Path First</em>)
+<ul>
+<li>état de liens (<em>link-state</em>), standard ouvert (IETF), utilisant l’algorithme de Dijkstra pour calculer le chemin le plus court basé sur la bande passante (coût)</li>
+</ul>
+</li>
+<li>EIGRP(<em>Enhanced Interior Gateway Routing Protocol</em>)
+<ul>
+<li>hybride / vecteur de distance avancé (développé par Cisco), utilisant l’algorithme DUAL pour garantir une convergence très rapide et un chargement équilibré</li>
+</ul>
+</li>
+<li>IS-IS(<em>Intermediate System to Intermediate System</em>)
+<ul>
+<li>à état de liens (standard ISO/ITU), très similaire à OSPF dans son fonctionnement mais opérant directement sur la couche 2 (au-dessus de la couche liaison de données)</li>
+<li>Infrastructures de grands opérateurs télécoms (<em>Service Providers</em>) et grands réseaux d’interconnexion de datacenters.</li>
+</ul>
+</li>
+<li>BGP(<em>Border Gateway Protocol</em>).
+<ul>
+<li>à vecteur de chemins (<em>path-vector</em>), utilisé pour échanger des informations d’acheminement entre différents systèmes autonomes (AS) sur Internet.</li>
+<li>Interconnexion entre un réseau d’entreprise et ses fournisseurs d’accès Internet (multihoming), ou routage global sur la dorsale Internet (<em>Internet backbone</em>).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="856-introduction-à-une-table-de-routage-ipv4">8.5.6 Introduction à une table de routage IPv4<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#856-introduction-à-une-table-de-routage-ipv4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p><strong>Commande d’affichage Cisco IOS :</strong> <code>show ip route</code>.</p>
+</li>
+<li>
+<p><strong>Codes de provenance des routes courantes :</strong></p>
+<ul>
+<li>
+<p><strong><code>L</code> (<em>Local</em>) :</strong></p>
+<ul>
+<li>Adresse IP spécifique attribuée à l’interface du routeur (masque <code>/32</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>C</code> (<em>Connected</em>) :</strong></p>
+<ul>
+<li>Réseau directement connecté à l’interface.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>S</code> (<em>Static</em>) :</strong></p>
+<ul>
+<li>Route statique configurée par un administrateur (<code>S*</code> indique une route statique par défaut candidate).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>O</code> (OSPF) :</strong></p>
+<ul>
+<li>Route apprise dynamiquement via le protocole OSPF.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>D</code> (EIGRP) :</strong></p>
+<ul>
+<li>Route apprise dynamiquement via le protocole EIGRP.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="structure-dune-entrée-de-table-de-routage">Structure d’une entrée de table de routage<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#structure-dune-entrée-de-table-de-routage" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>  Code de source
+    |
+    | Réseau distant   Métrique (Distance administrative / Coût)
+    v        |           |
+             V           V    
+    O    10.1.1.0/24 [110/2] via 209.165.200.226, 00:02:45, GigabitEthernet0/0/1
+			                         ^              ^                     ^
+			                         |              |                     |
+			               Adresse du saut   Horodatage       Interface de sortie
+			                    suivant
+</code></pre>
+<ul>
+<li>
+<p>Distance Administrative (AD)</p>
+<ul>
+<li>
+<p><strong>Rôle :</strong> Indique la <strong>fiabilité de la source</strong> (utilisée pour choisir entre plusieurs protocoles).</p>
+</li>
+<li>
+<p><strong>Portée :</strong> Locale au routeur.</p>
+</li>
+<li>
+<p><strong>Valeur :</strong> De <code>0</code> (plus fiable) à <code>255</code> (non fiable / ignorée).</p>
+</li>
+<li>
+<p><strong>Valeurs clés (Cisco) :</strong></p>
+<ul>
+<li><code>0</code> : Connecté directement</li>
+<li><code>1</code> : Statique</li>
+<li><code>90</code> : EIGRP interne</li>
+<li><code>110</code> : OSPF</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Métrique (Coût)</p>
+<ul>
+<li>
+<p><strong>Rôle :</strong> Évalue la <strong>qualité du chemin</strong> au sein d’un <strong>même protocole</strong>.</p>
+</li>
+<li>
+<p><strong>Portée :</strong> Échangée entre routeurs.</p>
+</li>
+<li>
+<p><strong>Valeur :</strong> Plus elle est basse, meilleur est le chemin.</p>
+</li>
+<li>
+<p><strong>Critères par protocole :</strong></p>
+<ul>
+<li><strong>OSPF :</strong> Bande passante (<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Co</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">u</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˆ</span></span></span></span></span></span></span><span class="mord">t</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.2251em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">BP lien</span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">BP r</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mtight">e</span></span><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord mtight">ˊ</span></span></span></span></span></span></span><span class="mord mtight">f.</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>).</li>
+<li><strong>EIGRP :</strong> Bande passante min. + délai (métrique composée).</li>
+<li><strong>RIP :</strong> Nombre de sauts (max 15).</li>
+<li><strong>BGP :</strong> Attributs (Weight, Local Pref, AS-Path, MED).
+<img src="../basereseau/pièces-jointes/pasted-image-20261006164117.png" alt width="auto" height="auto"/></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-4" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#couche-réseau-layer-3" data-for="couche-réseau-layer-3">Couche réseau (Layer 3)</a></li><li class="depth-1"><a href="#rappel" data-for="rappel">Rappel</a></li><li class="depth-2"><a href="#modèle-osi-vs-modèle-tcpip" data-for="modèle-osi-vs-modèle-tcpip">Modèle OSI vs Modèle TCP/IP</a></li><li class="depth-2"><a href="#pdu-protocol-data-unit-" data-for="pdu-protocol-data-unit-">PDU (Protocol Data Unit) :</a></li><li class="depth-2"><a href="#introduction" data-for="introduction">Introduction</a></li><li class="depth-1"><a href="#couche-réseau" data-for="couche-réseau">Couche réseau</a></li><li class="depth-2"><a href="#1-rôle-et-protocoles-principaux" data-for="1-rôle-et-protocoles-principaux">1. Rôle et protocoles principaux</a></li><li class="depth-2"><a href="#2-les-4-opérations-de-base-de-la-couche-réseau" data-for="2-les-4-opérations-de-base-de-la-couche-réseau">2. Les 4 opérations de base de la couche réseau</a></li><li class="depth-2"><a href="#3-encapsulation-ip" data-for="3-encapsulation-ip">3. Encapsulation IP</a></li><li class="depth-2"><a href="#4-caractéristiques-du-protocole-ip" data-for="4-caractéristiques-du-protocole-ip">4. Caractéristiques du protocole IP</a></li><li class="depth-2"><a href="#5-paquet-ipv4" data-for="5-paquet-ipv4">5. Paquet IPv4</a></li><li class="depth-2"><a href="#6-ipv6" data-for="6-ipv6">6. IPv6</a></li><li class="depth-2"><a href="#7-méthode-de-routage-des-hôtes" data-for="7-méthode-de-routage-des-hôtes">7. Méthode de routage des hôtes</a></li><li class="depth-2"><a href="#8-introduction-au-routage" data-for="8-introduction-au-routage">8. Introduction au routage</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>Backlinks</h3><ul id="list-0" class="overflow"><li><a href="../basereseau/module-11-adressage-ipv4" class="internal">Module 11 Adressage IPv4</a></li><li><a href="../basereseau/module-12-adressage-ipv6" class="internal">Module 12 Adressage IPv6</a></li><li><a href="../basereseau/module-13-icmp" class="internal">Module 13 ICMP</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-3426b91c.js" type="module" data-persist="true"></script></html>
