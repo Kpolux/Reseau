@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><title>Module 16 Principes fondamentaux de la sécurité réseau</title><meta charset="utf-8"/><link rel="preload" href="./index-bb6c1746.css" as="style"/><link rel="preload" href="./prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="Quartz 5"/><meta property="og:title" content="Module 16 Principes fondamentaux de la sécurité réseau"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Module 16 Principes fondamentaux de la sécurité réseau"/><meta name="twitter:description" content="sécurité cybersecurité AVERTISSEMENT LÉGAL ET ÉTHIQUE Le contenu de ce cours (outils, vulnérabilités, tests d’intrusion) est présenté à des fins strictement pédagogiques."/><meta property="og:description" content="sécurité cybersecurité AVERTISSEMENT LÉGAL ET ÉTHIQUE Le contenu de ce cours (outils, vulnérabilités, tests d’intrusion) est présenté à des fins strictement pédagogiques."/><meta property="og:image:alt" content="sécurité cybersecurité AVERTISSEMENT LÉGAL ET ÉTHIQUE Le contenu de ce cours (outils, vulnérabilités, tests d’intrusion) est présenté à des fins strictement pédagogiques."/><meta property="twitter:domain" content="quartz.jzhao.xyz"/><meta property="og:url" content="https://quartz.jzhao.xyz/module-16-principes-fondamentaux-de-la-sécurité-réseau"/><meta property="twitter:url" content="https://quartz.jzhao.xyz/module-16-principes-fondamentaux-de-la-sécurité-réseau"/><link rel="icon" href="./static/icon.png"/><meta name="description" content="sécurité cybersecurité AVERTISSEMENT LÉGAL ET ÉTHIQUE Le contenu de ce cours (outils, vulnérabilités, tests d’intrusion) est présenté à des fins strictement pédagogiques."/><meta name="generator" content="Quartz"/><link href="./index-bb6c1746.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./component-7262b5a7.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="./static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="./prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("./static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://quartz.jzhao.xyz/module-16-principes-fondamentaux-de-la-sécurité-réseau-og-image.webp"/><meta property="og:image:url" content="https://quartz.jzhao.xyz/module-16-principes-fondamentaux-de-la-sécurité-réseau-og-image.webp"/><meta name="twitter:image" content="https://quartz.jzhao.xyz/module-16-principes-fondamentaux-de-la-sécurité-réseau-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="module-16-principes-fondamentaux-de-la-sécurité-réseau" data-basepath><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href=".">Quartz 5</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="Search" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>Search</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="Search for something..." placeholder="Search for something..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="Dark mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="Reader mode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="Reader mode"><title>Reader mode</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-14" aria-label="Explorer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-14" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="./">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Module 16 Principes fondamentaux de la sécurité réseau</a></div></nav><h1 class="article-title">Module 16 Principes fondamentaux de la sécurité réseau</h1><p show-comma="true" class="content-meta"><time datetime="2026-10-28T09:53:09.530Z">Oct 28, 2026</time><span>8 min read</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><p><a href="./tags/sécurité" class="tag-link internal internal-link alias" data-slug="tags/sécurité">sécurité</a> <a href="./tags/cybersecurité" class="tag-link internal internal-link alias" data-slug="tags/cybersecurité">cybersecurité</a></p>
+<blockquote class="callout warning" data-callout="warning">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>AVERTISSEMENT LÉGAL ET ÉTHIQUE </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Le contenu de ce cours (outils, vulnérabilités, tests d’intrusion) est présenté à des fins <strong>strictement pédagogiques</strong>.</p>
+<ul>
+<li><strong>Laboratoires dédiés uniquement :</strong> Toute manipulation doit être effectuée sur les environnements de TP autorisés.</li>
+<li><strong>Rappel de la loi :</strong> Tester ou attaquer un système sans autorisation écrite préalable constitue un <strong>délit pénal</strong>.</li>
+<li>L’enseignant et l’établissement déclinent toute responsabilité en cas d’usage abusif ou illégal hors du cours.</li>
+</ul>
+</div>
+</blockquote>
+<h1 id="module-16--principes-fondamentaux-de-la-sécurité-réseau-cisco-netacad--ccna-1">Module 16 : Principes fondamentaux de la sécurité réseau (Cisco NetAcad  CCNA 1)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#module-16--principes-fondamentaux-de-la-sécurité-réseau-cisco-netacad--ccna-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<blockquote class="callout abstract" data-callout="abstract">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>Fiche d'Identité du Cours</strong></p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>Module NetAcad</strong> : Module 16 – Principes fondamentaux de la sécurité du réseau (ITN v7)</li>
+<li><strong>Thématique de l’amorce</strong> : La Cyberattaque des Frigos de Supermarché (Octobre 2026)</li>
+<li><strong>Format</strong> : Animation progressive</li>
+<li><strong>Durée estimée</strong> : 45 à 60 minutes</li>
+</ul>
+</div>
+</blockquote>
+<h2 id="-phase-1--amorce--étude-du-cas-réel-15-min">📌 Phase 1 : Amorce &amp; Étude du Cas Réel (15 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-phase-1--amorce--étude-du-cas-réel-15-min" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout danger" data-callout="danger">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>Cas Pratique : L'Affaire des Frigos Connectés</strong></p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Dans la nuit du 11 au 12 octobre 2026, plusieurs centaines de supermarchés en France (Intermarché, Coopérative U, E.Leclerc) ont subi une cyberattaque inédite.
+Des pirates ont pris le contrôle à distance des régulateurs frigorifiques (Danfoss AK-SM 800/800A) et ont forcé un cycle de dégivrage continu avec une consigne portée à 50 °C.
+<strong>Conséquences</strong> : Décongélation massive pendant la nuit, rupture de la chaîne du froid et millions d’euros de produits surgelés jetés.</p>
+</div>
+</blockquote>
+<h3 id="les-faits-actualité-">Les faits (Actualité) :<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#les-faits-actualité-" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p>TF1 version courte</p>
+   <iframe src="https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2728027927632024%2F&amp;show_text=false&amp;width=560&amp;t=0" width="560" height="314" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+</li>
+<li>
+<p>TF1 version longue : Comment ?</p>
+   <iframe src="https://www.facebook.com/plugins/video.php?height=314&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1134024079150650%2F&amp;show_text=false&amp;width=560&amp;t=284" width="560" height="314" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+</li>
+<li>
+<p>BFMTV :</p>
+   <iframe src="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1773662817010800%2F&amp;show_text=false&amp;width=267&amp;t=0" width="267" height="476" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  <iframe src="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1145023884667944%2F&amp;show_text=false&amp;width=267&amp;t=0" width="267" height="476" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+</li>
+</ul>
+<blockquote class="callout question is-collapsible is-collapsed" data-callout="question" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>🔍 **Question ** </p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p><em>« En vous appuyant sur la vidéo d’introduction , comment pouvez-vous qualifier cette attaque, quelles failles ont été exploitées et comment aurions-nous pu protéger ces équipements ? »</em></p>
+</div>
+</blockquote>
+<h2 id="-phase-2--analyse-guidée--la-grille-du-module-16-20-min">📌 Phase 2 : Analyse Guidée – La Grille du Module 16 (20 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-phase-2--analyse-guidée--la-grille-du-module-16-20-min" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout info" data-callout="info">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>Matrice de correspondance : Théorie NetAcad vs. Cas Pratique</strong></p></div>
+                  
+                </div>
+</blockquote>
+<h3 id="travail-en-équipe---la-matrice-danalyse-dincident--10-min"><strong>Travail en équipe – « La Matrice d’Analyse d’Incident » (10 min)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#travail-en-équipe---la-matrice-danalyse-dincident--10-min" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Chaque binôme reçoit une grille d’analyse à compléter en faisant le lien entre les concepts du cours  et le cas réel</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rubrique du Module 16</th><th>Concept Cisco NetAcad</th><th>Application au cas des frigos</th></tr></thead><tbody><tr><td><strong>16.1 Types de menaces</strong>[</td><td></td><td></td></tr><tr><td><strong>16.1 Vulnérabilités technologiques</strong></td><td></td><td></td></tr><tr><td><strong>16.1 Vulnérabilités de configuration</strong>[</td><td></td><td></td></tr><tr><td><strong>16.1 Vulnérabilités de politique</strong></td><td></td><td></td></tr><tr><td><strong>16.2 Type d’attaque</strong></td><td></td><td></td></tr></tbody></table></div>
+<h3 id="restitution-travail-en-équipe---la-matrice-danalyse-dincident--10-min"><strong>Restitution Travail en équipe – « La Matrice d’Analyse d’Incident » (10 min)</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#restitution-travail-en-équipe---la-matrice-danalyse-dincident--10-min" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Chaque binôme reçoit une grille d’analyse à compléter en faisant le lien entre les concepts du cours  et le cas réel</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Rubrique du Module 16</th><th>Concept Cisco NetAcad</th><th>Application au cas des frigos</th></tr></thead><tbody><tr><td><strong>16.1 Types de menaces</strong>[</td><td>Interruption de service (DoS) &amp; Pertes/destruction de données et biens.</td><td>Déni de service physique provoquant la rupture de la chaîne du froid et la perte de denrées alimentaires.</td></tr><tr><td><strong>16.1 Vulnérabilités technologiques</strong></td><td>Faiblesses logicielles, firmwares obsolètes ou failles d’authentification.</td><td>Utilisation de contrôleurs Danfoss AK-SM 800/800A tournant sur des versions de micrologiciels obsolètes contenant des failles connues (CVE-2025-41450, CVE-2025-41451).</td></tr><tr><td><strong>16.1 Vulnérabilités de configuration</strong>[</td><td>Équipements mal configurés, accès non sécurisés et exposition directe sur Internet.</td><td>Interfaces web de supervision technique directement accessibles sur Internet sans pare-feu ni VPN[26].</td></tr><tr><td><strong>16.1 Vulnérabilités de politique</strong></td><td>Absence de suivi des équipements IoT/OT, manque de politiques de mise à jour.</td><td>Les systèmes frigorifiques étaient gérés par des prestataires externes sans audit ni suivi des correctifs par les DSI/RSSI.</td></tr><tr><td><strong>16.2 Type d’attaque</strong></td><td>Attaque par accès (contournement d’authentification / injection de commande) et déni de service.</td><td>Exploitation d’un « code du jour » pour contourner l’authentification administrateur, suivi d’une injection de commande à distance pour forcer le dégivrage.</td></tr></tbody></table></div>
+<h3 id="notions--du-cours">Notions  du cours<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#notions--du-cours" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h4 id="1-types-de-menaces-rubrique-1611">1. Types de Menaces (Rubrique 16.1.1)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-types-de-menaces-rubrique-1611" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>👁️ <strong>Dérouler la théorie et l'application</strong></p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>Théorie NetAcad</strong> : Une intrusion peut provoquer 4 types de menaces : le vol d’informations, la perte/manipulation de données, l’usurpation d’identité et l’interruption de service (DoS).</li>
+<li><strong>Cas réel</strong> : L’attaque constitue un <strong>déni de service (DoS) physique</strong> provoqué par une <strong>manipulation malveillante des données de consigne</strong> de température.</li>
+</ul>
+</div>
+</blockquote>
+<h4 id="2-catégories-de-vulnérabilités-rubrique-1612">2. Catégories de Vulnérabilités (Rubrique 16.1.2)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-catégories-de-vulnérabilités-rubrique-1612" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>👁️ <strong>Dérouler les 3 vulnérabilités NetAcad</strong></p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p>Le cours Cisco identifie 3 sources de vulnérabilités :</p>
+<ol>
+<li><strong>Technologique</strong> : Utilisation de contrôleurs frigorifiques exécutant des versions logicielles obsolètes contenant des failles de sécurité connues (ex. CVE-2025-41450, CVE-2025-41451).</li>
+<li><strong>Configuration</strong> : Interfaces web de régulation directement exposées sur Internet sans pare-feu ni VPN.</li>
+<li><strong>Politique de sécurité</strong> : Absence d’inventaire et de gestion des correctifs sur les équipements industriels (OT/IoT), souvent gérés par des prestataires externes sans audit informatique.</li>
+</ol>
+</div>
+</blockquote>
+<p><a href="https://nvd.nist.gov/vuln/detail/cve-2025-41450" class="external external-link">CVE-2025-41450<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>,
+<a href="https://nvd.nist.gov/vuln/detail/cve-2025-41451" class="external external-link">CVE-2025-41451<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<blockquote class="callout info is-collapsible is-collapsed" data-callout="info" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>CVE</strong></p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p><strong>Une Vulnérabilités:</strong> C’est une <strong>faille exploitable</strong> qui expose le système à un risque. C’est l’équivalent d’une porte laissée entrouverte ou d’une serrure fragile qu’un tiers peut utiliser pour s’introduire.</p>
+<p>Une <strong>CVE</strong> (pour <em>Common Vulnerabilities and Exposures</em>, ou « Vulnérabilités et expositions communes » en français) est un <strong>catalogue public et standardisé de failles de sécurité</strong> informatiques. Registre mondial qui répertorie tous les bugs ou failles de sécurité découverts dans des logiciels, des systèmes d’exploitation ou des équipements matériels.
+En bref :</p>
+<ul>
+<li><strong>Un identifiant standardisé</strong> (ex. <code>CVE-2025-41450</code>) :  un <strong>numéro d’immatriculation unique</strong> attribué à une faille de sécurité informatique, pour désigner une vulnérabilité précise sans confusion.</li>
+<li><strong>Un langage commun</strong> pour que la communauté cybersécurité, les éditeurs et les entreprises parlent du même problème.</li>
+<li><strong>Un outil de suivi</strong> pour savoir si un logiciel contient un bug connu et s’il existe un correctif</li>
+</ul>
+</div>
+</blockquote>
+<p>Sites
+- <strong><a href="https://cve.mitre.org/" class="external external-link">CVE.org<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong> : Le site officiel et source d’origine, géré par le MITRE, qui attribue et répertorie tous les identifiants CVE.
+- <strong><a href="https://nvd.nist.gov/" class="external external-link">NVD (National Vulnerability Database)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong> : La base de données du gouvernement américain (NIST), la plus utilisée pour trouver les détails techniques, les scores de gravité (CVSS) et les logiciels touchés.</p>
+<blockquote class="callout info is-collapsible is-collapsed" data-callout="info" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>faille <em>zero-day</em></strong></p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<p><strong>Une faille</strong> : C’est une <strong>erreur de conception</strong>, de programmation ou de configuration dans un logiciel, un système ou un équipement réseau.</p>
+<p>Une <strong>faille <em>zero-day</em></strong> (ou jour zéro) est une faille de sécurité informatique qui est <strong>inconnue du créateur du logiciel</strong> et pour laquelle il n’existe <strong>aucun correctif</strong>.
+En bref :</p>
+<ul>
+<li><strong>Le piège :</strong> Les pirates l’exploitent <em>avant</em> que le fabricant ne soit au courant ou n’ait le temps de la réparer (le compteur est à « zéro jour » de correction).</li>
+<li><strong>Le danger :</strong> Elle est redoutable car aucun antivirus ou mise à jour ne peut en protèger au moment de l’attaque.</li>
+<li><strong>La suite :</strong> Dès qu’elle est découverte et rendue publique, elle reçoit généralement un numéro <strong>CVE</strong>, et le fabricant se précipite pour créer un correctif en urgence.</li>
+</ul>
+<p>Puisqu’une faille <strong>zero-day</strong> est par définition inconnue et non corrigée au moment où elle est exploitée, il n’existe pas de « catalogue magique » qui l’annonce à l’avance.
+Cependant, on la découvre ou on la suit via des sources spécialisées dès qu’elle est rendue publique ou repérée en train d’être exploitée</p>
+</div>
+</blockquote>
+<ul>
+<li>Sites
+<ul>
+<li>
+<p><strong>Le catalogue KEV de la CISA (Known Exploited Vulnerabilities) :</strong> C’est la référence officielle (gouvernementale américaine) la plus fiable. Elle liste uniquement les failles zero-day qui ont été ou sont <strong>activement exploitées</strong> par des pirates dans le monde réel.</p>
+</li>
+<li>
+<p><strong>Google Project Zero :</strong> Une équipe de chercheurs d’élite de Google dont le travail est de traquer et de publier les détails techniques des failles zero-day les plus complexes (systèmes mobiles, navigateurs).</p>
+</li>
+<li>
+<p><strong>La Zero Day Initiative (ZDI) de Trend Micro :</strong> Un organisme qui achète et suit les vulnérabilités avant leur correction officielle et analyse les bulletins de sécurité dès leur sortie.</p>
+</li>
+<li>
+<p><strong>Les sites d’actualité en cybersécurité :</strong> Des médias comme <em>BleepingComputer</em> ou <em>The Hacker News</em> relaient en temps réel l’apparition de nouvelles failles zero-day et l’urgence de les patcher.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-types-dattaques-réseau-rubrique-162">3. Types d’Attaques Réseau (Rubrique 16.2)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-types-dattaques-réseau-rubrique-162" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>👁️ <strong>Dérouler le vecteur d'attaque</strong></p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>Attaque de reconnaissance</strong> : Scan d’adresses IP pour repérer les interfaces d’administration exposées.</li>
+<li><strong>Attaque par accès</strong> : Contournement de l’authentification (“code du jour”) puis injection de commandes système.</li>
+</ul>
+</div>
+</blockquote>
+<blockquote class="callout note is-collapsible is-collapsed" data-callout="note" data-callout-fold>
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>Une attaque</strong></p></div>
+                  <div class="fold-callout-icon callout-fold"></div>
+                </div>
+<div class="callout-content">
+<ul>
+<li>C’est l’<strong>action concrète</strong> menée par un pirate (ou un outil comme Metasploit) pour exploiter cette vulnérabilité dans le but de nuire, de voler des données ou de prendre le contrôle du système.</li>
+</ul>
+</div>
+</blockquote>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>💡 En résumé </p></div>
+                  
+                </div>
+<div class="callout-content">
+<ul>
+<li><strong>La faille</strong> est l’erreur initiale.</li>
+<li><strong>La vulnérabilité</strong> est la brèche qui en résulte.</li>
+<li><strong>L’attaque</strong> est l’utilisation active de cette brèche.</li>
+</ul>
+</div>
+</blockquote>
+<h2 id="-phase-3--plan-datténuation--sécurisation-15-min">📌 Phase 3 : Plan d’Atténuation &amp; Sécurisation (15 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-phase-3--plan-datténuation--sécurisation-15-min" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout success" data-callout="success">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>Mesures de Protection (Rubriques 16.3 &amp; 16.4)</strong></p></div>
+                  
+                </div>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th style="text-align:left;">Concept NetAcad</th><th style="text-align:left;">Objectif Cisco</th><th style="text-align:left;">Action concrète pour les magasins</th></tr></thead><tbody><tr><td style="text-align:left;"><strong>Approche Défense en Profondeur</strong></td><td style="text-align:left;">Multiplier les couches de sécurité</td><td style="text-align:left;">Isoler le réseau industriel/OT des accès Internet généraux.</td></tr><tr><td style="text-align:left;"><strong>Pare-feu &amp; VPN</strong></td><td style="text-align:left;">Contrôler le trafic et chiffrer l’accès</td><td style="text-align:left;">Interdire l’accès web direct et imposer un <strong>tunnel VPN sécurisé</strong> pour la télémaintenance.</td></tr><tr><td style="text-align:left;"><strong>Mise à jour et correctifs</strong></td><td style="text-align:left;">Éliminer les vulnérabilités</td><td style="text-align:left;">Appliquer les correctifs logiciels fournis par le constructeur (ex. firmware R4.3.1).</td></tr><tr><td style="text-align:left;"><strong>Durcissement des équipements</strong></td><td style="text-align:left;">Restreindre les services et sécuriser l’accès</td><td style="text-align:left;">Activer <strong>SSH</strong>, appliquer des mots de passe complexes et désactiver les services inutilement ouverts.</td></tr></tbody></table></div>
+<h2 id="-phase-4--transition-vers-le-tp-packet-tracer-5-min">📌 Phase 4 : Transition vers le TP Packet Tracer (5 min)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-phase-4--transition-vers-le-tp-packet-tracer-5-min" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout tip" data-callout="tip">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p> <strong>Configuration IOS de base (Rubrique 16.4)</strong></p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Projetez les commandes Cisco IOS de sécurisation étudiées dans la vidéo :</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="cisco" data-theme="github-light github-dark"><code data-language="cisco" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>R1(config)# service password-encryption</span></span>
+<span data-line><span>R1(config)# security passwords min-length 8</span></span>
+<span data-line><span>R1(config)# login block-for 120 attempts 3 within 60</span></span>
+<span data-line><span>R1(config)# line vty 0 4</span></span>
+<span data-line><span>R1(config-line)# transport input ssh</span></span></code></pre></figure>
+<p>👉 <strong>Activité pratique suivante</strong> : <em>Packet Tracer 16.4.6 – Configuration de mots de passe sécurisés et de SSH</em>.</p>
+</div>
+</blockquote>
+<h2 id="-pour-aller-plus-loin--la-réglementation">📌 Pour aller plus loin : La réglementation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#-pour-aller-plus-loin--la-réglementation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>NIS2 </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>La <strong>Directive (UE) 2022/2555</strong> (connue sous le nom de <strong>NIS2</strong> ou <strong>SRI 2</strong>) est la <span class="text-highlight">réglementation européenne relative à la cybersécurité</span>, transposée en Belgique par la <strong>loi du 26 avril 2024</strong>. Elle est entrée en application le <strong>18 octobre 2024</strong>, remplaçant l’ancienne directive NIS1</p>
+</div>
+</blockquote>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>CCB </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Le <a href="https://ccb.belgium.be/fr" class="external external-link">Centre pour la Cybersécurité Belgique<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> est l’autorité nationale en charge de la cybersécurité en Belgique. Il supervise, coordonne et veille à la mise en œuvre de la stratégie belge en matière de cybersécurité. Grâce à un échange d’informations optimal, les entreprises, les autorités, les opérateurs de services essentiels et les citoyens peuvent compter sur une protection adéquate.</p>
+</div>
+</blockquote>
+<blockquote class="callout note" data-callout="note">
+<div class="callout-title">
+                  <div class="callout-icon"></div>
+                  <div class="callout-title-inner"><p>CyFun </p></div>
+                  
+                </div>
+<div class="callout-content">
+<p>Le CyberFundamentals Framework - CyFun® <span class="text-highlight">est un référentiel de cybersécurité développé par le CCB pour aider les organisations à protéger leurs données, réduire les cyberattaques et se conformer à la directive NIS2</span></p>
+</div>
+</blockquote></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-12" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#module-16--principes-fondamentaux-de-la-sécurité-réseau-cisco-netacad--ccna-1" data-for="module-16--principes-fondamentaux-de-la-sécurité-réseau-cisco-netacad--ccna-1">Module 16 : Principes fondamentaux de la sécurité réseau (Cisco NetAcad  CCNA 1)</a></li><li class="depth-1"><a href="#-phase-1--amorce--étude-du-cas-réel-15-min" data-for="-phase-1--amorce--étude-du-cas-réel-15-min">📌 Phase 1 : Amorce &amp; Étude du Cas Réel (15 min)</a></li><li class="depth-2"><a href="#les-faits-actualité-" data-for="les-faits-actualité-">Les faits (Actualité) :</a></li><li class="depth-1"><a href="#-phase-2--analyse-guidée--la-grille-du-module-16-20-min" data-for="-phase-2--analyse-guidée--la-grille-du-module-16-20-min">📌 Phase 2 : Analyse Guidée – La Grille du Module 16 (20 min)</a></li><li class="depth-2"><a href="#travail-en-équipe---la-matrice-danalyse-dincident--10-min" data-for="travail-en-équipe---la-matrice-danalyse-dincident--10-min">Travail en équipe – « La Matrice d’Analyse d’Incident » (10 min)</a></li><li class="depth-2"><a href="#restitution-travail-en-équipe---la-matrice-danalyse-dincident--10-min" data-for="restitution-travail-en-équipe---la-matrice-danalyse-dincident--10-min">Restitution Travail en équipe – « La Matrice d’Analyse d’Incident » (10 min)</a></li><li class="depth-2"><a href="#notions--du-cours" data-for="notions--du-cours">Notions  du cours</a></li><li class="depth-1"><a href="#-phase-3--plan-datténuation--sécurisation-15-min" data-for="-phase-3--plan-datténuation--sécurisation-15-min">📌 Phase 3 : Plan d’Atténuation &amp; Sécurisation (15 min)</a></li><li class="depth-1"><a href="#-phase-4--transition-vers-le-tp-packet-tracer-5-min" data-for="-phase-4--transition-vers-le-tp-packet-tracer-5-min">📌 Phase 4 : Transition vers le TP Packet Tracer (5 min)</a></li><li class="depth-1"><a href="#-pour-aller-plus-loin--la-réglementation" data-for="-pour-aller-plus-loin--la-réglementation">📌 Pour aller plus loin : La réglementation</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script src="./static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="./static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="./postscript-3426b91c.js" type="module" data-persist="true"></script></html>
