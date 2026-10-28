@@ -20,6 +20,7 @@
 
 - CLI (_Command line interface_ / Interface de ligne de commande)
 	- Environnement textuel (invite de commande)
+		- ![](chemin/vers/Pasted image 20260923111455.png)
 		- ![[Pasted image 20260923111455.png]]
 	- Nécessité de connaitre structure de commande et les commandes 
 	- **Avantages réseau :** très légère (faible surcharge), plus stable, donne accès à 100% des fonctions.
