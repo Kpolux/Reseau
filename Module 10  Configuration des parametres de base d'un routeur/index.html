@@ -1,0 +1,1595 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/">
+      
+      
+        <link rel="prev" href="../Module%2009%20%20Resolution%20adresse/">
+      
+      
+        <link rel="next" href="../Module%2011%20Adressage%20IPv4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Module 10 : Configuration des paramètres de base d'un routeur - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-10-configuration-des-parametres-de-base-dun-routeur" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 10 : Configuration des paramètres de base d'un routeur
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-parametres-initiaux-du-routeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Paramètres initiaux du routeur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exemple-complet-de-configuration-routeur-r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Exemple complet de configuration (Routeur R1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuration-des-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configuration des interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Configuration des interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-etapes-de-configuration-dune-interface-de-routeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Étapes de configuration d'une interface de routeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-exemple-de-configuration-des-interfaces-routeur-r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Exemple de configuration des interfaces (Routeur R1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-commandes-de-verification-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Commandes de vérification de la configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-passerelle-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Passerelle par défaut
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 Passerelle par défaut">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-passerelle-par-defaut-pour-un-hote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Passerelle par défaut pour un hôte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-passerelle-par-defaut-pour-un-switch-layer-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Passerelle par défaut pour un switch (Layer 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-parametres-initiaux-du-routeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Paramètres initiaux du routeur
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exemple-complet-de-configuration-routeur-r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Exemple complet de configuration (Routeur R1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuration-des-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configuration des interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Configuration des interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-etapes-de-configuration-dune-interface-de-routeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Étapes de configuration d'une interface de routeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-exemple-de-configuration-des-interfaces-routeur-r1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Exemple de configuration des interfaces (Routeur R1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-commandes-de-verification-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Commandes de vérification de la configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-passerelle-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 Passerelle par défaut
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 Passerelle par défaut">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-passerelle-par-defaut-pour-un-hote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Passerelle par défaut pour un hôte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-passerelle-par-defaut-pour-un-switch-layer-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Passerelle par défaut pour un switch (Layer 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-10-configuration-des-parametres-de-base-dun-routeur">Module 10 : Configuration des paramètres de base d'un routeur</h1>
+<h2 id="1-parametres-initiaux-du-routeur">1. Paramètres initiaux du routeur</h2>
+<ul>
+<li>
+<p><strong>Nom du périphérique :</strong> </p>
+<ul>
+<li>Attribuer un nom d'hôte unique.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accès au mode EXEC privilégié :</strong> </p>
+<ul>
+<li>Sécuriser l'accès avec un mot de passe chiffré (<code>enable secret</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Accès au mode EXEC utilisateur (Console) :</strong> </p>
+<ul>
+<li>Sécuriser la ligne de console physique.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accès à distance (Lignes VTY) :</strong> </p>
+<ul>
+<li>Sécuriser les accès SSH / Telnet.</li>
+</ul>
+</li>
+<li>
+<p><strong>Chiffrement des mots de passe :</strong> </p>
+<ul>
+<li>Chiffrer tous les mots de passe en texte clair dans le fichier de configuration.</li>
+</ul>
+</li>
+<li>
+<p><strong>Avertissement légal :</strong> </p>
+<ul>
+<li>Configurer une bannière MOTD (<em>Message of the Day</em>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Sauvegarde :</strong> </p>
+<ul>
+<li>Enregistrer la configuration active de la RAM vers la NVRAM.</li>
+</ul>
+</li>
+<li>Voir : <ul>
+<li>[[Module 02 Config de base Switch]]</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-exemple-complet-de-configuration-routeur-r1">2. Exemple complet de configuration (Routeur R1)</h2>
+<pre><code class="language-IOS">! 1. Passage en mode configuration globale et nommage
+Router&gt; enable
+Router# configure terminal
+Router(config)# hostname R1
+
+! 2. Sécurisation de l'accès EXEC privilégié
+R1(config)# enable secret class
+
+! 3. Sécurisation de la ligne console
+R1(config)# line console 0
+R1(config-line)# password cisco
+R1(config-line)# login
+R1(config-line)# exit
+
+! 4. Sécurisation des lignes VTY (accès à distance)
+R1(config)# line vty 0 4
+R1(config-line)# password cisco
+R1(config-line)# login
+
+! Nouveau
+R1(config-line)# transport input ssh telnet
+R1(config-line)# exit
+! Pourquoi le exit Ici ?
+
+! 5. Chiffrement de tous les mots de passe en texte clair
+R1(config)# service password-encryption
+
+! 6. Configuration de la bannière légale (MOTD)
+R1(config)# banner motd #
+Enter TEXT message. End with a new line and the #
+*************************************************
+WARNING: Unauthorized access is prohibited!
+*************************************************
+#
+
+! 7. Enregistrement de la configuration dans la NVRAM
+R1(config)# end
+R1# copy running-config startup-config
+</code></pre>
+<h2 id="3-configuration-des-interfaces">3. Configuration des interfaces</h2>
+<h4 id="31-etapes-de-configuration-dune-interface-de-routeur">3.1 Étapes de configuration d'une interface de routeur</h4>
+<ul>
+<li>
+<p><strong>Rôle :</strong> Activer et adresser les interfaces physiques (ex: <code>GigabitEthernet 0/0/0</code>, <code>GigabitEthernet 0/0/1</code>) pour permettre le routage des paquets.</p>
+</li>
+<li>
+<p><strong>Paramètres essentiels :</strong>   </p>
+<ul>
+<li>
+<p><strong>Description :</strong> Optionnelle mais recommandée (limite à 240 caractères) pour documenter le rôle ou le raccordement de l'interface.       </p>
+</li>
+<li>
+<p><strong>Adresse IPv4 / IPv6 :</strong> Configuration des adresses de couche 3.</p>
+</li>
+<li>
+<p><strong>Activation (<code>no shutdown</code>) :</strong> Par défaut, les interfaces d'un routeur sont désactivées (<em>administratively down</em>). La commande <code>no shutdown</code> équivaut à la mise sous tension de l'interface.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-IOS">Router(config)# interface &lt;type-et-numéro&gt;
+Router(config-if)# description &lt;texte-descriptif&gt;
+Router(config-if)# ip address &lt;adresse-ipv4&gt; &lt;masque-sous-réseau&gt;
+Router(config-if)# ipv6 address &lt;adresse-ipv6/longueur-préfixe&gt;
+Router(config-if)# no shutdown
+</code></pre>
+<h4 id="32-exemple-de-configuration-des-interfaces-routeur-r1">3.2 Exemple de configuration des interfaces (Routeur R1)</h4>
+<p>Plaintext</p>
+<pre><code>! Configuration de l'interface Gig0/0/0 (LAN local)
+R1&gt; enable
+R1# configure terminal
+
+R1(config)# interface gigabitEthernet 0/0/0
+R1(config-if)# description Link to LAN
+R1(config-if)# ip address 192.168.10.1 255.255.255.0
+R1(config-if)# ipv6 address 2001:db8:acad:10::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+
+! Messages du système confirmant le changement d'état :
+! %LINK-3-UPDOWN: Interface GigabitEthernet0/0/0, changed state to up
+! %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0/0, changed state to up
+
+! Configuration de l'interface Gig0/0/1 (Lien vers R2)
+R1(config)# interface gigabitEthernet 0/0/1
+R1(config-if)# description Link to R2
+R1(config-if)# ip address 209.165.200.225 255.255.255.252
+R1(config-if)# ipv6 address 2001:db8:feed:224::1/64
+R1(config-if)# no shutdown
+R1(config-if)# exit
+</code></pre>
+<p>[[Router_Template]]</p>
+<h4 id="33-commandes-de-verification-de-la-configuration">3.3 Commandes de vérification de la configuration</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Commande</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>show ip interface brief</code></strong></td>
+<td>Affiche l'état synthétique IPv4 (Adresse IP, Statut, Protocole) de toutes les interfaces.</td>
+</tr>
+<tr>
+<td><strong><code>show ipv6 interface brief</code></strong></td>
+<td>Affiche l'état synthétique IPv6 (Adresses Link-Local et GUA, Statut).</td>
+</tr>
+<tr>
+<td><strong><code>show ip route</code></strong> / <strong><code>show ipv6 route</code></strong></td>
+<td>Affiche le contenu de la table de routage stockée en RAM.</td>
+</tr>
+<tr>
+<td><strong><code>show interfaces</code></strong></td>
+<td>Affiche les statistiques détaillées et l'adressage IPv4/MAC de toutes les interfaces.</td>
+</tr>
+<tr>
+<td><strong><code>show ip interface</code></strong> / <strong><code>show ipv6 interface</code></strong></td>
+<td>Affiche les paramètres et statistiques spécifiques IPv4 ou IPv6 des interfaces.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-IOS">R1# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0/0   192.168.10.1    YES manual up                    up      
+GigabitEthernet0/0/1   209.165.200.225 YES manual up                    up      
+Vlan1                  unassigned      YES unset  administratively down down    
+
+R1# show ipv6 interface brief
+GigabitEthernet0/0/0   [up/up]
+    FE80::201:C9FF:FEB9:4501
+    2001:DB8:ACAD:10::1
+GigabitEthernet0/0/1   [up/up]
+    FE80::201:C9FF:FEB9:4502
+    2001:DB8:FEED:224::1
+</code></pre>
+<h3 id="4-passerelle-par-defaut">4 Passerelle par défaut</h3>
+<h4 id="41-passerelle-par-defaut-pour-un-hote">4.1 Passerelle par défaut pour un hôte</h4>
+<ul>
+<li>
+<p><strong>Définition :</strong> </p>
+<ul>
+<li>L'adresse IP de l'interface du routeur local connectée au même segment LAN que l'hôte.   </li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle :</strong> </p>
+<ul>
+<li>Utilisée uniquement lorsqu'un hôte doit transmettre des paquets vers un réseau distant. Pour les communications sur le même réseau local, les hôtes échangent directement via le Switch sans solliciter la passerelle.</li>
+</ul>
+</li>
+</ul>
+<h4 id="41-passerelle-par-defaut-pour-un-switch-layer-2">4.1 Passerelle par défaut pour un switch (Layer 2)</h4>
+<ul>
+<li>
+<p><strong>Pourquoi la configurer ?</strong> </p>
+<ul>
+<li>Un switch de couche 2 n'a pas besoin de passerelle pour acheminer le trafic des clients. Toutefois, une passerelle par défaut est <strong>nécessaire pour la gestion à distance</strong> (SSH/Telnet) du switch depuis un autre réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration IPv4 :</strong> </p>
+<ul>
+<li>Commande globale <code>ip default-gateway &lt;ip-passerelle&gt;</code> associant l'IP du routeur connecté.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration IPv6 :</strong> </p>
+<ul>
+<li>Le switch apprend automatiquement sa passerelle IPv6 par défaut via les messages ICMPv6 <strong>Router Advertisement (RA)</strong> reçus du routeur.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-IOS">! Configuration de l'accès de gestion et de la passerelle sur Switch S1
+S1# configure terminal
+S1(config)# interface vlan 1
+S1(config-if)# ip address 192.168.10.50 255.255.255.0
+S1(config-if)# no shutdown
+S1(config-if)# exit
+S1(config)# ip default-gateway 192.168.10.1
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1891 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2015%20Couche%20Application/">
+      
+      
+        <link rel="prev" href="../Module%2014%20Couche%20Transport/">
+      
+      
+        <link rel="next" href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Module 15 Couche Application - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-15-couche-application" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 15 Couche Application
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-application-presentation-et-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Application, Présentation et Session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Application, Présentation et Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-correspondance-modele-osi-vs-modele-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Correspondance Modèle OSI vs Modèle TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-roles-des-couches-superieures-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Rôles des couches supérieures OSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cheat-sheet-des-protocoles-applicatifs-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Cheat-Sheet des Protocoles applicatifs TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-modele-client-serveur-et-peer-to-peer-p2p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Modèle Client-Serveur et Peer-to-Peer (P2P)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Modèle Client-Serveur et Peer-to-Peer (P2P)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-modele-client-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Modèle Client-Serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-reseaux-peer-to-peer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Réseaux Peer-to-Peer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-applications-p2p-et-reseaux-hybrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Applications P2P et Réseaux hybrides
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Applications P2P et Réseaux hybrides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocoles-et-reseaux-p2p-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocoles et Réseaux P2P courants :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-protocoles-web-et-messagerie-electronique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Protocoles web et messagerie électronique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Protocoles web et messagerie électronique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-web-http-https-et-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Web : HTTP, HTTPS et HTML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Web : HTTP, HTTPS et HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandesrequetes-http-courantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commandes/Requêtes HTTP courantes :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securisation-http-vs-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sécurisation (HTTP vs HTTPS) :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-services-de-messagerie-electronique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Services de Messagerie Électronique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-services-de-partage-de-fichiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Services de partage de fichiers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Services de partage de fichiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-protocole-ftp-file-transfer-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Protocole FTP - File Transfer Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-protocole-smb-server-message-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Protocole SMB - Server Message Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-application-presentation-et-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 Application, Présentation et Session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Application, Présentation et Session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-correspondance-modele-osi-vs-modele-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Correspondance Modèle OSI vs Modèle TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-roles-des-couches-superieures-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Rôles des couches supérieures OSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-cheat-sheet-des-protocoles-applicatifs-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Cheat-Sheet des Protocoles applicatifs TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-modele-client-serveur-et-peer-to-peer-p2p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 Modèle Client-Serveur et Peer-to-Peer (P2P)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Modèle Client-Serveur et Peer-to-Peer (P2P)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-modele-client-serveur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Modèle Client-Serveur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-reseaux-peer-to-peer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Réseaux Peer-to-Peer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-applications-p2p-et-reseaux-hybrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Applications P2P et Réseaux hybrides
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Applications P2P et Réseaux hybrides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocoles-et-reseaux-p2p-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocoles et Réseaux P2P courants :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-protocoles-web-et-messagerie-electronique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 Protocoles web et messagerie électronique
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Protocoles web et messagerie électronique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-web-http-https-et-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Web : HTTP, HTTPS et HTML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1. Web : HTTP, HTTPS et HTML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandesrequetes-http-courantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commandes/Requêtes HTTP courantes :
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securisation-http-vs-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sécurisation (HTTP vs HTTPS) :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-services-de-messagerie-electronique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Services de Messagerie Électronique
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-services-de-partage-de-fichiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 Services de partage de fichiers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Services de partage de fichiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-protocole-ftp-file-transfer-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Protocole FTP - File Transfer Protocol
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-protocole-smb-server-message-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Protocole SMB - Server Message Block
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-15-couche-application">Module 15 Couche Application</h1>
+<h2 id="1-application-presentation-et-session">1 Application, Présentation et Session</h2>
+<h3 id="11-correspondance-modele-osi-vs-modele-tcpip">1.1. Correspondance Modèle OSI vs Modèle TCP/IP</h3>
+<p>Dans le modèle <strong>TCP/IP</strong>, la couche Application regroupe les fonctions des <strong>trois couches supérieures du modèle OSI</strong> (Application, Présentation, Session).</p>
+<pre><code class="language-text">  Modèle OSI             Modèle TCP/IP
++-------------------+   +-------------------+
+| 7. Application    |   |                   |
++-------------------+   |                   |
+| 6. Présentation   |  --&gt;  Application     |
++-------------------+   |                   |
+| 5. Session        |   |                   |
++-------------------+   +-------------------+
+
+</code></pre>
+<h3 id="12-roles-des-couches-superieures-osi">1.2. Rôles des couches supérieures OSI</h3>
+<ul>
+<li><strong>Couche 7 - Application :</strong> <ul>
+<li>Sert d'interface directe entre les programmes utilisateurs et le réseau sous-jacent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Couche 6 - Présentation :</strong></p>
+<ul>
+<li><strong>Mise en forme / Formats :</strong> Formate et présente les données (MKV, MOV, MPEG, GIF, JPG, PNG).</li>
+<li><strong>Compression :</strong> Compresse les données pour le transfert.</li>
+<li><strong>Chiffrement :</strong> Chiffre les données à l'émission / déchiffre à la réception.</li>
+</ul>
+</li>
+<li>
+<p><strong>Couche 5 - Session :</strong> </p>
+<ul>
+<li>Crée, gère, maintient et ferme les dialogues/sessions entre les applications source et destination.</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-cheat-sheet-des-protocoles-applicatifs-tcpip">1.3. Cheat-Sheet des Protocoles applicatifs TCP/IP</h3>
+<blockquote>
+<p>[!danger] <strong>à retenir (CCNA 1)</strong>
+</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th>Protocole</th>
+<th>Rôle / Description</th>
+<th>Port(s) &amp; Transport</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Résolution de nom</strong></td>
+<td><strong>DNS</strong></td>
+<td>Traduit les noms de domaine (ex: <code>cisco.com</code>) en adresses IP.</td>
+<td><strong>UDP / TCP 53</strong></td>
+</tr>
+<tr>
+<td><strong>Configuration d'hôte</strong></td>
+<td><strong>DHCP</strong></td>
+<td>Attribue dynamiquement des adresses IP et options réseau aux hôtes.</td>
+<td><strong>Client UDP 68 / Serveur UDP 67</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>BOOTP</strong></td>
+<td>Ancien protocole (remplacé par DHCP) pour démarrer des stations sans disque.</td>
+<td><strong>Client UDP 68 / Serveur UDP 67</strong></td>
+</tr>
+<tr>
+<td><strong>Messagerie (E-mail)</strong></td>
+<td><strong>SMTP</strong></td>
+<td>Envoie des e-mails d'un client vers un serveur ou entre serveurs.</td>
+<td><strong>TCP 25</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>POP3</strong></td>
+<td>Télécharge les e-mails du serveur vers le client local (suppression/gestion locale).</td>
+<td><strong>TCP 110</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>IMAP</strong></td>
+<td>Accède et maintient les e-mails directement sur le serveur de messagerie.</td>
+<td><strong>TCP 143</strong></td>
+</tr>
+<tr>
+<td><strong>Transfert de fichiers</strong></td>
+<td><strong>FTP</strong></td>
+<td>Transfert de fichiers fiable orienté connexion (avec accusé de réception).</td>
+<td><strong>TCP 20</strong> (Données) &amp; <strong>TCP 21</strong> (Contrôle)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TFTP</strong></td>
+<td>Transfert de fichiers léger, non connecté (UDP) et sans accusé de réception.</td>
+<td><strong>UDP 69</strong></td>
+</tr>
+<tr>
+<td><strong>Web</strong></td>
+<td><strong>HTTP</strong></td>
+<td>Échange de contenu web (texte, images, vidéo).</td>
+<td><strong>TCP 80 / 8080</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>HTTPS</strong></td>
+<td>HTTP sécurisé par chiffrement et authentification du site.</td>
+<td><strong>TCP / UDP 443</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-modele-client-serveur-et-peer-to-peer-p2p">2 Modèle Client-Serveur et Peer-to-Peer (P2P)</h2>
+<h3 id="21-modele-client-serveur">2.1. Modèle Client-Serveur</h3>
+<ul>
+<li><strong>Définition :</strong> <ul>
+<li><strong>Client :</strong> Équipement/application qui initie la requête d'information. </li>
+<li><strong>Serveur :</strong> Équipement/application qui stocke les ressources et répond aux requêtes des clients.</li>
+</ul>
+</li>
+<li><strong>Flux de données :</strong> <ul>
+<li><strong>Téléchargement descendant (<em>Download</em>) :</strong> Transfert de données du serveur vers le client.</li>
+<li><strong>Téléchargement ascendant (<em>Upload</em>) :</strong> Transfert de données du client vers le serveur.</li>
+</ul>
+</li>
+<li><strong>Exemple :</strong> Services de messagerie (SMTP/POP3/IMAP), serveurs web (HTTP/HTTPS), serveurs de fichiers.</li>
+</ul>
+<h3 id="22-reseaux-peer-to-peer">2.2. Réseaux Peer-to-Peer</h3>
+<ul>
+<li><strong>Principe :</strong> <ul>
+<li>Deux hôtes ou plus sont connectés et partagent des ressources (fichiers, imprimantes, connexion Internet) <strong>sans serveur dédié</strong>.</li>
+</ul>
+</li>
+<li><strong>Rôles symétriques :</strong> <ul>
+<li>Chaque hôte (<em>peer</em> / homologue) peut agir <strong>simultanément comme client et comme serveur</strong> selon le sens de la transaction.</li>
+</ul>
+</li>
+<li><strong>Fonctionnement :</strong> <ul>
+<li>Le rôle est déterminé par requête.</li>
+<li><em>Exemple :</em> L'homologue 1 partage un fichier avec l'homologue 2, tout en utilisant l'imprimante physiquement raccordée à l'homologue 2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-applications-p2p-et-reseaux-hybrides">2.3. Applications P2P et Réseaux hybrides</h3>
+<ul>
+<li><strong>Applications P2P :</strong> <ul>
+<li>Nécessitent une interface utilisateur et un service en arrière-plan s'exécutant sur chaque appareil (ex: messagerie instantanée, voix/visio).</li>
+</ul>
+</li>
+<li><strong>Systèmes Hybrides :</strong> <ul>
+<li>Le partage de ressources est décentralisé entre les pairs, mais un <strong>serveur d'index centralisé</strong> conserve l'annuaire indiquant où se trouvent les ressources.</li>
+</ul>
+</li>
+</ul>
+<h4 id="protocoles-et-reseaux-p2p-courants">Protocoles et Réseaux P2P courants :</h4>
+<ul>
+<li><strong>Gnutella :</strong> Protocole P2P permettant de rechercher et partager des fichiers sur le réseau (clients : BitComet, μTorrent, Deluge, eMule).</li>
+<li><strong>BitTorrent :</strong> <ul>
+<li>Utilise de petits fichiers métadonnées (<strong><code>.torrent</code></strong>) pour localiser d'autres utilisateurs possédant des morceaux du fichier recherché.</li>
+<li>Permet le téléchargement simultané de parties de fichiers auprès de multiples pairs à la fois.</li>
+</ul>
+</li>
+<li><strong>Autres réseaux :</strong> Direct Connect, eDonkey, Freenet.</li>
+</ul>
+<blockquote>
+<p>[!WARNING] Aspect Légal
+Le protocole P2P en soi est une technologie neutre. Cependant, le partage ou le téléchargement de fichiers protégés par le droit d'auteur sans l'autorisation des ayants droit est illégal et passible de sanctions pénales.</p>
+</blockquote>
+<h2 id="3-protocoles-web-et-messagerie-electronique">3 Protocoles web et messagerie électronique</h2>
+<h3 id="31-web-http-https-et-html">3.1. Web : HTTP, HTTPS et HTML</h3>
+<p>Lorsqu'un utilisateur saisit une URL (ex: <code>http://www.cisco.com/index.html</code>), le navigateur la décompose :
+* <strong>Protocole (schéma) :</strong> <code>http</code> (détermine le protocole d'application).
+* <strong>Nom du serveur :</strong> <code>www.cisco.com</code> (traduit en IP via DNS).
+* <strong>Nom du fichier :</strong> <code>index.html</code> (page demandée).</p>
+<h4 id="commandesrequetes-http-courantes">Commandes/Requêtes HTTP courantes :</h4>
+<ul>
+<li><strong>GET :</strong> Requête du client pour récupérer des données (ex: charger une page HTML).</li>
+<li><strong>POST :</strong> Envoi de données vers le serveur web (ex: formulaires, données d'identification).</li>
+<li><strong>PUT :</strong> Téléversement de ressources ou contenu vers le serveur web (ex: envoi d'une image).</li>
+</ul>
+<h4 id="securisation-http-vs-https">Sécurisation (HTTP vs HTTPS) :</h4>
+<ul>
+<li><strong>HTTP (TCP 80) :</strong> Données transmises en texte clair (non sécurisé, vulnérable à l'interception).</li>
+<li><strong>HTTPS (TCP 443) :</strong> Utilise le chiffrement et l'authentification via <strong>SSL/TLS</strong> pour sécuriser les échanges entre le client et le serveur.</li>
+</ul>
+<h3 id="32-services-de-messagerie-electronique">3.2. Services de Messagerie Électronique</h3>
+<p>Les clients de messagerie ne communiquent jamais directement entre eux ; ils s'appuient sur des <strong>serveurs de messagerie</strong>.</p>
+<p>```text
+[Expéditeur] ---&gt; (SMTP) ---&gt; [Serveur FAI A] ---&gt; (SMTP) ---&gt; [Serveur FAI B] ---&gt; (POP3/IMAP) ---&gt; [Destinataire]</p>
+<pre><code>
+#### Les 3 Protocoles de Messagerie :
+
+|**Protocole**|**Port / Transport**|**Rôle principal**|
+|---|---|---|
+|**SMTP** _(Simple Mail Transfer Protocol)_|**TCP 25**|**Envoi d'e-mails :** Utilisé par le client pour envoyer un mail au serveur, et entre serveurs de messagerie.|
+|**POP3** _(Post Office Protocol)_|**TCP 110**|**Téléchargement d'e-mails :** Récupère les messages du serveur et les télécharge sur l'appareil local (les messages sont généralement supprimés du serveur).|
+|**IMAP** _(Internet Message Access Protocol)_|**TCP 143**|**Accès et synchronisation :** Maintient et synchronise les e-mails directement sur le serveur. Idéal pour consulter ses mails sur plusieurs appareils.|
+
+
+## 4 Services d'adressage IP (DNS et DHCP)
+
+### 4.1. DNS - Domain Name System
+
+* **Rôle :** 
+    * Traduit un nom de domaine (FQDN, ex: `www.cisco.com`) en adresse IP numérique.
+* **Format &amp; Cache local :**
+    * *Windows :** `ipconfig /displaydns` affiche le cache DNS local du PC.
+    * *Outil de diagnostic :** `nslookup` permet de tester et interroger manuellement un serveur DNS.
+
+#### Principaux enregistrements DNS (Resource Records) :
+
+| Type | Description / Rôle |
+| :---: | :--- |
+| **A** | Associe un nom de domaine à une adresse **IPv4** (32 bits)[cite: 56]. |
+| **AAAA** | Associe un nom de domaine à une adresse **IPv6** (128 bits, prononcé *quad-A*)[cite: 56]. |
+| **NS** | Désigne un serveur de noms faisant autorité pour la zone (*Name Server*)[cite: 56]. |
+| **MX** | Oriente le courrier électronique vers le serveur de messagerie (*Mail Exchange*)[cite: 56]. |
+
+#### Hiérarchie DNS :
+* **Domaine racine (`.`) :** Sommet de la hiérarchie DNS.
+* **Domaines de premier niveau (TLD) :** `.com`, `.org`, `.net`, `.edu`, extensions nationales (`.fr`, `.be`, `.ca`).
+* **Domaines de second niveau :** `cisco.com`, `google.com.
+
+
+
+### 4.2. DHCP - Dynamic Host Configuration Protocol
+
+* **Rôle :** 
+    * Automatise l'attribution dynamique des adresses IP, masques, passerelles et serveurs DNS aux hôtes.
+* **Durée de bail (*Lease*) :** Durée limitée pendant laquelle l'IP est attribuée au client. À l'expiration, l'adresse doit être renouvelée ou renvoyée au pool.
+* **Bases d'adressage :**
+  * **Statique :** Pour les serveurs, imprimantes, commutateurs et interfaces de routeurs.
+  * **Dynamique :** Pour les équipements utilisateurs (PC, téléphones, PC portables).
+
+
+
+### 3. Le Processus DORA (DHCPv4)
+
+Le dialogue client-serveur DHCPv4 se déroule en **4 étapes clés** :
+
+```text
+ Client DHCP                                           Serveur DHCP
+     |                                                       |
+     | ------------ 1. DHCPDISCOVER (Broadcast) -----------&gt; |
+     | &lt;----------- 2. DHCPOFFER (Unicast/Broadcast) ------- |
+     | ------------ 3. DHCPREQUEST (Broadcast) ------------&gt; |
+     | &lt;----------- 4. DHCPACK (Unicast/Broadcast) --------- |
+</code></pre>
+<ol>
+<li>
+<p><strong><code>D</code>ISCOVER (Client $\to$ Serveur) :</strong> </p>
+<ul>
+<li>Le client recherche un serveur DHCP disponible (Diffusion / Broadcast).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>O</code>FFER (Serveur $\to$ Client) :</strong> </p>
+<ul>
+<li>Le serveur propose un bail (IP, masque, passerelle, DNS).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>R</code>EQUEST (Client $\to$ Serveur) :</strong> </p>
+<ul>
+<li>Le client accepte officiellement l'offre et informe le réseau (Broadcast).</li>
+</ul>
+</li>
+<li>
+<p><strong><code>A</code>CK (Serveur $\to$ Client) :</strong> Le serveur confirme le bail et enregistre l'attribution.</p>
+</li>
+</ol>
+<blockquote>
+<p>[!NOTE] Équivalents pour DHCPv6 Les messages DHCPv6 équivalents au processus DORA sont : <strong>SOLICIT</strong>, <strong>ADVERTISE</strong>, <strong>INFORMATION REQUEST</strong> et <strong>REPLY</strong>.</p>
+</blockquote>
+<h2 id="5-services-de-partage-de-fichiers">5 Services de partage de fichiers</h2>
+<h3 id="51-protocole-ftp-file-transfer-protocol">5.1. Protocole FTP - File Transfer Protocol</h3>
+<ul>
+<li><strong>Rôle :</strong> <ul>
+<li>Protocole client/serveur permettant de télécharger (<em>download</em>) ou de verser (<em>upload</em>) des fichiers entre un client et un serveur FTP[.</li>
+</ul>
+</li>
+<li><strong>Architecture à double connexion :</strong><ul>
+<li><strong>Connexion de contrôle (Port TCP 21) :</strong> Établie en premier pour l'authentification et l'envoi des commandes client / réponses serveur.</li>
+<li><strong>Connexion de données (Port TCP 20) :</strong> Créée à chaque transfert effectif de fichier (dans un sens ou dans l'autre)</li>
+</ul>
+</li>
+</ul>
+<h3 id="52-protocole-smb-server-message-block">5.2. Protocole SMB - Server Message Block</h3>
+<ul>
+<li><strong>Rôle :</strong> <ul>
+<li>Protocole client/serveur de requête-réponse servant au partage de ressources réseau (fichiers, répertoires, imprimantes, ports série).</li>
+</ul>
+</li>
+<li><strong>Fonctions clés :</strong><ol>
+<li>Démarrer, authentifier et terminer les sessions.</li>
+<li>Contrôler l'accès aux fichiers et aux imprimantes.</li>
+<li>Acheminer des messages vers d'autres équipements.</li>
+</ol>
+</li>
+<li><strong>Caractéristiques clés :</strong><ul>
+<li><strong>Connexion à long terme :</strong> Contrairement à FTP qui ouvre une connexion par transfert, SMB maintient une connexion prolongée. Les ressources distantes apparaissent comme si elles étaient locales sur le client.</li>
+<li><strong>Intégration Microsoft &amp; Interopérabilité :</strong> Base des réseaux Windows. Pris en charge sur Linux/UNIX via <strong>SAMBA</strong> et nativement sur macOS.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

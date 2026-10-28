@@ -1,0 +1,1357 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2003%20Modeles%20et%20protocoles/">
+      
+      
+        <link rel="prev" href="../Module%2002%20Config%20de%20base%20Switch/">
+      
+      
+        <link rel="next" href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Modèles et protocoles - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modeles-et-protocoles" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modèles et protocoles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modeles-et-protocoles">Modèles et protocoles</h1>
+<h1 id="osi-tcpip">osi #tcp/ip</h1>
+<h2 id="definitions">Définitions</h2>
+<h1 id="protocole-ensembles-de-regles-convenues-qui-ont-ete-crees-par-les-organismes-de-normalisation">Protocole : ensembles de règles convenues qui ont été créés par les organismes de normalisation;</h1>
+<h1 id="modeles-permettent-de-visualiser-les-regles-et-leur-place-dans-votre-reseau">Modèles  permettent de visualiser les règles et leur place dans votre réseau</h1>
+<p>Pourquoi : 
+- Permet de comprendre la façon dont les réseau fonctionnent réellement.
+- Visualiser les échange de paquets; Le codage formats et organisation des messages échangés</p>
+<p>Dans le quotidien on utilise des protocoles Méthodes de communication 
+    - entrée dans une classe 
+        - Toquer -&gt; attendre réponse -&gt; réponse reçue -&gt; saluer -&gt;
+    - RDV avec le roi
+        - Heure - tenue. vestimentaire - Présentation - Attendre que le Roi de tendre la main - l'appeler Sir quand tu t'adresse à lui - l'appeler Sa Majesté quand tu parle de lui
+    - Appel téléphonique 
+        - Allo - répéter si pas de réponse - Se présenter - Commencer à parler
+    - La poste 
+        - Courier - adresse de destination - adresse de l'expéditeur - lieu de dépôt - Si colis emballage spécial - Recommandé  ou non ?</p>
+<h2 id="les-regles">Les Règles</h2>
+<h3 id="communication">Communication</h3>
+<p>Les Protocoles de communication respectent des règles souvent selon ce schémas </p>
+<p>![[Screenshot 2026-09-11 at 16.35.19.png]]</p>
+<ul>
+<li>L'identification de l'expéditeur et du destinataire ;</li>
+<li>L'utilisation d'une langue et d'une syntaxe communes ;</li>
+<li>la vitesse et le rythme d'élocution ;</li>
+<li>la demande de confirmation ou d'accusé de réception.</li>
+</ul>
+<h3 id="exigences-des-protocoles-reseau">Exigences des Protocoles Réseau</h3>
+<ul>
+<li>Codage des messages<ul>
+<li>Conversion vers un format acceptable </li>
+<li>Implique le décodage à la destination</li>
+</ul>
+</li>
+<li>Format et encapsulation des messages <ul>
+<li>Structure spécifique <ul>
+<li>Modèle OSI</li>
+</ul>
+</li>
+<li>Dépend du type de message et du type de canal utilisé</li>
+</ul>
+</li>
+<li>La taille du message<ul>
+<li>message découpé en plusieurs partie des #Trames (contenant chacune un fragment du message initial)</li>
+<li>Différent selon le canal </li>
+<li>reconstruction à la destination </li>
+</ul>
+</li>
+<li>Synchronisation des messages</li>
+<li>Options de remise des messages</li>
+</ul>
+<h4 id="exemple-dun-paquet-ip">Exemple d'un paquet IP</h4>
+<ul>
+<li>Paquet IP<ul>
+<li>![[Screenshot 2026-09-11 at 16.51.55.png]]</li>
+</ul>
+</li>
+</ul>
+<h4 id="mode-de-transmission-du-message">Mode de transmission du message</h4>
+<ul>
+<li>option de livraison <ul>
+<li>![[Pasted image 20260922144939.png]]</li>
+</ul>
+</li>
+</ul>
+<h2 id="protocoles">Protocoles</h2>
+<p>Respecter un même ensemble de Règles 
+==Protocoles réseau==  définit un format, un ensemble de règles d'échanges de messages entre périphériques réseaux </p>
+<h3 id="plusieurs-types">Plusieurs Types</h3>
+<ul>
+<li><strong>Réseaux</strong> : échange entre périphériques réseau <ul>
+<li>IP <ul>
+<li>Internet Protocol (IPv4/IPv6)</li>
+</ul>
+</li>
+<li>TCP<ul>
+<li>Transmission Control Protocol</li>
+</ul>
+</li>
+<li>HTTP<ul>
+<li>HyperText Transfer Protocol</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Sécurité  Réseaux</strong> : assurer authentification, intégrité  et le cryptage des données<ul>
+<li>SSH<ul>
+<li>Secure Shell =&gt; connexion distant à un Systeme </li>
+</ul>
+</li>
+<li>SSL<ul>
+<li>Secure Sockets Layer =&gt; chiffrer la communication entre  client / serveur (ancien) .</li>
+</ul>
+</li>
+<li>TLS<ul>
+<li>Transport Layer Security =&gt; remplace SSL, chiffrer les données transitant sur un réseau (HTTPS)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Routage</strong> : informations de routage<ul>
+<li>OSPF<ul>
+<li>Open Shortest Path First </li>
+</ul>
+</li>
+<li>BGP<ul>
+<li>Border Gateway Protocol</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Découverte de Services</strong><ul>
+<li>DHCP<ul>
+<li>Dynamic Host Configuration Protocol =&gt; attribution automatique d'adresses IP</li>
+</ul>
+</li>
+<li>DNS<ul>
+<li>Domain Name Sever =&gt; traduction de noms(URL) en adresses IP<ul>
+<li><code>ping google.be</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="interaction-entre-protocoles">Interaction entre Protocoles</h3>
+<p>Utilisation de plusieurs protocoles
+- Exemple : envoie d'un mail<br />
+    - ![[Pasted image 20260922151920.png]]
+    - <strong><em>Ethernet</em></strong>
+        - remise des messages d'une carte réseau à une autre carte réseau sur le même réseau local (LAN)
+    - <strong><em>IP(Protocole Internet )</em></strong> 
+        -  remise des messages de l'expéditeur au destinataire. IP utilisé par les routeurs traverser plusieurs réseaux.
+    - <strong><em>TCP(Transmission Control Protocol )</em></strong>
+        - garantir la livraison fiable des informations et de gérer le contrôle du flux.
+    - <strong><em>HTTP(HyperText Transfer Protocol )</em></strong>
+        - interaction entre serveur web et  client.</p>
+<h2 id="suite-de-protocoles">Suite de Protocoles</h2>
+<p>Groupe de protocoles interdépendants pour assurer une fonction de communication 
+chaque service de niveau supérieur dépend des fonctionnalités du niveau inférieur 
+- =&gt; couches 
+    - ![[Pasted image 20260922155604.png]]
+    - <strong><em>Internet Protocol Suite ou TCP/IP</em></strong> 
+        - Protocoles standard ouverte gérée par Internet Engineering Task Force (IETF).
+    - <strong><em>Protocoles d'interconnexion de systèmes ouverts (OSI)</em></strong> -<br />
+        - élaborés conjointement e l'Organisation internationale de normalisation (ISO) et l'Union internationale des télécommunications (UIT). 
+        - Modèle de référence OSI en è couches .  Les protocoles OSI ont été largement remplacés par TCP/IP.
+            - Diagramme du modèle OSI![[Pasted image 20260922160202.png]]
+                - ![[Pasted image 20260922160507.png]]
+                - ![[Pasted image 20261005210155.png]]</p>
+<h2 id="organisme-de-normalisation">Organisme de normalisation</h2>
+<ul>
+<li><strong><em>ISOC (Internet Society)</em></strong><ul>
+<li><em>Responsable de la promotion du développement ouvert et de l'évolution de l'utilisation de l'internet dans le monde entier.</em></li>
+</ul>
+</li>
+<li><strong><em>IAB (Internet Architecture Board)</em></strong> <ul>
+<li><em>Responsable de la gestion globale et du développement des normes Internet.</em></li>
+</ul>
+</li>
+<li><strong><em>IETF (Internet Engineering Task Force)</em></strong> <ul>
+<li>Développe, met à jour et assure la maintenance des technologies Internet et TCP/IP. Cela inclut le processus et les documents pour le développement de nouveaux protocoles et la mise à jour des protocoles existants, qui sont connus sous le nom de documents de demande de commentaires (RFC).</li>
+<li>RFC 791 (IP - Internet Protocol)<ul>
+<li>Définit les règles de base du protocole IPv4, la structuration des paquets de données et le principe d'adressage IP.</li>
+<li>https://www.rfc-editor.org/info/rfc791/</li>
+</ul>
+</li>
+<li>**RFC 793 (TCP - Transmission Control Protocol)<ul>
+<li>Spécifie le fonctionnement de TCP, assurant un transport de données fiable et orienté connexion.</li>
+<li>https://www.rfc-editor.org/info/rfc793/</li>
+</ul>
+</li>
+<li>**RFC 1034 et 1035 (DNS)<ul>
+<li>Définissent le fonctionnement du système de noms de domaine, qui traduit les noms de domaine en adresses IP.</li>
+<li>https://www.rfc-editor.org/info/rfc1034/</li>
+<li>https://www.rfc-editor.org/info/rfc1035/</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><em>IRTF (Internet Research Task Force)</em></strong><ul>
+<li><em>Se concentre sur la recherche à long terme liée à l'internet et aux protocoles TCP/IP comme l'Anti-Spam Research Group (ASRG), le Crypto Forum Research Group (CFRG) et le Peer-to-Peer Research Group (P2PRG).</em></li>
+</ul>
+</li>
+<li><strong><em>ICANN (Internet Corporation for Assigned Names and Numbers)</em></strong>- <ul>
+<li><em>Basée aux États-Unis, l'ICANN coordonne l'attribution des adresses IP, la gestion des noms de domaine et l'attribution d'autres informations utilisées dans les protocoles TCP/IP.</em></li>
+</ul>
+</li>
+<li><strong><em>IANA (Internet Assigned Numbers Authority)</em></strong>- <ul>
+<li><em>Responsable de la supervision et de la gestion de l'attribution des adresses IP, de la gestion des noms de domaine et des identificateurs de protocole pour l'ICANN.</em></li>
+<li>département de l'ICANN chargé de l'exécution au quotidien des tâches techniques.</li>
+</ul>
+</li>
+<li>
+<p><strong>IEEE (Institute of Electrical and Electronics Engineers)(IEEE, (prononcé "I-triple-E")</strong></p>
+<ul>
+<li>Crée des normes électriques et informatiques fondamentales pour les réseaux, comme Ethernet (802.3) et le Wi-Fi (802.11).<ul>
+<li>https://standards.ieee.org/ieee/802.3/10422/</li>
+<li>https://standards.ieee.org/ieee/802.11/7028/</li>
+<li>https://standards.ieee.org/ieee/1588/4355/</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>EIA (Electronic Industries Alliance)</strong></p>
+<ul>
+<li>Normalise les équipements physiques de réseau, notamment le câblage électrique, les connecteurs et les baies de brassage (racks 19 pouces)</li>
+</ul>
+</li>
+<li>
+<p><strong>TIA (Telecommunications Industry Association)</strong></p>
+<ul>
+<li>Définit les normes pour les infrastructures de télécommunications (voix sur IP, antennes relais, satellites) et co-développe les standards de câblage réseau avec l'EIA.</li>
+</ul>
+</li>
+<li>
+<p><strong>UIT-T (Union internationale des télécommunications - Secteur de la normalisation des télécommunications)</strong></p>
+<ul>
+<li>Établit des normes internationales pour les technologies de communication globale, telles que la compression vidéo, l'IPTV et le haut débit DSL</li>
+</ul>
+</li>
+</ul>
+<h2 id="encapsulation">Encapsulation</h2>
+<ul>
+<li>Notion d'encapsulation <ul>
+<li>![[Pasted image 20260922160800.png]]<ul>
+<li>![[Pasted image 20260922164212.png]]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+<li><strong>Données</strong> : <ul>
+<li>terme générique pour l'unité de données de protocole utilisée à la couche application</li>
+</ul>
+</li>
+<li><strong>Segment</strong> : <ul>
+<li>unité de données de protocole de la couche transport</li>
+</ul>
+</li>
+<li><strong>Paquet</strong> : <ul>
+<li>unité de données de protocole de la couche réseau</li>
+</ul>
+</li>
+<li><strong>Trame</strong> : <ul>
+<li>Couche Liaison de Données PDU</li>
+</ul>
+</li>
+<li><strong>Bits</strong> : <ul>
+<li>Couche Physique PDU utilisée lors de la transmission physique de données sur le support</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!Remarque] 
+ Si l'en-tête Transport est TCP, il s'agit d'un <strong>segment</strong>. Si l'en-tête Transport est UDP, il s'agit d'un <strong>datagramme</strong>..
+</p>
+</blockquote>
+<h2 id="tp-pt">TP-PT</h2>
+<p>![[3.5.5-packet-tracer---investigate-the-tcp-ip-and-osi-models-in-action_fr-FR.pdf_fr-FR_985dd510-ac11-4034-ba9f-951dc1d27a6b(1).pdf]]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

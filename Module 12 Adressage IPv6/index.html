@@ -1,0 +1,1633 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2012%20Adressage%20IPv6/">
+      
+      
+        <link rel="prev" href="../Module%2011%20Adressage%20IPv4/">
+      
+      
+        <link rel="next" href="../Module%2013%20ICMP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Subnetting #adressage #IPv6 - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subnetting-adressage-ipv6" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Subnetting #adressage #IPv6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="subnetting-adressage-ipv6">Subnetting #adressage #IPv6</h1>
+<h1 id="module-12-adressage-ipv6">Module 12 Adressage IPv6</h1>
+<h2 id="1-problemes-lies-a-lipv4-necessite-dipv6">1 Problèmes liés à l'IPv4 &amp; Nécessité d'IPv6</h2>
+<h3 id="11-limites-dipv4">1.1. Limites d'IPv4</h3>
+<ul>
+<li><strong>Taille d'adresse :</strong> 32 bits (~4,3 milliards d'IPs) $\implies$ Pénurie mondiale actée par les RIR.</li>
+<li><strong>Inconvénients du NAT :</strong> Solution temporaire qui brise le modèle bout-en-bout et nuit aux applications temps réel/P2P.</li>
+</ul>
+<h3 id="12-apports-de-lipv6">1.2. Apports de l'IPv6</h3>
+<ul>
+<li><strong>Taille d'adresse :</strong> <strong>128 bits</strong> ($2^{128} \approx 340 \text{ undécillions}$).</li>
+<li><strong>Protocole ICMPv6 :</strong> Intègre l'autoconfiguration (SLAAC) et la résolution d'adresses (remplace ARP).</li>
+<li>IPv6 pas que remplacé IPv4 aussi l'améliorer
+voir [[Module 08 Couche reseau#6.4. Champs de l'en-tête de paquet IPv6]]</li>
+</ul>
+<h3 id="13-les-3-techniques-de-transition">1.3. Les 3 Techniques de Transition</h3>
+<blockquote>
+<p>[!KEY]- À retenir
+1. <strong>Double pile (Dual-Stack) :</strong> IPv4 et IPv6 fonctionnent en parallèle sur les mêmes équipements. <strong>(Méthode recommandée)</strong>.
+2. <strong>Tunneling :</strong> Encapsulation d'un paquet IPv6 dans un paquet IPv4 pour traverser une infrastructure IPv4.
+3. <strong>Traduction (NAT64) :</strong> Conversion à la volée des paquets IPv6 $\leftrightarrow$ IPv4 pour l'interconnexion de réseaux incompatibles.</p>
+<p>[!note]-<br />
+* <strong>Double pile (Dual-Stack) :</strong> IPv4 et IPv6 fonctionnent en parallèle sur les mêmes équipements. <strong>(Méthode recommandée)</strong>.
+ * <strong>Tunneling :</strong> Encapsulation d'un paquet IPv6 dans un paquet IPv4 pour traverser une infrastructure IPv4.
+* <strong>Traduction (NAT64) :</strong> Conversion à la volée des paquets IPv6 $\leftrightarrow$ IPv4 pour l'interconnexion de réseaux incompatibles.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b0d41ef71c10ec546bac96cd8f8b6719b15a4add</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="2-representation-de-ladresse-ipv6">2 Représentation de l'adresse IPv6</h2>
+<h3 id="21-format-de-base">2.1. Format de base</h3>
+<ul>
+<li><strong>Longueur :</strong> <ul>
+<li><strong>128 bits</strong> codés en hexadécimal (non sensible à la casse).</li>
+</ul>
+</li>
+<li><strong>Structure :</strong> <ul>
+<li>8 blocs de 16 bits appelés <strong>hextets</strong> (séparés par des deux-points <code>:</code>).</li>
+</ul>
+</li>
+<li><strong>Composition :</strong> <ul>
+<li>1 hextet = 4 caractères hexadécimaux = 16 bits binaires.</li>
+<li>Exemple complet :* <code>2001:0db8:0000:1111:0000:0000:0000:0200</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="22-les-2-regles-de-compression-abreviation">2.2. Les 2 Règles de Compression (Abréviation)</h3>
+<blockquote>
+<p>[!KEY]- Règle 1 : Omission des zéros en TÊTE de segment
+* On supprime uniquement les <code>0</code> situés <strong>au début</strong> d'un hextet.
+* Les zéros de fin <strong>ne doivent jamais</strong> être supprimés (créerait de l'ambiguïté).</p>
+<p><strong>Exemples :</strong>
+* <code>01AB</code> $\to$ <code>1AB</code> | <code>09f0</code> $\to$ <code>9f0</code> | <code>000A</code> $\to$ <code>A</code> | <code>0000</code> $\to$ <code>0</code>
+* <code>2001:0db8:0000:00a3:...</code> $\to$ <code>2001:db8:0:a3:...</code></p>
+<p>[!KEY]- Règle 2 : Le double deux-points (<code>::</code>)
+* Remplace une chaîne contiguë d'un ou plusieurs hextets entièrement nuls (<code>0000</code>).
+* <strong>Règle absolue :</strong> Utilisable <strong>UNE SEULE FOIS</strong> par adresse (sinon l'adresse devient ambiguë/impossible à reconstituer).
+* <em>Meilleure pratique :</em> Appliquer <code>::</code> sur la plus longue séquence de zéro contiguë.</p>
+<p><strong>Exemples d'application combinée (Règle 1 + Règle 2) :</strong>
+* <code>2001:0db8:0000:1111:0000:0000:0000:0200</code> $\to$ <code>2001:db8:0:1111::200</code>
+* <code>fe80:0000:0000:0000:0000:0000:0000:0001</code> $\to$ <code>fe80::1</code>
+* <code>0000:0000:0000:0000:0000:0000:0000:0000</code> $\to$ <code>::</code></p>
+</blockquote>
+<h2 id="3-types-dadresses-ipv6">3. Types d'adresses IPv6</h2>
+<h3 id="31-categories-dadresses-ipv6">3.1. Catégories d'adresses IPv6</h3>
+<ul>
+<li><strong>Monodiffusion (Unicast) :</strong> <ul>
+<li>Identifie une interface unique de façon exclusive. Tout paquet IPv6 envoyé doit avoir une adresse source Unicast.</li>
+</ul>
+</li>
+<li><strong>Multidiffusion (Multicast) :</strong> <ul>
+<li>Utilisée pour envoyer un seul paquet IPv6 vers plusieurs destinations simultanément.</li>
+</ul>
+</li>
+<li>🚨🆕<strong>Anycast :</strong> <ul>
+<li>Adresse Unicast attribuée à plusieurs équipements ; le paquet est acheminé vers le périphérique le plus proche supportant cette adresse.</li>
+</ul>
+</li>
+<li>🚨🆕<strong>Absence de Broadcast :</strong> <ul>
+<li>IPv6 n'a <strong>pas d'adresse de diffusion (broadcast)</strong>. Il utilise la multidiffusion (notamment l'adresse multicast « tous les nœuds ») pour obtenir le même résultat.</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-longueur-de-prefixe-structure">3.2. Longueur de préfixe &amp; Structure</h3>
+<ul>
+<li><strong>Rôle :</strong> <ul>
+<li>Indique la partie réseau de l'adresse IPv6 (remplace la notion de masque de sous-réseau décimal IPv4).</li>
+</ul>
+</li>
+<li><strong>Plage possible :</strong> <ul>
+<li>La longueur du préfixe peut être comprise <strong>entre 0 et 128</strong>.</li>
+</ul>
+</li>
+<li><strong>Préfixe recommandé :</strong> <ul>
+<li><strong>/64</strong> pour les réseaux locaux (LAN) et la plupart des sous-réseaux.</li>
+</ul>
+</li>
+<li><strong>Structure /64 :</strong> <ul>
+<li>64 bits de préfixe (partie réseau) + 64 bits d'ID d'interface (partie hôte).</li>
+</ul>
+</li>
+<li><strong>Raison :</strong> <ul>
+<li>Un ID d'interface de 64 bits est obligatoire pour faire fonctionner l'autoconfiguration sans état (<strong>SLAAC</strong>) et simplifie la création/gestion des sous-réseaux.</li>
+</ul>
+</li>
+</ul>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<blockquote>
+<h1 id="note-slaac-stateless-address-autoconfiguration">[!NOTE]- SLAAC (<em>Stateless Address Autoconfiguration</em>)</h1>
+<p>[!NOTE]-  <strong>SLAAC</strong> (<em>Stateless Address Autoconfiguration</em>)</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b0d41ef71c10ec546bac96cd8f8b6719b15a4add
+<strong>SLAAC</strong> permet à un équipement de se brancher sur un réseau IPv6 et d'obtenir immédiatement une IP globale fonctionnelle <strong>sans aucune intervention d'un serveur DHCPv6</strong>. 
+* <strong>Stateless (Sans état) :</strong> Le routeur ne conserve aucune trace (aucun état) des adresses distribuées aux équipements.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><strong>Pourquoi un /64 obligatoire ?</strong> Le mécanisme SLAAC prend le préfixe de 64 bits fourni par le routeur local et y colle un identifiant d'interface de 64 bits généré par l'appareil lui-même.</li>
+<li><strong>Avantage clé :</strong> Simplification totale du déploiement (autoconfiguration Plug-and-Play) tout en conservant une passerelle par défaut opérationnelle (la LLA du routeur).</li>
+</ul>
+</blockquote>
+<h3 id="33-types-dadresses-unicast-fondamentales">3.3. Types d'adresses Unicast fondamentales</h3>
+<p>Un équipement IPv6 possède généralement <strong>au moins deux adresses Unicast</strong> sur la même interface : une GUA et une LLA.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Type d'adresse Unicast</th>
+<th style="text-align: left;">Plage / Préfixe</th>
+<th style="text-align: left;">Description &amp; Caractéristiques clés</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>GUA</strong> <em>(Global Unicast Address)</em></td>
+<td style="text-align: left;"><code>2000::/3</code> (<code>2000...</code> à <code>3FFF...</code>)</td>
+<td style="text-align: left;">Public &amp; Routable mondialement sur Internet (équivalent IP publique IPv4).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LLA</strong> <em>(Link-Local Address)</em></td>
+<td style="text-align: left;"><code>fe80::/10</code> (<code>fe80...</code> à <code>febf...</code>)</td>
+<td style="text-align: left;">Obligatoire sur chaque interface IPv6. Communication limitée à la liaison locale (non routable).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ULA</strong> <em>(Unique Local Address)</em></td>
+<td style="text-align: left;"><code>fc00::/7</code> (<code>fc00...</code> à <code>fdff...</code>)</td>
+<td style="text-align: left;">Utilisation locale au site/entreprise (équivalent IP privée ). Non routée sur l'Internet public.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bouclage (Loopback)</strong></td>
+<td style="text-align: left;"><code>::1/128</code></td>
+<td style="text-align: left;">Adresse de test local de la pile réseau (équivalent de <code>127.0.0.1</code> en IPv4).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Non spécifiée</strong></td>
+<td style="text-align: left;"><code>::/128</code></td>
+<td style="text-align: left;">Adresse temporaire tout-zéro utilisée lorsqu'aucune IP n'est encore attribuée à l'interface.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!WARNING]- Remarque importante : Adresse Locale Unique - ULA (<code>fc00::/7</code> à <code>fdff::/7</code>)</p>
+<ul>
+<li><strong>Statut d'implémentation :</strong> Les ULA ne sont <strong>pas encore couramment implémentées</strong> dans la pratique. Le cours NetAcad se concentre donc quasi exclusivement sur la configuration des adresses <strong>GUA</strong> et</li>
+<li>Quel intérêt ?</li>
+</ul>
+</blockquote>
+<h3 id="34-structure-dune-adresse-gua">3.4. Structure d'une adresse GUA</h3>
+<p>Structure classique d'une adresse <strong>GUA /64</strong> distribuée à partir d'un bloc entreprise <strong>/48</strong> :</p>
+<pre><code class="language-text">|&lt;------------ 64 bits ------------&gt;|&lt;------- 64 bits -------&gt;|
++-------------------+---------------+-------------------------+
+| Global Routing    | Subnet ID     | Interface ID            |
+| Prefix (/48)      | (16 bits)     | (64 bits)               |
++-------------------+---------------+-------------------------+
+|&lt;--- 3 hextets ---&gt;|&lt;- 1 hextet --&gt;|&lt;------ 4 hextets ------&gt;|
+</code></pre>
+<ul>
+<li>
+<p><strong>Préfixe de routage global (48 bits en général) :</strong> </p>
+<ul>
+<li>Attribué par le FAI ou l'IANA/RIR. Les 3 premiers bits d'une GUA sont toujours <code>001</code> (d'où le premier chiffre hexa compris entre <code>2</code> et <code>3</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>ID de sous-réseau (16 bits) :</strong> </p>
+<ul>
+<li>Champ situé entre le préfixe global et l'ID d'interface. Permet à une organisation de créer jusqu'à <strong>65 536 sous-réseaux /64</strong> sans toucher aux bits d'hôte.</li>
+</ul>
+</li>
+<li>
+<p><strong>ID d'interface (64 bits) :</strong> </p>
+<ul>
+<li>Équivalent de la partie hôte IPv4. Permet d'accueillir jusqu'à 18 quintillions d'hôtes par sous-réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Spécificité IPv6 :</strong> </p>
+<ul>
+<li>Les adresses réseau tout-<code>0</code> et tout-<code>1</code> (utilisables pour les hôtes) ne sont pas perdues comme en IPv4, bien que l'adresse tout-<code>0</code> soit réservée comme adresse Anycast du routeur sous-réseau.</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-adresse-lla-link-local-address">3.5. Adresse LLA - Link-Local Address</h3>
+<ul>
+<li>
+<p><strong>Portée stricte :</strong> </p>
+<ul>
+<li>Utilisée uniquement pour la communication entre équipements sur le <strong>même segment local</strong>. Les routeurs ne transfèrent jamais un paquet dont l'IP source ou destination est une LLA.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle crucial :</strong></p>
+<ul>
+<li>
+<p>Sert de <strong>passerelle par défaut (Default Gateway)</strong> pour les hôtes du réseau.</p>
+</li>
+<li>
+<p>Sert pour l'échange de messages des protocoles de routage (OSPFv3, RIPng...).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Plage binaire :</strong> </p>
+<ul>
+<li>Le 1er hextet est compris entre <code>fe80</code> et <code>febf</code> (10 bits fixés à <code>1111 1110 10xx xxxx</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Modes de configuration :</strong></p>
+<ul>
+<li>
+<p><strong>Statique :</strong> Définie manuellement par l'administrateur (ex: <code>fe80::1</code> pour un routeur).</p>
+</li>
+<li>
+<p><strong>Dynamique :</strong> Générée automatiquement par l'appareil à l'activation de l'interface (via méthode aléatoire ou <strong>EUI-64</strong> basée sur la MAC address).</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE]- EUI-64 en bref
+<strong>EUI-64</strong> (<em>Extended Unique Identifier 64 bits</em>) convertit une adresse <strong>MAC (48 bits)</strong> en un <strong>ID d'interface IPv6 (64 bits)</strong> en 2 actions :
+1. <strong>Insertion de <code>FF-FE</code></strong> au milieu de l'adresse MAC.
+2. <strong>Inversion du 7ᵉ bit</strong> du premier octet (le bit <em>Universel/Local</em>).</p>
+<ul>
+<li><strong>Repérage rapide :</strong> Si une IP contient <code>ff:fe</code> au milieu de son ID d'interface, elle provient d'EUI-64 (ex: <code>fe80::fc99:47</code><strong><code>ff:fe</code></strong><code>75:cee0</code>).</li>
+<li><strong>Problème :</strong> Expose la carte MAC (traçabilité). Les PC préfèrent aujourd'hui la génération aléatoire.</li>
+</ul>
+</blockquote>
+<h2 id="4-configuration-statique-de-gua-et-lla">4 Configuration statique de GUA et LLA</h2>
+<h3 id="41-synthese-des-commandes-cisco-ios">4.1. Synthèse des commandes Cisco IOS</h3>
+<ul>
+<li>La syntaxe est identique à l'IPv4 en remplaçant <code>ip</code> par <code>ipv6</code>.</li>
+<li><strong>GUA :</strong> La longueur de préfixe est collée à l'adresse sans espace (<code>/64</code>).</li>
+<li><strong>LLA :</strong> Utilise le mot-clé obligatoire <code>link-local</code> à la fin de la commande.</li>
+<li>Ne PAS OUBLIER  le fameux <code>no shutdown</code> </li>
+</ul>
+<pre><code class="language-IOS">! Configuration GUA &amp; LLA sur routeur (R1)
+interface gigabitethernet 0/0/0
+ ipv6 address 2001:db8:acad:1::1/64
+ ipv6 address fe80::1:1 link-local
+ no shutdown
+</code></pre>
+<h3 id="42-configuration-gua">4.2. Configuration GUA</h3>
+<ul>
+<li>
+<p><strong>Routeur :</strong> Une interface peut héberger simultanément une GUA et une LLA.</p>
+</li>
+<li>
+<p><strong>Hôte (PC) :</strong>    </p>
+<ul>
+<li>
+<p>Configuration manuelle possible (IP, préfixe, passerelle par défaut).</p>
+</li>
+<li>
+<p><strong>Meilleure pratique Passerelle :</strong> </p>
+<ul>
+<li>Utiliser l'adresse <strong>LLA du routeur</strong> comme passerelle par défaut au lieu de sa GUA.</li>
+</ul>
+</li>
+<li>
+<p><strong>Attribution dynamique :</strong> </p>
+<ul>
+<li>Préférée en entreprise via <strong>SLAAC</strong> ou <strong>DHCPv6</strong> (définit automatiquement la LLA du routeur comme passerelle).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="43-configuration-lla">4.3. Configuration LLA</h3>
+<ul>
+<li>
+<p><strong>Intérêt :</strong> </p>
+<ul>
+<li>Définir des adresses simples et mémorisables pour les passerelles et le routage (ex: <code>fe80::1</code> pour R1, <code>fe80::2</code> pour R2).</li>
+</ul>
+</li>
+<li>
+<p><strong>Portée &amp; Réutilisation :</strong></p>
+<ul>
+<li>
+<p>Une même LLA peut être configurée sur plusieurs interfaces d'un même routeur, à condition d'être unique sur chaque lien local.</p>
+</li>
+<li>
+<p><strong>Bonne pratique :</strong> Varier légèrement l'adresse par interface (ex: <code>fe80::1:1</code>, <code>fe80::2:1</code>) pour faciliter l'identification.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-adressage-dynamique-des-gua-ipv6">5 Adressage Dynamique des GUA IPv6</h2>
+<h3 id="51-prerequis-routeur-messages-icmpv6">5.1. Préréquis Routeur &amp; Messages ICMPv6</h3>
+<ul>
+<li><strong>Activation du routage IPv6 :</strong> Obligatoire sur le routeur avec la commande globale <code>ipv6 unicast-routing</code> (sinon il n'envoie pas de messages RA).</li>
+<li><strong>Messages de dialogue ICMPv6 :</strong></li>
+<li><strong>RS (Router Solicitation) :</strong> Envoyé par l'hôte à l'allumage pour demander des informations d'adressage.</li>
+<li><strong>RA (Router Advertisement) :</strong> Envoyé par le routeur (périodiquement toutes les 200s ou en réponse à un RS) pour fournir le préfixe réseau, la longueur de préfixe (<code>/64</code>), la passerelle par défaut (adresse LLA du routeur) et les options DNS.</li>
+</ul>
+<h3 id="52-les-3-methodes-dattribution-dynamique">5.2. Les 3 Méthodes d'attribution dynamique</h3>
+<p>Le message RA indique à l'hôte la méthode à suivre via des indicateurs (flags) :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Méthode</th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Fonctionnement</th>
+<th style="text-align: left;">Ce que fournit le Routeur (RA)</th>
+<th style="text-align: left;">Ce que fournit le Serveur DHCPv6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Méthode 1</strong></td>
+<td style="text-align: left;"><strong>SLAAC uniquement</strong></td>
+<td style="text-align: left;">L'hôte crée sa GUA en autonomie complète sans serveur DHCPv6.</td>
+<td style="text-align: left;">Préfixe, Masque <code>/64</code>, Passerelle (LLA)</td>
+<td style="text-align: left;"><em>Aucun serveur utilisé</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Méthode 2</strong></td>
+<td style="text-align: left;"><strong>SLAAC + DHCPv6 sans état</strong></td>
+<td style="text-align: left;">L'hôte génère son IP via SLAAC et sollicite DHCPv6 pour les options annexes.</td>
+<td style="text-align: left;">Préfixe, Masque <code>/64</code>, Passerelle (LLA)</td>
+<td style="text-align: left;">Serveurs DNS, Nom de domaine</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Méthode 3</strong></td>
+<td style="text-align: left;"><strong>Stateful DHCPv6 (avec état)</strong></td>
+<td style="text-align: left;">Fonctionne comme le DHCP IPv4 classique. Le serveur attribue et conserve l'état des IP.</td>
+<td style="text-align: left;">Passerelle par défaut (LLA du routeur)</td>
+<td style="text-align: left;">Adresse GUA complète, DNS, options</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!NOTE]- Passerelle par défaut
+Quelle que soit la méthode (1, 2 ou 3), l'adresse de la <strong>passerelle par défaut est TOUJOURS la LLA du routeur</strong> transmise via le message RA. Un serveur DHCPv6 ne fournit jamais la passerelle par défaut.</p>
+</blockquote>
+<h3 id="53-generation-de-lid-dinterface-64-bits">5.3. Génération de l'ID d'interface (64 bits)</h3>
+<p>Lorsque SLAAC est utilisé (Méthodes 1 et 2), le client doit fabriquer lui-même son ID d'interface (64 bits) selon deux méthodes :</p>
+<h4 id="a-methode-eui-64-basee-sur-ladresse-mac-48-bits">A. Méthode EUI-64 (Basée sur l'adresse MAC 48 bits)</h4>
+<ol>
+<li>Diviser l'adresse MAC Ethernet (48 bits) en deux blocs de 24 bits (OUI et ID périphérique).</li>
+<li>Insérer la valeur hexadécimale <strong><code>FF-FE</code></strong> (16 bits) au milieu.</li>
+<li>Inverser le 7ᵉ bit (bit U/L) du premier octet (ex: <code>0</code> devient <code>1</code>).</li>
+<li><em>Inconvénient :</em> Traçabilité et risque pour la confidentialité (l'adresse MAC est exposée dans l'IP). Repérable dans un <code>ipconfig</code> par la présence de <code>ff:fe</code>.</li>
+</ol>
+<blockquote>
+<p>[!tip]- Exemple pratique
+Soit une adresse MAC : <code>FC-99-47-75-CE-E0</code>
+* <strong>Étape 1 (Division) :</strong> <code>FC-99-47</code>  |  <code>75-CE-E0</code>
+* <strong>Étape 2 (Insertion FF-FE) :</strong> <code>FC-99-47</code>-<strong><code>FF-FE</code></strong>-<code>75-CE-E0</code>
+* <strong>Étape 3 (Inversion bit 7) :</strong>
+* <code>FC</code> en binaire = <code>1111 1100</code>
+* Inversion du 7ᵉ bit $\to$ <code>1111 1110</code> = <code>FE</code> en hexadécimal
+* <strong>Résultat EUI-64 final :</strong> <code>FE99:47FF:FE75:CEE0</code></p>
+</blockquote>
+<h4 id="b-generation-aleatoire-random">B. Génération aléatoire (Random)</h4>
+<ul>
+<li>Un nombre de 64 bits généré aléatoirement par le système d'exploitation (standard par défaut depuis Windows Vista/Linux/macOS pour protéger la vie privée).</li>
+</ul>
+<h3 id="54-verification-dunicite-dad-duplicate-address-detection">5.4. Vérification d'unicité : DAD (Duplicate Address Detection)</h3>
+<ul>
+<li>Avant d'utiliser toute adresse IPv6 (GUA ou LLA) générée dynamiquement, l'hôte exécute l'algorithme <strong>DAD</strong> (requête ICMPv6 voisine) pour vérifier qu'aucun autre équipement local n'utilise la même IP.</li>
+</ul>
+<h2 id="6-lla-dynamiques-et-verification-ipv6">6 LLA dynamiques et Vérification IPv6</h2>
+<h3 id="61-generation-dynamique-des-lla">6.1. Génération dynamique des LLA</h3>
+<p>Toute interface compatible IPv6 génère automatiquement une adresse <strong>LLA</strong> (<code>fe80::/10</code>) dès son activation.</p>
+<ul>
+<li><strong>Mécanisme :</strong> <ul>
+<li>L'adresse est créée en combinant le préfixe <code>fe80::/10</code> avec un ID d'interface de 64 bits généré par <strong>EUI-64</strong> ou de manière <strong>aléatoire</strong>.</li>
+</ul>
+</li>
+<li><strong>Comportement des clients (Windows) :</strong> <ul>
+<li>Utilise la même méthode d'ID d'interface (EUI-64 ou aléatoire) pour sa LLA et pour sa GUA (via SLAAC).</li>
+</ul>
+</li>
+<li><strong>Comportement des routeurs Cisco IOS :</strong><ul>
+<li>Génèrent leur LLA dynamique par défaut via la méthode <strong>EUI-64</strong> basée sur la MAC address de la première interface Ethernet disponible.</li>
+<li>Pour les interfaces série (sans MAC), le routeur réutilise la MAC d'une interface Ethernet.</li>
+<li><em>Inconvénient :</em>* Les LLA générées dynamiquement sont longues et complexes à mémoriser (ex: <code>fe80::7279:b3ff:fe92:3640</code>). C'est pourquoi la <strong>configuration statique</strong> (ex: <code>fe80::1</code>) est la meilleure pratique sur les routeurs.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="62-commandes-de-verification-de-la-configuration-ipv6">6.2. Commandes de vérification de la configuration IPv6</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Commande Cisco IOS</th>
+<th style="text-align: left;">Description &amp; Points clés à retenir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>show ipv6 interface brief</code></td>
+<td style="text-align: left;">Affiche l'état des interfaces (<code>up/up</code>) ainsi que leurs adresses <strong>LLA et GUA</strong>. <em>(Note : Les LLA n'apparaissent pas dans la table de routage).</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>show ipv6 route</code></td>
+<td style="text-align: left;">Affiche la table de routage IPv6 :<br>• <strong><code>C</code> (Directly Connected) :</strong> Réseau IPv6 connecté (<code>/64</code>).<br>• <strong><code>L</code> (Local) :</strong> Route locale vers l'adresse exacte de l'interface (<code>/128</code>).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ping &lt;adresse_IPv6&gt;</code></td>
+<td style="text-align: left;">Teste la connectivité ICMPv6.<br>• <em>Règle LLA :</em> En cas de ping vers une adresse <strong>LLA</strong>, Cisco IOS demande de préciser <strong>l'interface de sortie</strong>, car une même LLA peut exister sur plusieurs liens distants.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-adresses-de-multidiffusion-multicast-ipv6">7 Adresses de multidiffusion (Multicast) IPv6</h2>
+<h3 id="71-principes-generaux">7.1. Principes généraux</h3>
+<ul>
+<li><strong>Préfixe réservé :</strong> <ul>
+<li><strong><code>ff00::/8</code></strong> (toutes les adresses multicast commencent par <code>ff...</code>).</li>
+</ul>
+</li>
+<li><strong>Règle stricte :</strong> <ul>
+<li>Une adresse de multidiffusion ne peut être qu'une <strong>adresse de destination</strong> (jamais une adresse source). ce n'est pas NOUVEAU !</li>
+</ul>
+</li>
+<li><strong>Deux types principaux :</strong></li>
+<li>Les adresses de multidiffusion attribuées.</li>
+<li>Les adresses de multidiffusion de nœud sollicité (<em>Solicited-Node Multicast</em>).</li>
+</ul>
+<h3 id="72-adresses-de-multidiffusion-attribuees-courantes">7.2. Adresses de multidiffusion attribuées courantes</h3>
+<p>Réseaux/groupes pré-définis auxquels les équipements s'abonnent automatiquement :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Adresse Multicast</th>
+<th style="text-align: left;">Groupe de destination</th>
+<th style="text-align: left;">Description &amp; Utilisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>ff02::1</code></strong></td>
+<td style="text-align: left;"><strong>Tous les nœuds</strong> (<em>All-Nodes</em>)</td>
+<td style="text-align: left;">Remplace le broadcast IPv4[cite: 42]. Tous les équipements IPv6 du lien reçoivent et traitent le paquet[cite: 42]. <em>(Ex : Envoi des messages RA par le routeur)</em>[cite: 42].</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong><code>ff02::2</code></strong></td>
+<td style="text-align: left;"><strong>Tous les routeurs</strong> (<em>All-Routers</em>)</td>
+<td style="text-align: left;">Rejoint par tous les routeurs IPv6 du lien (activés via <code>ipv6 unicast-routing</code>)[cite: 42]. <em>(Ex : Envoi des messages RS par les hôtes)</em>[cite: 42].</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-multidiffusion-de-nud-sollicite-solicited-node">7.3. Multidiffusion de nœud sollicité (<em>Solicited-Node</em>)</h3>
+<ul>
+<li><strong>Définition :</strong> <ul>
+<li>Adresse créée automatiquement et associée à chaque adresse Unicast (GUA ou LLA) attribuée à une interface.</li>
+</ul>
+</li>
+<li><strong>Fonctionnement matériel :</strong> <ul>
+<li>Mappée directement sur une adresse MAC multicast Ethernet spécifique.</li>
+</ul>
+</li>
+<li><strong>Avantage clé :</strong> <ul>
+<li>Permet à la carte réseau Ethernet d'un hôte de <strong>filtrer la trame au niveau matériel (Couche 2)</strong> sans solliciter le processeur/pile IPv6 si la trame ne lui est pas destinée.</li>
+</ul>
+</li>
+<li><strong>Rôle principal :</strong> <ul>
+<li>Utilisée à la place du broadcast ARP pour la résolution d'adresses MAC et la détection d'adresses dupliquées (<strong>DAD</strong>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-subnetting-ipv6">8. Subnetting IPv6</h2>
+<h3 id="81-principe-de-conception">8.1. Principe de conception</h3>
+<ul>
+<li><strong>Intégration native :</strong> <ul>
+<li>IPv6 a été conçu dès l'origine pour faciliter le Subnetting grâce au champ dédié <strong>Subnet ID</strong>.</li>
+</ul>
+</li>
+<li><strong>Structure d'un bloc /48 attribué :</strong><ul>
+<li><em>Global Routing Prefix :</em>* 48 bits (fournis par l'ISP/IANA).</li>
+<li><em>Subnet ID :</em>* <strong>16 bits</strong> (4ᵉ hextet).</li>
+<li><em>Interface ID :</em>* <strong>64 bits</strong> (standard obligatoire pour SLAAC).</li>
+</ul>
+</li>
+<li><strong>Capacité :</strong> <ul>
+<li>Un champ Subnet ID de 16 bits offre <strong>65 536 sous-réseaux /64</strong>, chacun pouvant accueillir 18 quintillions d'hôtes.</li>
+</ul>
+</li>
+</ul>
+<h3 id="82-mecanique-dincrementation-hexadecimale">8.2. Mécanique d'Incrémentation Hexadécimale</h3>
+<p>Contrairement à l'IPv4, <strong>aucune conversion binaire n'est nécessaire</strong>. Pour créer les sous-réseaux successifs, il suffit d'incrémenter le 4ᵉ hextet en <strong>hexadécimal</strong> :</p>
+<ul>
+<li>Bloc racine : <code>2001:db8:acad::/48</code><ul>
+<li>Sous-réseau 0 : <code>2001:db8:acad:0000::/64</code> (ou <code>2001:db8:acad::/64</code>)</li>
+<li>Sous-réseau 1 : <code>2001:db8:acad:0001::/64</code></li>
+<li>Sous-réseau 2 : <code>2001:db8:acad:0002::/64</code></li>
+<li>...</li>
+<li>Sous-réseau 10 : <code>2001:db8:acad:000a::/64</code></li>
+<li>...</li>
+<li>Dernier sous-réseau : <code>2001:db8:acad:ffff::/64</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!NOTE] Pas de contrainte de gaspillage sur les liaisons Point-à-Point
+Sur les liaisons série ou WAN (routeur à routeur), on utilise également un masque <strong>/64</strong> standard. Même si 2 adresses IP seulement sont consommées sur les quintillions disponibles, conserver le préfixe <code>/64</code> préserve l'homogénéité du plan d'adressage et la compatibilité globale.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

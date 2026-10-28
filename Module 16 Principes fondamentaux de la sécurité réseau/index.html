@@ -1,0 +1,1345 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/">
+      
+      
+        <link rel="prev" href="../Module%2015%20Couche%20Application/">
+      
+      
+        <link rel="next" href="../Dossier_config/Router_Template/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>sécurité #cybersecurité - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#securite-cybersecurite" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              sécurité #cybersecurité
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="securite-cybersecurite">sécurité #cybersecurité</h1>
+<blockquote>
+<p>[!WARNING] AVERTISSEMENT LÉGAL ET ÉTHIQUE
+Le contenu de ce cours (outils, vulnérabilités, tests d'intrusion) est présenté à des fins <strong>strictement pédagogiques</strong>.
+- <strong>Laboratoires dédiés uniquement :</strong> Toute manipulation doit être effectuée sur les environnements de TP autorisés. 
+- <strong>Rappel de la loi :</strong> Tester ou attaquer un système sans autorisation écrite préalable constitue un <strong>délit pénal</strong>.
+- L'enseignant et l'établissement déclinent toute responsabilité en cas d'usage abusif ou illégal hors du cours.</p>
+</blockquote>
+<h1 id="module-16-principes-fondamentaux-de-la-securite-reseau-cisco-netacad-ccna-1">Module 16 : Principes fondamentaux de la sécurité réseau (Cisco NetAcad  CCNA 1)</h1>
+<blockquote>
+<p>[!abstract] <strong>Fiche d'Identité du Cours</strong>
+- <strong>Module NetAcad</strong> : Module 16 – Principes fondamentaux de la sécurité du réseau (ITN v7)
+- <strong>Thématique de l'amorce</strong> : La Cyberattaque des Frigos de Supermarché (Octobre 2026)
+- <strong>Format</strong> : Animation progressive 
+- <strong>Durée estimée</strong> : 45 à 60 minutes</p>
+</blockquote>
+<h2 id="phase-1-amorce-etude-du-cas-reel-15-min">📌 Phase 1 : Amorce &amp; Étude du Cas Réel (15 min)</h2>
+<blockquote>
+<p>[!danger] <strong>Cas Pratique : L'Affaire des Frigos Connectés</strong>
+Dans la nuit du 11 au 12 octobre 2026, plusieurs centaines de supermarchés en France (Intermarché, Coopérative U, E.Leclerc) ont subi une cyberattaque inédite.
+Des pirates ont pris le contrôle à distance des régulateurs frigorifiques (Danfoss AK-SM 800/800A) et ont forcé un cycle de dégivrage continu avec une consigne portée à 50 °C.
+<strong>Conséquences</strong> : Décongélation massive pendant la nuit, rupture de la chaîne du froid et millions d'euros de produits surgelés jetés.</p>
+</blockquote>
+<h3 id="les-faits-actualite">Les faits (Actualité) :</h3>
+<ul>
+<li>
+<p>TF1 version courte 
+     <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2728027927632024%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></p>
+</li>
+<li>
+<p>TF1 version longue : Comment ?
+     <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1134024079150650%2F&show_text=false&width=560&t=284" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></p>
+</li>
+<li>
+<p>BFMTV : 
+     <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1773662817010800%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1145023884667944%2F&show_text=false&width=267&t=0" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe></p>
+</li>
+</ul>
+<blockquote>
+<p>[!question]- 🔍 **Question **
+<em>« En vous appuyant sur la vidéo d'introduction , comment pouvez-vous qualifier cette attaque, quelles failles ont été exploitées et comment aurions-nous pu protéger ces équipements ? »</em></p>
+</blockquote>
+<h2 id="phase-2-analyse-guidee-la-grille-du-module-16-20-min">📌 Phase 2 : Analyse Guidée – La Grille du Module 16 (20 min)</h2>
+<blockquote>
+<p>[!info] <strong>Matrice de correspondance : Théorie NetAcad vs. Cas Pratique</strong></p>
+</blockquote>
+<h3 id="travail-en-equipe-la-matrice-danalyse-dincident-10-min"><strong>Travail en équipe – « La Matrice d'Analyse d'Incident » (10 min)</strong></h3>
+<p>Chaque binôme reçoit une grille d'analyse à compléter en faisant le lien entre les concepts du cours  et le cas réel </p>
+<table>
+<thead>
+<tr>
+<th>Rubrique du Module 16</th>
+<th>Concept Cisco NetAcad</th>
+<th>Application au cas des frigos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>16.1 Types de menaces</strong>[</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>16.1 Vulnérabilités technologiques</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>16.1 Vulnérabilités de configuration</strong>[</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>16.1 Vulnérabilités de politique</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>16.2 Type d'attaque</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="restitution-travail-en-equipe-la-matrice-danalyse-dincident-10-min"><strong>Restitution Travail en équipe – « La Matrice d'Analyse d'Incident » (10 min)</strong></h3>
+<p>Chaque binôme reçoit une grille d'analyse à compléter en faisant le lien entre les concepts du cours  et le cas réel </p>
+<table>
+<thead>
+<tr>
+<th>Rubrique du Module 16</th>
+<th>Concept Cisco NetAcad</th>
+<th>Application au cas des frigos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>16.1 Types de menaces</strong>[</td>
+<td>Interruption de service (DoS) &amp; Pertes/destruction de données et biens.</td>
+<td>Déni de service physique provoquant la rupture de la chaîne du froid et la perte de denrées alimentaires.</td>
+</tr>
+<tr>
+<td><strong>16.1 Vulnérabilités technologiques</strong></td>
+<td>Faiblesses logicielles, firmwares obsolètes ou failles d'authentification.</td>
+<td>Utilisation de contrôleurs Danfoss AK-SM 800/800A tournant sur des versions de micrologiciels obsolètes contenant des failles connues (CVE-2025-41450, CVE-2025-41451).</td>
+</tr>
+<tr>
+<td><strong>16.1 Vulnérabilités de configuration</strong>[</td>
+<td>Équipements mal configurés, accès non sécurisés et exposition directe sur Internet.</td>
+<td>Interfaces web de supervision technique directement accessibles sur Internet sans pare-feu ni VPN[26].</td>
+</tr>
+<tr>
+<td><strong>16.1 Vulnérabilités de politique</strong></td>
+<td>Absence de suivi des équipements IoT/OT, manque de politiques de mise à jour.</td>
+<td>Les systèmes frigorifiques étaient gérés par des prestataires externes sans audit ni suivi des correctifs par les DSI/RSSI.</td>
+</tr>
+<tr>
+<td><strong>16.2 Type d'attaque</strong></td>
+<td>Attaque par accès (contournement d'authentification / injection de commande) et déni de service.</td>
+<td>Exploitation d'un « code du jour » pour contourner l'authentification administrateur, suivi d'une injection de commande à distance pour forcer le dégivrage.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notions-du-cours">Notions  du cours</h3>
+<h4 id="1-types-de-menaces-rubrique-1611">1. Types de Menaces (Rubrique 16.1.1)</h4>
+<blockquote>
+<p>[!note]- 👁️ <strong>Dérouler la théorie et l'application</strong>
+* <strong>Théorie NetAcad</strong> : Une intrusion peut provoquer 4 types de menaces : le vol d'informations, la perte/manipulation de données, l'usurpation d'identité et l'interruption de service (DoS).
+* <strong>Cas réel</strong> : L'attaque constitue un <strong>déni de service (DoS) physique</strong> provoqué par une <strong>manipulation malveillante des données de consigne</strong> de température.</p>
+</blockquote>
+<h4 id="2-categories-de-vulnerabilites-rubrique-1612">2. Catégories de Vulnérabilités (Rubrique 16.1.2)</h4>
+<blockquote>
+<p>[!note]- 👁️ <strong>Dérouler les 3 vulnérabilités NetAcad</strong>
+Le cours Cisco identifie 3 sources de vulnérabilités :
+1. <strong>Technologique</strong> : Utilisation de contrôleurs frigorifiques exécutant des versions logicielles obsolètes contenant des failles de sécurité connues (ex. CVE-2025-41450, CVE-2025-41451).
+2. <strong>Configuration</strong> : Interfaces web de régulation directement exposées sur Internet sans pare-feu ni VPN.
+3. <strong>Politique de sécurité</strong> : Absence d'inventaire et de gestion des correctifs sur les équipements industriels (OT/IoT), souvent gérés par des prestataires externes sans audit informatique.</p>
+</blockquote>
+<p><a href="https://nvd.nist.gov/vuln/detail/cve-2025-41450">CVE-2025-41450</a>,
+<a href="https://nvd.nist.gov/vuln/detail/cve-2025-41451">CVE-2025-41451</a></p>
+<blockquote>
+<p>[!INFO]- <strong>CVE</strong>
+<strong>Une Vulnérabilités:</strong> C'est une <strong>faille exploitable</strong> qui expose le système à un risque. C'est l'équivalent d'une porte laissée entrouverte ou d'une serrure fragile qu'un tiers peut utiliser pour s'introduire.</p>
+<p>Une <strong>CVE</strong> (pour <em>Common Vulnerabilities and Exposures</em>, ou « Vulnérabilités et expositions communes » en français) est un <strong>catalogue public et standardisé de failles de sécurité</strong> informatiques. Registre mondial qui répertorie tous les bugs ou failles de sécurité découverts dans des logiciels, des systèmes d'exploitation ou des équipements matériels.
+En bref :
+- <strong>Un identifiant standardisé</strong> (ex. <code>CVE-2025-41450</code>) :  un <strong>numéro d'immatriculation unique</strong> attribué à une faille de sécurité informatique, pour désigner une vulnérabilité précise sans confusion.
+- <strong>Un langage commun</strong> pour que la communauté cybersécurité, les éditeurs et les entreprises parlent du même problème.
+- <strong>Un outil de suivi</strong> pour savoir si un logiciel contient un bug connu et s'il existe un correctif</p>
+</blockquote>
+<p>Sites
+    - <strong><a href="https://cve.mitre.org/">CVE.org</a></strong> : Le site officiel et source d'origine, géré par le MITRE, qui attribue et répertorie tous les identifiants CVE.
+    - <strong><a href="https://nvd.nist.gov/">NVD (National Vulnerability Database)</a></strong> : La base de données du gouvernement américain (NIST), la plus utilisée pour trouver les détails techniques, les scores de gravité (CVSS) et les logiciels touchés.</p>
+<blockquote>
+<p>[!INFO]- <strong>faille <em>zero-day</em></strong>
+<strong>Une faille</strong> : C'est une <strong>erreur de conception</strong>, de programmation ou de configuration dans un logiciel, un système ou un équipement réseau.</p>
+<p>Une <strong>faille <em>zero-day</em></strong> (ou jour zéro) est une faille de sécurité informatique qui est <strong>inconnue du créateur du logiciel</strong> et pour laquelle il n'existe <strong>aucun correctif</strong>.
+En bref :
+- <strong>Le piège :</strong> Les pirates l'exploitent <em>avant</em> que le fabricant ne soit au courant ou n'ait le temps de la réparer (le compteur est à « zéro jour » de correction).
+- <strong>Le danger :</strong> Elle est redoutable car aucun antivirus ou mise à jour ne peut en protèger au moment de l'attaque.
+- <strong>La suite :</strong> Dès qu'elle est découverte et rendue publique, elle reçoit généralement un numéro <strong>CVE</strong>, et le fabricant se précipite pour créer un correctif en urgence.</p>
+<p>Puisqu'une faille <strong>zero-day</strong> est par définition inconnue et non corrigée au moment où elle est exploitée, il n'existe pas de « catalogue magique » qui l'annonce à l'avance.
+Cependant, on la découvre ou on la suit via des sources spécialisées dès qu'elle est rendue publique ou repérée en train d'être exploitée</p>
+</blockquote>
+<ul>
+<li>
+<p>Sites </p>
+<ul>
+<li>
+<p><strong>Le catalogue KEV de la CISA (Known Exploited Vulnerabilities) :</strong> C'est la référence officielle (gouvernementale américaine) la plus fiable. Elle liste uniquement les failles zero-day qui ont été ou sont <strong>activement exploitées</strong> par des pirates dans le monde réel.</p>
+</li>
+<li>
+<p><strong>Google Project Zero :</strong> Une équipe de chercheurs d'élite de Google dont le travail est de traquer et de publier les détails techniques des failles zero-day les plus complexes (systèmes mobiles, navigateurs). </p>
+</li>
+<li>
+<p><strong>La Zero Day Initiative (ZDI) de Trend Micro :</strong> Un organisme qui achète et suit les vulnérabilités avant leur correction officielle et analyse les bulletins de sécurité dès leur sortie.  </p>
+</li>
+<li>
+<p><strong>Les sites d'actualité en cybersécurité :</strong> Des médias comme <em>BleepingComputer</em> ou <em>The Hacker News</em> relaient en temps réel l'apparition de nouvelles failles zero-day et l'urgence de les patcher.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-types-dattaques-reseau-rubrique-162">3. Types d'Attaques Réseau (Rubrique 16.2)</h4>
+<blockquote>
+<p>[!note]- 👁️ <strong>Dérouler le vecteur d'attaque</strong>
+* <strong>Attaque de reconnaissance</strong> : Scan d'adresses IP pour repérer les interfaces d'administration exposées.
+* <strong>Attaque par accès</strong> : Contournement de l'authentification ("code du jour") puis injection de commandes système.</p>
+<p>[!note]- <strong>Une attaque</strong>
+* C'est l'<strong>action concrète</strong> menée par un pirate (ou un outil comme Metasploit) pour exploiter cette vulnérabilité dans le but de nuire, de voler des données ou de prendre le contrôle du système.</p>
+<p>[!tip] 💡 En résumé 
+ * <strong>La faille</strong> est l'erreur initiale. 
+ * <strong>La vulnérabilité</strong> est la brèche qui en résulte. 
+ * <strong>L'attaque</strong> est l'utilisation active de cette brèche.</p>
+</blockquote>
+<h2 id="phase-3-plan-dattenuation-securisation-15-min">📌 Phase 3 : Plan d'Atténuation &amp; Sécurisation (15 min)</h2>
+<blockquote>
+<p>[!success] <strong>Mesures de Protection (Rubriques 16.3 &amp; 16.4)</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Concept NetAcad</th>
+<th style="text-align: left;">Objectif Cisco</th>
+<th style="text-align: left;">Action concrète pour les magasins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Approche Défense en Profondeur</strong></td>
+<td style="text-align: left;">Multiplier les couches de sécurité</td>
+<td style="text-align: left;">Isoler le réseau industriel/OT des accès Internet généraux.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pare-feu &amp; VPN</strong></td>
+<td style="text-align: left;">Contrôler le trafic et chiffrer l'accès</td>
+<td style="text-align: left;">Interdire l'accès web direct et imposer un <strong>tunnel VPN sécurisé</strong> pour la télémaintenance.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Mise à jour et correctifs</strong></td>
+<td style="text-align: left;">Éliminer les vulnérabilités</td>
+<td style="text-align: left;">Appliquer les correctifs logiciels fournis par le constructeur (ex. firmware R4.3.1).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Durcissement des équipements</strong></td>
+<td style="text-align: left;">Restreindre les services et sécuriser l'accès</td>
+<td style="text-align: left;">Activer <strong>SSH</strong>, appliquer des mots de passe complexes et désactiver les services inutilement ouverts.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="phase-4-transition-vers-le-tp-packet-tracer-5-min">📌 Phase 4 : Transition vers le TP Packet Tracer (5 min)</h2>
+<blockquote>
+<p>[!tip] <strong>Configuration IOS de base (Rubrique 16.4)</strong>
+Projetez les commandes Cisco IOS de sécurisation étudiées dans la vidéo :
+<code>cisco
+R1(config)# service password-encryption
+R1(config)# security passwords min-length 8
+R1(config)# login block-for 120 attempts 3 within 60
+R1(config)# line vty 0 4
+R1(config-line)# transport input ssh</code>
+👉 <strong>Activité pratique suivante</strong> : <em>Packet Tracer 16.4.6 – Configuration de mots de passe sécurisés et de SSH</em>.</p>
+</blockquote>
+<h2 id="pour-aller-plus-loin-la-reglementation">📌 Pour aller plus loin : La réglementation</h2>
+<blockquote>
+<p>[!note] NIS2
+La <strong>Directive (UE) 2022/2555</strong> (connue sous le nom de <strong>NIS2</strong> ou <strong>SRI 2</strong>) est la ==réglementation européenne relative à la cybersécurité==, transposée en Belgique par la <strong>loi du 26 avril 2024</strong>. Elle est entrée en application le <strong>18 octobre 2024</strong>, remplaçant l'ancienne directive NIS1</p>
+<p>[!note] CCB
+Le <a href="https://ccb.belgium.be/fr">Centre pour la Cybersécurité Belgique</a> est l’autorité nationale en charge de la cybersécurité en Belgique. Il supervise, coordonne et veille à la mise en œuvre de la stratégie belge en matière de cybersécurité. Grâce à un échange d’informations optimal, les entreprises, les autorités, les opérateurs de services essentiels et les citoyens peuvent compter sur une protection adéquate.</p>
+<p>[!note] CyFun
+Le CyberFundamentals Framework - CyFun® ==est un référentiel de cybersécurité développé par le CCB pour aider les organisations à protéger leurs données, réduire les cyberattaques et se conformer à la directive NIS2==</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

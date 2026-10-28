@@ -1,0 +1,2672 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2011%20Adressage%20IPv4/">
+      
+      
+        <link rel="prev" href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/">
+      
+      
+        <link rel="next" href="../Module%2012%20Adressage%20IPv6/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Subnetting #adressage #IPv4 - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subnetting-adressage-ipv4" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Subnetting #adressage #IPv4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="subnetting-adressage-ipv4">Subnetting #adressage #IPv4</h1>
+<h1 id="module-11-adressage-ipv4">Module 11 : Adressage <strong>IPv4</strong></h1>
+<h2 id="1-structure-de-ladresse-ipv4">1 Structure de l'adresse IPv4</h2>
+<h3 id="11-parties-reseau-et-hote">1.1 Parties réseau et hôte</h3>
+<p>voir [[Module 08 Couche reseau#5. Paquet IPv4]]
+- <strong>Structure hiérarchique :</strong> 
+    - Une adresse IPv4 se compose de 32 bits séparés en 4 octets, divisés en deux parties : la <strong>partie réseau</strong> (plage d'adresse) et la <strong>partie hôte</strong>.      </p>
+<ul>
+<li>
+<p><strong>Rôle des parties :</strong>          </p>
+<ul>
+<li>
+<p><strong>Partie réseau :</strong> </p>
+<ul>
+<li>Identifie le réseau spécifique ; tous les équipements d'un même réseau doivent partager des bits réseau identiques.</li>
+</ul>
+</li>
+<li>
+<p><strong>Partie hôte :</strong> </p>
+<ul>
+<li>Identifie de façon unique un équipement spécifique au sein de ce réseau.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>Exemple : 192.168.10.10 /24
+
+  [ Partie Réseau (24 bits) ]      [ Partie Hôte (8 bits) ]
+   192   .   168   .    10        .           10
+11000000 . 10101000 . 00001010    .        00001010
+</code></pre>
+<h3 id="12-masque-de-sous-reseau">1.2 Masque de sous-réseau</h3>
+<ul>
+<li>
+<p><strong>Définition :</strong> </p>
+<ul>
+<li>Valeur de 32 bits composée d'une séquence continue de <code>1</code> suivie d'une séquence continue de <code>0</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonction :</strong> </p>
+<ul>
+<li>Indique au système d'exploitation quelle portion de l'adresse IP correspond au réseau et laquelle correspond aux hôtes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Attribution sur un hôte :</strong> </p>
+<ul>
+<li>Une configuration IP d'hôte requiert au minimum <ul>
+<li>une adresse IPv4 unique et un masque de sous-réseau </li>
+<li>ainsi qu'une passerelle par défaut et des serveurs DNS pour la communication externe.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>Masque : 255.255.255.0 aka /24
+Binaire : C
+          |--- Bits Réseau (24) ---||- Bits Hôte (8) -|
+</code></pre>
+<h3 id="13-longueur-de-prefixe-notation-cidr">1.3 Longueur de préfixe (Notation CIDR)</h3>
+<ul>
+<li><strong>Définition :</strong> <ul>
+<li>Représentation concourante du masque exprimée par une barre oblique (<code>/</code>) suivie du nombre total de bits mis à <code>1</code> dans le masque.</li>
+<li>Plus facile a retenir et a exprimer </li>
+<li>une adresse réseau est souvent appelée <em>préfixe</em>  ou <em>préfixe réseau</em> </li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Masque de sous-réseau</strong></th>
+<th><strong>Représentation binaire (32 bits)</strong></th>
+<th><strong>Longueur de préfixe</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>255.0.0.0</strong></td>
+<td><code>11111111.00000000.00000000.00000000</code></td>
+<td><strong>/8</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.0.0</strong></td>
+<td><code>11111111.11111111.00000000.00000000</code></td>
+<td><strong>/16</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.0</strong></td>
+<td><code>11111111.11111111.11111111.00000000</code></td>
+<td><strong>/24</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.128</strong></td>
+<td><code>11111111.11111111.11111111.10000000</code></td>
+<td><strong>/25</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.192</strong></td>
+<td><code>11111111.11111111.11111111.11000000</code></td>
+<td><strong>/26</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.224</strong></td>
+<td><code>11111111.11111111.11111111.11100000</code></td>
+<td><strong>/27</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.240</strong></td>
+<td><code>11111111.11111111.11111111.11110000</code></td>
+<td><strong>/28</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.248</strong></td>
+<td><code>11111111.11111111.11111111.11111000</code></td>
+<td><strong>/29</strong></td>
+</tr>
+<tr>
+<td><strong>255.255.255.252</strong></td>
+<td><code>11111111.11111111.11111111.11111100</code></td>
+<td><strong>/30</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-determiner-le-reseau-operation-logiques-and-et">1.4 Déterminer le réseau : Opération logiques AND (ET)</h3>
+<ul>
+<li>
+<p><strong>Principe :</strong> </p>
+<ul>
+<li>Un hôte effectue un ET logique bit à bit entre son adresse IPv4 et son masque de sous-réseau pour extraire l'adresse réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Règles de la table de vérité AND :</strong></p>
+<ul>
+<li>
+<p>$1 \text{ AND } 1 = 1$</p>
+</li>
+<li>
+<p>$0 \text{ AND } 1 = 0$</p>
+</li>
+<li>
+<p>$1 \text{ AND } 0 = 0$</p>
+</li>
+<li>
+<p>$0 \text{ AND } 0 = 0$</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>Exemple de calcul pour l'hôte 192.168.10.10 /24 :
+
+  IP Hôte :  192.168.10.10   -&gt;  11000000.10101000.00001010.00001010
+  Masque  :  255.255.255.0   -&gt;  11111111.11111111.11111111.00000000
+  ------------------------------------------------------------------
+  AND (ET):  192.168.10.0   -&gt;   11000000.10101000.00001010.00000000
+</code></pre>
+<h3 id="15-reseau-hote-et-adresses-de-diffusion-broadcast">1.5 Réseau, Hôte et Adresses de Diffusion (<em>Broadcast</em>)</h3>
+<p>Au sein de tout bloc IP, il existe 3 types d'adresses spécifiques :</p>
+<ol>
+<li>
+<p><strong>Adresse Réseau :</strong></p>
+<ul>
+<li>
+<p>Représente le réseau dans son ensemble.</p>
+</li>
+<li>
+<p>Tous les bits de la partie hôte sont définis à <strong>0</strong>.</p>
+</li>
+<li>
+<p><em>Ne peut jamais être assignée à une interface d'hôte</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse de Diffusion (<em>Broadcast</em>) :</strong></p>
+<ul>
+<li>
+<p>Utilisée pour envoyer un paquet à tous les hôtes du même réseau.</p>
+</li>
+<li>
+<p>Tous les bits de la partie hôte sont définis à <strong>1</strong>.</p>
+</li>
+<li>
+<p><em>Ne peut pas être attribuée à un hôte individuel</em>.    </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresses d'Hôtes Utilisables :</strong></p>
+<ul>
+<li>
+<p>Toutes les adresses situées entre l'adresse réseau et l'adresse de diffusion.</p>
+</li>
+<li>
+<p><strong>Première adresse hôte :</strong> Tous les bits hôtes à <code>0</code> avec le dernier bit à <code>1</code>.</p>
+</li>
+<li>
+<p><strong>Dernière adresse hôte :</strong> Tous les bits hôtes à <code>1</code> avec le dernier bit à <code>0</code>.</p>
+</li>
+<li>
+<p>Nombre total d'adresse du réseau  - 2(Réseau et Diffusion) </p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="synthese-dun-sous-reseau-exemple-19216810024">Synthèse d'un sous-réseau exemple (<code>192.168.10.0/24</code>)</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Type d'adresse</strong></th>
+<th><strong>Format Décimal</strong></th>
+<th><strong>Partie Réseau (24 bits)</strong></th>
+<th><strong>Partie Hôte (8 bits)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Masque</strong></td>
+<td><code>255.255.255.0</code></td>
+<td><code>11111111.11111111.11111111</code></td>
+<td><code>00000000</code></td>
+</tr>
+<tr>
+<td><strong>Adresse Réseau</strong></td>
+<td><code>192.168.10.0</code></td>
+<td><code>11000000.10101000.00001010</code></td>
+<td><strong><code>00000000</code></strong> (Tous 0)</td>
+</tr>
+<tr>
+<td><strong>1ère IP Utilisable</strong></td>
+<td><code>192.168.10.1</code></td>
+<td><code>11000000.10101000.00001010</code></td>
+<td><strong><code>00000001</code></strong></td>
+</tr>
+<tr>
+<td><strong>Dernière IP Utilisable</strong></td>
+<td><code>192.168.10.254</code></td>
+<td><code>11000000.10101000.00001010</code></td>
+<td><strong><code>11111110</code></strong></td>
+</tr>
+<tr>
+<td><strong>Adresse Broadcast</strong></td>
+<td><code>192.168.10.255</code></td>
+<td><code>11000000.10101000.00001010</code></td>
+<td><strong><code>11111111</code></strong> (Tous 1)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-adresses-ipv4-de-monodiffusion-de-diffusion-et-de-multidiffusion">2 Adresses IPv4 de monodiffusion, de diffusion et de multidiffusion</h2>
+<h3 id="21-monodiffusion-unicast">2.1 Monodiffusion (<em>Unicast</em>)</h3>
+<ul>
+<li>
+<p><strong>Définition :</strong> </p>
+<ul>
+<li>Communication un-à-un (<em>one-to-one</em>) entre un unique émetteur et un unique destinataire.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IP source :</strong> </p>
+<ul>
+<li>Doit <strong>toujours</strong> être une adresse de monodiffusion (un paquet provient d'une seule source).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse IP destination :</strong> </p>
+<ul>
+<li>Adresse de monodiffusion correspondant à un seul périphérique final.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plage d'adresses d'hôte :</strong> </p>
+<ul>
+<li><code>0.0.0.0</code> à <code>223.255.255.255</code> (à l'exception des plages réservées ). Les adresses situées au-delà (<code>224.0.0.0</code> à <code>255.255.255.255</code>) sont exclues de l'affectation directe aux hôtes car elles sont réservées au Multicast(Classe D : <code>224.0.0.0</code> à <code>239.255.255.255</code>) et à l'expérimentation (Classe E: <code>240.0.0.0</code> à <code>255.255.255.255</code>). </li>
+</ul>
+</li>
+</ul>
+<h3 id="22-diffusion-broadcast">2.2 Diffusion (<em>Broadcast</em>)</h3>
+<ul>
+<li>
+<p><strong>Définition :</strong> </p>
+<ul>
+<li>Communication un-à-tous (<em>one-to-all</em>) envoyée à tous les équipements du même domaine de diffusion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Régulation du trafic :</strong> </p>
+<ul>
+<li>Par défaut, les routeurs <strong>ne transfèrent pas</strong> les paquets de diffusion (ils délimitent les domaines de diffusion).</li>
+</ul>
+</li>
+<li>Pas de diffusion en IPv6</li>
+<li>
+<p>réduire les trafics de diffusion pour ne pas affecter les performances du réseau ou des périphériques </p>
+</li>
+<li>
+<p>Types de diffusions IPv4</p>
+<ol>
+<li>
+<p><strong>Diffusion limitée (<em>Limited Broadcast</em>) :</strong></p>
+<ul>
+<li><strong>Adresse de destination :</strong> <code>255.255.255.255</code> (32 bits à <code>1</code>).</li>
+<li><strong>Portée :</strong> Uniquement le réseau local (<em>LAN</em>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Diffusion dirigée (<em>Directed Broadcast</em>) :</strong></p>
+<ul>
+<li><strong>Adresse de destination :</strong> <ul>
+<li>Adresse de diffusion du réseau spécifique (ex: <code>172.16.4.255/24</code> pour le réseau <code>172.16.4.0/24</code>).</li>
+</ul>
+</li>
+<li><strong>Comportement IOS :</strong><ul>
+<li>Un routeur directement connecté au réseau de destination, le paquet est diffusé sur le réseau de destination.</li>
+<li>Désactivée par défaut à partir de Cisco IOS 12.0 (<code>no ip directed-broadcast</code>) pour des raisons de sécurité.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="23-multidiffusion-multicast">2.3 Multidiffusion (<em>Multicast</em>)</h3>
+<ul>
+<li>
+<p><strong>Définition :</strong> </p>
+<ul>
+<li>Communication un-à-un-groupe (<em>one-to-many</em>) envoyée uniquement aux hôtes inscrits à un groupe multidiffusion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Plage d'adresses réservée :</strong> </p>
+<ul>
+<li><code>224.0.0.0</code> à <code>239.255.255.255</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimisation :</strong> </p>
+<ul>
+<li>Réduit le volume de trafic par rapport au broadcast en ciblant exclusivement les hôtes abonnés.</li>
+<li>hôte IPv4 s'abonne à un groupe de multidiffusion</li>
+</ul>
+</li>
+<li>
+<p><strong>Exemple d'application :</strong> </p>
+<ul>
+<li>Les protocoles de routage dynamique comme OSPF utilisent l'adresse réservée <code>224.0.0.5</code> pour échanger entre routeurs OSPF.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-types-dadresses-ipv4">3 Types d'adresses IPv4</h2>
+<h3 id="31-adresses-ipv4-publiques-et-privees">3.1 Adresses IPv4 publiques et privées</h3>
+<ul>
+<li>
+<p><strong>Adresses publiques :</strong> </p>
+<ul>
+<li>Routées de manière globale sur Internet entre les routeurs des fournisseurs d'accès (FAI).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresses privées (RFC 1918) :</strong> </p>
+<ul>
+<li>Destinées à un usage interne dans les entreprises et réseaux domestiques. Elles ne sont <strong>pas routables sur Internet</strong> et sont rejetées par les FAI.</li>
+</ul>
+</li>
+</ul>
+<h5 id="plages-dadresses-privees-rfc-1918">Plages d'adresses privées <a href="https://www.rfc-editor.org/info/rfc1918/">RFC 1918</a></h5>
+<table>
+<thead>
+<tr>
+<th><strong>Adresse réseau et préfixe</strong></th>
+<th><strong>Plage d'adresses privées</strong></th>
+<th><strong>Masque par défaut</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10.0.0.0 /8</strong></td>
+<td><code>10.0.0.0</code> à <code>10.255.255.255</code></td>
+<td><code>255.0.0.0</code></td>
+</tr>
+<tr>
+<td><strong>172.16.0.0 /12</strong></td>
+<td><code>172.16.0.0</code> à <code>172.31.255.255</code></td>
+<td><code>255.240.0.0</code></td>
+</tr>
+<tr>
+<td><strong>192.168.0.0 /16</strong></td>
+<td><code>192.168.0.0</code> à <code>192.168.255.255</code></td>
+<td><code>255.255.0.0</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-routage-sur-internet-et-nat">3.2 Routage sur Internet et NAT</h3>
+<ul>
+<li>
+<p><strong>Problématique :</strong> </p>
+<ul>
+<li>En raison de l'épuisement des adresses IPv4, les paquets avec une adresse source privée doivent être traduits avant d'être envoyés sur Internet.</li>
+</ul>
+</li>
+<li>
+<p><strong>NAT (<em>Network Address Translation</em>) :</strong></p>
+<ul>
+<li>
+<p>Convertit les adresses IPv4 privées locales en adresses IPv4 publiques uniques globalement avant d'acheminer le trafic vers l'ISP.</p>
+</li>
+<li>
+<p>S'exécute généralement sur le routeur frontal de la bordure du réseau (comme la DMZ ou le routeur d'accès).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="34-adresses-ipv4-reservees">3.4 Adresses IPv4 réservées</h3>
+<h5 id="1-adresses-de-bouclage-loopback">1. Adresses de bouclage (<em>Loopback</em>)</h5>
+<ul>
+<li>
+<p><strong>Plage :</strong> </p>
+<ul>
+<li><code>127.0.0.0 /8</code> (<code>127.0.0.1</code> à <code>127.255.255.254</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Usage courant :</strong> </p>
+<ul>
+<li><code>127.0.0.1</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle :</strong> </p>
+<ul>
+<li>Utilisées par un hôte pour diriger le trafic vers lui-même afin de tester le bon fonctionnement de la pile protocolaire TCP/IP interne (<code>ping 127.0.0.1</code>).</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-adresses-lien-local-link-local-apipa-automatic-private-ip-adressing">2. Adresses lien-local (<em>Link-Local</em> / APIPA - <em>Automatic Private IP Adressing</em>)</h5>
+<ul>
+<li>
+<p><strong>Plage :</strong> </p>
+<ul>
+<li><code>169.254.0.0 /16</code> (<code>169.254.0.1</code> à <code>169.254.255.254</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle :</strong> </p>
+<ul>
+<li>Auto-attribuées automatiquement par le système (ex: Windows APIPA) lorsqu'un client DHCP ne parvient pas à joindre un serveur DHCP.</li>
+</ul>
+</li>
+<li>
+<p><strong>Portée :</strong> </p>
+<ul>
+<li>Uniquement fonctionnelles pour la communication d'égal à égal (<em>peer-to-peer</em>) sur le segment local.</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-adressage-dheritage-par-classe-classful-addressing">3.5 Adressage d'héritage par classe (<em>Classful Addressing</em>)</h3>
+<p>Historiquement <a href="https://www.rfc-editor.org/info/rfc790/">(RFC 790</a>), les adresses IPv4 étaient découpées en classes rigides basées sur les premiers octets :</p>
+<p>![[Pasted image 20261007175453.png]]</p>
+<table>
+<thead>
+<tr>
+<th><strong>Classe</strong></th>
+<th><strong>Plage du 1er octet</strong></th>
+<th><strong>Préfixe par défaut</strong></th>
+<th><strong>Nb de réseaux</strong></th>
+<th><strong>Hôtes par réseau</strong></th>
+<th><strong>Usage historique</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td><code>0.0.0.0/8</code> à <code>127.0.0.0/8</code></td>
+<td><strong>/8</strong></td>
+<td>128</td>
+<td>16 777 214</td>
+<td>Très grands réseaux</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td><code>128.0.0.0/16</code> à <code>191.255.0.0/16</code></td>
+<td><strong>/16</strong></td>
+<td>16 384</td>
+<td>65 534</td>
+<td>Réseaux de taille moyenne</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td><code>192.0.0.0/24</code> à <code>223.255.255.0/24</code></td>
+<td><strong>/24</strong></td>
+<td>2 097 152</td>
+<td>254</td>
+<td>Petits réseaux</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td><code>224.0.0.0</code> à <code>239.0.0.0</code></td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Multidiffusion (<em>Multicast</em>)</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+<td><code>240.0.0.0</code> à <code>255.0.0.0</code></td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Expérimental / Réservé</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&gt; [!Note: ]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;  L'adressage par classe entraînait un fort gaspillage d'adresses. Il a été remplacé au milieu des années 1990 par l'adressage sans classe <strong>CIDR</strong> (<em>Classless Inter-Domain Routing</em>).</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-attribution-des-adresses-ip-iana-et-rir">3.6 Attribution des adresses IP (IANA et RIR)</h3>
+<ul>
+<li>
+<p><strong>IANA (<em>Internet Assigned Numbers Authority</em>) :</strong> Organisme central qui gère et alloue les blocs d'adresses IP globaux aux Registres Internet Régionaux (<em>RIR</em>).</p>
+</li>
+<li>
+<p><strong>RIR (<em>Regional Internet Registries</em>) :</strong> Distribuent les blocs d'adresses IP aux FAI et grandes entreprises selon leur zone géographique :    </p>
+<ul>
+<li>
+<p><strong>AfriNIC :</strong> Région Afrique.</p>
+</li>
+<li>
+<p><strong>APNIC :</strong> Région Asie / Pacifique.</p>
+</li>
+<li>
+<p><strong>ARIN :</strong> Amérique du Nord.</p>
+</li>
+<li>
+<p><strong>LACNIC :</strong> Amérique Latine et Caraïbes.</p>
+</li>
+<li>
+<p><strong>RIPE NCC :</strong> Europe, Moyen-Orient et Asie centrale.
+![[Pasted image 20261007180710.png]]</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-segmentation-du-reseau">4 Segmentation du réseau</h2>
+<h3 id="41-domaines-de-diffusion-et-segmentation">4.1 Domaines de diffusion et segmentation</h3>
+<ul>
+<li>
+<p><strong>Définition :</strong> </p>
+<ul>
+<li>Un domaine de diffusion (<em>Broadcast Domain</em>) regroupe tous les périphériques qui reçoivent une trame de diffusion de Couche 2 ou un paquet de diffusion de Couche 3 émis sur le même segment réseau.</li>
+</ul>
+</li>
+<li>
+<p><strong>Comportement des équipements :</strong>    </p>
+<ul>
+<li>
+<p><strong>Switch (L2) :</strong> </p>
+<ul>
+<li>Transmettent les diffusions sur toutes leurs interfaces actives, sauf celle sur laquelle la diffusion a été reçue.        </li>
+</ul>
+</li>
+<li>
+<p><strong>Routeurs (L3) :</strong> </p>
+<ul>
+<li>Bloquent les diffusions IP et ne les transfèrent pas d'une interface à une autre. Chaque interface de routeur délimite un domaine de diffusion distinct.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="42-problemes-lies-aux-grands-domaines-de-diffusion">4.2 Problèmes liés aux grands domaines de diffusion</h3>
+<ul>
+<li>
+<p><strong>Impression sur les performances :</strong> </p>
+<ul>
+<li>Un trop grand nombre d'hôtes dans le même domaine de diffusion (ex: 400 utilisateurs dans un réseau <code>/16</code>) génère un volume excessif de trafic de diffusion (requêtes ARP, DHCP, etc.).      </li>
+</ul>
+</li>
+<li>
+<p><strong>Conséquences :</strong> </p>
+<ul>
+<li>Chaque hôte du réseau doit interrompre son processeur pour traiter chaque paquet de diffusion reçu, ce qui ralentit les opérations globales et dégrade les performances.</li>
+</ul>
+</li>
+<li>
+<p><strong>Solution :</strong> </p>
+<ul>
+<li>Diviser le grand domaine de diffusion en sous-réseaux plus petits (ex: scinder <code>172.16.0.0/16</code> en deux sous-réseaux <code>/24</code> : <code>172.16.0.0/24</code> et <code>172.16.1.0/24</code>).</li>
+</ul>
+</li>
+</ul>
+<pre><code>[ Avant Segmentation ]
+Routeur R1 (G0/0) ─── LAN 1: 172.16.0.0/16 (400 utilisateurs - 1 seul domaine de diffusion)
+
+[ Après Segmentation ]
+                  ┌─── G0/0 ─── LAN 1: 172.16.0.0/24 (200 utilisateurs)
+Routeur R1 ──────┤
+                  └─── G0/1 ─── LAN 2: 172.16.1.0/24 (200 utilisateurs)
+</code></pre>
+<h3 id="43-raisons-pour-segmenter-les-reseaux">4.3 Raisons pour segmenter les réseaux</h3>
+<ul>
+<li>
+<p><strong>Amélioration des performances :</strong> </p>
+<ul>
+<li>Réduit le trafic global et le traitement des diffusions sur chaque appareil.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sécurité renforcée :</strong> </p>
+<ul>
+<li>Permet d'isoler les flux sensibles et d'appliquer des politiques de sécurité (comme des listes de contrôle d'accès) entre les sous-réseaux.</li>
+</ul>
+</li>
+<li>
+<p><strong>Confinement des erreurs :</strong> </p>
+<ul>
+<li>Limite la portée des pannes ou des tempêtes de diffusion (<em>broadcast storms</em>) causées par du matériel défectueux ou des attaques.</li>
+</ul>
+</li>
+<li>
+<p>Critères de structuration des sous-réseaux
+    Les administrateurs peuvent regrouper les sous-réseaux selon plusieurs approches organisationnelles : </p>
+<ul>
+<li><strong>Par emplacement physique</strong> : Un sous-réseau dédié par bâtiment, étage ou zone géographique.</li>
+<li><strong>Par groupe / fonction</strong> : selon leur service d'appartenance.</li>
+<li><strong>Par type d'appareil</strong> : Séparation selon la nature des équipements réseau (Serveur /routeur )</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-sous-reseau-subnetting">5. Sous-réseau  (Subnetting)</h2>
+<ul>
+<li>
+<p><strong>Subnetting</strong> : Technique qui consiste à diviser un grand réseau IP en plusieurs sous-réseaux plus petits et logiques</p>
+</li>
+<li>
+<p><strong>Principe de base :</strong>  Pour créer des sous-réseaux, on emprunte un ou plusieurs bits  hôte pour les transformer en bits réseau (extension du masque de sous-réseau).</p>
+</li>
+<li>
+<p><strong>Impact</strong> : Plus le nombre de bits empruntés est grand, plus le nombre de sous-réseaux augmente, mais plus le nombre d'hôtes disponibles par sous-réseau diminue. (Gâteau à partager en part égale)</p>
+</li>
+</ul>
+<blockquote>
+<p>[!WARNING] Choix du bloc d'adresse privé racine</p>
+<p>Pour concevoir un plan d'adressage IPv4 efficace et évolutif, la première étape consiste à sélectionner un bloc d'adresses privées <strong>suffisamment grand</strong> pour couvrir la totalité du besoin en hôtes, puis à procéder au découpage.</p>
+</blockquote>
+<h3 id="51-sur-une-limite-doctet">5.1 Sur une limite d'octet</h3>
+<p>C'est ce qu'il y a de plus simple car on voit la séparation directement en décimal.</p>
+<ul>
+<li>
+<p>On  emprunte un ou plusieurs bloc de 8 bits (octet) hôte pour les transformer en bits réseau.</p>
+</li>
+<li>
+<p><strong>Limites d'octets standards (/8, /16, /24) :</strong>
+    Placer la coupure exacte entre réseau et hôtes au niveau d'un point (<code>.</code>), c'est-à-dire après 8 /16/24 bits</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Longueur de préfixe</strong></th>
+<th><strong>Masque de sous-réseau</strong></th>
+<th><strong>Structure binaire (n=network, h=hoˆte)</strong></th>
+<th><strong>Nb d'hôtes utilisables</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>/8</strong></td>
+<td><code>255.0.0.0</code></td>
+<td><code>nnnnnnnn.hhhhhhhh.hhhhhhhh.hhhhhhhh</code></td>
+<td>16 777 214</td>
+</tr>
+<tr>
+<td><strong>/16</strong></td>
+<td><code>255.255.0.0</code></td>
+<td><code>nnnnnnnn.nnnnnnnn.hhhhhhhh.hhhhhhhh</code></td>
+<td>65 534</td>
+</tr>
+<tr>
+<td><strong>/24</strong></td>
+<td><code>255.255.255.0</code></td>
+<td><code>nnnnnnnn.nnnnnnnn.nnnnnnnn.hhhhhhhh</code></td>
+<td>254</td>
+</tr>
+</tbody>
+</table>
+<h4 id="exemple-1-decoupage-du-bloc-100008-a-la-limite-16">Exemple 1 : Découpage du bloc <code>10.0.0.0/8</code> à la limite /16</h4>
+<p>On décide de faire la coupure au 2e octet (<code>10.X.0.0 /16</code>).
+- <strong>Bits empruntés :</strong> On passe de <code>/8</code> à <code>/16</code>, soit <strong>8 bits empruntés</strong> dans le 2e octet.</p>
+<ul>
+<li>
+<p><strong>Nombre de sous-réseaux :</strong> $2^8 = 256$ sous-réseaux possibles (<code>10.0.0.0</code>, <code>10.1.0.0</code>, <code>10.2.0.0</code>, ... <code>10.255.0.0</code>).</p>
+</li>
+<li>
+<p><strong>Hôtes par sous-réseau :</strong> Il reste 16 bits hôtes (les 3e et 4e octets), soit $2^{16} - 2 = 65\ 534$ hôtes par sous-réseau.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Adresse de sous-réseau</strong></th>
+<th><strong>Plage d'adresses d'hôtes utilisables</strong></th>
+<th><strong>Adresse de diffusion (Broadcast)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10.0.0.0 /16</strong></td>
+<td><code>10.0.0.1</code> – <code>10.0.255.254</code></td>
+<td><code>10.0.255.255</code></td>
+</tr>
+<tr>
+<td><strong>10.1.0.0 /16</strong></td>
+<td><code>10.1.0.1</code> – <code>10.1.255.254</code></td>
+<td><code>10.1.255.255</code></td>
+</tr>
+<tr>
+<td><strong>10.2.0.0 /16</strong></td>
+<td><code>10.2.0.1</code> – <code>10.2.255.254</code></td>
+<td><code>10.2.255.255</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>10.255.0.0 /16</strong></td>
+<td><code>10.255.0.1</code> – <code>10.255.255.254</code></td>
+<td><code>10.255.255.255</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="exemple-2-decoupage-du-bloc-100008-a-la-limite-24">Exemple 2 : Découpage du bloc <code>10.0.0.0/8</code> à la limite /24</h4>
+<p>On décide d'aller plus loin et de faire la coupure au 3e octet (<code>10.X.Y.0 /24</code>).</p>
+<ul>
+<li>
+<p><strong>Bits empruntés :</strong> On passe de <code>/8</code> à <code>/24</code>, soit <strong>16 bits empruntés</strong> (les 2e et 3e octets).</p>
+</li>
+<li>
+<p><strong>Nombre de sous-réseaux :</strong> $2^{16} = 65\ 536$ sous-réseaux possibles (<code>10.0.0.0</code>, <code>10.0.1.0</code>, <code>10.0.2.0</code>, ..., <code>10.255.255.0</code>).</p>
+</li>
+<li>
+<p><strong>Hôtes par sous-réseau :</strong> Il ne reste que 8 bits hôtes (le 4e octet), soit $2^8 - 2 = 254$ hôtes par sous-réseau.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Adresse de sous-réseau</strong></th>
+<th><strong>Plage d'adresses d'hôtes utilisables</strong></th>
+<th><strong>Adresse de diffusion (Broadcast)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10.0.0.0 /24</strong></td>
+<td><code>10.0.0.1</code> – <code>10.0.0.254</code></td>
+<td><code>10.0.0.255</code></td>
+</tr>
+<tr>
+<td><strong>10.0.1.0 /24</strong></td>
+<td><code>10.0.1.1</code> – <code>10.0.1.254</code></td>
+<td><code>10.0.1.255</code></td>
+</tr>
+<tr>
+<td><strong>10.0.2.0 /24</strong></td>
+<td><code>10.0.2.1</code> – <code>10.0.2.254</code></td>
+<td><code>10.0.2.255</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>10.255.255.0 /24</strong></td>
+<td><code>10.255.255.1</code> – <code>10.255.255.254</code></td>
+<td><code>10.255.255.255</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-sous-reseau-a-linterieur-dune-limite-doctet">5.2 Sous-réseau à l'intérieur d'une limite d'octet</h3>
+<blockquote>
+<p>[!INFO] </p>
+<p>Lorsqu'un masque <code>/24</code> est découpé dans le 4ème octet, chaque bit emprunté <strong>double le nombre de sous-réseaux</strong> tout en réduisant de moitié le nombre d'hôtes disponibles par sous-réseau.</p>
+</blockquote>
+<h4 id="decoupage-dun-reseau-24">Découpage d'un réseau <code>/24</code></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Préfixe</strong></th>
+<th><strong>Masque de sous-réseau</strong></th>
+<th><strong>Masque binaire (4ème octet)</strong></th>
+<th><strong>Bits empruntés</strong></th>
+<th><strong>Nb de sous-réseaux (2n)</strong></th>
+<th><strong>Nb d'hôtes utilisables (2h−2)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>/25</strong></td>
+<td><code>255.255.255.128</code></td>
+<td><code>10000000</code></td>
+<td>1</td>
+<td><strong>2</strong></td>
+<td><strong>126</strong></td>
+</tr>
+<tr>
+<td><strong>/26</strong></td>
+<td><code>255.255.255.192</code></td>
+<td><code>11000000</code></td>
+<td>2</td>
+<td><strong>4</strong></td>
+<td><strong>62</strong></td>
+</tr>
+<tr>
+<td><strong>/27</strong></td>
+<td><code>255.255.255.224</code></td>
+<td><code>11100000</code></td>
+<td>3</td>
+<td><strong>8</strong></td>
+<td><strong>30</strong></td>
+</tr>
+<tr>
+<td><strong>/28</strong></td>
+<td><code>255.255.255.240</code></td>
+<td><code>11110000</code></td>
+<td>4</td>
+<td><strong>16</strong></td>
+<td><strong>14</strong></td>
+</tr>
+<tr>
+<td><strong>/29</strong></td>
+<td><code>255.255.255.248</code></td>
+<td><code>11111000</code></td>
+<td>5</td>
+<td><strong>32</strong></td>
+<td><strong>6</strong></td>
+</tr>
+<tr>
+<td><strong>/30</strong></td>
+<td><code>255.255.255.252</code></td>
+<td><code>11111100</code></td>
+<td>6</td>
+<td><strong>64</strong></td>
+<td><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Formules d'adressage fondamentales :</strong>    </p>
+<ul>
+<li>
+<p><strong>Nombre de sous-réseaux créés :</strong> $2^n$ (où $n$ = nombre de bits empruntés à la partie hôte).</p>
+</li>
+<li>
+<p><strong>Nombre d'hôtes utilisables par sous-réseau :</strong> $2^h - 2$ (où $h$ = nombre de bits hôtes restants ; le $-2$ retire l'adresse réseau et l'adresse de broadcast).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="exemple-decomposition-24-en-4-sous-reseau">Exemple Décomposition <code>/24</code> en 4 Sous-Réseau</h5>
+<ul>
+<li>
+<p>**Nombre de sous-réseaux</p>
+<ul>
+<li>4 = $2^2$  =&gt; 2 bits à prendre  </li>
+<li>24+2 = 26 =&gt; /26</li>
+<li>MAsk : <code>11111111.11111111.11111111.11000000</code> =&gt; <code>255.255.255.192</code></li>
+</ul>
+</li>
+<li>
+<p>**Nombre d'adresses</p>
+<ul>
+<li>32 - 26 = 6 =&gt; $2^6$ = 64 adresses </li>
+</ul>
+</li>
+<li>**Nombre d'hôtes <ul>
+<li>64 - 2 =  62 hôtes par sous-réseau</li>
+</ul>
+</li>
+<li>Différents sous-réseaux </li>
+</ul>
+<pre><code>4e octet :[ Bit 1   Bit 2 ] [ Bit 3   Bit 4   Bit 5   Bit 6   Bit 7   Bit 8 ]
+          |--- Réseau ----| |------------------- Hôte ----------------------|
+
+SRx 1 :      0       0       0       0       0       0       0       0    = .0
+SRx 2 :      0       1       0       0       0       0       0       0    = .64
+SRx 3 :      1       0       0       0       0       0       0       0    = .128
+SRx 4 :      1       1       0       0       0       0       0       0    = .192
+</code></pre>
+<h4 id="decoupage-dun-reseau-16">Découpage d'un réseau <code>/16</code></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Préfixe</strong></th>
+<th><strong>Masque de sous-réseau</strong></th>
+<th><strong>Masque binaire (N=Network, H=hote)</strong></th>
+<th><strong>Nb de sous-réseaux (2n)</strong></th>
+<th><strong>Nb d'hôtes utilisables (2h−2)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>/17</strong></td>
+<td><code>255.255.128.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NHHHHHHH.HHHHHHHH</code></td>
+<td><strong>2</strong></td>
+<td><strong>32 766</strong></td>
+</tr>
+<tr>
+<td><strong>/18</strong></td>
+<td><code>255.255.192.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNHHHHHH.HHHHHHHH</code></td>
+<td><strong>4</strong></td>
+<td><strong>16 382</strong></td>
+</tr>
+<tr>
+<td><strong>/19</strong></td>
+<td><code>255.255.224.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNHHHHH.HHHHHHHH</code></td>
+<td><strong>8</strong></td>
+<td><strong>8 190</strong></td>
+</tr>
+<tr>
+<td><strong>/20</strong></td>
+<td><code>255.255.240.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNHHHH.HHHHHHHH</code></td>
+<td><strong>16</strong></td>
+<td><strong>4 094</strong></td>
+</tr>
+<tr>
+<td><strong>/21</strong></td>
+<td><code>255.255.248.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNHHH.HHHHHHHH</code></td>
+<td><strong>32</strong></td>
+<td><strong>2 046</strong></td>
+</tr>
+<tr>
+<td><strong>/22</strong></td>
+<td><code>255.255.252.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNHH.HHHHHHHH</code></td>
+<td><strong>64</strong></td>
+<td><strong>1 022</strong></td>
+</tr>
+<tr>
+<td><strong>/23</strong></td>
+<td><code>255.255.254.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNH.HHHHHHHH</code></td>
+<td><strong>128</strong></td>
+<td><strong>510</strong></td>
+</tr>
+<tr>
+<td><strong>/24</strong></td>
+<td><code>255.255.255.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH</code></td>
+<td><strong>256</strong></td>
+<td><strong>254</strong></td>
+</tr>
+<tr>
+<td><strong>/25</strong></td>
+<td><code>255.255.255.128</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NHHHHHHH</code></td>
+<td><strong>512</strong></td>
+<td><strong>126</strong></td>
+</tr>
+<tr>
+<td><strong>/26</strong></td>
+<td><code>255.255.255.192</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNHHHHHH</code></td>
+<td><strong>1 024</strong></td>
+<td><strong>62</strong></td>
+</tr>
+<tr>
+<td><strong>/27</strong></td>
+<td><code>255.255.255.224</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH</code></td>
+<td><strong>2 048</strong></td>
+<td><strong>30</strong></td>
+</tr>
+<tr>
+<td><strong>/28</strong></td>
+<td><code>255.255.255.240</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNHHHH</code></td>
+<td><strong>4 096</strong></td>
+<td><strong>14</strong></td>
+</tr>
+<tr>
+<td><strong>/29</strong></td>
+<td><code>255.255.255.248</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNHHH</code></td>
+<td><strong>8 192</strong></td>
+<td><strong>6</strong></td>
+</tr>
+<tr>
+<td><strong>/30</strong></td>
+<td><code>255.255.255.252</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNNHH</code></td>
+<td><strong>16 384</strong></td>
+<td><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+<h5 id="exemple-creer-100-sous-reseaux-avec-un-prefixe-16">Exemple  Créer 100 sous-réseaux avec un préfixe /16</h5>
+<p>172.16.0.0/16 
+- **Nombre de sous-réseaux
+    -  $2^6 = 64$ sous-réseaux (insuffisant).                      <br />
+    - $2^7 = 128$ sous-réseaux (satisfait l'exigence de 100 sous-réseaux) =&gt; 7 bits à prendre 
+    - 16+7 = 23 =&gt; /23
+    - Mask :  <code>11111111.11111111.11111110.00000000</code> =&gt; <code>255.255.254.0</code></p>
+<ul>
+<li>**Nombre d'adresses<ul>
+<li>32 - 23= 9 =&gt; $2^9$ = 512 adresses </li>
+</ul>
+</li>
+<li>**Nombre d'hôtes <ul>
+<li>512 - 2 =  510 hôtes par sous-réseau</li>
+</ul>
+</li>
+<li>
+<p>Différents sous-éseaux  </p>
+<ul>
+<li>
+<p>Les <strong>7 premiers bits</strong> (de gauche à droite) du 3ᵉ octet deviennent des bits d'identification du  sous-réseau et évoluent de <code>0000000</code> à <code>1111111</code>.</p>
+</li>
+<li>
+<p>Le <strong>8ᵉ bit</strong> (le plus à droite du 3ᵉ octet) reste un bit hôte. Lors de l'identification du sous-réseau, ce bit hôte est fixé à <strong><code>0</code></strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>3e octet binaire  | Valeur décimale |
+------------------+-----------------+
+  0 0 0 0 0 0 0 0 |        0        |
+  0 0 0 0 0 0 1 0 |        2        |
+  0 0 0 0 0 1 0 0 |        4        |
+  0 0 0 0 0 1 1 0 |        6        |
+  ...             |       ...       |
+  1 1 1 1 1 1 1 0 |      254        |
+</code></pre>
+<pre><code>
+3e octet     :  [ B1 B2 B3 B4 B5 B6 B7 ] [ B8 ]  .  [ 8 bits Hôte (4e octet) ]
+
+SRx 1   :         0  0  0  0  0  0  0      0            0.0     -&gt; 172.16.0.0/23
+SRx 2   :         0  0  0  0  0  0  1      0            0.0     -&gt; 172.16.2.0/23
+SRx 3   :         0  0  0  0  0  1  0      0            0.0     -&gt; 172.16.4.0/23
+SRx 4   :         0  0  0  0  0  1  1      0            0.0     -&gt; 172.16.6.0/23
+...                                ...
+SRx 128 :         1  1  1  1  1  1  1      0            0.0     -&gt; 172.16.254.0/23
+</code></pre>
+<ul>
+<li>Plage d'adresses du premier sous-réseau (<code>172.16.0.0/23</code>)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Type d'adresse</strong></th>
+<th><strong>Format Binaire (3e et 4e octets)</strong></th>
+<th><strong>Format Décimal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adresse Réseau</strong></td>
+<td><code>00000000.00000000</code></td>
+<td><code>172.16.0.0/23</code></td>
+</tr>
+<tr>
+<td><strong>1ère IP Utilisable</strong></td>
+<td><code>00000000.00000001</code></td>
+<td><code>172.16.0.1/23</code></td>
+</tr>
+<tr>
+<td><strong>Dernière IP Utilisable</strong></td>
+<td><code>00000001.11111110</code></td>
+<td><code>172.16.1.254/23</code></td>
+</tr>
+<tr>
+<td><strong>Adresse Broadcast</strong></td>
+<td><code>00000001.11111111</code></td>
+<td><code>172.16.1.255/23</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="decoupage-dun-reseau-8">Découpage d'un réseau /8</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Préfixe</strong></th>
+<th><strong>Masque de sous-réseau</strong></th>
+<th><strong>Masque binaire (N=Network, H=Hoˆte)</strong></th>
+<th><strong>Nb de sous-réseaux (2n)</strong></th>
+<th><strong>Nb d'hôtes utilisables (2h−2)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>/9</strong></td>
+<td><code>255.128.0.0</code></td>
+<td><code>NNNNNNNN.NHHHHHHH.HHHHHHHH.HHHHHHHH</code></td>
+<td>2</td>
+<td>8 388 606</td>
+</tr>
+<tr>
+<td><strong>/10</strong></td>
+<td><code>255.192.0.0</code></td>
+<td><code>NNNNNNNN.NNHHHHHH.HHHHHHHH.HHHHHHHH</code></td>
+<td>4</td>
+<td>4 194 302</td>
+</tr>
+<tr>
+<td><strong>/11</strong></td>
+<td><code>255.224.0.0</code></td>
+<td><code>NNNNNNNN.NNNHHHHH.HHHHHHHH.HHHHHHHH</code></td>
+<td>8</td>
+<td>2 097 150</td>
+</tr>
+<tr>
+<td><strong>/12</strong></td>
+<td><code>255.240.0.0</code></td>
+<td><code>NNNNNNNN.NNNNHHHH.HHHHHHHH.HHHHHHHH</code></td>
+<td>16</td>
+<td>1 048 574</td>
+</tr>
+<tr>
+<td><strong>/13</strong></td>
+<td><code>255.248.0.0</code></td>
+<td><code>NNNNNNNN.NNNNNHHH.HHHHHHHH.HHHHHHHH</code></td>
+<td>32</td>
+<td>524 286</td>
+</tr>
+<tr>
+<td><strong>/14</strong></td>
+<td><code>255.252.0.0</code></td>
+<td><code>NNNNNNNN.NNNNNNHH.HHHHHHHH.HHHHHHHH</code></td>
+<td>64</td>
+<td>262 142</td>
+</tr>
+<tr>
+<td><strong>/15</strong></td>
+<td><code>255.254.0.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNH.HHHHHHHH.HHHHHHHH</code></td>
+<td>128</td>
+<td>131 070</td>
+</tr>
+<tr>
+<td><strong>/16</strong></td>
+<td><code>255.255.0.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.HHHHHHHH.HHHHHHHH</code></td>
+<td>256</td>
+<td>65 534</td>
+</tr>
+<tr>
+<td><strong>/17</strong></td>
+<td><code>255.255.128.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NHHHHHHH.HHHHHHHH</code></td>
+<td>512</td>
+<td>32 766</td>
+</tr>
+<tr>
+<td><strong>/18</strong></td>
+<td><code>255.255.192.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNHHHHHH.HHHHHHHH</code></td>
+<td>1 024</td>
+<td>16 382</td>
+</tr>
+<tr>
+<td><strong>/19</strong></td>
+<td><code>255.255.224.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNHHHHH.HHHHHHHH</code></td>
+<td>2 048</td>
+<td>8 190</td>
+</tr>
+<tr>
+<td><strong>/20</strong></td>
+<td><code>255.255.240.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNHHHH.HHHHHHHH</code></td>
+<td>4 096</td>
+<td>4 094</td>
+</tr>
+<tr>
+<td><strong>/21</strong></td>
+<td><code>255.255.248.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNHHH.HHHHHHHH</code></td>
+<td>8 192</td>
+<td>2 046</td>
+</tr>
+<tr>
+<td><strong>/22</strong></td>
+<td><code>255.255.252.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNHH.HHHHHHHH</code></td>
+<td>16 384</td>
+<td>1 022</td>
+</tr>
+<tr>
+<td><strong>/23</strong></td>
+<td><code>255.255.254.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNH.HHHHHHHH</code></td>
+<td>32 768</td>
+<td>510</td>
+</tr>
+<tr>
+<td><strong>/24</strong></td>
+<td><code>255.255.255.0</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH</code></td>
+<td>65 536</td>
+<td>254</td>
+</tr>
+<tr>
+<td><strong>/25</strong></td>
+<td><code>255.255.255.128</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NHHHHHHH</code></td>
+<td>131 072</td>
+<td>126</td>
+</tr>
+<tr>
+<td><strong>/26</strong></td>
+<td><code>255.255.255.192</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNHHHHHH</code></td>
+<td>262 144</td>
+<td>62</td>
+</tr>
+<tr>
+<td><strong>/27</strong></td>
+<td><code>255.255.255.224</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNHHHHH</code></td>
+<td>524 288</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong>/28</strong></td>
+<td><code>255.255.255.240</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNHHHH</code></td>
+<td>1 048 576</td>
+<td>14</td>
+</tr>
+<tr>
+<td><strong>/29</strong></td>
+<td><code>255.255.255.248</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNHHH</code></td>
+<td>2 097 152</td>
+<td>6</td>
+</tr>
+<tr>
+<td><strong>/30</strong></td>
+<td><code>255.255.255.252</code></td>
+<td><code>NNNNNNNN.NNNNNNNN.NNNNNNNN.NNNNNNHH</code></td>
+<td>4 194 304</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h5 id="exemple-creer-1000-sous-reseaux-avec-un-prefixe-8-100008">Exemple : Créer 1000 sous-réseaux avec un préfixe /8 (<code>10.0.0.0/8</code>)</h5>
+<ul>
+<li>
+<p><strong>Nombre de sous-réseaux :</strong></p>
+<ul>
+<li>
+<p>$2^9 = 512$ sous-réseaux (insuffisant)</p>
+</li>
+<li>
+<p>$2^{10} = 1024$ sous-réseaux (satisfait l'exigence de 1000 sous-réseaux) $\implies \mathbf{10 \text{ bits}}$ à prendre.</p>
+</li>
+<li>
+<p>$8 + 10 = 18 \implies \mathbf{/18}$</p>
+</li>
+<li>
+<p><strong>Masque :</strong> <code>11111111.11111111.11000000.00000000</code> $\implies \mathbf{255.255.192.0}$</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Nombre d'adresses :</strong>      </p>
+<ul>
+<li>$32 - 18 = 14 \implies 2^{14} = \mathbf{16\ 384 \text{ adresses}}$</li>
+</ul>
+</li>
+<li>
+<p><strong>Nombre d'hôtes :</strong></p>
+<ul>
+<li>$16\ 384 - 2 = \mathbf{16\ 382 \text{ hôtes par sous-réseau}}$</li>
+</ul>
+</li>
+<li>
+<p><strong>Différents sous-réseaux :</strong>    </p>
+<ul>
+<li>
+<p>Les 10 premiers bits (de gauche à droite) des 2ᵉ et 3ᵉ octets deviennent des bits d'identification du sous-réseau et évoluent de <code>0000000000</code> à <code>1111111111</code>.</p>
+</li>
+<li>
+<p>Les 6 derniers bits du 3ᵉ octet et les 8 bits du 4ᵉ octet restent des bits hôtes. Lors de l'identification du sous-réseau, ces bits hôtes sont fixés à <code>0</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="premiers-sous-reseaux-18-generes">Premiers sous-réseaux /18 générés</h4>
+<pre><code>SRx 1    : 00000000 . 00 000000 . 00000000 -&gt; 10.0.0.0/18
+SRx 2    : 00000000 . 01 000000 . 00000000 -&gt; 10.0.64.0/18
+SRx 3    : 00000000 . 10 000000 . 00000000 -&gt; 10.0.128.0/18
+SRx 4    : 00000000 . 11 000000 . 00000000 -&gt; 10.0.192.0/18
+SRx 5    : 00000001 . 00 000000 . 00000000 -&gt; 10.1.0.0/18
+...
+SRx 1024 : 11111111 . 11 000000 . 00000000 -&gt; 10.255.192.0/18
+</code></pre>
+<h4 id="plage-dadresses-du-premier-sous-reseau-1000018">Plage d'adresses du premier sous-réseau (<code>10.0.0.0/18</code>)</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Type d'adresse</strong></th>
+<th><strong>Format Binaire (du 2ᵉ au 4ᵉ octet)</strong></th>
+<th><strong>Format Décimal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adresse Réseau</strong></td>
+<td><code>00000000.00000000.00000000</code></td>
+<td><code>10.0.0.0/18</code></td>
+</tr>
+<tr>
+<td><strong>1ère IP Utilisable</strong></td>
+<td><code>00000000.00000000.00000001</code></td>
+<td><code>10.0.0.1/18</code></td>
+</tr>
+<tr>
+<td><strong>Dernière IP Utilisable</strong></td>
+<td><code>00000000.00111111.11111110</code></td>
+<td><code>10.0.63.254/18</code></td>
+</tr>
+<tr>
+<td><strong>Adresse Broadcast</strong></td>
+<td><code>00000000.00111111.11111111</code></td>
+<td><code>10.0.63.255/18</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!TIP] Astuce : Calcul direct du $N$-ième sous-réseau</p>
+<p>Pour trouver rapidement l'adresse d'un <strong>$N$-ième sous-réseau</strong> sans dérouler toute la liste :</p>
+<h3 id="1-methode-binaire-universelle-tous-masques">1. Méthode Binaire Universelle (Tous masques)</h3>
+<ol>
+<li>Calculez l'index : $\text{Index} = N - 1$</li>
+<li>Convertissez cet $\text{Index}$ en binaire sur <strong>$n$ bits</strong> ($n$ = nombre de bits empruntés).</li>
+<li>Injectez ces $n$ bits à l'emplacement exact des bits de sous-réseau.</li>
+</ol>
+<hr />
+<h3 id="2-methode-decimale-rapide-cas-du-18-sur-un-8">2. Méthode Décimale Rapide (Cas du /18 sur un /8)</h3>
+<p>Pour un découpage <strong>/18</strong> ($10 \text{ bits empruntés}$), le 3ᵉ octet avance par pas de <strong>64</strong> (<code>0</code>, <code>64</code>, <code>128</code>, <code>192</code>), soit $4$ sous-réseaux par bloc du 2ᵉ octet :</p>
+<p>$$\text{Index} = N - 1$$
+- <strong>2ᵉ octet</strong> = $\lfloor \text{Index} / 4 \rfloor$ <em>(Quotient entiers)</em>
+- <strong>3ᵉ octet</strong> = $(\text{Index} \bmod 4) \times 64$ <em>(Reste de la division $\times 64$)</em></p>
+<blockquote>
+<p>[!EXAMPLE] Exemple : Trouver le <strong>102ᵉ sous-réseau</strong>
+1. $\text{Index} = 102 - 1 = \mathbf{101}$
+2. $101 / 4 = \mathbf{25}$ (reste $1$)
+3. <strong>2ᵉ octet</strong> = $25$
+4. <strong>3ᵉ octet</strong> = $1 \times 64 = 64$</p>
+<p>$\implies$ <strong><code>10.25.64.0/18</code></strong></p>
+</blockquote>
+</blockquote>
+<hr />
+<blockquote>
+<p>[!TIP] Astuce : La méthode du Magic Number (Nombre Magique)</p>
+<p>Le <strong>Magic Number</strong> correspond au pas de progression (la taille du bloc) dans l'octet où se situe la coupure du masque.</p>
+<h3 id="1-la-formule-unique">1. La Formule Unique</h3>
+<p>$$\text{Magic Number} = 256 - \text{Valeur décimale de l'octet modifié du masque}$$</p>
+<p>Alternativement, avec les bits hôtes $h_{\text{octet}}$ restants dans cet octet :
+$$\text{Magic Number} = 2^{h_{\text{octet}}}$$</p>
+<hr />
+<h3 id="2-les-3-regles-dor-du-magic-number">2. Les 3 Règles d'Or du Magic Number</h3>
+<ol>
+<li><strong>Repérer l'octet modifié :</strong> C'est l'octet qui contient une valeur différente de <code>255</code> ou <code>0</code> dans le masque (ex. dans <code>255.255.240.0</code>, c'est le <strong>3ᵉ octet</strong>).</li>
+<li><strong>Calculer le Magic Number ($M$) :</strong> $256 - 240 = \mathbf{16}$.</li>
+<li><strong>Appliquer le pas de progression ($M$) :</strong> Les adresses réseau progressent par multiples de $M$ dans cet octet (<code>.0</code>, <code>.16</code>, <code>.32</code>, <code>.48</code>, etc.).</li>
+</ol>
+<hr />
+<h3 id="3-trouver-la-plage-complete-dun-sous-reseau">3. Trouver la plage complète d'un sous-réseau</h3>
+<p>Une fois le Magic Number ($M$) connu pour un sous-réseau donné :</p>
+<ul>
+<li><strong>Adresse Réseau :</strong> Le plus grand multiple de $M$ inférieur ou égal à l'IP donnée.</li>
+<li><strong>Prochain Réseau :</strong> Multiplier le bloc actuel par $+ M$.</li>
+<li><strong>Adresse de Broadcast :</strong> (Adresse du réseau suivant) $- 1$.</li>
+<li><strong>Plage d'hôtes utilisables :</strong> Entre l'adresse réseau $+ 1$ et l'adresse de broadcast $- 1$.</li>
+</ul>
+<hr />
+<blockquote>
+<p>[!EXAMPLE] Exemple concret : Trouver le sous-réseau de l'IP <code>192.168.1.150 /27</code></p>
+<ol>
+<li><strong>Masque décimal :</strong> <code>/27</code> $\implies$ <code>255.255.255.224</code> (l'octet modifié est le <strong>4ᵉ octet</strong>).</li>
+<li><strong>Calcul du Magic Number :</strong> $M = 256 - 224 = \mathbf{32}$.</li>
+<li><strong>Trouver le réseau :</strong> Multiples de 32 $\implies 0, 32, 64, 96, 128, 160...$</li>
+<li>Pour l'IP <code>.150</code>, le multiple le plus proche sans dépasser est <strong>128</strong>.</li>
+</ol>
+<p><strong>Résultat instantané :</strong>
+* <strong>Adresse Réseau :</strong> <code>192.168.1.128 /27</code>
+* <strong>Réseau Suivant :</strong> <code>192.168.1.160</code> ($128 + 32$)
+* <strong>Adresse Broadcast :</strong> <code>192.168.1.159</code> ($160 - 1$)
+* <strong>Première IP Utilisable :</strong> <code>192.168.1.129</code>
+* <strong>Dernière IP Utilisable :</strong> <code>192.168.1.158</code></p>
+</blockquote>
+</blockquote>
+<h2 id="6-vlsm-variable-length-subnet-masking">6. VLSM (Variable Length Subnet Masking)</h2>
+<h3 id="61-principe-et-necessite-du-vlsm">6.1. Principe et Nécessité du VLSM</h3>
+<p>Le sous-réseautage classique (<em>FLSM - Fixed Length Subnet Masking</em>) impose d'utiliser un masque unique pour l'ensemble des sous-réseaux. Cette approche entraîne un <strong>gaspillage massif d'adresses IP</strong>, en particulier sur les liaisons point-à-point (routeur à routeur) qui n'ont besoin que de <strong>2 adresses IP utilisables</strong>.</p>
+<blockquote>
+<p>[!ABSTRACT] Définition du VLSM
+Le <strong>VLSM</strong> consiste à appliquer un sous-réseautage à un sous-réseau déjà existant. Il permet d'utiliser des <strong>masques de longueurs différentes</strong> selon les besoins réels de chaque segment (nombre d'hôtes requis).</p>
+</blockquote>
+<hr />
+<p>![[Pasted image 20261012234039.png]]</p>
+<hr />
+<p>![[Pasted image 20261012234207.png]]</p>
+<hr />
+<p>![[Pasted image 20261012234341.png]]</p>
+<h3 id="62-la-regle-dor-du-vlsm">6.2. La Règle d'Or du VLSM</h3>
+<blockquote>
+<p>[!WARNING] Règle fondamentale de conception
+<strong>Toujours trier et allouer les sous-réseaux du PLUS GRAND besoin au PLUS PETIT besoin.</strong></p>
+<p>Ignorer cette règle entraîne des chevauchements d'adresses (<em>IP overlaps</em>) et rend la segmentation incohérente.</p>
+</blockquote>
+<h3 id="63-methodologie-pas-a-pas">6.3. Méthodologie pas à pas</h3>
+<ol>
+<li><strong>Lister les besoins :</strong> Classer chaque segment/service par nombre d'hôtes requis en ordre décroissant.</li>
+<li><strong>Ajouter la marge de sécurité :</strong> Ajouter les adresses Réseau et Broadcast ($+2$), puis arrondir à la puissance de 2 supérieure ($2^h$).</li>
+<li><strong>Déterminer le masque ($/p$) :</strong> $p = 32 - h$.</li>
+<li><strong>Allouer les blocs :</strong> Assigner le premier bloc au réseau de départ, puis calculer le réseau suivant en ajoutant la taille du bloc (le <em>Magic Number</em>).</li>
+</ol>
+<h3 id="64-exemple-pratique-complet">6.4. Exemple Pratique Complet</h3>
+<p><strong>Réseau racine attribué :</strong> <code>192.168.10.0 /24</code> (256 adresses totales)</p>
+<h3 id="cahier-des-charges">Cahier des charges :</h3>
+<ul>
+<li><strong>LAN LAN_Ventes :</strong> 100 hôtes</li>
+<li><strong>LAN LAN_Compta :</strong> 50 hôtes</li>
+<li><strong>LAN LAN_Admin :</strong> 20 hôtes</li>
+<li><strong>Liaison WAN Router1-Router2 :</strong> 2 hôtes</li>
+</ul>
+<h3 id="etape-1-calcul-des-masques-necessaires">Étape 1 : Calcul des masques nécessaires</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Segment</th>
+<th style="text-align: center;">Hôtes requis</th>
+<th style="text-align: center;">Formule ($2^h - 2 \ge \text{Besoin}$)</th>
+<th style="text-align: center;">Bits hôtes ($h$)</th>
+<th style="text-align: center;">Taille du bloc ($2^h$)</th>
+<th style="text-align: center;">Préfixe ($32 - h$)</th>
+<th style="text-align: left;">Masque Décimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>LAN_Ventes</strong></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">$2^7 - 2 = 126$</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">128</td>
+<td style="text-align: center;"><strong>/25</strong></td>
+<td style="text-align: left;"><code>255.255.255.128</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LAN_Compta</strong></td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">$2^6 - 2 = 62$</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">64</td>
+<td style="text-align: center;"><strong>/26</strong></td>
+<td style="text-align: left;"><code>255.255.255.192</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LAN_Admin</strong></td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">$2^5 - 2 = 30$</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: center;"><strong>/27</strong></td>
+<td style="text-align: left;"><code>255.255.255.224</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Liaison WAN</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">$2^2 - 2 = 2$</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>/30</strong></td>
+<td style="text-align: left;"><code>255.255.255.252</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="etape-2-plan-dadressage-vlsm-final">Étape 2 : Plan d'adressage VLSM final</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nom du Segment</th>
+<th style="text-align: center;">Besoins</th>
+<th style="text-align: left;">Adresse Réseau</th>
+<th style="text-align: center;">Masque</th>
+<th style="text-align: left;">Plage IP Utilisables</th>
+<th style="text-align: left;">Adresse de Broadcast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>LAN_Ventes</strong></td>
+<td style="text-align: center;">100</td>
+<td style="text-align: left;"><code>192.168.10.0</code></td>
+<td style="text-align: center;"><code>/25</code></td>
+<td style="text-align: left;"><code>192.168.10.1</code> – <code>192.168.10.126</code></td>
+<td style="text-align: left;"><code>192.168.10.127</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LAN_Compta</strong></td>
+<td style="text-align: center;">50</td>
+<td style="text-align: left;"><code>192.168.10.128</code></td>
+<td style="text-align: center;"><code>/26</code></td>
+<td style="text-align: left;"><code>192.168.10.129</code> – <code>192.168.10.186</code></td>
+<td style="text-align: left;"><code>192.168.10.187</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LAN_Admin</strong></td>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;"><code>192.168.10.188</code></td>
+<td style="text-align: center;"><code>/27</code></td>
+<td style="text-align: left;"><code>192.168.10.189</code> – <code>192.168.10.218</code></td>
+<td style="text-align: left;"><code>192.168.10.219</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Liaison WAN</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><code>192.168.10.220</code></td>
+<td style="text-align: center;"><code>/30</code></td>
+<td style="text-align: left;"><code>192.168.10.221</code> – <code>192.168.10.222</code></td>
+<td style="text-align: left;"><code>192.168.10.223</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>(Disponible)</em></td>
+<td style="text-align: center;">32</td>
+<td style="text-align: left;"><code>192.168.10.224</code></td>
+<td style="text-align: center;"><code>/27</code></td>
+<td style="text-align: left;">Réserve pour extension future</td>
+<td style="text-align: left;"><code>192.168.10.255</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

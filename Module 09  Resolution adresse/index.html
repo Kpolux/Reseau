@@ -1,0 +1,1431 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2009%20%20Resolution%20adresse/">
+      
+      
+        <link rel="prev" href="../Module%2008%20Couche%20reseau/">
+      
+      
+        <link rel="next" href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Adresses #MAC #IP - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adresses-mac-ip" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adresses #MAC #IP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="adresses-mac-ip">Adresses #MAC #IP</h1>
+<h1 id="module-9-resolution-dadresse">Module 9 : Résolution d'adresse</h1>
+<p>Adresses logiques (IP) aux adresses physiques (MAC) au sein d'un réseau local</p>
+<h2 id="1-adresses-mac-et-ip">1 Adresses MAC et IP</h2>
+<h3 id="11-destination-sur-le-meme-reseau-lan-local">1.1 Destination sur le même réseau (LAN local)</h3>
+<ul>
+<li>
+<p><strong>Double adressage :</strong> </p>
+<ul>
+<li>Chaque carte réseau sur un LAN Ethernet possède une adresse physique (MAC, couche 2) et une adresse logique (IP, couche 3).</li>
+</ul>
+</li>
+<li>
+<p><strong>Rôle des adresses :</strong></p>
+<ul>
+<li>
+<p><strong>Adresse IP :</strong> </p>
+<ul>
+<li>Identifie l'émetteur source et le destinataire final du paquet (inchangée de bout en bout).</li>
+</ul>
+</li>
+<li>
+<p><strong>Adresse MAC :</strong> </p>
+<ul>
+<li>Transporte le paquet d'une carte réseau à une autre sur le même segment Ethernet local.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Comportement :</strong> Pour envoyer un paquet à un hôte situé sur le même réseau IP, la trame Ethernet utilise l'adresse MAC exacte de l'hôte distant comme MAC de destination.</p>
+</li>
+</ul>
+<p>![[Pasted image 20261006170148.png]]</p>
+<h3 id="12-destination-sur-un-reseau-distant">1.2 Destination sur un réseau distant</h3>
+<ul>
+<li>
+<p><strong>Rôle de la passerelle par défaut :</strong> </p>
+<ul>
+<li>Lorsque l'adresse IP de destination se trouve sur un réseau distant, le paquet est transmis à l'interface du routeur local (passerelle par défaut).</li>
+</ul>
+</li>
+<li>
+<p><strong>Évolution des adresses le long du chemin :</strong></p>
+<ul>
+<li>
+<p><strong>Les adresses IP (source/destination) restent constantes</strong> pendant tout le trajet.          </p>
+</li>
+<li>
+<p><strong>Les adresses MAC (source/destination) changent à chaque saut (<em>hop-by-hop</em>)</strong> au fur et à mesure que le paquet est ré-encapsulé dans une nouvelle trame sur chaque tronçon.</p>
+</li>
+</ul>
+<p>![[Pasted image 20261006170210.png]]
+ ![[Pasted image 20261006170235.png]]
+    ![[Pasted image 20261006170353.png]]</p>
+</li>
+<li>
+<p><strong>Mécanisme de résolution d'adresse :</strong></p>
+<ul>
+<li>
+<p>En <strong>IPv4</strong>, le protocole <strong>ARP</strong> (<em>Address Resolution Protocol</em>) permet d'associer une adresse IP à une adresse MAC.          </p>
+</li>
+<li>
+<p>En <strong>IPv6</strong>, le protocole <strong>ND</strong> (<em>Neighbor Discovery</em> / ICMPv6) assure cette fonction.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-arp-address-resolution-protocol">2 ARP (<em>Address Resolution Protocol</em>)</h2>
+<h3 id="21-presentation-arp">2.1 Présentation ARP</h3>
+<ul>
+<li>
+<p><strong>Rôle principal :</strong> </p>
+<ul>
+<li>Associer une adresse IPv4 à une adresse MAC Ethernet unique sur le même réseau local.</li>
+</ul>
+</li>
+<li>
+<p><strong>Contenu d'une trame Ethernet IPv4 :</strong></p>
+<ul>
+<li>
+<p><strong>Adresse MAC source :</strong> Adresse de l'expéditeur.</p>
+</li>
+<li>
+<p><strong>Adresse MAC de destination :</strong> Adresse du destinataire local ou de la passerelle par défaut si le destinataire est distant.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Fonctions clés d'ARP :</strong></p>
+<ol>
+<li>
+<p>Résoudre les adresses IPv4 en adresses MAC.</p>
+</li>
+<li>
+<p>Maintenir à jour une table de mappage d'adresses (cache ARP).</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="22-fonctions-du-protocole-arp">2.2 Fonctions du protocole ARP</h3>
+<ul>
+<li>
+<p><strong>Consulter la table ARP :</strong> </p>
+<ul>
+<li>
+<p>Avant d'envoyer un paquet, l'hôte recherche dans sa mémoire RAM (cache ARP) le mappage IPv4 &lt;-&gt; MAC correspondant.</p>
+</li>
+<li>
+<p><strong>Destination locale :</strong> </p>
+<ul>
+<li>Recherche directe de l'IP du destinataire.          </li>
+</ul>
+</li>
+<li>
+<p><strong>Destination distante :</strong> </p>
+<ul>
+<li>Recherche de l'IP de la passerelle par défaut.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Déclenchement :</strong> </p>
+<ul>
+<li>Si l'adresse IP figure dans le cache, sa MAC est utilisée. Si l'entrée est absente, l'hôte génère une <strong>requête ARP</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-requete-arp">2.3 Requête ARP</h3>
+<ul>
+<li>
+<p><strong>Encapsulation :</strong> Directement dans une trame Ethernet (<code>Type = 0x806</code>), sans en-tête IPv4.</p>
+</li>
+<li>
+<p><strong>Adresse MAC de destination :</strong> Adresse de <strong>diffusion</strong> (<em>Broadcast</em> : <code>FF-FF-FF-FF-FF-FF</code>).</p>
+</li>
+<li>
+<p><strong>Traitement par le réseau :</strong>     </p>
+<ul>
+<li>
+<p>Le Switch diffuse la trame sur tous les ports sauf le port récepteur.</p>
+</li>
+<li>
+<p>Tous les hôtes du LAN reçoivent et examinent la requête.                  </p>
+</li>
+<li>
+<p>Seul l'hôte possédant l'IP cible traitera le message, les autres l'ignorent.                 </p>
+</li>
+<li>
+<p>Les routeurs ne transfèrent pas les diffusions ARP vers d'autres interfaces.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-reponse-arp">2.4 Réponse ARP</h3>
+<ul>
+<li>
+<p><strong>Encapsulation :</strong> Envoyée en <strong>monodiffusion</strong> (<em>Unicast</em>) directement à l'expéditeur de la requête (<code>Type = 0x806</code>).    </p>
+</li>
+<li>
+<p><strong>Mise en cache :</strong> L'émetteur initial reçoit la réponse et ajoute le couple IP/MAC dans sa table ARP pour encapsuler les futurs paquets.</p>
+</li>
+<li>
+<p><strong>Échec :</strong> Si aucun équipement ne répond, le paquet est abandonné (<em>dropped</em>).</p>
+</li>
+</ul>
+<h3 id="25-role-darp-dans-les-communications-a-distance">2.5 Rôle d'ARP dans les communications à distance</h3>
+<ol>
+<li>
+<p>L'hôte compare l'IP de destination avec son sous-réseau.</p>
+</li>
+<li>
+<p>Si le réseau est distant, il recherche l'adresse MAC de la <strong>passerelle par défaut</strong> dans son cache ARP.</p>
+</li>
+<li>
+<p>Si l'entrée n'existe pas, une requête ARP est envoyée pour obtenir la MAC du routeur local.</p>
+</li>
+</ol>
+<h3 id="26-suppression-des-entrees-dune-table-arp">2.6 Suppression des entrées d'une table ARP</h3>
+<ul>
+<li>
+<p><strong>Minuteur d'expiration (Aging Timer) :</strong> Les entrées dynamiques non utilisées sont supprimées après un délai défini par le système d'exploitation (ex: 15 à 45 secondes sur Windows).</p>
+</li>
+<li>
+<p><strong>Entrées statiques :</strong> Peuvent être ajoutées manuellement mais n'expirent pas automatiquement.</p>
+</li>
+<li>
+<p><strong>Effacement manuel :</strong> Commande CLI pour vider le cache ARP en cas de besoin.</p>
+</li>
+</ul>
+<h4 id="commande-cisco-ios-commandes-hotes">Commande Cisco IOS &amp; Commandes Hôtes</h4>
+<h3 id="27-tables-arp-sur-les-peripheriques-reseau">2.7 Tables ARP sur les périphériques réseau</h3>
+<h5 id="affichage-de-la-table-arp">Affichage de la table ARP</h5>
+<ul>
+<li>
+<p><strong>Sur un routeur Cisco IOS :</strong></p>
+<ul>
+<li>Commande : <h2 id="-show-ip-arp">- <code>show ip arp</code></h2>
+</li>
+<li>
+<p>Affiche la correspondance entre l'adresse IP (<code>Address</code>), l'âge de l'entrée en minutes (<code>Age (min)</code>), l'adresse MAC (<code>Hardware Addr</code>), le type d'encapsulation (<code>ARPA</code>) et l'interface de sortie (<code>Interface</code>).</p>
+</li>
+<li>
+<p>Un tiret (<code>-</code>) dans la colonne <code>Age</code> indique une interface locale du routeur.                 </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sur un hôte Windows :</strong></p>
+<ul>
+<li>
+<p>Commande : </p>
+<ul>
+<li><code>arp -a</code></li>
+</ul>
+</li>
+<li>
+<p>Affiche les adresses IPv4 (<code>Internet Address</code>), les adresses MAC (<code>Physical Address</code>) et le type d'attribution (<code>dynamic</code> ou <code>static</code>).</p>
+</li>
+<li>
+<p>Les entrées dynamiques sont apprises via le processus ARP, tandis que les entrées statiques correspondent aux adresses de diffusion local/multicast (ex: <code>255.255.255.255</code> ou <code>224.0.0.22</code>).</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code># Cisco IOS
+R1# show ip arp                  # Afficher la table ARP
+R1# clear arp-cache              # Vider le cache ARP
+
+# Windows CLI
+C:\Users\PC&gt; arp -a              # Afficher la table ARP
+C:\Users\PC&gt; arp -d              # Vider le cache ARP (nécessite les droits admin)
+</code></pre>
+<pre><code># Afficher la table ARP sur un routeur Cisco
+Router# show ip arp
+
+# Vider la table ARP sur Cisco IOS
+Router# clear arp-cache
+
+# Commandes ARP sur Windows / Linux
+C:\&gt; arp -a        # Afficher la table ARP
+C:\&gt; arp -d        # Vider la table ARP
+</code></pre>
+<h2 id="3-decouverte-de-voisins-ipv6-ndp-nd">3 Découverte de voisins IPv6 (NDP / ND)</h2>
+<h3 id="31-presentation-de-ipv6-neighbor-discovery">3.1 Présentation de IPv6 <em>Neighbor Discovery</em></h3>
+<ul>
+<li>
+<p><strong>Rôle :</strong> </p>
+<ul>
+<li>Protocole de couche liaison de données pour IPv6 assurant la résolution d'adresses IPv6 en adresses MAC, la détection des routeurs et la redirection sur le réseau local.</li>
+</ul>
+</li>
+<li>
+<p><strong>Protocole sous-jacent :</strong> </p>
+<ul>
+<li>Utilise les messages <strong>ICMPv6</strong> (remplace ARP d'IPv4).</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-messages-de-decouverte-de-voisins-icmpv6">3.2 Messages de découverte de voisins ICMPv6</h3>
+<p>Le protocole NDP s'appuie sur <strong>5 messages ICMPv6 principaux</strong> :</p>
+<ul>
+<li>
+<p><strong>Messagerie de périphérique à périphérique (Résolution d'adresses) :</strong>    </p>
+<ol>
+<li>
+<p><strong>Sollicitation de voisin (<em>Neighbor Solicitation</em> - NS) :</strong> 
+    Envoyé par un hôte pour demander l'adresse MAC d'un voisin IPv6.      </p>
+</li>
+<li>
+<p><strong>Annonce de voisin (<em>Neighbor Advertisement</em> - NA) :</strong> Envoyé en réponse pour fournir son adresse MAC.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Messagerie de routeur à périphérique (Découverte de routeurs &amp; SLAAC) :</strong> </p>
+<ol>
+<li>
+<p><strong>Sollicitation de routeur (<em>Router Solicitation</em> - RS) :</strong> 
+    Envoyé par un hôte pour localiser les routeurs IPv6 du segment. </p>
+</li>
+<li>
+<p><strong>Annonce de routeur (<em>Router Advertisement</em> - RA) :</strong> 
+    Envoyé par les routeurs pour fournir les préfixes IP et paramètres d'autoconfiguration.    </p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Optimisation de la trajectoire :</strong> </p>
+<ol>
+<li><strong>Redirection (<em>Redirect</em>) :</strong> Envoyé par un routeur pour informer un hôte d'un meilleur saut suivant (<em>next-hop</em>).</li>
+</ol>
+</li>
+</ul>
+<h3 id="33-resolution-dadresses-ipv6-processus-ns-na">3.3 Résolution d'adresses IPv6 (Processus NS / NA)</h3>
+<p>Lorsqu'un hôte IPv6 connaît l'adresse IPv6 d'un destinataire local mais pas sa MAC :</p>
+<ol>
+<li>
+<p><strong>Envoi de la Sollicitation de Voisin (NS) :</strong></p>
+<ul>
+<li>
+<p><strong>Message :</strong> <em>"Qui possède l'adresse 2001:db8:acad:1::11 ? Envoyez-moi votre adresse MAC."</em></p>
+</li>
+<li>
+<p><strong>Destination :</strong> Envoyé à une <strong>adresse IPv6 de multidiffusion de nœud sollicité</strong> (<em>Solicited-Node Multicast</em>) et encapsulé dans une trame de multidiffusion Ethernet dédiée.</p>
+</li>
+<li>
+<p><strong>Avantage :</strong> Seule la carte réseau ciblée traite le message au niveau matériel, évitant d'inonder tous les hôtes du LAN comme le fait le Broadcast ARP.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Réponse par l'Annonce de Voisin (NA) :</strong></p>
+<ul>
+<li>
+<p><strong>Message :</strong> <em>"Je suis 2001:db8:acad:1::11 et mon adresse MAC est F8-94-C3-E4-C5-0A."</em></p>
+</li>
+<li>
+<p><strong>Destination :</strong> Envoyé directement en <strong>monodiffusion</strong> (<em>Unicast</em>) à l'hôte demandeur.</p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>[ Processus de Résolution d'Adresse ICMPv6 ]
+
+  PC1 (:10)                                                PC2 (:11)
+     |                                                         |
+     |--- (ICMPv6 NS - Multidiffusion nœud sollicité) --------&gt;|
+     |    &quot;Qui a l'IP 2001:db8:acad:1::11 ?&quot;                   |
+     |                                                         |
+     |&lt;-- (ICMPv6 NA - Monodiffusion / Unicast) ---------------|
+     |    &quot;Je suis :11, ma MAC est F8-94-C3-E4-C5-0A&quot;           |
+     v                                                         v
+[ Cache Voisins IPv6 mis à jour ]
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>

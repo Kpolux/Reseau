@@ -1,0 +1,1870 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kpolux.github.io/Reseau/Module%2006%20Couche%20Liaison%20de%20donn%C3%A9es/">
+      
+      
+        <link rel="prev" href="../Module%2003%20Modeles%20et%20protocoles/">
+      
+      
+        <link rel="next" href="../Module%2007%20Commutation%20Ethernet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Couche Liaison de données (OSI layer 2) - Cours de Réseau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#couche-liaison-de-donnees-osi-layer-2" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="Cours de Réseau" class="md-header__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de Réseau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Couche Liaison de données (OSI layer 2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Bienvenue sur le cours de Réseau
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  ios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modèles et protocoles
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche Liaison de données (OSI layer 2)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 07 Commutation Ethernet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Couche réseau (Layer 3)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Adresses #MAC #IP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 10 : Configuration des paramètres de base d'un routeur
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv4
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Subnetting #adressage #IPv6
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2013%20ICMP/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 13 : Messages ICMP
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 14 : Couche Transport
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 15 Couche Application
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  sécurité #cybersecurité
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Dossier_config/Router_Template/" class="md-tabs__link">
+          
+  
+  
+  Dossier config
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cours de Réseau" class="md-nav__button md-logo" aria-label="Cours de Réseau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cours de Réseau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bienvenue sur le cours de Réseau
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2002%20Config%20de%20base%20Switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2003%20Modeles%20et%20protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modèles et protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche Liaison de données (OSI layer 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sous-couches-liaison-de-donnees-ieee-802-lanman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sous-couches liaison de données IEEE 802 (LAN/MAN)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sous-couches liaison de données IEEE 802 (LAN/MAN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-de-la-couche-liaison-de-donnees-ieee-802" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure de la couche Liaison de données (IEEE 802)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-cles-de-la-sous-couche-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonctions clés de la sous-couche MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acces-aux-supports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accès aux supports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normes-de-couche-liaison-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normes de couche liaison de données
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normes de couche liaison de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principaux-organismes-de-normalisation-l1-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principaux organismes de normalisation (L1 / L2) :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topologies-et-controle-dacces-au-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topologies et contrôle d'accès au support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Topologies et contrôle d&#39;accès au support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-topologies-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Topologies WAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-topologies-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Topologies LAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modes-duplex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modes Duplex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-methodes-de-controle-dacces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Méthodes de contrôle d'accès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure-de-la-trame-et-adressage-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure de la trame et adressage L2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure de la trame et adressage L2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-structure-de-la-trame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Structure de la trame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-adressage-de-couche-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adressage de Couche 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trames-lan-vs-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trames LAN vs WAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2007%20Commutation%20Ethernet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 Commutation Ethernet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2008%20Couche%20reseau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Couche réseau (Layer 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2009%20%20Resolution%20adresse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adresses #MAC #IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2010%20%20Configuration%20des%20parametres%20de%20base%20d%27un%20routeur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 : Configuration des paramètres de base d'un routeur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2011%20Adressage%20IPv4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2012%20Adressage%20IPv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting #adressage #IPv6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2013%20ICMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 : Messages ICMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2014%20Couche%20Transport/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 : Couche Transport
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2015%20Couche%20Application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 15 Couche Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Module%2016%20Principes%20fondamentaux%20de%20la%20s%C3%A9curit%C3%A9%20r%C3%A9seau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sécurité #cybersecurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dossier config
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dossier config
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Router_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Router Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dossier_config/Switch_Template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sous-couches-liaison-de-donnees-ieee-802-lanman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sous-couches liaison de données IEEE 802 (LAN/MAN)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sous-couches liaison de données IEEE 802 (LAN/MAN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-de-la-couche-liaison-de-donnees-ieee-802" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure de la couche Liaison de données (IEEE 802)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-cles-de-la-sous-couche-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fonctions clés de la sous-couche MAC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acces-aux-supports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accès aux supports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normes-de-couche-liaison-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normes de couche liaison de données
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normes de couche liaison de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principaux-organismes-de-normalisation-l1-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principaux organismes de normalisation (L1 / L2) :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topologies-et-controle-dacces-au-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topologies et contrôle d'accès au support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Topologies et contrôle d&#39;accès au support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-topologies-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Topologies WAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-topologies-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Topologies LAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-modes-duplex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Modes Duplex
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-methodes-de-controle-dacces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Méthodes de contrôle d'accès
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure-de-la-trame-et-adressage-l2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure de la trame et adressage L2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure de la trame et adressage L2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-structure-de-la-trame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Structure de la trame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-adressage-de-couche-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Adressage de Couche 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-trames-lan-vs-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Trames LAN vs WAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="couche-liaison-de-donnees-osi-layer-2">Couche Liaison de données (OSI layer 2)</h1>
+<p>La couche <strong>liaison de données</strong> (Couche 2) : 
+- prépare les données du réseau pour le support physique 
+- et assure la communication directe  NIC à NIC(Network Interface card). </p>
+<p>Dans un réseau informatique, un <strong>nœud</strong> est un équipement/périphérique connecté capable de <strong>recevoir, créer, stocker ou transférer des données</strong> le long d'un chemin de communication.
+Il existe deux catégories de nœuds :
+- <strong>Périphériques finaux (hôtes) :</strong> Équipements source ou destination (ex: ordinateurs portables, smartphones, serveurs)</p>
+<ul>
+<li><strong>Périphériques intermédiaires :</strong> Équipements assurant le transit des données (ex: commutateurs Ethernet, routeurs).</li>
+</ul>
+<p>Différents types de supports pour différents types de données </p>
+<ul>
+<li>
+<p>Rôles et fonctions clés :</p>
+<ul>
+<li>
+<p><strong>Abstraction du support :</strong> Permet aux couches supérieures (3 et +) d'accéder au support physique sans connaître la technologie matérielle utilisée.</p>
+</li>
+<li>
+<p><strong>Encapsulation :</strong> Reçoit les paquets de Couche 3 (IPv4/IPv6) et les encapsule dans des <strong>trames</strong> de Couche 2.</p>
+</li>
+<li>
+<p><strong>Contrôle d'accès au support (MAC) :</strong> Régit la façon dont les trames sont placées et reçues sur le média réseau.</p>
+</li>
+<li>
+<p><strong>Échange de trames :</strong> Achemine les trames entre les équipements locaux via le support.</p>
+</li>
+<li>
+<p><strong>Décapsulation :</strong> Extrait le paquet de Couche 3 d'une trame reçue et le transmet au protocole supérieur approprié.</p>
+</li>
+<li>
+<p><strong>Détection d'erreurs :</strong> Identifie et rejette automatiquement toutes les trames altérées ou corrompues pendant le transit.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>![[Pasted image 20260930145840.png]]</p>
+<h2 id="sous-couches-liaison-de-donnees-ieee-802-lanman">Sous-couches liaison de données IEEE 802 (LAN/MAN)</h2>
+<p>La couche 2 se divise en deux sous-couches sous les normes IEEE 802 :</p>
+<ul>
+<li>
+<p><strong>LLC (Logical Link Control - IEEE 802.2) :</strong></p>
+<ul>
+<li>
+<p>Fait l'intermédiaire entre  couche supérieur (L3)  et le matériel (L1/L2).</p>
+</li>
+<li>
+<p>Identifie le protocole de couche 3 (ex: IPv4, IPv6) pour permettre le partage du même support.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>MAC (Media Access Control - IEEE 802.3, 802.11, 802.15) :</strong></p>
+<ul>
+<li>
+<p>Implémentée dans le matériel (carte réseau).</p>
+</li>
+<li>
+<p>Gère l'encapsulation des données, l'adressage physique (adresse MAC) et le contrôle d'accès au support.
+![[Pasted image 20260930150422.png]]</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="structure-de-la-couche-liaison-de-donnees-ieee-802">Structure de la couche Liaison de données (IEEE 802)</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Sous-couche</strong></th>
+<th><strong>Norme</strong></th>
+<th><strong>Rôle principal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LLC</strong> (<em>Logical Link Control</em>)</td>
+<td><strong>IEEE 802.2</strong></td>
+<td>Ajoute les informations de contrôle de Couche 2 au paquet L3 (IPv4/IPv6) pour l'acheminer vers le nœud destinataire.</td>
+</tr>
+<tr>
+<td><strong>MAC</strong> (<em>Media Access Control</em>)</td>
+<td><strong>IEEE 802.3</strong> (Ethernet)<br><br>  <br><br><strong>IEEE 802.11</strong> (Wi-Fi)<br><br>  <br><br><strong>IEEE 802.15</strong> (WPAN/Bluetooth)</td>
+<td>Pilote directement la carte réseau (NIC) et le matériel de transmission.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fonctions-cles-de-la-sous-couche-mac">Fonctions clés de la sous-couche MAC</h3>
+<ol>
+<li>
+<p><strong>Encapsulation des données :</strong></p>
+<ul>
+<li>
+<p><strong>Délimitation des trames :</strong> Insère des bits de synchronisation entre l'émetteur et le récepteur pour marquer le début/fin de trame.</p>
+</li>
+<li>
+<p><strong>Adressage :</strong> Ajoute les adresses physiques MAC source et destination pour le transport local.</p>
+</li>
+<li>
+<p><strong>Détection d'erreurs :</strong> Intègre une séquence de contrôle de trame (queue de bande/FCS) pour valider l'intégrité de la transmission.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Contrôle d'accès au support :</strong></p>
+<ul>
+<li>
+<p>Régit la communication entre plusieurs équipements sur un support partagé (Half-Duplex).</p>
+</li>
+<li>
+<p>Note : Inutile en Full-Duplex (liens dédiés).</p>
+</li>
+</ul>
+<h3 id="acces-aux-supports">Accès aux supports</h3>
+</li>
+</ol>
+<p>Chaque segment de réseau peut utiliser un support et des règles d'accès différents (ex: Ethernet multi-accès vs liaison série point-à-point). La sous-couche MAC adapte la trame à chaque type de support.</p>
+<p>À chaque passage d'un réseau à un autre, le routeur effectue les <strong>4 étapes de Couche 2</strong> suivantes :</p>
+<ol>
+<li>
+<p><strong>Réception :</strong> Accepte la trame provenant du support d'entrée.</p>
+</li>
+<li>
+<p><strong>Désencapsulation :</strong> Retire l'en-tête et la queue de bande L2 pour extraire le paquet L3 (IP).</p>
+</li>
+<li>
+<p><strong>Réencapsulation :</strong> Encapsule le paquet L3 dans une <strong>nouvelle trame</strong> adaptée au support de sortie.</p>
+</li>
+<li>
+<p><strong>Transmission :</strong> Expédie la nouvelle trame sur le segment physique suivant.</p>
+</li>
+</ol>
+<h3 id="normes-de-couche-liaison-de-donnees">Normes de couche liaison de données</h3>
+<p>Contrairement aux couches supérieures TCP/IP définies par les RFC de l'<strong>IETF</strong>, la couche liaison de données (Accès réseau) dépend d'organismes d'ingénierie matérielle.</p>
+<h4 id="principaux-organismes-de-normalisation-l1-l2">Principaux organismes de normalisation (L1 / L2) :</h4>
+<ul>
+<li>
+<p><strong>IEEE</strong> (<em>Institute of Electrical and Electronics Engineers</em>) : Dfinit les normes LAN/WLAN (802.3, 802.11).</p>
+</li>
+<li>
+<p><strong>UIT / ITU</strong> (<em>Union Internationale des Télécommunications</em>) : Normes de télécommunications.</p>
+</li>
+<li>
+<p><strong>ISO</strong> (<em>International Standards Organization</em>) : Normalisation internationale des réseaux.</p>
+</li>
+<li>
+<p><strong>ANSI</strong> (<em>American National Standards Institute</em>) : Normes d'interfaces et de codage.</p>
+</li>
+</ul>
+<h3 id="topologies-et-controle-dacces-au-support">Topologies et contrôle d'accès au support</h3>
+<h4 id="1-topologies-wan">1. Topologies WAN</h4>
+<ul>
+<li>
+<p><strong>Point à point :</strong> Liaison directe et permanente entre deux nœuds.</p>
+<ul>
+<li>
+<p>Protocoles L2 simples ex: PPP(<em>Point-to-Point Protocol</em>).</p>
+</li>
+<li>
+<p>La présence d'équipements intermédiaires au sein du réseau d'opérateur ne modifie pas la topologie logique point à point.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Hub et Spoke :</strong> Site central (<em>Hub</em>) connecté en point à point à plusieurs sites distants (<em>Spokes</em>).</p>
+</li>
+<li>
+<p><strong>Maillée :</strong> Haute disponibilité ; chaque site est connecté à tous les autres (maillage total) ou à certains sites (maillage partiel).</p>
+</li>
+</ul>
+<h4 id="2-topologies-lan">2. Topologies LAN</h4>
+<ul>
+<li>
+<p><strong>Modernes :</strong></p>
+<ul>
+<li>
+<p><strong>Étoile :</strong> Hôtes reliés à un switch central.</p>
+</li>
+<li>
+<p><strong>Étoile étendue :</strong> Interconnexion de plusieurs switch en étoile.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Anciennes :</strong></p>
+<ul>
+<li>
+<p><strong>Bus :</strong> Câble coaxial partagé avec bouchons de terminaison aux extrémités.</p>
+</li>
+<li>
+<p><strong>Anneau :</strong> Interconnexion circulaire (ex: Token Ring, FDDI).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-modes-duplex">3. Modes Duplex</h4>
+<ul>
+<li>
+<p><strong>Semi-duplex (Half-Duplex) :</strong> Transmission ou réception alternée (une seule direction à la fois).</p>
+<ul>
+<li>Utilisé sur les anciens hubs, le Wi-Fi et les topologies en bus.</li>
+</ul>
+</li>
+<li>
+<p><strong>Duplex intégral (Full-Duplex) :</strong> Transmission et réception simultanées.</p>
+<ul>
+<li>Mode standard des switch Ethernet modernes (aucun risque de collision).</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-methodes-de-controle-dacces">4. Méthodes de contrôle d'accès</h4>
+<p>dans les réseau d'accès multiple (LAN/WLAN) accès simultané au support physique de 2 périphériques </p>
+<blockquote>
+<p>[!Note] 
+ <strong>CSMA</strong> (<em>Carrier Sense Multiple Access</em> / Accès multiple avec écoute de porteuse) est un protocole de <strong>Couche 2</strong> utilisé sur les réseaux à support partagé en <strong>semi-duplex</strong> pour contrôler l'accès aux médias physiques.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>Accès avec gestion des conflits (Non déterministe) :</strong></p>
+<ul>
+<li>
+<p><strong>CSMA/CD :</strong> Détection de collision (anciens LAN Ethernet en bus/hub/half-duplex).</p>
+</li>
+<li>
+<p><strong>CSMA/CA :</strong> Évitement de collision (réseaux sans fil WLAN / Wi-Fi).</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Critère</strong></th>
+<th><strong>CSMA/CD (Collision Detection)</strong></th>
+<th><strong>CSMA/CA (Collision Avoidance)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Environnement</strong></td>
+<td>Ethernet filaire ancien (Hubs, bus)</td>
+<td>Réseaux sans fil (Wi-Fi / WLAN)</td>
+</tr>
+<tr>
+<td><strong>Mode Duplex</strong></td>
+<td>Semi-duplex (<em>Half-Duplex</em>)</td>
+<td>Semi-duplex (<em>Half-Duplex</em>)</td>
+</tr>
+<tr>
+<td><strong>Gestion des collisions</strong></td>
+<td><strong>Réagit</strong> aux collisions une fois qu'elles se produisent.</td>
+<td><strong>Évite</strong> préventivement les collisions.</td>
+</tr>
+<tr>
+<td><strong>Mécanisme</strong></td>
+<td>Écoute → Émission → Détection par hausse d'amplitude → Signal Jamming + Attente aléatoire.</td>
+<td>Écoute → Attente (IFS) → Émission d'un signal d'intention (RTS/CTS) → Validation (ACK).</td>
+</tr>
+<tr>
+<td><strong>Transmission</strong></td>
+<td>Envoie la trame directement si le canal est libre.</td>
+<td>Annonce la durée de transmission et attend une confirmation pour émettre.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>Accès contrôlé (Déterministe) :</strong></p>
+<ul>
+<li>Passage de jeton à tour de rôle (ex: Token Ring, ARCNET).</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!remarque] 
+ Aujourd'hui, les réseau Ethernet fonctionne en duplex intégral et ne nécessite pas de méthode d'accès.</p>
+</blockquote>
+<h3 id="structure-de-la-trame-et-adressage-l2">Structure de la trame et adressage L2</h3>
+<h4 id="1-structure-de-la-trame">1. Structure de la trame</h4>
+<p>La couche liaison de données encapsule les paquets L3 dans des trames composées de 3 éléments principaux :</p>
+<p>![[Pasted image 20260930184808.png]]</p>
+<ul>
+<li>
+<p><strong>En-tête (<em>Header</em>) :</strong></p>
+<ul>
+<li>
+<p><strong>Début de trame :</strong> Délimite le commencement de la trame.</p>
+</li>
+<li>
+<p><strong>Adressage :</strong> Contient les adresses physiques (MAC) source et destination.</p>
+</li>
+<li>
+<p><strong>Type :</strong> Spécifie le protocole de couche 3 transporté (ex: IPv4, IPv6).</p>
+</li>
+<li>
+<p><strong>Contrôle :</strong> Définit les services de gestion (QoS, priorité du trafic comme la VoIP).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Données (<em>Payload</em>) :</strong> Le paquet de couche 3 (IP).</p>
+</li>
+<li>
+<p><strong>Queue de bande (<em>Trailer</em>) :</strong></p>
+<ul>
+<li>
+<p><strong>Détection des erreurs :</strong> Champ <strong>FCS</strong> (<em>Frame Check Sequence</em>) calculé via un code <strong>CRC</strong> (<em>Cyclic Redundancy Check</em>) pour vérifier l'intégrité des données à la réception.</p>
+</li>
+<li>
+<p><strong>Fin de trame :</strong> Marque la fin du bloc de transmission.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-adressage-de-couche-2">2. Adressage de Couche 2</h4>
+<ul>
+<li>
+<p><strong>Acheminement local :</strong> Les adresses physiques (ex: MAC) ne servent qu'à la livraison <strong>au sein du même segment réseau</strong> (hôte à routeur, routeur à routeur, routeur à hôte).</p>
+</li>
+<li>
+<p><strong>Portée des adresses :</strong></p>
+<ul>
+<li>
+<p><strong>Adresses L2 (MAC) :</strong> Changent à chaque tronçon (hop) lorsqu'un routeur réencapsule le paquet.</p>
+</li>
+<li>
+<p><strong>Adresses L3 (IP) :</strong> Restent identiques de la source finale à la destination finale.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-trames-lan-vs-wan">3. Trames LAN vs WAN</h4>
+<p>Le choix du protocole L2 dépend de la topologie réseau et du support physique :</p>
+<ul>
+<li>
+<p><strong>Protocole LAN :</strong> Ethernet (802.3) pour le filaire, Wi-Fi (802.11) pour le sans-fil.</p>
+</li>
+<li>
+<p><strong>Protocoles WAN traditionnels :</strong> PPP, HDLC, Frame Relay, ATM, X.25.</p>
+<ul>
+<li>
+<p>Hôte vers routeur![[Pasted image 20260930184943.png]]</p>
+</li>
+<li>
+<p>Routeur à routeur![[Pasted image 20260930185120.png]]</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!remarque] 
+ <strong>Tendance actuelle :</strong> Ethernet remplace progressivement les anciens protocoles sur les réseaux étendus (WAN).</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
