@@ -107,7 +107,7 @@ Les adresses MAC de destination se divisent en trois catégories selon le mode d
 
 Un switch de couche 2 utilise la **table d'adresses MAC** (aussi appelée table **CAM** - _Content-Addressable Memory_) pour prendre ses décisions de transfert et éviter d'inonder le réseau inutilement.
 
-- **Fonctionnement L2 :** Il prend ses décisions uniquement sur les adresses MAC et ignore le protocole de couche 3 (ex: paquet IP, ARP, ND).
+- **Fonctionnement L2 :** Il prend ses décisions uniquement sur les adresses MAC et ignore le protocole de couche 3 (ex: paquet IP, ARP, NDP).
     
 - **État initial :** Au démarrage, la table d'adresses MAC est vide. 
     
