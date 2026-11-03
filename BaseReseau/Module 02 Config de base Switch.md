@@ -372,6 +372,18 @@ copy running-config startup-config
 >  - L'IOS utilise automatiquement le symbole **`!`** comme **séparateur visuel** entre les différents blocs de configuration dans le résultat de (`show running-config`)
 
 
+
+> [!CHECK] 
+> `copy run start` est l'abréviation de `copy running-config startup-config`. C'est la commande standard recommandée pour enregistrer les modifications en NVRAM.
+
+
+
+| Commande | Rôle | Statut |
+| :--- | :--- | :--- |
+| `copy running-config startup-config` | Commande complète explicite. | **Norme officielle** |
+| `copy run start` | Raccourci syntaxique standard. | **Le plus utilisé au quotidien** |
+| `write memory` (ou `wr`) | Ancienne commande de l'IOS Cisco. | Obsolète mais toujours supportée |
+
 ##### Exemple 
 > [!astuces] 
 >  - Cérer des fichier de config pour vos équipement pret à l'emploi
