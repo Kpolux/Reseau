@@ -98,28 +98,29 @@ ICMPv6 intègre le protocole **NDP (*Neighbor Discovery Protocol*)** qui gère l
 * **Affichage des temps (RTT) :** Affiche le temps d'aller-retour pour chaque saut. Un astérisque (`*`) indique un délai dépassé ou un paquet bloqué.
 
 
-Common ICMPv4 Types and Codes
+### Common ICMPv4 Types and Codes
 
-
-Type	Name	Code	Description
-0	Echo Reply	0	Response to an Echo Request (used by ping)
-3	Destination Unreachable	0	Net Unreachable
-		1	Host Unreachable
-		2	Protocol Unreachable
-		3	Port Unreachable
-		4	Fragmentation Needed and Don't Fragment was Set
-		5	Source Route Failed
-		6	Destination Network Unknown
-		7	Destination Host Unknown
-		9	Communication with Destination Host is Administratively Prohibited
-4	Source Quench (Deprecated)	0	Flow control request to slow down sending rate
-5	Redirect	0	Redirect Datagram for the Network
-		1	Redirect Datagram for the Host
-8	Echo Request	0	Request sent to test host reachability (used by ping)
-9	Router Advertisement	0	Router discovery advertisement
-10	Router Solicitation	0	Host request for router discovery
-11	Time Exceeded	0	Time to Live (TTL) expired in transit (used by traceroute)
-		1	Fragment Reassembly Time Exceeded
-12	Parameter Problem	0-2	Pointer indicates the error / bad IP header parameter
-13	Timestamp	0	Request for time synchronization
-14	Timestamp Reply	0	Reply with timestamp data
+| Type   | Name                         | Code    | Description                                                        |
+| ------ | ---------------------------- | ------- | ------------------------------------------------------------------ |
+| **0**  | Echo Reply                   | **0**   | Response to an Echo Request (used by `ping`)                       |
+| **3**  | Destination Unreachable      | **0**   | Net Unreachable                                                    |
+|        |                              | **1**   | Host Unreachable                                                   |
+|        |                              | **2**   | Protocol Unreachable                                               |
+|        |                              | **3**   | Port Unreachable                                                   |
+|        |                              | **4**   | Fragmentation Needed and Don't Fragment was Set                    |
+|        |                              | **5**   | Source Route Failed                                                |
+|        |                              | **6**   | Destination Network Unknown                                        |
+|        |                              | **7**   | Destination Host Unknown                                           |
+|        |                              | **9**   | Communication with Destination Host is Administratively Prohibited |
+| **4**  | Source Quench _(Deprecated)_ | **0**   | Flow control request to slow down sending rate                     |
+| **5**  | Redirect                     | **0**   | Redirect Datagram for the Network                                  |
+|        |                              | **1**   | Redirect Datagram for the Host                                     |
+| **8**  | Echo Request                 | **0**   | Request sent to test host reachability (used by `ping`)            |
+| **9**  | Router Advertisement         | **0**   | Router discovery advertisement                                     |
+| **10** | Router Solicitation          | **0**   | Host request for router discovery                                  |
+| **11** | Time Exceeded                | **0**   | Time to Live (TTL) expired in transit (used by `traceroute`)       |
+|        |                              | **1**   | Fragment Reassembly Time Exceeded                                  |
+| **12** | Parameter Problem            | **0-2** | Pointer indicates the error / bad IP header parameter              |
+| **13** | Timestamp                    | **0**   | Request for time synchronization                                   |
+| **14** | Timestamp Reply              | **0**   | Reply with timestamp data                                          |
+|        |                              |         |                                                                    |
