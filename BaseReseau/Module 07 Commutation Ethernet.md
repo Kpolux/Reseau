@@ -22,7 +22,7 @@ Ethernet opère aux couches **Physique (L1)** et **Liaison de données (L2)**. E
 
 ### Champs de la trame Ethernet 
 
-![[Pasted image 20260930190750.png]]
+![](<./Pièces jointes/Pasted image 20260930190750.png>)
 
 |**Champ**|**Taille**|**Description**|
 |---|---|---|
@@ -43,12 +43,12 @@ Ethernet opère aux couches **Physique (L1)** et **Liaison de données (L2)**. E
         
 - **Notations courantes :** Précédé de `0x` (ex: `0x73`), suivi de `H` (ex: `73H`) ou codé en base 16.
     
-    ![[Pasted image 20260930191431.png]]
+    ![](<./Pièces jointes/Pasted image 20260930191431.png>)
 
 ### 2. Structure d'une adresse MAC Ethernet
 
 L'adresse MAC (_Media Access Control_) est une adresse physique de **48 bits** (6 octets), exprimée par **12 chiffres hexadécimaux**. Elle est divisée en deux parties de 24 bits (3 octets) chacune :
-- ![[Pasted image 20260930191500.png]]
+- ![](<./Pièces jointes/Pasted image 20260930191500.png>)
 
 	- **OUI (_Organizationally Unique Identifier_) :**
     

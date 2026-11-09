@@ -26,7 +26,7 @@ Dans le quotidien on utilise des protocoles Méthodes de communication
 ### Communication 
 Les Protocoles de communication respectent des règles souvent selon ce schémas 
 
-![[Screenshot 2026-09-11 at 16.35.19.png]]
+![](<./Pièces jointes/Screenshot 2026-09-11 at 16.35.19.png>)
 
 - L'identification de l'expéditeur et du destinataire ;
 - L'utilisation d'une langue et d'une syntaxe communes ;
@@ -49,10 +49,10 @@ Les Protocoles de communication respectent des règles souvent selon ce schémas
 - Options de remise des messages
 #### Exemple d'un paquet IP
 - Paquet IP
-	- ![[Screenshot 2026-09-11 at 16.51.55.png]]
+	- ![](<./Pièces jointes/Screenshot 2026-09-11 at 16.51.55.png>)
 #### Mode de transmission du message 
 - option de livraison 
-	- ![[Pasted image 20260922144939.png]]
+	- ![](<./Pièces jointes/Pasted image 20260922144939.png>)
 
 
 
@@ -91,7 +91,7 @@ Respecter un même ensemble de Règles
 ### Interaction entre Protocoles 
 Utilisation de plusieurs protocoles
 - Exemple : envoie d'un mail  
-	- ![[Pasted image 20260922151920.png]]
+	- ![](<./Pièces jointes/Pasted image 20260922151920.png>)
 	- **_Ethernet_**
 		- remise des messages d'une carte réseau à une autre carte réseau sur le même réseau local (LAN)
 	- **_IP(Protocole Internet )_** 
@@ -105,15 +105,15 @@ Utilisation de plusieurs protocoles
 Groupe de protocoles interdépendants pour assurer une fonction de communication 
 chaque service de niveau supérieur dépend des fonctionnalités du niveau inférieur 
 - => couches 
-	- ![[Pasted image 20260922155604.png]]
+	- ![](<./Pièces jointes/Pasted image 20260922155604.png>)
 	- **_Internet Protocol Suite ou TCP/IP_** 
 		- Protocoles standard ouverte gérée par Internet Engineering Task Force (IETF).
 	- **_Protocoles d'interconnexion de systèmes ouverts (OSI)_** -  
 		- élaborés conjointement e l'Organisation internationale de normalisation (ISO) et l'Union internationale des télécommunications (UIT). 
 		- Modèle de référence OSI en è couches .  Les protocoles OSI ont été largement remplacés par TCP/IP.
-			- Diagramme du modèle OSI![[Pasted image 20260922160202.png]]
-				- ![[Pasted image 20260922160507.png]]
-				- ![[Pasted image 20261005210155.png]]
+			- Diagramme du modèle OSI![](<./Pièces jointes/Pasted image 20260922160202.png>)
+				- ![](<./Pièces jointes/Pasted image 20260922160507.png>)
+				- ![](<./Pièces jointes/Pasted image 20261005210155.png>)
 ## Organisme de normalisation 
 - **_ISOC (Internet Society)_**
 	- _Responsable de la promotion du développement ouvert et de l'évolution de l'utilisation de l'internet dans le monde entier._
@@ -155,8 +155,8 @@ chaque service de niveau supérieur dépend des fonctionnalités du niveau infé
 
 ## Encapsulation
 - Notion d'encapsulation 
-	- ![[Pasted image 20260922160800.png]]
-		- ![[Pasted image 20260922164212.png]]
+	- ![](<./Pièces jointes/Pasted image 20260922160800.png>)
+		- ![](<./Pièces jointes/Pasted image 20260922164212.png>)
 - 
 - **Données** : 
 	- terme générique pour l'unité de données de protocole utilisée à la couche application
@@ -176,7 +176,7 @@ chaque service de niveau supérieur dépend des fonctionnalités du niveau infé
 
 ## TP-PT
 
-![[3.5.5-packet-tracer---investigate-the-tcp-ip-and-osi-models-in-action_fr-FR.pdf_fr-FR_985dd510-ac11-4034-ba9f-951dc1d27a6b(1).pdf]]
+![](<./Pièces jointes/3.5.5-packet-tracer---investigate-the-tcp-ip-and-osi-models-in-action_fr-FR.pdf_fr-FR_985dd510-ac11-4034-ba9f-951dc1d27a6b(1).pdf>)
 
 
 

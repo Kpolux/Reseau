@@ -19,7 +19,7 @@ Adresses logiques (IP) aux adresses physiques (MAC) au sein d'un réseau local
         
 - **Comportement :** Pour envoyer un paquet à un hôte situé sur le même réseau IP, la trame Ethernet utilise l'adresse MAC exacte de l'hôte distant comme MAC de destination.
           
-![[Pasted image 20261006170148.png]]
+![](<./Pièces jointes/Pasted image 20261006170148.png>)
 
 ### 1.2 Destination sur un réseau distant
 
@@ -32,9 +32,9 @@ Adresses logiques (IP) aux adresses physiques (MAC) au sein d'un réseau local
         
     - **Les adresses MAC (source/destination) changent à chaque saut (_hop-by-hop_)** au fur et à mesure que le paquet est ré-encapsulé dans une nouvelle trame sur chaque tronçon.
         
-	  ![[Pasted image 20261006170210.png]]
-	 ![[Pasted image 20261006170235.png]]
-		![[Pasted image 20261006170353.png]]
+	  ![](<./Pièces jointes/Pasted image 20261006170210.png>)
+	 ![](<./Pièces jointes/Pasted image 20261006170235.png>)
+		![](<./Pièces jointes/Pasted image 20261006170353.png>)
 
 - **Mécanisme de résolution d'adresse :**
           

@@ -259,7 +259,7 @@ La livraison des paquets n'est pas garantie (protocole non fiable).
     
 
 #### 6.3. Comparaison des en-têtes IPv4 et IPv6
-![[Pasted image 20261006151759.png]]
+![](<./Pièces jointes/Pasted image 20261006151759.png>)
 - **Taille de l'en-tête IPv6 :** Longueur fixe de **40 octets**.
              
 - **Champs conservés/adaptés :**
@@ -559,4 +559,4 @@ La livraison des paquets n'est pas garantie (protocole non fiable).
 		- **EIGRP :** Bande passante min. + délai (métrique composée).    
 		- **RIP :** Nombre de sauts (max 15).    
 		- **BGP :** Attributs (Weight, Local Pref, AS-Path, MED).
-![[Pasted image 20261006164117.png]]
+![](<./Pièces jointes/Pasted image 20261006164117.png>)

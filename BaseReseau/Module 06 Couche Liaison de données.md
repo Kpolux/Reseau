@@ -26,7 +26,7 @@ Différents types de supports pour différents types de données
     
 	- **Détection d'erreurs :** Identifie et rejette automatiquement toutes les trames altérées ou corrompues pendant le transit.
 
-![[Pasted image 20260930145840.png]]
+![](<./Pièces jointes/Pasted image 20260930145840.png>)
 
 ## Sous-couches liaison de données IEEE 802 (LAN/MAN)
 
@@ -43,7 +43,7 @@ La couche 2 se divise en deux sous-couches sous les normes IEEE 802 :
     - Implémentée dans le matériel (carte réseau).
         
     - Gère l'encapsulation des données, l'adressage physique (adresse MAC) et le contrôle d'accès au support.
-![[Pasted image 20260930150422.png]]
+![](<./Pièces jointes/Pasted image 20260930150422.png>)
 
 ### Structure de la couche Liaison de données (IEEE 802)
 
@@ -174,7 +174,7 @@ dans les réseau d'accès multiple (LAN/WLAN) accès simultané au support physi
 
 La couche liaison de données encapsule les paquets L3 dans des trames composées de 3 éléments principaux :
 
-![[Pasted image 20260930184808.png]]
+![](<./Pièces jointes/Pasted image 20260930184808.png>)
 
 - **En-tête (_Header_) :**
     
@@ -215,9 +215,9 @@ Le choix du protocole L2 dépend de la topologie réseau et du support physique 
 - **Protocoles WAN traditionnels :** PPP, HDLC, Frame Relay, ATM, X.25.
     
 
-	- Hôte vers routeur![[Pasted image 20260930184943.png]]
+	- Hôte vers routeur![](<./Pièces jointes/Pasted image 20260930184943.png>)
 	
-	- Routeur à routeur![[Pasted image 20260930185120.png]]
+	- Routeur à routeur![](<./Pièces jointes/Pasted image 20260930185120.png>)
 
 > [!remarque] 
 >  **Tendance actuelle :** Ethernet remplace progressivement les anciens protocoles sur les réseaux étendus (WAN).

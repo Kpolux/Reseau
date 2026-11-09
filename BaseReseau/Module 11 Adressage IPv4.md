@@ -4,7 +4,7 @@
 ## 1 Structure de l'adresse IPv4
 
 ### 1.1 Parties réseau et hôte
-voir [[Module 08 Couche reseau#5. Paquet IPv4]]
+voir [Module 08 Couche reseau](<./Module 08 Couche reseau.md#5. Paquet IPv4>)
 - **Structure hiérarchique :** 
 	- Une adresse IPv4 se compose de 32 bits séparés en 4 octets, divisés en deux parties : la **partie réseau** (plage d'adresse) et la **partie hôte**.      
     
@@ -252,7 +252,7 @@ Au sein de tout bloc IP, il existe 3 types d'adresses spécifiques :
 
 Historiquement [(RFC 790](https://www.rfc-editor.org/info/rfc790/)), les adresses IPv4 étaient découpées en classes rigides basées sur les premiers octets :
 
-  ![[Pasted image 20261007175453.png]]
+  ![](<./Pièces jointes/Pasted image 20261007175453.png>)
 
 | **Classe** | **Plage du 1er octet**              | **Préfixe par défaut** | **Nb de réseaux** | **Hôtes par réseau** | **Usage historique**         |
 | ---------- | ----------------------------------- | ---------------------- | ----------------- | -------------------- | ---------------------------- |
@@ -283,7 +283,7 @@ Historiquement [(RFC 790](https://www.rfc-editor.org/info/rfc790/)), les adresse
     - **LACNIC :** Amérique Latine et Caraïbes.
         
     - **RIPE NCC :** Europe, Moyen-Orient et Asie centrale.
-![[Pasted image 20261007180710.png]]
+![](<./Pièces jointes/Pasted image 20261007180710.png>)
 
 ## 4 Segmentation du réseau
 
@@ -685,13 +685,13 @@ Le sous-réseautage classique (*FLSM - Fixed Length Subnet Masking*) impose d'ut
 > Le **VLSM** consiste à appliquer un sous-réseautage à un sous-réseau déjà existant. Il permet d'utiliser des **masques de longueurs différentes** selon les besoins réels de chaque segment (nombre d'hôtes requis).
 
 ---
-![[Pasted image 20261012234039.png]]
+![](<./Pièces jointes/Pasted image 20261012234039.png>)
 
 ---
-![[Pasted image 20261012234207.png]]
+![](<./Pièces jointes/Pasted image 20261012234207.png>)
 
 ---
-![[Pasted image 20261012234341.png]]
+![](<./Pièces jointes/Pasted image 20261012234341.png>)
 
 
 ### 6.2. La Règle d'Or du VLSM

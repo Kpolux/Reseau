@@ -20,7 +20,7 @@
 
 - CLI (_Command line interface_ / Interface de ligne de commande)
 	- Environnement textuel (invite de commande)
-		- ![[Pasted image 20260923111455.png]]
+		- ![](<./Pièces jointes/Pasted image 20260923111455.png>)
 	- Nécessité de connaitre structure de commande et les commandes 
 	- **Avantages réseau :** très légère (faible surcharge), plus stable, donne accès à 100% des fonctions.
 - GUI (_Graphical User Interface_ / Interface utilisateur graphique)
@@ -76,9 +76,9 @@
 
 - **Programme d'émulation de terminal** 
 	- **Tera Term**
-		- ![[Pasted image 20260923120804.png|451]]
+		- ![451](<./Pièces jointes/Pasted image 20260923120804.png>)
 	- **Putty**
-		- ![[Pasted image 20260923120845.png]]
+		- ![](<./Pièces jointes/Pasted image 20260923120845.png>)
 - **Invite de commande de votre OS Préféré** 
 	- Syntaxe de base
 		- `ssh utilisateur@adresse_ip`
@@ -191,7 +191,7 @@ Il existe de nombreux sous-modes accessibles
 
 - **Structure d'une commande**
 	
-	- ![[Pasted image 20260923142153.png]]
+	- ![](<./Pièces jointes/Pasted image 20260923142153.png>)
 	
 	- **Invite (Prompt) :**
 		- indique le mode de commande actuel
@@ -240,7 +240,7 @@ Il existe de nombreux sous-modes accessibles
 		- **Ctrl + C**
 			- Sort du mode de configuration vers le mode d'exécution privilégié (ou réaffiche l'invite).
 		- Ctrl + Z
-			- [[#3. Commandes de navigation de base]]
+			- [Module 02 Config de base Switch](<#3. Commandes de navigation de base>)
 		- **Ctrl + A** / **Ctrl + E**
 			- Déplace le curseur à la **Début(Ahead) /fin(End) de la ligne**.
 		- **Ctrl + Shift + 6**
@@ -390,8 +390,8 @@ copy running-config startup-config
 >  - 1 pour les routeurs 
 
 
-[[Switch_Template]]
-[[Router_Template]]
+[Switch\_Template](<./Dossier_config/Switch_Template.md>)
+[Router\_Template](<./Dossier_config/Router_Template.md>)
 
 
 #### 6. enregistrement de config 

@@ -24,7 +24,7 @@
 - **Sauvegarde :** 
 	- Enregistrer la configuration active de la RAM vers la NVRAM.
 - Voir : 
-	- [[Module 02 Config de base Switch]]
+	- [Module 02 Config de base Switch](<Module 02 Config de base Switch.md>)
 
 ## 2. Exemple complet de configuration (Routeur R1)
 
@@ -126,7 +126,7 @@ R1(config-if)# no shutdown
 R1(config-if)# exit
 ```
 
-[[Router_Template]]
+[Router\_Template](<./Dossier_config/Router_Template.md>)
 #### 3.3 Commandes de vérification de la configuration
 
 |**Commande**|**Description**|
