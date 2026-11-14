@@ -264,7 +264,7 @@ Il existe de nombreux sous-modes accessibles
         
 #### 2. Sécurisation des accès (Mots de passe)
 
-> [!Warning] 
+> [!Attention] 
 >  - Dans les laboratoires et exercices d'apprentissage (NetAcad, Packet Tracer), des mots de passe simples (ex. `cisco` ou `class`) sont souvent utilisés pour faciliter les manipulations.
 >  - **À NE JAMAIS REPRODUIRE EN PRODUCTION :** Dans un environnement professionnel, l'utilisation de mots de passe faibles représente un risque majeur pour la sécurité du réseau. Veillez à toujours appliquer une politique de mots de passe forts
 
