@@ -149,7 +149,7 @@ Il existe de nombreux sous-modes accessibles
         
 - **Sous-modes de configuration courants :**
 	
-	Il existe de nombreux sous-modes accessibles **depuis le mode mode Configuration Globale (config)#`.
+	Il existe de nombreux sous-modes accessibles depuis le mode **Configuration Globale** `(config)#`.
 	
 	- Exemples : 
 	    - **Ligne (`line`) :**
@@ -252,7 +252,7 @@ Il existe de nombreux sous-modes accessibles
 
 
 ### 5. Config de Base
-#### 1. Nom de périphérique (Hostname)
+#### 1. Nom de périphérique (`Hostname`)
 
 - **Utilité :**
 	Identifie l'équipement lors des accès à distance (ex: SSH) et dans la documentation.
@@ -375,21 +375,9 @@ copy running-config startup-config
 >  - L'IOS utilise automatiquement le symbole **`!`** comme **séparateur visuel** entre les différents blocs de configuration dans le résultat de (`show running-config`)
 
 
-
-> [!CHECK] 
-> `copy run start` est l'abréviation de `copy running-config startup-config`. C'est la commande standard recommandée pour enregistrer les modifications en NVRAM.
-
-
-
-| Commande | Rôle | Statut |
-| :--- | :--- | :--- |
-| `copy running-config startup-config` | Commande complète explicite. | **Norme officielle** |
-| `copy run start` | Raccourci syntaxique standard. | **Le plus utilisé au quotidien** |
-| `write memory` (ou `wr`) | Ancienne commande de l'IOS Cisco. | Obsolète mais toujours supportée |
-
 ##### Exemple 
 > [!astuces] 
->  - Cérer des fichier de config pour vos équipement pret à l'emploi
+>  - Cérer des fichier de config pour vos équipement prêt à l'emploi
 >  - 1 pour les switch 
 >  - 1 pour les routeurs 
 
@@ -405,6 +393,7 @@ copy running-config startup-config
     
 	- **`startup-config` (NVRAM) :** 
 		- Configuration de démarrage enregistrée en mémoire non volatile. Conservée après redémarrage.
+		
 - Commandes de consultation
 	
 	- **Afficher la configuration active :** 
@@ -425,21 +414,33 @@ copy running-config startup-config
 	- `Switch#` **dir** (directory)
 	
 - Annuler des modifications / Réinitialiser
-
 	- **Annuler les modifications non enregistrées :** 
 		- `Switch#` **`reload`**
-		    - Redémarre l'équipement pour recharger la `startup-config`. Refusez l'enregistrement si l'IOS le demande (`n` ou `no`).
+		    - Redémarre l'équipement pour recharger la `startup-config`. 
+		    - **IMPORTANT** :Refusez l'enregistrement si l'IOS le demande (`n` ou `no`).
         
-	- **Effacer la configuration d'usine (Reset complet) :**
-    
+	- **Effacer la configuration d'usine (Reset complet) :**    
 	    1. `Switch#` **`erase startup-config`** (Supprime le fichier en NVRAM).
         
 	    2. `Switch#` **`reload`** (Redémarre l'appareil à vide).
 
+
+
+> [!CHECK] 
+> `copy run start` est l'abréviation de `copy running-config startup-config`. C'est la commande standard recommandée pour enregistrer les modifications en NVRAM.
+
+
+
+| Commande | Rôle | Statut |
+| :--- | :--- | :--- |
+| `copy running-config startup-config` | Commande complète explicite. | **Norme officielle** |
+| `copy run start` | Raccourci syntaxique standard. | **Le plus utilisé au quotidien** |
+| `write memory` (ou `wr`) | Ancienne commande de l'IOS Cisco. | Obsolète mais toujours supportée |
+
+
 #### 7. Adressage IP, Interfaces et Supports
 
-- Notions d'adressage IP
-	
+- Notions d'adressage IP	
 	- **IPv4 :** Adresse de 32 bits codée en decimal pointé (ex: `192.168.1.10`).
     
 	    - **Masque de sous-réseau :** Délimite la partie réseau et la partie hôte (ex: `255.255.255.0`).
@@ -460,29 +461,27 @@ copy running-config startup-config
     
 	- **Sans fil (Wi-Fi) :** 
 		- Onde radio pour équipements mobiles.
-    
+		
+    à venir : (Image/tableau Copper vs Fiber vs Wireless )
 
-- Interfaces physiques vs SVI (Commutateurs)
+- Interfaces physiques vs SVI (Switch)
 	- **Ports physiques (Couche 2) :**
 		- Permettent le raccordement physique des équipements. 
 		- Sur un switch de couche 2, ils ne supportent pas l'attribution directe d'adresses IP.
 		
-	- **Interface Virtuelle de Commutateur (SVI) :** 
+	- **Interface Virtuelle de Switch (SVI) :** 
 		- Interface logique (logicielle) dédiée à la gestion à distance du switch (In-Band) via IPv4/IPv6.
-	    - **SVI par défaut :** `VLAN 1` est présente nativement sur tous les commutateurs Cisco.
+	    - **SVI par défaut :** `VLAN 1` est présente nativement sur tous les switch Cisco.
 	    
-- Configuration de l'adressage IP sur les hôtes et commutateurs
-	
+- Configuration de l'adressage IP sur les hôtes et switch	
 	- Adressage IP des périphériques finaux (PC, Serveurs)
 		- **Configuration manuelle (Statique) :** L'administrateur saisit manuellement l'adresse IP, le masque de sous-réseau et la passerelle par défaut dans les paramètres de la carte réseau.
-		- **Configuration automatique (Dynamique - DHCP) :** Le protocole **DHCP** (Dynamic Host Configuration Protocol) attribue automatiquement et sans erreur l'ensemble des paramètres IP (IPv4/IPv6) aux équipements du réseau.
+		- **Configuration automatique (Dynamique - DHCP) :** Le protocole **DHCP** (*Dynamic Host Configuration Protocol*) attribue automatiquement et sans erreur l'ensemble des paramètres IP (IPv4/IPv6) aux équipements du réseau.
 		
-- Configuration d'une interface SVI sur Commutateur (Gestion In-Band)
+- Configuration d'une interface SVI sur switch (Gestion In-Band)
 	Pour administrer un switch à distance (SSH/Telnet), une adresse IP doit être appliquée sur une interface virtuelle (SVI - `vlan 1` par défaut).
 
 ##### Procédure CLI Cisco IOS :
-
-
 
 ```Cisco CLI
 ! Passage en mode configuration d'interface SVI
