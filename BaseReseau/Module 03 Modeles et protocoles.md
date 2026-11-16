@@ -188,7 +188,7 @@ chaque service de niveau supérieur dépend des fonctionnalités du niveau infé
 
 
 ## TP-Packet Tracer (PT)
-Télécharger [ici](https://www.netacad.com/articles/news/download-packet-tracer-9-0-1?courseLang=en-US), installer et utiliser([Tuto](https://www.netacad.com/courses/getting-started-cisco-packet-tracer?courseLang=en-US))  Packet Tracer 
+Télécharger [ici](https://www.netacad.com/resources/lab-downloads?courseLang=fr-FR), installer et utiliser([Tuto](https://www.netacad.com/courses/getting-started-cisco-packet-tracer?courseLang=fr-FR))  Packet Tracer 
 
 
 ![](<./Pièces jointes/3.5.5-packet-tracer---investigate-the-tcp-ip-and-osi-models-in-action_fr-FR.pdf_fr-FR_985dd510-ac11-4034-ba9f-951dc1d27a6b(1).pdf>)
