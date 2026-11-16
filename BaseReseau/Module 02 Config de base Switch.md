@@ -172,7 +172,6 @@ Il existe de nombreux sous-modes accessibles
 		        - Configuration des ports réseau et cartes d'interface du Switch ou du routeur.
 		        
 		        
-		        
 ### 3. Commandes de navigation de base
 - **Reculer d'un niveau :** `exit`
 	- Passe au mode immédiatement supérieur dans la hiérarchie.
@@ -210,6 +209,7 @@ Il existe de nombreux sous-modes accessibles
     
 	- **Argument :** 
 		- valeur ou variable définie par l'utilisateur (ex. adresse IP `192.168.10.5`).
+		
 	
 - **Aide IOS**
 
@@ -232,6 +232,7 @@ Il existe de nombreux sous-modes accessibles
 			- `confugure Terminal`  $\rightarrow$ `conf t` 
 			- `enable`  $\rightarrow$ `en` 
 			- `interface gigabitethernet 0/1` $\rightarrow$ `int g0/1`
+			
 	- Raccourcis 
 		- **TAB - Tabulation** : 
 			- **Complétion**: Complète automatiquement une commande ou un mot-clé partiellement saisi.
@@ -256,8 +257,7 @@ Il existe de nombreux sous-modes accessibles
 - **Règles de nommage :**
 	Débute par une lettre, < 64 caractères, sans espace, contient uniquement lettres, chiffres et tirets.
     
-- **Commandes :**
-    
+- **Commandes :**    
     - `Switch(config)#` **`hostname`** _Nom-du-Switch_
         
     - `Switch(config)#` **`no hostname`** _(Restaure le nom par défaut)_
@@ -311,10 +311,8 @@ Il existe de nombreux sous-modes accessibles
 
 #### 5. Fichier de config :
 
-
-
 ##### Script
-
+on peut copier coller directement dans l'invite de commande 
 ```cisco
 ! ===================================================
 ! CONFIGURATION DE BASE CISCO IOS
@@ -369,10 +367,9 @@ copy running-config startup-config
 
 ##### Exemple 
 > [!astuces] 
->  - Cérer des fichier de config pour vos équipement prêt à l'emploi
+>  - Cérer des fichier de config pour vos équipements prêt à l'emploi,
 >  - 1 pour les switch 
 >  - 1 pour les routeurs 
-
 
 [Switch\_Template](<./Dossier_config/Switch_Template.md>)
 [Router\_Template](<./Dossier_config/Router_Template.md>)
@@ -417,11 +414,8 @@ copy running-config startup-config
 	    2. `Switch#` **`reload`** (Redémarre l'appareil à vide).
 
 
-
 > [!CHECK] 
 > `copy run start` est l'abréviation de `copy running-config startup-config`. C'est la commande standard recommandée pour enregistrer les modifications en NVRAM.
-
-
 
 | Commande | Rôle | Statut |
 | :--- | :--- | :--- |
