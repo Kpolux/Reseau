@@ -1,7 +1,7 @@
 #ios 
 # Présentation du cours 
 ## Objectif du cours 
-## Pourquoi apprendre cecours 
+## Pourquoi apprendre ce cours 
 
 # Configuration de base Switch
 
@@ -312,7 +312,8 @@ Il existe de nombreux sous-modes accessibles
 #### 5. Fichier de config :
 
 ##### Script
-on peut copier coller directement dans l'invite de commande 
+On peut copier coller directement dans l'invite de commande 
+
 ```cisco
 ! ===================================================
 ! CONFIGURATION DE BASE CISCO IOS
