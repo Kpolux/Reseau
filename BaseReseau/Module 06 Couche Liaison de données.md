@@ -113,14 +113,12 @@ Contrairement aux couches supérieures TCP/IP définies par les RFC de l'**IETF*
 
 #### 2. Topologies LAN
 
-- **Modernes :**
-    
+- **Modernes :**    
     - **Étoile :** Hôtes reliés à un switch central.
         
     - **Étoile étendue :** Interconnexion de plusieurs switch en étoile.
         
-- **Anciennes :**
-    
+- **Anciennes :**    
     - **Bus :** Câble coaxial partagé avec bouchons de terminaison aux extrémités.
         
     - **Anneau :** Interconnexion circulaire (ex: Token Ring, FDDI).
@@ -159,8 +157,7 @@ dans les réseau d'accès multiple (LAN/WLAN) accès simultané au support physi
 | **Mécanisme**              | Écoute → Émission → Détection par hausse d'amplitude → Signal Jamming + Attente aléatoire. | Écoute → Attente (IFS) → Émission d'un signal d'intention (RTS/CTS) → Validation (ACK). |
 | **Transmission**           | Envoie la trame directement si le canal est libre.                                         | Annonce la durée de transmission et attend une confirmation pour émettre.               |
 	
-- **Accès contrôlé (Déterministe) :**
-    
+- **Accès contrôlé (Déterministe) :**    
     - Passage de jeton à tour de rôle (ex: Token Ring, ARCNET).
 
 
@@ -176,8 +173,7 @@ La couche liaison de données encapsule les paquets L3 dans des trames composée
 
 ![](<./Pièces jointes/Pasted image 20260930184808.png>)
 
-- **En-tête (_Header_) :**
-    
+- **En-tête (_Header_) :**    
     - **Début de trame :** Délimite le commencement de la trame.
         
     - **Adressage :** Contient les adresses physiques (MAC) source et destination.
@@ -199,8 +195,7 @@ La couche liaison de données encapsule les paquets L3 dans des trames composée
 
 - **Acheminement local :** Les adresses physiques (ex: MAC) ne servent qu'à la livraison **au sein du même segment réseau** (hôte à routeur, routeur à routeur, routeur à hôte).
     
-- **Portée des adresses :**
-    
+- **Portée des adresses :**    
     - **Adresses L2 (MAC) :** Changent à chaque tronçon (hop) lorsqu'un routeur réencapsule le paquet.
         
     - **Adresses L3 (IP) :** Restent identiques de la source finale à la destination finale.

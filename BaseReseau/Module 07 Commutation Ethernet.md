@@ -50,14 +50,12 @@ Ethernet opère aux couches **Physique (L1)** et **Liaison de données (L2)**. E
 L'adresse MAC (_Media Access Control_) est une adresse physique de **48 bits** (6 octets), exprimée par **12 chiffres hexadécimaux**. Elle est divisée en deux parties de 24 bits (3 octets) chacune :
 - ![](<./Pièces jointes/Pasted image 20260930191500.png>)
 
-	- **OUI (_Organizationally Unique Identifier_) :**
-    
+	- **OUI (_Organizationally Unique Identifier_) :**    
 	    - Les 6 premiers chiffres hexadécimaux (24 bits).
         
 	    - Code unique attribué par l'IEEE au fabricant (ex: `00-60-2F` pour Cisco).
         
-	- **Identifiant d'interface (attribué par le vendeur) :**
-    
+	- **Identifiant d'interface (attribué par le vendeur) :**    
 	    - Les 6 derniers chiffres hexadécimaux (24 bits).
         
 	    - Valeur unique attribuée par le constructeur à chaque carte réseau (NIC).
@@ -79,8 +77,7 @@ L'adresse MAC (_Media Access Control_) est une adresse physique de **48 bits** (
 
 À la réception d'une trame Ethernet, la carte réseau examine l'**adresse MAC de destination**
 
-- **Match / Correspondance :** La trame est acceptée et transmise aux couches supérieures pour désencapsulation si l'adresse MAC de destination correspond à :
-    
+- **Match / Correspondance :** La trame est acceptée et transmise aux couches supérieures pour désencapsulation si l'adresse MAC de destination correspond à :    
     1. L'adresse MAC physique de la carte réseau (RAM).
         
     2. Une adresse de **diffusion** (_Broadcast_).
@@ -95,11 +92,11 @@ Les adresses MAC de destination se divisent en trois catégories selon le mode d
 
   
 
-| **Type**                         | **Adresse MAC Destination**                                                                                      | **Plage IP / Protocole associé**                                                              | **Comportement du réseau**                                                                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Monodiffusion** (_Unicast_)    | Adresse MAC unique de l'hôte distant.                                                                            | Adresse IP unique (ex: `192.168.1.200`).                                                      | Communication de **un à un**. L'adresse MAC destination est obtenue via **ARP** (IPv4) ou **ND** (IPv6).                                    |
-| **Diffusion** (_Broadcast_)      | `FF-FF-FF-FF-FF-FF` (48 bits à 1).                                                                               | IP de diffusion (ex: `192.168.1.255`) ou hors IPv4 (ARP).                                     | Communication de **un à tous**. Inondé par le commutateur sur tous les ports sauf l'entrant ; non transmis par les routeurs. Ex: DHCP, ARP. |
-| **Multidiffusion** (_Multicast_) | • **IPv4 :** commence par `01-00-5E`.<br><br>• **IPv6 :** commence par `33-33`.<br><br>• **Non-IP :** STP, LLDP. | • **IPv4 :** `224.0.0.0` à `239.255.255.255`.<br><br>  <br>  <br><br>• **IPv6 :** `FF00::/8`. | Communication de **un à un groupe** abonné. Inondé par le commutateur (sauf si configuré pour l'écoute/IGMP). Ex: flux vidéo, routage.      |
+| **Type**                         | **Adresse MAC Destination**                                                                                      | **Plage IP / Protocole associé**                                                              | **Comportement du réseau**                                                                                                             |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Monodiffusion** (_Unicast_)    | Adresse MAC unique de l'hôte distant.                                                                            | Adresse IP unique (ex: `192.168.1.200`).                                                      | Communication de **un à un**. L'adresse MAC destination est obtenue via **ARP** (IPv4) ou **ND** (IPv6).                               |
+| **Diffusion** (_Broadcast_)      | `FF-FF-FF-FF-FF-FF` (48 bits à 1).                                                                               | IP de diffusion (ex: `192.168.1.255`) ou hors IPv4 (ARP).                                     | Communication de **un à tous**. Inondé par le switch sur tous les ports sauf l'entrant ; non transmis par les routeurs. Ex: DHCP, ARP. |
+| **Multidiffusion** (_Multicast_) | • **IPv4 :** commence par `01-00-5E`.<br><br>• **IPv6 :** commence par `33-33`.<br><br>• **Non-IP :** STP, LLDP. | • **IPv4 :** `224.0.0.0` à `239.255.255.255`.<br><br>  <br>  <br><br>• **IPv6 :** `FF00::/8`. | Communication de **un à un groupe** abonné. Inondé par le switch (sauf si configuré pour l'écoute/IGMP). Ex: flux vidéo, routage.      |
 
 ##  Switching Ethernet
 
@@ -114,10 +111,9 @@ Un switch de couche 2 utilise la **table d'adresses MAC** (aussi appelée table 
 
 ### 2. Processus d'apprentissage et de transfert 
 
-Pour chaque trame reçue, le commutateur exécute deux actions distinctes :
+Pour chaque trame reçue, le Switch exécute deux actions distinctes :
 
-- **1. Apprentissage (_Examining Source MAC Address_) :**
-    
+- **1. Apprentissage (_Examining Source MAC Address_) :**    
     - Il examine l'**adresse MAC source** et le port d'entrée de la trame.
         
     - Si l'adresse n'est pas dans la table, il l'ajoute avec son numéro de port
@@ -128,10 +124,8 @@ Pour chaque trame reçue, le commutateur exécute deux actions distinctes :
         
           
         
-- **2. Transfert (_Examining Destination MAC Address_) :**
-    
-    - Il cherche une correspondance pour l'**adresse MAC de destination** dans sa table.
-        
+- **2. Transfert (_Examining Destination MAC Address_) :**    
+    - Il cherche une correspondance pour l'**adresse MAC de destination** dans sa table.        
         
     - **Si trouvée (Unicast connu) :** Il transmet la trame uniquement sur le port désigné (filtrage).
         
@@ -141,7 +135,7 @@ Pour chaque trame reçue, le commutateur exécute deux actions distinctes :
 
 ### 3. Filtrage des trames 
 
-À mesure que la table d'adresses MAC se remplit grâce aux échanges aller-retour entre les hôtes, le commutateur bascule en mode **filtrage** : les trames destinées à un hôte spécifique ne sont envoyées que sur le port unique correspondant, ce qui isole les communications et préserve la bande passante du réseau.
+À mesure que la table d'adresses MAC se remplit grâce aux échanges aller-retour entre les hôtes, le switch bascule en mode **filtrage** : les trames destinées à un hôte spécifique ne sont envoyées que sur le port unique correspondant, ce qui isole les communications et préserve la bande passante du réseau.
 
 ## Switch connectés et passerelle par défaut
 
@@ -186,12 +180,12 @@ Les switch Cisco utilisent deux méthodes principales pour transférer les trame
         
     - **Variante Fast-Forward :** Latence la plus faible ; la transmission débute immédiatement après la lecture de l'adresse MAC de destination.
         
-    - **Variante Fragment-Free :** Compromis où le commutateur stocke les **64 premiers octets** de la trame avant de transmettre, afin d'éliminer la majorité des erreurs dues aux collisions.
+    - **Variante Fragment-Free :** Compromis où le switch stocke les **64 premiers octets** de la trame avant de transmettre, afin d'éliminer la majorité des erreurs dues aux collisions.
         
 
 ### 2. Méthodes de mise en mémoire tampon (_Buffering_) 
 
-Pour gérer la congestion ou le stockage temporaire des trames, le commutateur utilise deux types de mémoire tampon :
+Pour gérer la congestion ou le stockage temporaire des trames, le switch utilise deux types de mémoire tampon :
 
 |**Méthode**|**Description**|
 |---|---|
@@ -209,10 +203,9 @@ Pour gérer la congestion ou le stockage temporaire des trames, le commutateur u
 
 ### 4. Fonction Auto-MDIX (7.4.5)
 
-- **Historique des câbles :**
-    
-    - **Câble droit (_Straight-through_) :** Connecte des équipements différents (Commutateur à Routeur, Commutateur à PC).
+- **Historique des câbles :**    
+    - **Câble droit (_Straight-through_) :** Connecte des équipements différents (Switch à Routeur, Switch à PC).
         
-    - **Câble croisé (_Crossover_) :** Connecte des équipements similaires (Commutateur à Commutateur, Routeur à PC).
+    - **Câble croisé (_Crossover_) :** Connecte des équipements similaires (Switch à Switch, Routeur à PC).
         
 - **Auto-MDIX :** Détecte automatiquement le type de câble branché (droit ou croisé) et réorganise les connexions en interne en conséquence. Activée par défaut sur Cisco IOS 12.2(18)SE ou ultérieur (commande : `mdix auto`).
