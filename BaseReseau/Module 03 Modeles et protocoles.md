@@ -37,14 +37,17 @@ Les Protocoles de communication respectent des règles souvent selon ce schémas
 - Codage des messages
 	- Conversion vers un format acceptable 
 	- Implique le décodage à la destination
+	
 - Format et encapsulation des messages 
 	- Structure spécifique 
 		- Modèle OSI
 	- Dépend du type de message et du type de canal utilisé
+	
 - La taille du message
 	- message découpé en plusieurs partie des #Trames (contenant chacune un fragment du message initial)
 	- Différent selon le canal 
 	- reconstruction à la destination 
+	
 - Synchronisation des messages
 - Options de remise des messages
 #### Exemple d'un paquet IP
@@ -59,7 +62,7 @@ Les Protocoles de communication respectent des règles souvent selon ce schémas
 
 ## Protocoles 
 Respecter un même ensemble de Règles 
-==Protocoles réseau==  définit un format, un ensemble de règles d'échanges de messages entre périphériques réseaux 
+==Protocoles réseau :==  définit un format, un ensemble de règles d'échanges de messages entre périphériques réseaux 
 
 ### Plusieurs Types
 - **Réseaux** : échange entre périphériques réseau 
@@ -69,6 +72,7 @@ Respecter un même ensemble de Règles
 		- Transmission Control Protocol
 	- HTTP
 		- HyperText Transfer Protocol
+		
 - **Sécurité  Réseaux** : assurer authentification, intégrité  et le cryptage des données
 	- SSH
 		- Secure Shell => connexion distant à un Systeme 
@@ -76,11 +80,13 @@ Respecter un même ensemble de Règles
 		- Secure Sockets Layer => chiffrer la communication entre  client / serveur (ancien) .
 	- TLS
 		- Transport Layer Security => remplace SSL, chiffrer les données transitant sur un réseau (HTTPS)
+		
 - **Routage** : informations de routage
 	- OSPF
 		- Open Shortest Path First 
 	- BGP
 		- Border Gateway Protocol
+		
 - **Découverte de Services**
 	- DHCP
 		- Dynamic Host Configuration Protocol => attribution automatique d'adresses IP
@@ -157,24 +163,33 @@ chaque service de niveau supérieur dépend des fonctionnalités du niveau infé
 - Notion d'encapsulation 
 	- ![](<./Pièces jointes/Pasted image 20260922160800.png>)
 		- ![](<./Pièces jointes/Pasted image 20260922164212.png>)
-- 
+
+- ==🟡PDU== : *Protocol Data Unit* / unité de données de protocole 
+	
 - **Données** : 
-	- terme générique pour l'unité de données de protocole utilisée à la couche application
-- **Segment** : 
-	- unité de données de protocole de la couche transport
+	- terme générique pour le PDU utilisé à la couche application
+	
+- **Segment** / **Datagramme**: 
+	- PDU de la couche transport
+	
 - **Paquet** : 
-	- unité de données de protocole de la couche réseau
+	- PDU de la couche réseau
+	
 - **Trame** : 
-	- Couche Liaison de Données PDU
+	- PDU Couche Liaison de Données 
+	
 - **Bits** : 
 	- Couche Physique PDU utilisée lors de la transmission physique de données sur le support
+	
 
-> [!Remarque] 
+> [!Remarque] PDU couche transport
 >  Si l'en-tête Transport est TCP, il s'agit d'un **segment**. Si l'en-tête Transport est UDP, il s'agit d'un **datagramme**..
 >
 
 
-## TP-PT
+## TP-Packet Tracer (PT)
+Télécharger [ici](https://www.netacad.com/articles/news/download-packet-tracer-9-0-1?courseLang=en-US), installer et utiliser([Tuto](https://www.netacad.com/courses/getting-started-cisco-packet-tracer?courseLang=en-US))  Packet Tracer 
+
 
 ![](<./Pièces jointes/3.5.5-packet-tracer---investigate-the-tcp-ip-and-osi-models-in-action_fr-FR.pdf_fr-FR_985dd510-ac11-4034-ba9f-951dc1d27a6b(1).pdf>)
 

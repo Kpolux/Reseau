@@ -216,8 +216,7 @@ Il existe de nombreux sous-modes accessibles
 	
 - **Aide IOS**
 
-	- **Aide contextuelle (`?`) :**
-    
+	- **Aide contextuelle (`?`) :**    
 	    - `?` seul : 
 		    - affiche toutes les commandes disponibles dans le mode actuel.
         
@@ -273,20 +272,17 @@ Il existe de nombreux sous-modes accessibles
 >  - **À NE JAMAIS REPRODUIRE EN PRODUCTION :** Dans un environnement professionnel, l'utilisation de mots de passe faibles représente un risque majeur pour la sécurité du réseau. Veillez à toujours appliquer une politique de mots de passe forts
 
 
-- **Mode d'exécution Privilégié (Accès critique) :**
-    
+- **Mode d'exécution Privilégié (Accès critique) :**    
     - `Switch(config)#` **`enable secret`** _mot-de-passe_ _(Chiffre le mot de passe de manière forte)_
         
-- **Accès Console  :**
-    
+- **Accès Console  :**    
     - `Switch(config)#` **`line console 0`**
         
     - `Switch(config-line)#` **`password`** _mot-de-passe_
         
     - `Switch(config-line)#` **`login`** _(Active la demande de mot de passe)_
         
-- **Accès Lignes Virtuelles / Telnet & SSH (In-Band) :**
-    
+- **Accès Lignes Virtuelles / Telnet & SSH (In-Band) :**    
     - `Switch(config)#` **`line vty 0 15`**
         
     - `Switch(config-line)#` **`password`** _mot-de-passe_
@@ -295,7 +291,6 @@ Il existe de nombreux sous-modes accessibles
         
 
 #### 3. Chiffrement de tous les mots de passe
-
 - **Commande :** 
 	- `Switch(config)#` **`service password-encryption`**
     
@@ -462,7 +457,7 @@ copy running-config startup-config
 	- **Sans fil (Wi-Fi) :** 
 		- Onde radio pour équipements mobiles.
 		
-    à venir : (Image/tableau Copper vs Fiber vs Wireless )
+    ==🔴à venir : (Image/tableau Copper vs Fiber vs Wireless )==
 
 - Interfaces physiques vs SVI (Switch)
 	- **Ports physiques (Couche 2) :**
