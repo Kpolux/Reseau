@@ -79,10 +79,12 @@
 
 
 - **Programme d'émulation de terminal** 
-	- **Tera Term**
+	- **Tera Term** [Download](https://teratermproject.github.io/index-en.html) 
 		- ![451](<./Pièces jointes/Pasted image 20260923120804.png>)
-	- **Putty**
+		
+	- **Putty** [Download](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 		- ![](<./Pièces jointes/Pasted image 20260923120845.png>)
+		
 - **Invite de commande de votre OS Préféré** 
 	- Syntaxe de base
 		- `ssh utilisateur@adresse_ip`
@@ -93,16 +95,12 @@
 
 
 
-
-
-
-## IOS (Internetwork Operating System/Système d'exploitation interréseau )
+## IOS (*Internetwork Operating System*/Système d'exploitation interréseau )
 Configuration en CLI
 
 ### 1. Deux Modes  Principaux
 
-- **Mode d'exécution Utilisateur (*User EXEC Mode*) :**
-    
+- **Mode d'exécution Utilisateur (*User EXEC Mode*) :**    
     - **Invite de commande :** 
 	    - `Switch>` ou `Router>`
         
@@ -115,8 +113,7 @@ Configuration en CLI
     - **Caractéristique :** 
 	    - Aucune modification de configuration n'est autorisée.
         
-- **Mode d'exécution Privilégié (*Privileged EXEC Mode* / Mode Enable) :**
-    
+- **Mode d'exécution Privilégié (*Privileged EXEC Mode* / Mode Enable) :**    
     - **Invite de commande :** 
 	    - `Switch#` ou `Router#`
 	    
