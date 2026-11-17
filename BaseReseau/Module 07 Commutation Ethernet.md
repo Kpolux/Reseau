@@ -53,7 +53,7 @@ L'adresse MAC (_Media Access Control_) est une adresse physique de **48 bits** (
 	- **OUI (_Organizationally Unique Identifier_) :**    
 	    - Les 6 premiers chiffres hexadécimaux (24 bits).
         
-	    - Code unique attribué par l'IEEE au fabricant (ex: `00-60-2F` pour Cisco).
+	    - Code unique attribué par l'IEEE au fabricant (ex: `00-60-2F` pour Cisco). [Liste complète des fabricants]([standards-oui.ieee.org/oui/oui.txt](https://standards-oui.ieee.org/oui/oui.txt))
         
 	- **Identifiant d'interface (attribué par le vendeur) :**    
 	    - Les 6 derniers chiffres hexadécimaux (24 bits).
